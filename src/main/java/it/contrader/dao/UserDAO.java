@@ -12,11 +12,11 @@ import it.contrader.model.User;
 public class UserDAO {
 
 	private final String QUERY_ALL = "select * from tab_user";
-	private final String QUERY_INSERT = "insert into users (user_user, user_type) values (?,?)";
-	private final String QUERY_READ = "select * from users where user_id=?";
+	private final String QUERY_INSERT = "insert into tab_user (userId, username, password) values (?,?,?)";
+	private final String QUERY_READ = "select * from tab_user where userId=?";
 
-	private final String QUERY_UPDATE = "UPDATE users SET user_user=?, user_type=? WHERE user_id=?";
-	private final String QUERY_DELETE = "delete from user where user_id=?";
+	private final String QUERY_UPDATE = "UPDATE users SET userId=?, password=?, usertype=? WHERE userId=?";
+	private final String QUERY_DELETE = "delete from tab_user where userId=?";
 
 	public UserDAO() {
 
@@ -30,10 +30,10 @@ public class UserDAO {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			User user;
 			while (resultSet.next()) {
-				int userId = resultSet.getInt("user_id");
-				String username = resultSet.getString("user_user");
-				String password = resultSet.getString("user_password");
-				String usertype = resultSet.getString("user_type");
+				int userId = resultSet.getInt("userId");
+				String username = resultSet.getString("username");
+				String password = resultSet.getString("password");
+				String usertype = resultSet.getString("usertype");
 				user = new User(username, password, usertype);
 				user.setUserId(userId);
 				usersList.add(user);
@@ -68,9 +68,10 @@ public class UserDAO {
 			resultSet.next();
 			String username, password, usertype;
 
-			username = resultSet.getString("user_user");
-			usertype = resultSet.getString("user_type");
-			User user = new User(username, usertype);
+			username = resultSet.getString("username");
+			password = resultSet.getString("password");
+			usertype = resultSet.getString("usertype");
+			User user = new User(username, password, usertype);
 			user.setUserId(resultSet.getInt("user_id"));
 
 			return user;
@@ -96,6 +97,9 @@ public class UserDAO {
 					userToUpdate.setUsername(userRead.getUsername());
 				}
 				
+				if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
+					userToUpdate.setPassword(userRead.getPassword());
+				}
 				
 				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
 					userToUpdate.setUsertype(userRead.getUsertype());
@@ -104,6 +108,7 @@ public class UserDAO {
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, userToUpdate.getUsername());
+				preparedStatement.setString(2, userToUpdate.getPassword());
 				preparedStatement.setString(3, userToUpdate.getUsertype());
 				preparedStatement.setInt(4, userToUpdate.getUserId());
 				int a = preparedStatement.executeUpdate();
