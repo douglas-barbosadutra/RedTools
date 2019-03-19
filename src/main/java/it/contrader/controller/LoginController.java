@@ -10,7 +10,4 @@ public class LoginController implements Controller {
         MainDispatcher.getInstance().callView("Login", request);
     }
     
-    
-    //Vincenzo Ciao
-    
 }
