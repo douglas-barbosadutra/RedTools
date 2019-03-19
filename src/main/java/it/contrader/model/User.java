@@ -6,6 +6,7 @@ public class User {
 	private String usertype;
 
 	public User() {
+		sys
 	}
 
 	public User(String username, String usertype) {
