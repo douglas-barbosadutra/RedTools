@@ -14,6 +14,7 @@ public class ConverterUser {
 			userDTO = new UserDTO();
 			userDTO.setUserId(user.getUserId());
 			userDTO.setUsername(user.getUsername());
+			userDTO.setPassword(user.getPassword());
 			userDTO.setUsertype(user.getUsertype());
 		}
 		return userDTO;
@@ -25,6 +26,7 @@ public class ConverterUser {
 			user = new User();
 			user.setUserId(userDTO.getUserId());
 			user.setUsername(userDTO.getUsername());
+			user.setPassword(userDTO.getPassword());
 			user.setUsertype(userDTO.getUsertype());
 		}
 		return user;
