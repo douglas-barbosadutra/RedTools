@@ -9,6 +9,7 @@ import it.contrader.service.UserService;
 
 public class UserController implements Controller {
 
+	
 	private static String sub_package = "user.";
 	private UserService usersService;
 	private Request request;
