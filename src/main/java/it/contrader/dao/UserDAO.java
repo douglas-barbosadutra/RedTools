@@ -11,7 +11,7 @@ import it.contrader.model.User;
 
 public class UserDAO {
 
-	private final String QUERY_ALL = "select * from users";
+	private final String QUERY_ALL = "select * from tab_user";
 	private final String QUERY_INSERT = "insert into users (user_user, user_type) values (?,?)";
 	private final String QUERY_READ = "select * from users where user_id=?";
 
@@ -32,8 +32,9 @@ public class UserDAO {
 			while (resultSet.next()) {
 				int userId = resultSet.getInt("user_id");
 				String username = resultSet.getString("user_user");
+				String password = resultSet.getString("user_password");
 				String usertype = resultSet.getString("user_type");
-				user = new User(username, usertype);
+				user = new User(username, password, usertype);
 				user.setUserId(userId);
 				usersList.add(user);
 			}

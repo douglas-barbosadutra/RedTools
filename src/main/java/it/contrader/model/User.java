@@ -3,13 +3,15 @@ package it.contrader.model;
 public class User {
 	private int userId;
 	private String username;
+	private String password;
 	private String usertype;
 
 	public User() {
 	}
 
-	public User(String username, String usertype) {
+	public User(String username, String password, String usertype) {
 		this.username = username;
+		this.password = password;
 		this.usertype = usertype;
 	}
 
@@ -19,6 +21,14 @@ public class User {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setUsername(String username) {
