@@ -48,8 +48,7 @@ public class UserUpdateView implements View {
 				if (!username.equals(""))
 					userDTO.setUsername(username);
 				usersController.updateUser(userDTO);
-			
-				System.out.println("*********************"+userDTO+ "****************************");
+		
 
 			}
 		} catch (Exception e) {
