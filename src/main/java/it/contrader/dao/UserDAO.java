@@ -12,10 +12,10 @@ import it.contrader.model.User;
 public class UserDAO {
 
 	private final String QUERY_ALL = "select * from tab_user";
-	private final String QUERY_INSERT = "insert into tab_user (userId, username, password) values (?,?,?)";
+	private final String QUERY_INSERT = "insert into tab_user (userId, username, password, usertype) values (?,?,?)";
 	private final String QUERY_READ = "select * from tab_user where userId=?";
 
-	private final String QUERY_UPDATE = "UPDATE users SET userId=?, password=?, usertype=? WHERE userId=?";
+	private final String QUERY_UPDATE = "UPDATE tab_user SET userId=?, password=?, usertype=? WHERE userId=?";
 	private final String QUERY_DELETE = "delete from tab_user where userId=?";
 
 	public UserDAO() {
