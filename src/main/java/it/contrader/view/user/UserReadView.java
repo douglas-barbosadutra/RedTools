@@ -36,6 +36,7 @@ public class UserReadView implements View {
 
 			System.out.println("Id: " + userDB.getUserId());
 			System.out.println("Username: " + userDB.getUsername());
+			System.out.println("Password: " + userDB.getPassword());
 			System.out.println("User type: " + userDB.getUsertype());
 			
 			//Wait user to show

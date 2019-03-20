@@ -32,7 +32,8 @@ public class UserInsertView implements View {
 		password = getInput();
 		System.out.println("Inserisci la tipologia utente");
 		usertype=getInput();
-		if (!username.equals("") && !usertype.equals("")) {
+		if (!username.equals("") && !password.equals("") && !usertype.equals("")) {
+			
 			usersController.insertUser(new UserDTO(username, password, usertype));
 		}
 	}

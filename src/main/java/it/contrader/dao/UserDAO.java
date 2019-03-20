@@ -12,10 +12,10 @@ import it.contrader.model.User;
 public class UserDAO {
 
 	private final String QUERY_ALL = "SELECT * FROM tab_user";
-	private final String QUERY_INSERT = "INSERT INTO tab_user (userId, username, password, usertype) VALUES (?, ?,?,?)";
+	private final String QUERY_INSERT = "INSERT INTO tab_user (username, password, usertype) VALUES (?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM tab_user WHERE userId=?";
 
-	private final String QUERY_UPDATE = "UPDATE tab_user SET userId=?, username=?, password=?, usertype=? WHERE userId=?";
+	private final String QUERY_UPDATE = "UPDATE tab_user SET username=?, password=?, usertype=? WHERE userId=?";
 	private final String QUERY_DELETE = "DELETE FROM tab_user WHERE userId=?";
 
 	public UserDAO() {
@@ -49,6 +49,7 @@ public class UserDAO {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
 			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(2, user.getPassword());
 			preparedStatement.setString(3, user.getUsertype());
 			preparedStatement.execute();
 			return true;

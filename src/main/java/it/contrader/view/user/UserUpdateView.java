@@ -25,13 +25,13 @@ public class UserUpdateView implements View {
 	@Override
 	public void showOptions() {
 		int userIdToUpdate;
-		String username, usertype;
+		String username,password, usertype;
 
 		/*
 		 * List<User> users; Integer usersId; String password; users =
 		 * usersController.getAllUsers();
 		 */
-		System.out.println("\n----- Seleziona l'utente da modificate  -----\n");
+		System.out.println("\n----- Seleziona l'ID dell'utente da modificate  -----\n");
 		// System.out.println();
 		// users.forEach(us_type -> System.out.println(us_type.toString()));
 		// System.out.println();
@@ -47,8 +47,9 @@ public class UserUpdateView implements View {
 				username = getInput();
 				if (!username.equals(""))
 					userDTO.setUsername(username);
-
 				usersController.updateUser(userDTO);
+			
+				System.out.println("*********************"+userDTO+ "****************************");
 
 			}
 		} catch (Exception e) {
