@@ -3,7 +3,7 @@ package it.contrader.model;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 public class BusinessOwner {
-	private int id;
+	private int userId;
 	private String username;
 	private String password;
 	private String usertype;
@@ -18,11 +18,11 @@ public class BusinessOwner {
 	}
 
 	public int getId() {
-		return id;
+		return userId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id = userId;
 	}
 
 	public String getUsername() {
