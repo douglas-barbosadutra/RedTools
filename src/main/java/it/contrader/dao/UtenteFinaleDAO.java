@@ -67,7 +67,7 @@ public class UtenteFinaleDAO {
 			preparedStatement.setString(8, utenteFinale.getAttivitaAzienda());
 			preparedStatement.setString(9, utenteFinale.getLegaleRappresentante());
 			preparedStatement.setString(10, utenteFinale.getNatoA());
-			preparedStatement.setDate(11, (Date) utenteFinale.getNatoIl());
+			preparedStatement.setDate(11, utenteFinale.getNatoIl());
 			preparedStatement.setInt(12, utenteFinale.getIdUtente());
 			
 			preparedStatement.execute();
@@ -79,22 +79,29 @@ public class UtenteFinaleDAO {
 
 	}
 
-	public UtenteFinale readUtenteFinale(int userId) {
+	public UtenteFinale readUtenteFinale(String partitaIva) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, userId);
+			preparedStatement.setString(1, partitaIva);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String username, password, usertype;
 
-			username = resultSet.getString("username");
-			password = resultSet.getString("password");
-			usertype = resultSet.getString("usertype");
-			UtenteFinale user = new UtenteFinale(username, password, usertype);
-			user.setUtenteFinaleId(resultSet.getInt("userId"));
+			String denominazioneSocieta= resultSet.getString("denominazione_societa");
+			String formaGiuridica = resultSet.getString("forma_giuridica");
+			String sedeLegale = resultSet.getString("sede_legale");
+			String telefono = resultSet.getString("telefono");
+			String email = resultSet.getString("e_mail");
+			String indirizzoUnitaLocale = resultSet.getString("indirizzo_unita_locale");
+			String attivitaAzienda = resultSet.getString("attivita_azienda");
+			String legaleRappresentante = resultSet.getString("legale_rappresentante");
+			String natoA = resultSet.getString("nato_a");
+			Date natoIl = resultSet.getDate("nato_il");
+			int idUtente = resultSet.getInt("id_utente");
+			UtenteFinale utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
+					partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl, idUtente);
 
-			return user;
+			return utenteFinale;
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
 			return null;
@@ -106,31 +113,71 @@ public class UtenteFinaleDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (utenteFinaleToUpdate.getUtenteFinaleId() == 0)
+		if (utenteFinaleToUpdate.getPartitaIva() == null || utenteFinaleToUpdate.getPartitaIva().equals(""))
 			return false;
 
-		UtenteFinale utenteFinaleRead = readUtenteFinale(utenteFinaleToUpdate.getUtenteFinaleId());
+		UtenteFinale utenteFinaleRead = readUtenteFinale(utenteFinaleToUpdate.getPartitaIva());
 		if (!utenteFinaleRead.equals(utenteFinaleToUpdate)) {
 			try {
 				// Fill the utenteFinaleToUpdate object
-				if (utenteFinaleToUpdate.getUtenteFinalename() == null || utenteFinaleToUpdate.getUtenteFinalename().equals("")) {
-					utenteFinaleToUpdate.setUtenteFinalename(utenteFinaleRead.getUtenteFinalename());
+				if (utenteFinaleToUpdate.getDenominazioneSocieta() == null || utenteFinaleToUpdate.getDenominazioneSocieta().equals("")) {
+					utenteFinaleToUpdate.setDenominazioneSocieta(utenteFinaleRead.getDenominazioneSocieta());
 				}
 				
-				if (utenteFinaleToUpdate.getPassword() == null || utenteFinaleToUpdate.getPassword().equals("")) {
-					utenteFinaleToUpdate.setPassword(utenteFinaleRead.getPassword());
+				if (utenteFinaleToUpdate.getFormaGiuridica() == null || utenteFinaleToUpdate.getFormaGiuridica().equals("")) {
+					utenteFinaleToUpdate.setFormaGiuridica(utenteFinaleRead.getFormaGiuridica());
 				}
 				
-				if (utenteFinaleToUpdate.getUtenteFinaletype() == null || utenteFinaleToUpdate.getUtenteFinaletype().equals("")) {
-					utenteFinaleToUpdate.setUtenteFinaletype(utenteFinaleRead.getUtenteFinaletype());
+				if (utenteFinaleToUpdate.getSedeLegale() == null || utenteFinaleToUpdate.getSedeLegale().equals("")) {
+					utenteFinaleToUpdate.setSedeLegale(utenteFinaleRead.getSedeLegale());
+				}
+				
+				if (utenteFinaleToUpdate.getTelefono() == null || utenteFinaleToUpdate.getTelefono().equals("")) {
+					utenteFinaleToUpdate.setTelefono(utenteFinaleRead.getTelefono());
+				}
+				
+				if (utenteFinaleToUpdate.getEmail() == null || utenteFinaleToUpdate.getEmail().equals("")) {
+					utenteFinaleToUpdate.setEmail(utenteFinaleRead.getEmail());
+				}
+				
+				if (utenteFinaleToUpdate.getIndirizzoUnitaLocale() == null || utenteFinaleToUpdate.getIndirizzoUnitaLocale().equals("")) {
+					utenteFinaleToUpdate.setIndirizzoUnitaLocale(utenteFinaleRead.getIndirizzoUnitaLocale());
+				}
+				
+				if (utenteFinaleToUpdate.getAttivitaAzienda() == null || utenteFinaleToUpdate.getAttivitaAzienda().equals("")) {
+					utenteFinaleToUpdate.setAttivitaAzienda(utenteFinaleRead.getAttivitaAzienda());
+				}
+				
+				if (utenteFinaleToUpdate.getLegaleRappresentante() == null || utenteFinaleToUpdate.getLegaleRappresentante().equals("")) {
+					utenteFinaleToUpdate.setLegaleRappresentante(utenteFinaleRead.getLegaleRappresentante());
+				}
+				
+				if (utenteFinaleToUpdate.getNatoA() == null || utenteFinaleToUpdate.getNatoA().equals("")) {
+					utenteFinaleToUpdate.setNatoA(utenteFinaleRead.getNatoA());
+				}
+				
+				if (utenteFinaleToUpdate.getNatoIl() == null || utenteFinaleToUpdate.getNatoIl().equals("")) {
+					utenteFinaleToUpdate.setNatoIl(utenteFinaleRead.getNatoIl());
+				}
+				
+				if (utenteFinaleToUpdate.getIdUtente() == 0) {
+					utenteFinaleToUpdate.setIdUtente(utenteFinaleRead.getIdUtente());
 				}
 				
 				// Update the utenteFinale
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, utenteFinaleToUpdate.getUtenteFinalename());
-				preparedStatement.setString(2, utenteFinaleToUpdate.getPassword());
-				preparedStatement.setString(3, utenteFinaleToUpdate.getUtenteFinaletype());
-				preparedStatement.setInt(4, utenteFinaleToUpdate.getUtenteFinaleId());
+				preparedStatement.setString(1, utenteFinaleToUpdate.getDenominazioneSocieta());
+				preparedStatement.setString(2, utenteFinaleToUpdate.getFormaGiuridica());
+				preparedStatement.setString(3, utenteFinaleToUpdate.getSedeLegale());
+				preparedStatement.setString(4, utenteFinaleToUpdate.getPartitaIva());
+				preparedStatement.setString(5, utenteFinaleToUpdate.getTelefono());
+				preparedStatement.setString(6, utenteFinaleToUpdate.getEmail());
+				preparedStatement.setString(7, utenteFinaleToUpdate.getIndirizzoUnitaLocale());
+				preparedStatement.setString(8, utenteFinaleToUpdate.getAttivitaAzienda());
+				preparedStatement.setString(9, utenteFinaleToUpdate.getLegaleRappresentante());
+				preparedStatement.setString(10, utenteFinaleToUpdate.getNatoA());
+				preparedStatement.setDate(11, utenteFinaleToUpdate.getNatoIl());
+				preparedStatement.setInt(12, utenteFinaleToUpdate.getIdUtente());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
@@ -146,11 +193,11 @@ public class UtenteFinaleDAO {
 		
 	}
 
-	public boolean deleteUtenteFinale(Integer id) {
+	public boolean deleteUtenteFinale(String partitaIva) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setInt(1, id);
+			preparedStatement.setString(1, partitaIva);
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;
