@@ -72,7 +72,7 @@ public class UserDAO {
 			password = resultSet.getString("password");
 			usertype = resultSet.getString("usertype");
 			User user = new User(username, password, usertype);
-			user.setUserId(resultSet.getInt("user_id"));
+			user.setUserId(resultSet.getInt("userId"));
 
 			return user;
 		} catch (SQLException e) {
