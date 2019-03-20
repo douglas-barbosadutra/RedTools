@@ -39,10 +39,15 @@ public class MainDispatcher {
 		oggettoView.showOptions();
 		oggettoView.submit();
 		try {
-			Runtime.getRuntime().exec("clear");
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			//Runtime.getRuntime().exec("clear");
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
+		
+		
 
 	}
 }
