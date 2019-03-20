@@ -3,7 +3,7 @@ package it.contrader.model;
 import java.util.Date;
 
 public class Dossier {
-	private Date periodoDiImposta;
+	private String periodoDiImposta;
 	private int costoDipendenti;
 	private double fatturatoPeriodoDiImposta;
 	private int numeroDipendenti;
@@ -16,7 +16,7 @@ public class Dossier {
 	public Dossier() {
 	}
 
-	public Dossier(Date periodoDiImposta, int costoDipendenti, double fatturatoPeriodoDiImposta, int numeroDipendenti,
+	public Dossier(String periodoDiImposta, int costoDipendenti, double fatturatoPeriodoDiImposta, int numeroDipendenti,
 			double costiAttivitaRd, double costiPersonaleRd, String partitaIva, int idProgetto, int idDossier) {
 		this.periodoDiImposta = periodoDiImposta;
 		this.costoDipendenti = costoDipendenti;
@@ -29,11 +29,11 @@ public class Dossier {
 		this.idDossier = idDossier;
 	}
 
-	public Date getPeriodoDiImposta() {
+	public String getPeriodoDiImposta() {
 		return periodoDiImposta;
 	}
 
-	public void setPeriodoDiImposta(Date periodoDiImposta) {
+	public void setPeriodoDiImposta(String periodoDiImposta) {
 		this.periodoDiImposta = periodoDiImposta;
 	}
 
