@@ -60,7 +60,9 @@ public class User {
 		if (!this.getUsertype().equals(userCompare.getUsertype())) {
 			return false;
 		}
-
+		if (!this.getUsertype().equals(userCompare.getUsertype())) {
+			return false;
+		}
 		return true;
 
 	}
