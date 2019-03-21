@@ -5,6 +5,7 @@ import java.util.Scanner;
 import it.contrader.controller.DossierController;
 import it.contrader.controller.Request;
 import it.contrader.dto.DossierDTO;
+import it.contrader.dto.ProgettoDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.View;
 
@@ -33,7 +34,7 @@ public class DossierInsertView implements View  {
 		String partitaIva;
 		int idProgetto;
 		String periodoDiImposta;
-		String nomedossier;
+		
      
 		System.out.println("Inserisci i campi del dossier:");
 		
@@ -53,17 +54,12 @@ public class DossierInsertView implements View  {
 		idProgetto = Integer.parseInt(getInput());
 		System.out.println("periodoDiImposta: ");
 		periodoDiImposta = (getInput());
-		System.out.println(" iserisci id dossier ");
-		idDossier = Integer.parseInt(getInput());
-		System.out.println(" nome dossier ");
-		nomedossier = (getInput());
 		
 		
 		
-		if (!nomedossier.equals("") ) {
-			dossierController.insertDossier(new DossierDTO(costoDipendenti, fatturatoPeriodoDiImposta,numeroDipendenti,
-					costiAttivitaRd,costiPersonaleRd, partitaIva, idProgetto, idDossier, periodoDiImposta));
-		}
+		dossierController.insertDossier(new DossierDTO(costoDipendenti, fatturatoPeriodoDiImposta, numeroDipendenti, costiAttivitaRd, costiPersonaleRd, partitaIva, idProgetto, periodoDiImposta));
+		
+		
 	}
 
 	@Override

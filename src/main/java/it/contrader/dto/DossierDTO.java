@@ -15,7 +15,7 @@ public class DossierDTO {
 	}
 	
 	public DossierDTO(int costoDipendenti, double fatturatoPeriodoDiImposta, int numeroDipendenti,
-			double costiAttivitaRd, double costiPersonaleRd, String partitaIva, int idProgetto, int idDossier,
+			double costiAttivitaRd, double costiPersonaleRd, String partitaIva, int idProgetto,
 			String periodoDiImposta) {
 		super();
 		this.costoDipendenti = costoDipendenti;

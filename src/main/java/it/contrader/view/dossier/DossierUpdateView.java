@@ -45,7 +45,7 @@ public class DossierUpdateView implements View {
 		// System.out.println();
 		DossierDTO dossierDTO = new DossierDTO();
 
-		System.out.println("Digita costo dipendenti");
+		System.out.println("Digita id dossier da modificare");
 		try {
 			idDossierToUpdate = Integer.parseInt(getInput());
 			if (idDossierToUpdate != 0) {

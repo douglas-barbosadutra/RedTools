@@ -29,9 +29,9 @@ public class DossierView implements View {
 		
 		System.out.println("\n------ Gestione dossier -------\n");
 		
-		System.out.println("costoDipendenti\tfatturatoPeriodoDiImposta\tnumeroDipendenti" + 
-				"\tcostiAttivitaRd\tcostiPersonale\tpartitaIva\tidProgetto\tidDossier" + 
-				"\tperiodoDiImposta");
+		System.out.println("id Dossier \t  Periodo Di Imposta \t costo Dipendenti" + 
+				"\t fatturato \t  numero totale dipendenti \t  costo complessivo attività Rd \t  costo personale Rd \t partita iva utente " + 
+				"\t id progetto");
 		System.out.print("------------------------------------------------------");
 		List<Dossier> progetti = dossierController.getAllDossier();
 		System.out.println();

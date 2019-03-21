@@ -101,11 +101,11 @@ public class Dossier {
 	
 	@Override
 	public String toString() {
-		return this.getPeriodoDiImposta() + "\t" + this.getCostoDipendenti() 
-		+ "\t" + this.getFatturatoPeriodoDiImposta()+ "\t" + this.getNumeroDipendenti()
-		+ "\t" + this.getCostiAttivitaRd()+ "\t" + this.getCostiPersonaleRd()
-		+ "\t" + this.getPartitaIva()+ "\t" + this.getIdProgetto()
-		+ "\t" + this.getIdDossier();
+		return this.getIdDossier() + "\t" + this.getPeriodoDiImposta()
+		+ "\t" + this.getCostoDipendenti()+ "\t" + this.getFatturatoPeriodoDiImposta()
+		+ "\t" + this.getNumeroDipendenti()+ "\t" + this.getCostiAttivitaRd()
+		+ "\t" + this.getCostiPersonaleRd()+ "\t" + this.getPartitaIva()
+		+ "\t" + this.getIdProgetto();
 	}
 
 	public boolean equals(Dossier dossierCompare) {

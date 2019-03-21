@@ -44,6 +44,7 @@ public class DossierController implements Controller {
 	}
 
 	public boolean deleteDossier(Integer dossierId) {
+		
 		return this.dossierService.deleteDossier(dossierId);
 	}
 	
