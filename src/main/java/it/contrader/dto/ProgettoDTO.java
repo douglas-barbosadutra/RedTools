@@ -6,7 +6,8 @@ public class ProgettoDTO {
 	private String nomeprogetto;
 	
 
-	public ProgettoDTO(String nomeprogetto) {
+	public ProgettoDTO(int idprogetto, String nomeprogetto) {
+		this.idprogetto = idprogetto;
 		this.nomeprogetto = nomeprogetto;
 		
 	}

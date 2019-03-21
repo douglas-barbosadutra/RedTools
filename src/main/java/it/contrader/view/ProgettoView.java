@@ -1,6 +1,8 @@
 package it.contrader.view;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 import it.contrader.controller.Request;
 import it.contrader.controller.ProgettoController;
@@ -28,9 +30,9 @@ public class ProgettoView implements View {
 		
 		System.out.println("ID\tUsername\tTipoUtente");
 		System.out.print("------------------------------------------------------");
-		List<Progetto> progetto = progettoController.getAllProgetto();
+		List<Progetto> progetti = progettoController.getAllProgetto();
 		System.out.println();
-		progetto.forEach(progetto -> System.out.println(progetto.toString()));
+		progetti.forEach(progetto -> System.out.println(progetto.toString()));
 		System.out.println();
 		
 		System.out.println("Scegli l'operazione da effettuare:");

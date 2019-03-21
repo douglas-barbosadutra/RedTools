@@ -29,11 +29,11 @@ public class ProgettoInsertView implements View {
 		System.out.println("Inserisci i campi del progetto:");
 		
 		System.out.println("Digita l'ID del progetto: ");
-		idprogetto = getInput();
+		idprogetto = Integer.parseInt(getInput());
 		System.out.println("Digita il nome del progetto: ");
 		nomeprogetto = getInput();
 		
-		if (!nomeprogetto.equals("") && !usertype.equals("")) {
+		if (!nomeprogetto.equals("") ) {
 			progettoController.insertProgetto(new ProgettoDTO(idprogetto, nomeprogetto));
 		}
 	}
