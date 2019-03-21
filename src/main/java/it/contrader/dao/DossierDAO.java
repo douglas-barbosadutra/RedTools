@@ -110,7 +110,7 @@ public class DossierDAO {
 
 		}
 		
-		public boolean updateD(Dossier dossierToUpdate) {
+		public boolean updateDossier(Dossier dossierToUpdate) {
 			Connection connection = ConnectionSingleton.getInstance();
 
 			// Check if id is present
