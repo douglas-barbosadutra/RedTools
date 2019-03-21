@@ -1,7 +1,5 @@
 package it.contrader.dto;
 
-import java.sql.Date;
-
 public class UtenteFinaleDTO {
 	String denominazioneSocieta;
 	String formaGiuridica;
@@ -13,12 +11,12 @@ public class UtenteFinaleDTO {
 	String attivitaAzienda;
 	String legaleRappresentante;
 	String natoA;
-	Date natoIl;
+	String natoIl;
 	int idUtente;
 	
 	public UtenteFinaleDTO(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String telefono,
 			String email, String indirizzoUnitaLocale, String attivitaAzienda, String legaleRappresentante,
-			String natoA, Date natoIl, int idUtente) {
+			String natoA, String natoIl, int idUtente) {
 		this.denominazioneSocieta = denominazioneSocieta;
 		this.formaGiuridica = formaGiuridica;
 		this.sedeLegale = sedeLegale;
@@ -98,10 +96,10 @@ public class UtenteFinaleDTO {
 	public void setNatoA(String natoA) {
 		this.natoA = natoA;
 	}
-	public Date getNatoIl() {
+	public String getNatoIl() {
 		return natoIl;
 	}
-	public void setNatoIl(Date natoIl) {
+	public void setNatoIl(String natoIl) {
 		this.natoIl = natoIl;
 	}
 	public int getIdUtente() {

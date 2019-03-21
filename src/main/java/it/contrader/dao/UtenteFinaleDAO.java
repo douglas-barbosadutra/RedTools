@@ -40,7 +40,7 @@ public class UtenteFinaleDAO {
 				String attivitaAzienda = resultSet.getString("attivita_azienda");
 				String legaleRappresentante = resultSet.getString("legale_rappresentante");
 				String natoA = resultSet.getString("nato_a");
-				Date natoIl = resultSet.getDate("nato_il");
+				String natoIl = resultSet.getString("nato_il");
 				int idUtente = resultSet.getInt("id_utente");
 				utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
 						partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda,
@@ -67,7 +67,7 @@ public class UtenteFinaleDAO {
 			preparedStatement.setString(8, utenteFinale.getAttivitaAzienda());
 			preparedStatement.setString(9, utenteFinale.getLegaleRappresentante());
 			preparedStatement.setString(10, utenteFinale.getNatoA());
-			preparedStatement.setDate(11, utenteFinale.getNatoIl());
+			preparedStatement.setString(11, utenteFinale.getNatoIl());
 			preparedStatement.setInt(12, utenteFinale.getIdUtente());
 			
 			preparedStatement.execute();
@@ -96,7 +96,7 @@ public class UtenteFinaleDAO {
 			String attivitaAzienda = resultSet.getString("attivita_azienda");
 			String legaleRappresentante = resultSet.getString("legale_rappresentante");
 			String natoA = resultSet.getString("nato_a");
-			Date natoIl = resultSet.getDate("nato_il");
+			String natoIl = resultSet.getString("nato_il");
 			int idUtente = resultSet.getInt("id_utente");
 			UtenteFinale utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
 					partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl, idUtente);
@@ -176,7 +176,7 @@ public class UtenteFinaleDAO {
 				preparedStatement.setString(8, utenteFinaleToUpdate.getAttivitaAzienda());
 				preparedStatement.setString(9, utenteFinaleToUpdate.getLegaleRappresentante());
 				preparedStatement.setString(10, utenteFinaleToUpdate.getNatoA());
-				preparedStatement.setDate(11, utenteFinaleToUpdate.getNatoIl());
+				preparedStatement.setString(11, utenteFinaleToUpdate.getNatoIl());
 				preparedStatement.setInt(12, utenteFinaleToUpdate.getIdUtente());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

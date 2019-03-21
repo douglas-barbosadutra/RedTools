@@ -10,12 +10,12 @@ import it.contrader.model.UtenteFinale;
 
 public class UtenteFinaleView implements View {
 
-	private UtenteFinaleController utenteFinalesController;
+	private UtenteFinaleController utentiFinaliController;
 	private Request request;
 	private String choice;
 	
 	public UtenteFinaleView() {
-		this.utenteFinalesController = new UtenteFinaleController();
+		this.utentiFinaliController = new UtenteFinaleController();
 	}
 
 	@Override
@@ -25,13 +25,14 @@ public class UtenteFinaleView implements View {
 	@Override
 	public void showOptions() {
 		
-		System.out.println("\n------ Gestione utenti -------\n");
+		System.out.println("\n------ Gestione utenti finali -------\n");
 		
-		System.out.println("ID\tUtenteFinalename\tPassword\tTipoUtente");
+		System.out.println("DenominazioneSocieta\tFormaGiuridica\tSedeLegale\tPartitaIva"
+				+ "Telefono\tEmail\tIndirizzoUnitaLocale\tAttivitaAzienda");
 		System.out.print("------------------------------------------------------");
-		List<UtenteFinale> utenteFinales = utenteFinalesController.getAllUtenteFinale();
+		List<UtenteFinale> utentiFinali = utentiFinaliController.getAllUtenteFinale();
 		System.out.println();
-		utenteFinales.forEach(utenteFinale -> System.out.println(utenteFinale.toString()));
+		utentiFinali.forEach(utenteFinale -> System.out.println(utenteFinale.toString()));
 		System.out.println();
 		
 		System.out.println("Scegli l'operazione da effettuare:");

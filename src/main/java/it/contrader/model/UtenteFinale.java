@@ -1,7 +1,5 @@
 package it.contrader.model;
 
-import java.sql.Date;
-
 public class UtenteFinale {
 	
 	String denominazioneSocieta;
@@ -14,7 +12,7 @@ public class UtenteFinale {
 	String attivitaAzienda;
 	String legaleRappresentante;
 	String natoA;
-	Date natoIl;
+	String natoIl;
 	int idUtente;
 	
 	public UtenteFinale() {
@@ -22,7 +20,7 @@ public class UtenteFinale {
 
 	public UtenteFinale(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String partitaIva,
 			String telefono, String email, String indirizzoUnitaLocale, String attivitaAzienda,
-			String legaleRappresentante, String natoA, Date natoIl, int idUtente) {
+			String legaleRappresentante, String natoA, String natoIl, int idUtente) {
 		this.denominazioneSocieta = denominazioneSocieta;
 		this.formaGiuridica = formaGiuridica;
 		this.sedeLegale = sedeLegale;
@@ -117,11 +115,11 @@ public class UtenteFinale {
 		this.natoA = natoA;
 	}
 
-	public Date getNatoIl() {
+	public String getNatoIl() {
 		return natoIl;
 	}
 
-	public void setNatoIl(Date natoIl) {
+	public void setNatoIl(String natoIl) {
 		this.natoIl = natoIl;
 	}
 
@@ -131,6 +129,70 @@ public class UtenteFinale {
 
 	public void setIdUtente(int idUtente) {
 		this.idUtente = idUtente;
+	}
+	
+	@Override
+	public String toString() {
+		return this.getDenominazioneSocieta() + "\t" + this.getFormaGiuridica() 
+		+ "\t" + this.getSedeLegale()+ "\t" + this.getPartitaIva()
+		+ "\t" + this.getTelefono()+ "\t" + this.getEmail()
+		+ "\t" + this.getIndirizzoUnitaLocale()+ "\t" + this.getAttivitaAzienda()
+		+ "\t" + this.getLegaleRappresentante()+ "\t" + this.getNatoA()
+		+ "\t" + this.getNatoIl()+ "\t" + this.getIdUtente();
+	}
+
+	public boolean equals(UtenteFinale utenteFinaleCompare) {
+		if (!(this.getDenominazioneSocieta() == utenteFinaleCompare.getDenominazioneSocieta())) {
+			return false;
+		}
+		
+		if (!(this.getFormaGiuridica() == utenteFinaleCompare.getFormaGiuridica())) {
+			return false;
+		}
+		
+		if (!(this.getSedeLegale() == utenteFinaleCompare.getSedeLegale())) {
+			return false;
+		}
+		
+		if (!(this.getPartitaIva() == utenteFinaleCompare.getPartitaIva())) {
+			return false;
+		}
+		
+		if (!(this.getTelefono() == utenteFinaleCompare.getTelefono())) {
+			return false;
+		}
+		
+		if (!(this.getEmail() == utenteFinaleCompare.getEmail())) {
+			return false;
+		}
+		
+		if (!(this.getIndirizzoUnitaLocale() == utenteFinaleCompare.getIndirizzoUnitaLocale())) {
+			return false;
+		}
+		
+		if (!(this.getAttivitaAzienda() == utenteFinaleCompare.getAttivitaAzienda())) {
+			return false;
+		}
+		
+		if (!(this.getLegaleRappresentante() == utenteFinaleCompare.getLegaleRappresentante())) {
+			return false;
+		}
+		
+		if (!(this.getNatoA() == utenteFinaleCompare.getNatoA())) {
+			return false;
+		}
+		
+		if (!(this.getNatoIl() == utenteFinaleCompare.getNatoIl())) {
+			return false;
+		}
+		
+		if (!(this.getIdUtente() == utenteFinaleCompare.getIdUtente())) {
+			return false;
+		}
+		
+		
+		
+		return true;
 	}
 
 }
