@@ -18,7 +18,6 @@ public class User {
 	public int getUserId() {
 		return userId;
 	}
-//prova prova //
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
