@@ -1,7 +1,5 @@
 package it.contrader.model;
 
-import java.util.Date;
-
 public class Dossier {
 	private String periodoDiImposta;
 	private int costoDipendenti;
@@ -101,7 +99,54 @@ public class Dossier {
 		this.idDossier = idDossier;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.getPeriodoDiImposta() + "\t" + this.getCostoDipendenti() 
+		+ "\t" + this.getFatturatoPeriodoDiImposta()+ "\t" + this.getNumeroDipendenti()
+		+ "\t" + this.getCostiAttivitaRd()+ "\t" + this.getCostiPersonaleRd()
+		+ "\t" + this.getPartitaIva()+ "\t" + this.getIdProgetto()
+		+ "\t" + this.getIdDossier();
+	}
+
+	public boolean equals(Dossier dossierCompare) {
+		if (!(this.getPeriodoDiImposta() == dossierCompare.getPeriodoDiImposta())) {
+			return false;
+		}
+		
+		if (!(this.getCostoDipendenti() == dossierCompare.getCostoDipendenti())) {
+			return false;
+		}
+		
+		if (!(this.getFatturatoPeriodoDiImposta() == dossierCompare.getFatturatoPeriodoDiImposta())) {
+			return false;
+		}
+		
+		if (!(this.getNumeroDipendenti() == dossierCompare.getNumeroDipendenti())) {
+			return false;
+		}
+		
+		if (!(this.getCostiAttivitaRd() == dossierCompare.getCostiAttivitaRd())) {
+			return false;
+		}
+		
+		if (!(this.getCostiPersonaleRd() == dossierCompare.getCostiPersonaleRd())) {
+			return false;
+		}
+		
+		if (!(this.getPartitaIva() == dossierCompare.getPartitaIva())) {
+			return false;
+		}
+		
+		if (!(this.getIdProgetto() == dossierCompare.getIdProgetto())) {
+			return false;
+		}
+
+		if (!(this.getIdDossier() == dossierCompare.getIdDossier())) {
+			return false;
+		}
+		
+		return true;
+	}
 	
 
 }
