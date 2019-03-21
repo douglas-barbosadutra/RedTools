@@ -26,9 +26,9 @@ public class ProgettoView implements View {
 	@Override
 	public void showOptions() {
 		
-		System.out.println("\n------ Gestione utenti -------\n");
+		System.out.println("\n------ Gestione progetti -------\n");
 		
-		System.out.println("ID\tUsername\tTipoUtente");
+		System.out.println("ID\tNomeProgetto");
 		System.out.print("------------------------------------------------------");
 		List<Progetto> progetti = progettoController.getAllProgetto();
 		System.out.println();

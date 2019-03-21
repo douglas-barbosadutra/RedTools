@@ -1,10 +1,10 @@
 package it.contrader.model;
 
 public class Progetto {
-	
+
 	private int idProgetto;
 	private String nomeProgetto;
-	
+
 	public Progetto() {
 	}
 
@@ -29,8 +29,19 @@ public class Progetto {
 		this.nomeProgetto = nomeProgetto;
 	}
 
+	@Override
+	public String toString() {
+		return this.getIdProgetto() + "\t" + this.getNomeProgetto();
+	}
 
+	public boolean equals(Progetto progettoCompare) {
+		if (!(this.getIdProgetto() == progettoCompare.getIdProgetto())) {
+			return false;
+		}
+		if (!this.getNomeProgetto().equals(progettoCompare.getNomeProgetto())) {
+				return false;
+		}
+		return true;
+
+	}
 }
-
-
-
