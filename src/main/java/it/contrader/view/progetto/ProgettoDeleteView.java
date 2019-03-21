@@ -1,4 +1,4 @@
-package it.contrader.view.user;
+package it.contrader.view.progetto;
 
 import java.util.List;
 import java.util.Scanner;

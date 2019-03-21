@@ -17,7 +17,7 @@ public class ProgettoDAO {
 
 	private final String QUERY_ALL = "select * from tab_progetto";
 	private final String QUERY_INSERT = "insert into tab_progetto (nomeProgetto) values (?)";
-	private final String QUERY_READ = "select * from tab_progetto where nomeprogetto=?";
+	private final String QUERY_READ = "select * from tab_progetto where idprogetto=?";
 
 	private final String QUERY_UPDATE = "UPDATE tab_progetto SET idprogetto=?,nomeprogetto=? WHERE idprogetto=?";
 	private final String QUERY_DELETE = "delete from tab_progetto where idProgetto=?";
