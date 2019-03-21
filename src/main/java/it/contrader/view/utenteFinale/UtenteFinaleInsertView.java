@@ -2,7 +2,6 @@ package it.contrader.view.utenteFinale;
 
 import java.util.Scanner;
 
-import it.contrader.controller.ProgettoController;
 import it.contrader.controller.Request;
 import it.contrader.controller.UtenteFinaleController;
 import it.contrader.dto.UtenteFinaleDTO;
@@ -83,7 +82,7 @@ public class UtenteFinaleInsertView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("Progetto", "doControl", request);
+		MainDispatcher.getInstance().callAction("UtenteFinale", "doControl", request);
 	}
 
 }
