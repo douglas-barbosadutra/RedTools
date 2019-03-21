@@ -1,9 +1,14 @@
 package it.contrader.converter;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import it.contrader.dto.DossierDTO;
-import it.contrader.dto.UserDTO;
+
 import it.contrader.model.Dossier;
-import it.contrader.model.User;
+
+
 
 
 
@@ -22,7 +27,7 @@ public class ConverterDossier {
 				dossierDTO.setPartitaIva(dossier.getPartitaIva());
 				dossierDTO.setIdProgetto(dossier.getIdProgetto());
 				dossierDTO.setIdDossier(dossier.getIdDossier());
-				dossierDTO.setPeriodoImposta(dossier.getFatturatoPeriodoDiImposta());
+				dossierDTO.setPeriodoDiImposta(dossier.getPeriodoDiImposta());
 			}
 			return dossierDTO;
 		
@@ -33,15 +38,15 @@ public class ConverterDossier {
 		Dossier dossier = null;
 		if(dossierDTO != null) {
 			dossier = new Dossier();
-			dossier.setCostoDipendenti(dossierDTO.getCostoDipartimento);
-			dossier.setFatturatoPeriodoDiImposta(dossierDTO.getFatturatoPeriodoDiImposta);
-			dossier.setNumeroDipendenti(dossierDTO.getNumeroDipendenti);
-			dossier.setCostiAttivitaRd(dossierDTO.getCostiAttivitaRd);
-			dossier.setCostiPersonaleRd(dossierDTO.getCostiPersonaleRd);
-			dossier.setPartitaIva(dossierDTO.getPartitaIva);
-			dossier.setIdProgetto(dossierDTO.getIdProgetto);
-			dossier.setIdDossier(dossierDTO.getIdDossier);
-			dossier.setPeriodoDiImposta(dossierDTO.getPeriodoImposta);
+			dossier.setCostoDipendenti(dossierDTO.getCostoDipendenti());
+			dossier.setFatturatoPeriodoDiImposta(dossierDTO.getFatturatoPeriodoDiImposta());
+			dossier.setNumeroDipendenti(dossierDTO.getNumeroDipendenti());
+			dossier.setCostiAttivitaRd(dossierDTO.getCostiAttivitaRd());
+			dossier.setCostiPersonaleRd(dossierDTO.getCostiPersonaleRd());
+			dossier.setPartitaIva(dossierDTO.getPartitaIva());
+			dossier.setIdProgetto(dossierDTO.getIdProgetto());
+			dossier.setIdDossier(dossierDTO.getIdDossier());
+			dossier.setPeriodoDiImposta(dossierDTO.getPeriodoDiImposta());
 			}
 		return dossier;
 		
@@ -50,20 +55,29 @@ public class ConverterDossier {
 	
 	
 	
-	public static List<Dossier> toListEntity (List<DossierDTO> listenDOssierDTO)  {
-		List<Dossier> list = new ArrayList<>;
-		if(!listUDossierDTO.isEmpty()) {
-			for (DossierDTO dossierDTO : listDossierDTO) {
-				list.add(ConverterDossier.toEntity(dossierDTO));
+	
+	public static List<DossierDTO> toListDTO(List<Dossier> list) {
+		List<DossierDTO> listDossierDTO = new ArrayList<>();
+		if (!list.isEmpty()) {
+			for (Dossier dossier : list) {
+				listDossierDTO.add(ConverterDossier.toDTO(dossier));
+			}
+		}
+		return listDossierDTO;
+	}
+
+	public static List<Dossier> toListEntity(List<DossierDTO> listDossierDTO) {
+		List<Dossier> list = new ArrayList<>();
+		if (!listDossierDTO.isEmpty()) {
+			for (DossierDTO DossierDTO : listDossierDTO) {
+				list.add(ConverterDossier.toEntity(DossierDTO));
 			}
 		}
 		return list;
 	}
-
-		
-		
-		
-		
+	
+	
+	
 	}
 
 

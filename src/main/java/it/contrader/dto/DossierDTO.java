@@ -10,6 +10,10 @@ public class DossierDTO {
 	private int idProgetto;
 	private int idDossier;
 	private String periodoDiImposta;
+	
+	public DossierDTO() {
+	}
+	
 	public DossierDTO(int costoDipendenti, double fatturatoPeriodoDiImposta, int numeroDipendenti,
 			double costiAttivitaRd, double costiPersonaleRd, String partitaIva, int idProgetto, int idDossier,
 			String periodoDiImposta) {
