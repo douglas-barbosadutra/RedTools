@@ -66,7 +66,7 @@ public class UtenteFinaleInsertView implements View {
 		
 		if (!denominazioneSocieta.equals("") ) {
 			utenteFinaleController.insertUtenteFinale(new UtenteFinaleDTO(denominazioneSocieta, formaGiuridica,
-					sedeLegale, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante,
+					sedeLegale, partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante,
 					natoA, natoIl, idUtente));
 		}
 	}

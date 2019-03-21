@@ -33,6 +33,16 @@ public class UtenteFinaleReadView implements View {
 
 			System.out.println("Partita Iva: " + utenteFinaleDB.getPartitaIva());
 			System.out.println("Nome utente finale: " + utenteFinaleDB.getDenominazioneSocieta());
+			System.out.println("Forma giuridica: " + utenteFinaleDB.getFormaGiuridica());
+			System.out.println("Sede legale: " + utenteFinaleDB.getSedeLegale());
+			System.out.println("Telefono: " + utenteFinaleDB.getTelefono());
+			System.out.println("Email: " + utenteFinaleDB.getEmail());
+			System.out.println("Indirizzo unità locale: " + utenteFinaleDB.getIndirizzoUnitaLocale());
+			System.out.println("Attività azienda: " + utenteFinaleDB.getAttivitaAzienda());
+			System.out.println("Legale rappresentante: " + utenteFinaleDB.getLegaleRappresentante());
+			System.out.println("Nato a: " + utenteFinaleDB.getNatoA());
+			System.out.println("Nato il: " + utenteFinaleDB.getNatoIl());
+			System.out.println("Id utente: " + utenteFinaleDB.getIdUtente());
 			
 			
 			//Wait utenteFinale to show

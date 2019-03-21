@@ -14,12 +14,13 @@ public class UtenteFinaleDTO {
 	String natoIl;
 	int idUtente;
 	
-	public UtenteFinaleDTO(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String telefono,
+	public UtenteFinaleDTO(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String partitaIva, String telefono,
 			String email, String indirizzoUnitaLocale, String attivitaAzienda, String legaleRappresentante,
 			String natoA, String natoIl, int idUtente) {
 		this.denominazioneSocieta = denominazioneSocieta;
 		this.formaGiuridica = formaGiuridica;
 		this.sedeLegale = sedeLegale;
+		this.partitaIva = partitaIva;
 		this.telefono = telefono;
 		this.email = email;
 		this.indirizzoUnitaLocale = indirizzoUnitaLocale;
@@ -108,7 +109,5 @@ public class UtenteFinaleDTO {
 	public void setIdUtente(int idUtente) {
 		this.idUtente = idUtente;
 	}
-
-	
 
 }

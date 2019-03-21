@@ -50,7 +50,7 @@ public class UtenteFinaleUpdateView implements View {
 		System.out.println("Digita la Partita Iva dell'utente da modificare:");
 		try {
 			partitaIvaToUpdate = getInput();
-			if (partitaIvaToUpdate.equals("")) {
+			if (!partitaIvaToUpdate.equals("")) {
 				utenteFinaleDTO.setPartitaIva(partitaIvaToUpdate);
 
 				System.out.println("Digita la denominazione della società: ");
@@ -65,10 +65,6 @@ public class UtenteFinaleUpdateView implements View {
 				sedeLegale = getInput();
 				if (!sedeLegale.equals(""))
 					utenteFinaleDTO.setSedeLegale(sedeLegale);
-				System.out.println("Digita la Partita Iva: ");
-				partitaIvaToUpdate = getInput();
-				if (!partitaIvaToUpdate.equals(""))
-					utenteFinaleDTO.setPartitaIva(partitaIvaToUpdate);
 				System.out.println("Digita il numero di telefono: ");
 				telefono = getInput();
 				if (!telefono.equals(""))

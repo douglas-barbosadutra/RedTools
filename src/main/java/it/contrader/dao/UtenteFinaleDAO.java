@@ -12,7 +12,7 @@ import it.contrader.model.UtenteFinale;
 public class UtenteFinaleDAO {
 
 	private final String QUERY_ALL = "SELECT * FROM tab_utente_finale";
-	private final String QUERY_INSERT = "denominazione_societa, forma_giuridica, sede_legale, partita_iva, telefono, e_mail, indirizzo_unita_locale, attivita_azienda, legale_rappresentante, nato_a, nato_il, id_utente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+	private final String QUERY_INSERT = "INSERT INTO tab_utente_finale (denominazione_societa, forma_giuridica, sede_legale, partita_iva, telefono, e_mail, indirizzo_unita_locale, attivita_azienda, legale_rappresentante, nato_a, nato_il, id_utente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM tab_utente_finale WHERE partita_iva = ?";
 
 	private final String QUERY_UPDATE = "UPDATE tab_utente_finale SET denominazione_societa = ?, forma_giuridica = ?, sede_legale = ?, partita_iva = ?, telefono = ?, e_mail = ?, indirizzo_unita_locale = ?, attivita_azienda = ?, legale_rappresentante = ?, nato_a = ?, nato_il = ?, id_utente = ? WHERE partita_iva = ?";
@@ -178,6 +178,7 @@ public class UtenteFinaleDAO {
 				preparedStatement.setString(10, utenteFinaleToUpdate.getNatoA());
 				preparedStatement.setString(11, utenteFinaleToUpdate.getNatoIl());
 				preparedStatement.setInt(12, utenteFinaleToUpdate.getIdUtente());
+				preparedStatement.setString(13, utenteFinaleToUpdate.getPartitaIva());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
@@ -185,6 +186,7 @@ public class UtenteFinaleDAO {
 					return false;
 
 			} catch (SQLException e) {
+				System.out.println(e);
 				return false;
 			}
 		}
@@ -202,6 +204,7 @@ public class UtenteFinaleDAO {
 			if (n != 0)
 				return true;
 		} catch (SQLException e) {
+			System.out.println(e);
 		}
 		return false;
 	}
