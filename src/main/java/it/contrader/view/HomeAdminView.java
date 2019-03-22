@@ -14,7 +14,7 @@ public class HomeAdminView implements View {
     private String choice;
 
     public void showResults(Request request) {
-    	System.out.println("Benvenuto in WMES "+request.get("nomeUtente").toString());
+    	System.out.println("Benvenuto in RedTools "+request.get("nomeUtente").toString());
     }
 
 

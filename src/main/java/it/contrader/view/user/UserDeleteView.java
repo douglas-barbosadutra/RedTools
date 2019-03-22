@@ -39,9 +39,11 @@ public class UserDeleteView implements View {
 
 		if (usersId != null && StringUtils.isStrictlyNumeric(usersId)) {
 			userController.deleteUser(Integer.parseInt(usersId));
+			System.out.println("* Utente cancellato *");
 			
 		} else {
 			System.out.println("Valore inserito errato");
+			
 		}
 	}
 
