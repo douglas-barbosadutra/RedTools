@@ -36,6 +36,7 @@ public class UserInsertView implements View {
 			
 			usersController.insertUser(new UserDTO(username, password, usertype));
 		}
+	System.out.print("* Utente inserito *");
 	}
 
 	@Override

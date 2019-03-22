@@ -34,7 +34,7 @@ public class DossierReadView  implements View {
 			DossierDTO dossierDB = dossierController.readDossier(iddossierToRead);
 
 			System.out.println("costo dipendenti: " + dossierDB.getCostoDipendenti());
-			System.out.println("fatturato periodo di imposta: " + dossierDB.getFatturatoPeriodoDiImposta());
+			System.out.println("fatturato periodo di imposta: " +dossierDB.getFatturatoPeriodoDiImposta());
 			System.out.println("numero dipendenti: " + dossierDB.getNumeroDipendenti());
 			System.out.println("costi attivita : " + dossierDB.getCostiAttivitaRd());
 			System.out.println("costi personale: " + dossierDB.getCostiPersonaleRd());

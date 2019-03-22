@@ -37,10 +37,13 @@ public class UserReadView implements View {
 			System.out.println("Id: " + userDB.getUserId());
 			System.out.println("Username: " + userDB.getUsername());
 			System.out.println("Password: " + userDB.getPassword());
-			System.out.println("User type: " + userDB.getUsertype());
+			System.out.println("Tipo utente: " + userDB.getUsertype());
 			
 			//Wait user to show
+			
 			System.out.println("Premi un tasto per continuare");
+			
+			
 			try {
 				getInput();
 			} catch (Exception e) {
