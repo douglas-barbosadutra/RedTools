@@ -33,7 +33,7 @@ public class ProgettoDeleteView implements View {
 			//String idprogetto;
 
 			//progetto = progettoController.getAllProgetto();
-			System.out.println("Seleziona il progetto da cancellare : ");
+			System.out.println("Inserisci l'ID del progetto da cancellare : ");
 			//System.out.println();
 			//progetto.forEach(progetto -> System.out.println(progetto));
 			//System.out.println();

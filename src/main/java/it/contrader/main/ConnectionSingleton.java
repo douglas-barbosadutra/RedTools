@@ -46,6 +46,7 @@ public class ConnectionSingleton {
                 //connection = dataSource.getConnection();
             
             } catch (Exception e) {
+            	
                 GestoreEccezioni.getInstance().gestisciEccezione(e);
             }
         }
