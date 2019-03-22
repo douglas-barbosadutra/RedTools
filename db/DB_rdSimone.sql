@@ -37,7 +37,7 @@ CREATE TABLE `tab_dossier` (
   KEY `id_progetto_idx` (`id_progetto`),
   CONSTRAINT `id_progetto` FOREIGN KEY (`id_progetto`) REFERENCES `tab_progetto` (`idprogetto`),
   CONSTRAINT `pi_utente_finale` FOREIGN KEY (`pi_utente_finale`) REFERENCES `tab_utente_finale` (`partita_iva`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,6 @@ CREATE TABLE `tab_dossier` (
 
 LOCK TABLES `tab_dossier` WRITE;
 /*!40000 ALTER TABLE `tab_dossier` DISABLE KEYS */;
-INSERT INTO `tab_dossier` VALUES (12,'2',4,45,6,2,1,'12345678903',1),(13,'2134',3,3,32,21,219,'12345678903',1),(14,'678',67,78,54,567,768,'12345678903',1);
 /*!40000 ALTER TABLE `tab_dossier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +60,7 @@ CREATE TABLE `tab_progetto` (
   `idprogetto` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nomeprogetto` varchar(45) NOT NULL,
   PRIMARY KEY (`idprogetto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +69,7 @@ CREATE TABLE `tab_progetto` (
 
 LOCK TABLES `tab_progetto` WRITE;
 /*!40000 ALTER TABLE `tab_progetto` DISABLE KEYS */;
-INSERT INTO `tab_progetto` VALUES (1,'pippo'),(2,'pippo');
+INSERT INTO `tab_progetto` VALUES (1,'ReD');
 /*!40000 ALTER TABLE `tab_progetto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +86,7 @@ CREATE TABLE `tab_user` (
   `password` varchar(45) NOT NULL,
   `usertype` varchar(45) NOT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +131,7 @@ CREATE TABLE `tab_utente_finale` (
 
 LOCK TABLES `tab_utente_finale` WRITE;
 /*!40000 ALTER TABLE `tab_utente_finale` DISABLE KEYS */;
-INSERT INTO `tab_utente_finale` VALUES ('rerf','tre','rtfdf','12345678903','67676767','retr','rtrtr','edsdd','trtrrf','trtr','trttr',1);
+INSERT INTO `tab_utente_finale` VALUES ('Contrader','s.r.l','benevento','12345678901','123123123','contrader@contrader','via longobardi','ricerca e sviluppo','sabatino ','benevento','01-01-1980',2);
 /*!40000 ALTER TABLE `tab_utente_finale` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -145,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-22 11:32:33
+-- Dump completed on 2019-03-22 12:56:03
