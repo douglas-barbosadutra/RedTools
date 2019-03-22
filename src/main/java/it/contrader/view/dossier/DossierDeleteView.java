@@ -30,7 +30,7 @@ public class DossierDeleteView implements View {
 		//String iddossier;
 
 		//dossier = dossierController.getAllDossier();
-		System.out.println("Seleziona il dossier da cancellare : ");
+		System.out.println("Seleziona l'ID del dossier da cancellare : ");
 		//System.out.println();
 		//dossier.forEach(dossier -> System.out.println(dossier));
 		//System.out.println();
