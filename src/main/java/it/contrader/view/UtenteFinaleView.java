@@ -29,7 +29,7 @@ public class UtenteFinaleView implements View {
 		
 		System.out.println("DenominazioneSocieta\tFormaGiuridica\tSedeLegale\tPartitaIva"
 				+ "\tTelefono\tEmail\tIndirizzoUnitaLocale\tAttivitaAzienda"
-				+ "\tLegaleRappresentante\tNatoA\tNatoIl\tIdUtente");
+				+ "\tLegaleRappresentante\tNatoA\tNatoIl\tId user associato");
 		System.out.print("------------------------------------------------------");
 		List<UtenteFinale> utentiFinali = utentiFinaliController.getAllUtenteFinale();
 		System.out.println();

@@ -60,7 +60,7 @@ public class UtenteFinaleInsertView implements View {
 		natoA = getInput();
 		System.out.println("Digita la data di nascita: ");
 		natoIl = getInput();
-		System.out.println("Digita l'id utente: ");
+		System.out.println("Digita l'id user associato: ");
 		idUtente = Integer.parseInt(getInput());
 		
 		

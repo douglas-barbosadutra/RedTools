@@ -42,7 +42,7 @@ public class UtenteFinaleReadView implements View {
 			System.out.println("Legale rappresentante: " + utenteFinaleDB.getLegaleRappresentante());
 			System.out.println("Nato a: " + utenteFinaleDB.getNatoA());
 			System.out.println("Nato il: " + utenteFinaleDB.getNatoIl());
-			System.out.println("Id utente: " + utenteFinaleDB.getIdUtente());
+			System.out.println("Id User Associato: " + utenteFinaleDB.getIdUtente());
 			
 			
 			//Wait utenteFinale to show

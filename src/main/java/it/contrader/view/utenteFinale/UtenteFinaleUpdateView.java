@@ -93,7 +93,7 @@ public class UtenteFinaleUpdateView implements View {
 				natoIl = getInput();
 				if (!natoIl.equals(""))
 					utenteFinaleDTO.setNatoIl(natoIl);
-				System.out.println("Digita l'id utente: ");
+				System.out.println("Digita l'Id User Associato: ");
 				idUtente = Integer.parseInt(getInput());
 				if (idUtente != 0)
 					utenteFinaleDTO.setIdUtente(idUtente);
