@@ -1,6 +1,5 @@
 package it.contrader.view.utenteFinale;
 
-import java.util.List;
 import java.util.Scanner;
 
 import com.mysql.cj.util.StringUtils;
@@ -29,7 +28,7 @@ public class UtenteFinaleDeleteView implements View {
 			//String idutenteFinale;
 
 			//utenteFinale = utenteFinaleController.getAllUtenteFinale();
-			System.out.println("Seleziona l'utente finale da cancellare : ");
+			System.out.println("Digita la Partita Iva dell'utente finale da cancellare : ");
 			//System.out.println();
 			//utenteFinale.forEach(utenteFinale -> System.out.println(utenteFinale));
 			//System.out.println();
