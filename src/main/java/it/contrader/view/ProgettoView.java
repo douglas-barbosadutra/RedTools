@@ -2,7 +2,7 @@ package it.contrader.view;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.ArrayList;
+
 
 import it.contrader.controller.Request;
 import it.contrader.controller.ProgettoController;

@@ -8,7 +8,7 @@ import com.mysql.cj.util.StringUtils;
 import it.contrader.controller.Request;
 import it.contrader.controller.UserController;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.User;
+
 import it.contrader.view.View;
 
 public class UserDeleteView implements View {

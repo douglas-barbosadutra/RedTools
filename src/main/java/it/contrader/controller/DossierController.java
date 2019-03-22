@@ -14,7 +14,7 @@ public class DossierController implements Controller {
 	
 	private static String sub_package = "dossier.";
 	private DossierService dossierService;
-	private Request request;
+	
 	
 
 	

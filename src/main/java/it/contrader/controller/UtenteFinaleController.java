@@ -12,7 +12,7 @@ public class UtenteFinaleController implements Controller {
 	
 	private static String sub_package = "utenteFinale.";
 	private UtenteFinaleService utenteFinaleService;
-	private Request request;
+	
 
 	public UtenteFinaleController() {
 		this.utenteFinaleService = new UtenteFinaleService();

@@ -14,6 +14,7 @@ public class DossierReadView  implements View {
 	
 	private DossierController dossierController;
 	private Request request;
+	private Scanner scanner;
 
 	public DossierReadView() {
 		this.dossierController = new DossierController();

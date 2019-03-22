@@ -11,7 +11,7 @@ import java.util.List;
 import it.contrader.controller.GestoreEccezioni;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Dossier;
-import it.contrader.model.User;
+
 
 public class DossierDAO {
 

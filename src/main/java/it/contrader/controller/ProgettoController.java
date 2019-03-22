@@ -11,7 +11,7 @@ public class ProgettoController implements Controller {
 
     private static String sub_package = "progetto.";
 	private ProgettoService progettoService;
-	private Request request;
+	
 
 	public ProgettoController() {
 		this.progettoService = new ProgettoService();
