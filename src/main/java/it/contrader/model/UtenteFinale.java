@@ -190,8 +190,6 @@ public class UtenteFinale {
 			return false;
 		}
 		
-		
-		
 		return true;
 	}
 
