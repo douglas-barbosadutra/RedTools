@@ -85,23 +85,28 @@ public class UtenteFinaleDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setString(1, partitaIva);
 			ResultSet resultSet = preparedStatement.executeQuery();
-			resultSet.next();
+			if (resultSet.next()) {
 
-			String denominazioneSocieta= resultSet.getString("denominazione_societa");
-			String formaGiuridica = resultSet.getString("forma_giuridica");
-			String sedeLegale = resultSet.getString("sede_legale");
-			String telefono = resultSet.getString("telefono");
-			String email = resultSet.getString("e_mail");
-			String indirizzoUnitaLocale = resultSet.getString("indirizzo_unita_locale");
-			String attivitaAzienda = resultSet.getString("attivita_azienda");
-			String legaleRappresentante = resultSet.getString("legale_rappresentante");
-			String natoA = resultSet.getString("nato_a");
-			String natoIl = resultSet.getString("nato_il");
-			int idUtente = resultSet.getInt("id_utente");
-			UtenteFinale utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
-					partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl, idUtente);
-
-			return utenteFinale;
+				String denominazioneSocieta= resultSet.getString("denominazione_societa");
+				String formaGiuridica = resultSet.getString("forma_giuridica");
+				String sedeLegale = resultSet.getString("sede_legale");
+				String telefono = resultSet.getString("telefono");
+				String email = resultSet.getString("e_mail");
+				String indirizzoUnitaLocale = resultSet.getString("indirizzo_unita_locale");
+				String attivitaAzienda = resultSet.getString("attivita_azienda");
+				String legaleRappresentante = resultSet.getString("legale_rappresentante");
+				String natoA = resultSet.getString("nato_a");
+				String natoIl = resultSet.getString("nato_il");
+				int idUtente = resultSet.getInt("id_utente");
+				UtenteFinale utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
+						partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl, idUtente);
+	
+				return utenteFinale;
+				
+			} else {
+				System.out.println("Utente non presente");
+				return null;
+			}
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
 			return null;
