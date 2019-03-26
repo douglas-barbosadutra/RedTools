@@ -6,10 +6,10 @@
     <!--  See http://maven.apache.org/pom.html for a full description of all supported values -->
 
     <!-- GroupID - identifies WHO is making the project -->
-    <groupId>com.virtualpairprogrammers</groupId>
+    <groupId>it.contrader</groupId>
 
     <!--  ArtifactId - the name of this project -->
-    <artifactId>rttCom</artifactId>
+    <artifactId>JspApp</artifactId>
 
     <!--  The current version -->
     <version>1.0</version>
@@ -18,10 +18,10 @@
     <packaging>war</packaging>
 
     <!--  This is optional, used for any local names for the project. Can be "softer" than the artifactId -->
-    <name>rttCom</name>
+    <name>JspApp</name>
 
     <!--  The website for the project -->
-    <url>http://rttCom.virtualpairprogrammers.com</url>
+    <url>http://localhost:8080/JspApp</url>
 
     <!--  And now, a list of Maven projects that we depend upon -->
     <dependencies>
