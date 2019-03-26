@@ -14,13 +14,17 @@ public class UtenteFinale {
 	String natoA;
 	String natoIl;
 	int idUtente;
+	int id;
 	
 	public UtenteFinale() {
 	}
 
+	
+
 	public UtenteFinale(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String partitaIva,
 			String telefono, String email, String indirizzoUnitaLocale, String attivitaAzienda,
-			String legaleRappresentante, String natoA, String natoIl, int idUtente) {
+			String legaleRappresentante, String natoA, String natoIl, int idUtente, int id) {
+		super();
 		this.denominazioneSocieta = denominazioneSocieta;
 		this.formaGiuridica = formaGiuridica;
 		this.sedeLegale = sedeLegale;
@@ -33,7 +37,22 @@ public class UtenteFinale {
 		this.natoA = natoA;
 		this.natoIl = natoIl;
 		this.idUtente = idUtente;
+		this.id = id;
 	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public String getDenominazioneSocieta() {
 		return denominazioneSocieta;
@@ -138,7 +157,7 @@ public class UtenteFinale {
 		+ "\t" + this.getTelefono()+ "\t" + this.getEmail()
 		+ "\t" + this.getIndirizzoUnitaLocale()+ "\t" + this.getAttivitaAzienda()
 		+ "\t" + this.getLegaleRappresentante()+ "\t" + this.getNatoA()
-		+ "\t" + this.getNatoIl()+ "\t" + this.getIdUtente();
+		+ "\t" + this.getNatoIl()+ "\t" + this.getIdUtente()+ "\t" + this.getId();
 	}
 
 	public boolean equals(UtenteFinale utenteFinaleCompare) {
@@ -187,6 +206,11 @@ public class UtenteFinale {
 		}
 		
 		if (!(this.getIdUtente() == utenteFinaleCompare.getIdUtente())) {
+			return false;
+		}
+		
+		
+		if (!(this.getId() == utenteFinaleCompare.getId())) {
 			return false;
 		}
 		

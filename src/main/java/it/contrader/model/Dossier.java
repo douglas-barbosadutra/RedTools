@@ -7,25 +7,33 @@ public class Dossier {
 	private int numeroDipendenti;
 	private double costiAttivitaRd;
 	private double costiPersonaleRd;
-	private String partitaIva;
+	private int idUtenteFinale;
 	private int idProgetto;
 	private int idDossier;
 	
 	public Dossier() {
 	}
 
+	
+
+	
+
+
 	public Dossier(String periodoDiImposta, int costoDipendenti, double fatturatoPeriodoDiImposta, int numeroDipendenti,
-			double costiAttivitaRd, double costiPersonaleRd, String partitaIva, int idProgetto, int idDossier) {
+			double costiAttivitaRd, double costiPersonaleRd, int idUtenteFinale, int idProgetto, int idDossier) {
+		super();
 		this.periodoDiImposta = periodoDiImposta;
 		this.costoDipendenti = costoDipendenti;
 		this.fatturatoPeriodoDiImposta = fatturatoPeriodoDiImposta;
 		this.numeroDipendenti = numeroDipendenti;
 		this.costiAttivitaRd = costiAttivitaRd;
 		this.costiPersonaleRd = costiPersonaleRd;
-		this.partitaIva = partitaIva;
+		this.idUtenteFinale = idUtenteFinale;
 		this.idProgetto = idProgetto;
 		this.idDossier = idDossier;
 	}
+
+
 
 	public String getPeriodoDiImposta() {
 		return periodoDiImposta;
@@ -75,13 +83,7 @@ public class Dossier {
 		this.costiPersonaleRd = costiPersonaleRd;
 	}
 
-	public String getPartitaIva() {
-		return partitaIva;
-	}
-
-	public void setPartitaIva(String partitaIva) {
-		this.partitaIva = partitaIva;
-	}
+	
 
 	public int getIdProgetto() {
 		return idProgetto;
@@ -99,12 +101,23 @@ public class Dossier {
 		this.idDossier = idDossier;
 	}
 	
+	public int getIdUtenteFinale() {
+		return idUtenteFinale;
+	}
+
+
+
+	public void setIdUtenteFinale(int idUtenteFinale) {
+		this.idUtenteFinale = idUtenteFinale;
+	}
+
+	
 	@Override
 	public String toString() {
 		return this.getIdDossier() + "\t" + this.getPeriodoDiImposta()
 		+ "\t" + this.getCostoDipendenti()+ "\t" + this.getFatturatoPeriodoDiImposta()
 		+ "\t" + this.getNumeroDipendenti()+ "\t" + this.getCostiAttivitaRd()
-		+ "\t" + this.getCostiPersonaleRd()+ "\t" + this.getPartitaIva()
+		+ "\t" + this.getCostiPersonaleRd()+ "\t" + this.getIdUtenteFinale()
 		+ "\t" + this.getIdProgetto();
 	}
 
@@ -133,7 +146,7 @@ public class Dossier {
 			return false;
 		}
 		
-		if (!(this.getPartitaIva() == dossierCompare.getPartitaIva())) {
+		if (!(this.getIdUtenteFinale() == dossierCompare.getIdUtenteFinale())) {
 			return false;
 		}
 		
