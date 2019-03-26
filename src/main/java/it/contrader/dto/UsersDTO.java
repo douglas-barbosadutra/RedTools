@@ -7,25 +7,25 @@ package it.contrader.dto;
  */
 public class UsersDTO {
 
-	private Integer id;
+	private Integer userId;
 	private String username;
 	private String password;
-	private String ruolo;
+	private String usertype;
 	
-	public UsersDTO(Integer id, String username, String password, String ruolo) {
+	public UsersDTO(Integer id, String username, String password, String usertype) {
 		super();
-		this.id = id;
+		this.userId = id;
 		this.username = username;
 		this.password = password;
-		this.ruolo = ruolo;
+		this.usertype = usertype;
 	}
 
 	public Integer getId() {
-		return id;
+		return userId;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.userId = id;
 	}
 
 	public String getUsername() {
@@ -44,11 +44,11 @@ public class UsersDTO {
 		this.password = password;
 	}
 	public String getRuolo() {
-		return ruolo;
+		return usertype;
 	}
 
-	public void setRuolo(String ruolo) {
-		this.ruolo = ruolo;
+	public void setRuolo(String usertype) {
+		this.usertype = usertype;
 	}
 
 }
