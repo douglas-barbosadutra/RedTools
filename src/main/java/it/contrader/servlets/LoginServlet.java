@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
 			switch (userDTO.getUsertype()) {
-			case "ADMIN":
+			case "superuser":
 				getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
 				break;
 			case "CHAT MASTER":
