@@ -11,7 +11,7 @@
 		<button type="submit" value="esempioManager" name="richiesta">
 			bottone esempio</button>
 	</form>
-	<!--  
+	
      <h3>2. Badges</h3>
      <form action="BadgeServlet" method="post">
      <button type="submit" value="badgesManagement" name="richiesta"> Management badge</button>
@@ -27,11 +27,11 @@
      <input type="submit" value="indietro" name="richiesta">
      </form>
      
-       <h3>5.logout<h3>
+      <h3>5.logout</h3>
      <form action="LogoutServlet" method="post">
      <input type="submit" value="Logout" name="Logout">
      </form>
--->
+
 
 
 </body>
