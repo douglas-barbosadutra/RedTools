@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import it.contrader.controller.GestoreEccezioni;
-import it.contrader.main.ConnectionSingleton;
+import it.contrader.utils.GestoreEccezioni;
+import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.User;
 
 public class UserDAO {
@@ -17,13 +17,14 @@ public class UserDAO {
 
 	private final String QUERY_UPDATE = "UPDATE tab_user SET username=?, password=?, usertype=? WHERE userId=?";
 	private final String QUERY_DELETE = "DELETE FROM tab_user WHERE userId=?";
+	private final String QUERY_LOGIN = "select * from tab_user where username=(?) and password=(?)";
 
 	public UserDAO() {
 
 	}
 
 	public List<User> getAllUser() {
-		List<User> usersList = new ArrayList<>();
+		List<User> userList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
@@ -36,12 +37,12 @@ public class UserDAO {
 				String usertype = resultSet.getString("usertype");
 				user = new User(username, password, usertype);
 				user.setUserId(userId);
-				usersList.add(user);
+				userList.add(user);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return usersList;
+		return userList;
 	}
 
 	public boolean insertUser(User user) {
@@ -58,6 +59,32 @@ public class UserDAO {
 			return false;
 		}
 
+	}
+	
+	public User login(String username, String password) {
+
+		Connection connection = ConnectionSingleton.getInstance();
+		User utente = null;
+		try {
+			PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
+			statement.setString(1, username);
+			statement.setString(2, password);
+			statement.execute();
+			ResultSet resultSet = statement.getResultSet();
+
+			while (resultSet.next()) {
+				String name = resultSet.getString("username");
+				String pass = resultSet.getString("password");
+				int userId = resultSet.getInt("userId");
+				String userType = resultSet.getString("usertype");
+				utente = new User(name, pass, userType);
+				utente.setUserId(userId);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return utente;
 	}
 
 	public User readUser(int userId) {

@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.contrader.dto.UsersDTO;
-import it.contrader.service.UsersServiceDTO;
+import it.contrader.dto.UserDTO;
+import it.contrader.service.UserService;
 
 public class LoginServlet extends HttpServlet {
 
-	private final UsersServiceDTO usersServiceDTO = new UsersServiceDTO();
+	private final UserService userService = new UserService();
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,14 +25,14 @@ public class LoginServlet extends HttpServlet {
 			final String nomeUtente = request.getParameter("username").toString();
 			final String password = request.getParameter("password").toString();
 			// recuperiamo l'utente
-			final UsersDTO usersDTO = usersServiceDTO.getUserByUsernameAndPasword(nomeUtente, password);
+			final UserDTO userDTO = userService.getUserByUsernameAndPasword(nomeUtente, password);
 
-			if (usersDTO != null)
-				session.setAttribute("utente", usersDTO);
+			if (userDTO != null)
+				session.setAttribute("utente", userDTO);
 
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
-			switch (usersDTO.getRuolo()) {
+			switch (userDTO.getUsertype()) {
 			case "ADMIN":
 				getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
 				break;

@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import it.contrader.controller.GestoreEccezioni;
-import it.contrader.main.ConnectionSingleton;
+import it.contrader.utils.ConnectionSingleton;
+import it.contrader.utils.GestoreEccezioni;
 
 public class LoginDAO {
 

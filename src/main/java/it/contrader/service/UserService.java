@@ -1,11 +1,15 @@
 package it.contrader.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.converter.ConverterUser;
+import it.contrader.converter.UsersConverter;
 import it.contrader.dao.UserDAO;
 import it.contrader.dto.UserDTO;
+import it.contrader.dto.UsersDTO;
 import it.contrader.model.User;
+import it.contrader.model.Users;
 
 public class UserService {
 
@@ -15,9 +19,23 @@ public class UserService {
 		this.userDAO = new UserDAO();
 	}
 
-	public List<User> getAllUser() {
-		return this.userDAO.getAllUser();
+	public List<UserDTO> getAllUser() {
+
+		List<User> list = userDAO.getAllUser();
+		List<UserDTO> listDTO = new ArrayList<>();
+
+		for (User user : list) {
+			listDTO.add(ConverterUser.toDTO(user));
+		}
+
+		return listDTO;
 	}
+	
+
+	public UserDTO getUserByUsernameAndPasword(String username, String password) {
+		return ConverterUser.toDTO(userDAO.login(username, password));
+	}
+
 
 	public boolean insertUser(UserDTO userDTO) {
 				return this.userDAO.insertUser(ConverterUser.toEntity(userDTO));
