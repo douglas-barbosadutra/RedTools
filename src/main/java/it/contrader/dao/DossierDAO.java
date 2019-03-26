@@ -16,9 +16,9 @@ import it.contrader.utils.GestoreEccezioni;
 public class DossierDAO {
 
 	private final String QUERY_ALL = "select * from tab_dossier";
-	private final String QUERY_INSERT = "insert into tab_dossier (periodo_di_imposta, costo_dipendenti_periodo_imposta, fatturato_periodo_di_imposta, numero_totale_dipendenti, costo_complessivo_attivita, costo_personale,pi_utente_finale, id_progetto ) values (?,?,?,?,?,?,?,?)";
+	private final String QUERY_INSERT = "insert into tab_dossier (periodo_di_imposta, costo_dipendenti_periodo_imposta, fatturato_periodo_di_imposta, numero_totale_dipendenti, costo_complessivo_attivita, costo_personale, idUtenteFinale, id_progetto ) values (?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "select * from tab_dossier where id=?";
-	private final String QUERY_UPDATE = "UPDATE tab_dossier SET periodo_di_imposta=?, costo_dipendenti_periodo_imposta=?, fatturato_periodo_di_imposta=?, numero_totale_dipendenti=?, costo_complessivo_attivita=?, costo_personale=?, pi_utente_finale=?, id_progetto=?  where id=?";
+	private final String QUERY_UPDATE = "UPDATE tab_dossier SET periodo_di_imposta=?, costo_dipendenti_periodo_imposta=?, fatturato_periodo_di_imposta=?, numero_totale_dipendenti=?, costo_complessivo_attivita=?, costo_personale=?, idUtenteFinale=?, id_progetto=?  where id=?";
 	private final String QUERY_DELETE = "DELETE FROM tab_dossier where id=?";
 
 	public DossierDAO() {
@@ -38,13 +38,13 @@ public class DossierDAO {
 				int numeroDipendenti = resultSet.getInt("numero_totale_dipendenti");
 				double costiAttivitaRd = resultSet.getDouble("costo_complessivo_attivita");
 				double costiPersonaleRd = resultSet.getDouble("costo_personale");
-				String partitaIva = resultSet.getString("pi_utente_finale");
+				int idUtenteFinale = resultSet.getInt("idUtenteFinale"); 
 				int idProgetto = resultSet.getInt("id_progetto");
 				int idDossier = resultSet.getInt("id");
 				String periodoDiImposta = resultSet.getString("periodo_di_imposta");
 				dossier = new Dossier(periodoDiImposta, costoDipendenti, fatturatoPeriodoDiImposta, numeroDipendenti,
-						costiAttivitaRd, costiPersonaleRd, partitaIva, idProgetto, idDossier);
-				dossier.setPartitaIva(partitaIva);
+						costiAttivitaRd, costiPersonaleRd, idUtenteFinale, idProgetto, idDossier);
+				dossier.setIdUtenteFinale(idUtenteFinale);
 				dossierList.add(dossier);
 			}
 		} catch (SQLException e) {
@@ -63,7 +63,7 @@ public class DossierDAO {
 			preparedStatement.setInt(4, dossier.getNumeroDipendenti());
 			preparedStatement.setDouble(5, dossier.getCostiAttivitaRd());
 			preparedStatement.setDouble(6, dossier.getCostiPersonaleRd());
-			preparedStatement.setString(7, dossier.getPartitaIva());
+			preparedStatement.setInt(7, dossier.getIdUtenteFinale());
 			preparedStatement.setInt(8, dossier.getIdProgetto());
 
 			preparedStatement.execute();
@@ -89,8 +89,9 @@ public class DossierDAO {
 			double costiPersonaleRd;
 			String periodoDiImposta;
 			int idProgetto;
-
-			String partitaIva = resultSet.getString("pi_utente_finale");
+			int idUtenteFinale;
+			
+			idUtenteFinale = resultSet.getInt("idUtenetFinale");
 			costoDipendenti = resultSet.getInt("costo_dipendenti_periodo_imposta");
 			fatturatoPeriodoDiImposta = resultSet.getDouble("fatturato_periodo_di_imposta");
 			numeroDipendente = resultSet.getInt("numero_totale_dipendenti");
@@ -99,7 +100,7 @@ public class DossierDAO {
 			periodoDiImposta = resultSet.getString("periodo_di_imposta");
 			idProgetto = resultSet.getInt("id_progetto");
 			Dossier dossier = new Dossier(periodoDiImposta, costoDipendenti, fatturatoPeriodoDiImposta,
-					numeroDipendente, costiAttiviRd, costiPersonaleRd, partitaIva, idProgetto, id);
+					numeroDipendente, costiAttiviRd, costiPersonaleRd,idUtenteFinale, idProgetto, id);
 
 			return dossier;
 		} catch (SQLException e) {
@@ -121,8 +122,8 @@ public class DossierDAO {
 			try {
 				// Fill the userToUpdate object
 
-				if (dossierToUpdate.getPartitaIva() == null || dossierToUpdate.getPartitaIva().equals("")) {
-					dossierToUpdate.setPartitaIva(dossierRead.getPartitaIva());
+				if (dossierToUpdate.getIdUtenteFinale() == 0) {
+					dossierToUpdate.setIdUtenteFinale(dossierRead.getIdUtenteFinale());
 				}
 
 				if (dossierToUpdate.getCostoDipendenti() == 0) {
@@ -165,7 +166,7 @@ public class DossierDAO {
 				preparedStatement.setInt(4, dossierToUpdate.getNumeroDipendenti());
 				preparedStatement.setDouble(5, dossierToUpdate.getCostiAttivitaRd());
 				preparedStatement.setDouble(6, dossierToUpdate.getCostiPersonaleRd());
-				preparedStatement.setString(7, dossierToUpdate.getPartitaIva());
+				preparedStatement.setInt(7, dossierToUpdate.getIdUtenteFinale());
 				preparedStatement.setInt(8, dossierToUpdate.getIdProgetto());
 				preparedStatement.setInt(9, dossierToUpdate.getIdDossier());
 

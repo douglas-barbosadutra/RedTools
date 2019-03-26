@@ -6,7 +6,7 @@ public class DossierDTO {
 	private int numeroDipendenti;
 	private double costiAttivitaRd;
 	private double costiPersonaleRd;
-	private String partitaIva;
+	private int idUtentefinale;
 	private int idProgetto;
 	private int idDossier;
 	private String periodoDiImposta;
@@ -14,8 +14,9 @@ public class DossierDTO {
 	public DossierDTO() {
 	}
 	
+	
 	public DossierDTO(int costoDipendenti, double fatturatoPeriodoDiImposta, int numeroDipendenti,
-			double costiAttivitaRd, double costiPersonaleRd, String partitaIva, int idProgetto,
+			double costiAttivitaRd, double costiPersonaleRd, int idUtentefinale, int idProgetto, int idDossier,
 			String periodoDiImposta) {
 		super();
 		this.costoDipendenti = costoDipendenti;
@@ -23,11 +24,13 @@ public class DossierDTO {
 		this.numeroDipendenti = numeroDipendenti;
 		this.costiAttivitaRd = costiAttivitaRd;
 		this.costiPersonaleRd = costiPersonaleRd;
-		this.partitaIva = partitaIva;
+		this.idUtentefinale = idUtentefinale;
 		this.idProgetto = idProgetto;
 		this.idDossier = idDossier;
 		this.periodoDiImposta = periodoDiImposta;
 	}
+
+
 	public int getCostoDipendenti() {
 		return costoDipendenti;
 	}
@@ -58,12 +61,18 @@ public class DossierDTO {
 	public void setCostiPersonaleRd(double costiPersonaleRd) {
 		this.costiPersonaleRd = costiPersonaleRd;
 	}
-	public String getPartitaIva() {
-		return partitaIva;
+	
+	
+	public int getIdUtentefinale() {
+		return idUtentefinale;
 	}
-	public void setPartitaIva(String partitaIva) {
-		this.partitaIva = partitaIva;
+
+
+	public void setIdUtentefinale(int idUtentefinale) {
+		this.idUtentefinale = idUtentefinale;
 	}
+
+
 	public int getIdProgetto() {
 		return idProgetto;
 	}
