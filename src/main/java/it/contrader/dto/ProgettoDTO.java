@@ -4,16 +4,35 @@ public class ProgettoDTO {
 
 	private int idprogetto;
 	private String nomeprogetto;
+	private int idUtenteFinale;
 	
 
-	public ProgettoDTO(String nomeprogetto) {
+	
+	public ProgettoDTO(int idprogetto, String nomeprogetto, int idUtenteFinale) {
+		super();
 		this.idprogetto = idprogetto;
 		this.nomeprogetto = nomeprogetto;
-		
+		this.idUtenteFinale = idUtenteFinale;
 	}
+
+	
 	
 	public ProgettoDTO() {} 
 	
+	
+	
+	public int getIdUtenteFinale() {
+		return idUtenteFinale;
+	}
+
+
+
+	public void setIdUtenteFinale(int idUtenteFinale) {
+		this.idUtenteFinale = idUtenteFinale;
+	}
+
+
+
 	public int getIdProgetto() {
 		return idprogetto;
 	}

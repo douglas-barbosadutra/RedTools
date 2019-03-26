@@ -23,16 +23,16 @@ public class UtenteFinaleService {
 				return this.utenteFinaleDAO.insertUtenteFinale(ConverterUtenteFinale.toEntity(utenteFinaleDTO));
 	}
 	
-	public UtenteFinaleDTO readUtenteFinale(String partitaIva) {
-		return ConverterUtenteFinale.toDTO(this.utenteFinaleDAO.readUtenteFinale(partitaIva));
+	public UtenteFinaleDTO readUtenteFinale(int id) {
+		return ConverterUtenteFinale.toDTO(this.utenteFinaleDAO.readUtenteFinale(id));
 	}
 	
 	public boolean updateUtenteFinale(UtenteFinaleDTO utenteFinaleDTO) {
 		return this.utenteFinaleDAO.updateUtenteFinale(ConverterUtenteFinale.toEntity(utenteFinaleDTO));
 	}
 	
-	public boolean deleteUtenteFinale(String partitaIva) {
-		return this.utenteFinaleDAO.deleteUtenteFinale(partitaIva);
+	public boolean deleteUtenteFinale(int id) {
+		return this.utenteFinaleDAO.deleteUtenteFinale(id);
 	}
 	
 	

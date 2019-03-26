@@ -16,10 +16,10 @@ public class UtenteFinaleDAO {
 
 	private final String QUERY_ALL = "SELECT * FROM tab_utente_finale";
 	private final String QUERY_INSERT = "INSERT INTO tab_utente_finale (denominazione_societa, forma_giuridica, sede_legale, partita_iva, telefono, e_mail, indirizzo_unita_locale, attivita_azienda, legale_rappresentante, nato_a, nato_il, id_utente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-	private final String QUERY_READ = "SELECT * FROM tab_utente_finale WHERE partita_iva = ?";
+	private final String QUERY_READ = "SELECT * FROM tab_utente_finale WHERE id = ?";
 
-	private final String QUERY_UPDATE = "UPDATE tab_utente_finale SET denominazione_societa = ?, forma_giuridica = ?, sede_legale = ?, partita_iva = ?, telefono = ?, e_mail = ?, indirizzo_unita_locale = ?, attivita_azienda = ?, legale_rappresentante = ?, nato_a = ?, nato_il = ?, id_utente = ? WHERE partita_iva = ?";
-	private final String QUERY_DELETE = "DELETE FROM tab_utente_finale WHERE partita_iva = ?";
+	private final String QUERY_UPDATE = "UPDATE tab_utente_finale SET denominazione_societa = ?, forma_giuridica = ?, sede_legale = ?, partita_iva = ?, telefono = ?, e_mail = ?, indirizzo_unita_locale = ?, attivita_azienda = ?, legale_rappresentante = ?, nato_a = ?, nato_il = ?, id_utente = ? WHERE id = ?";
+	private final String QUERY_DELETE = "DELETE FROM tab_utente_finale WHERE id = ?";
 
 	public UtenteFinaleDAO() {
 
@@ -45,9 +45,10 @@ public class UtenteFinaleDAO {
 				String natoA = resultSet.getString("nato_a");
 				String natoIl = resultSet.getString("nato_il");
 				int idUtente = resultSet.getInt("id_utente");
+				int id = resultSet.getInt("id");
 				utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
 						partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda,
-						legaleRappresentante, natoA, natoIl, idUtente);
+						legaleRappresentante, natoA, natoIl, idUtente, id);
 				utenteFinaleList.add(utenteFinale);
 			}
 		} catch (SQLException e) {
@@ -82,14 +83,14 @@ public class UtenteFinaleDAO {
 
 	}
 
-	public UtenteFinale readUtenteFinale(String partitaIva) {
+	public UtenteFinale readUtenteFinale(int id) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setString(1, partitaIva);
+			preparedStatement.setInt(1, id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
-
+				String partitaIva= resultSet.getString("partita_iva");
 				String denominazioneSocieta= resultSet.getString("denominazione_societa");
 				String formaGiuridica = resultSet.getString("forma_giuridica");
 				String sedeLegale = resultSet.getString("sede_legale");
@@ -101,8 +102,10 @@ public class UtenteFinaleDAO {
 				String natoA = resultSet.getString("nato_a");
 				String natoIl = resultSet.getString("nato_il");
 				int idUtente = resultSet.getInt("id_utente");
+				 id = resultSet.getInt("id");
+				
 				UtenteFinale utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
-						partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl, idUtente);
+						partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl, idUtente, id);
 	
 				return utenteFinale;
 				
@@ -121,7 +124,7 @@ public class UtenteFinaleDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (utenteFinaleToUpdate.getPartitaIva() == null || utenteFinaleToUpdate.getPartitaIva().equals(""))
+		if (utenteFinaleToUpdate.getId() == 0 )
 			return false;
 
 		UtenteFinale utenteFinaleRead = readUtenteFinale(utenteFinaleToUpdate.getPartitaIva());
@@ -186,7 +189,7 @@ public class UtenteFinaleDAO {
 				preparedStatement.setString(10, utenteFinaleToUpdate.getNatoA());
 				preparedStatement.setString(11, utenteFinaleToUpdate.getNatoIl());
 				preparedStatement.setInt(12, utenteFinaleToUpdate.getIdUtente());
-				preparedStatement.setString(13, utenteFinaleToUpdate.getPartitaIva());
+				preparedStatement.setInt(13, utenteFinaleToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
@@ -203,11 +206,11 @@ public class UtenteFinaleDAO {
 		
 	}
 
-	public boolean deleteUtenteFinale(String partitaIva) {
+	public boolean deleteUtenteFinale(int id) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setString(1, partitaIva);
+			preparedStatement.setInt(1, id);
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;

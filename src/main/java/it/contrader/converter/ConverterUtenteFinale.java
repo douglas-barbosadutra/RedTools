@@ -24,6 +24,7 @@ public class ConverterUtenteFinale {
 			utenteFinaleDTO.setNatoA(utenteFinale.getNatoA());
 			utenteFinaleDTO.setNatoIl(utenteFinale.getNatoIl());
 			utenteFinaleDTO.setIdUtente(utenteFinale.getIdUtente());
+			utenteFinaleDTO.setId(utenteFinale.getId());
 		}
 		return utenteFinaleDTO;
 	}
@@ -44,6 +45,7 @@ public class ConverterUtenteFinale {
 			utenteFinale.setNatoA(utenteFinaleDTO.getNatoA());
 			utenteFinale.setNatoIl(utenteFinaleDTO.getNatoIl());
 			utenteFinale.setIdUtente(utenteFinaleDTO.getIdUtente());
+			utenteFinale.setId(utenteFinaleDTO.getId());
 			
 		}
 		return utenteFinale;

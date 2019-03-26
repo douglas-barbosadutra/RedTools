@@ -13,10 +13,13 @@ public class UtenteFinaleDTO {
 	String natoA;
 	String natoIl;
 	int idUtente;
+	int id;
 	
-	public UtenteFinaleDTO(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String partitaIva, String telefono,
-			String email, String indirizzoUnitaLocale, String attivitaAzienda, String legaleRappresentante,
-			String natoA, String natoIl, int idUtente) {
+	
+	public UtenteFinaleDTO(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String partitaIva,
+			String telefono, String email, String indirizzoUnitaLocale, String attivitaAzienda,
+			String legaleRappresentante, String natoA, String natoIl, int idUtente, int id) {
+		super();
 		this.denominazioneSocieta = denominazioneSocieta;
 		this.formaGiuridica = formaGiuridica;
 		this.sedeLegale = sedeLegale;
@@ -29,12 +32,25 @@ public class UtenteFinaleDTO {
 		this.natoA = natoA;
 		this.natoIl = natoIl;
 		this.idUtente = idUtente;
+		this.id = id;
 	}
-	
+
 	public UtenteFinaleDTO() {
 		
 	}
 	
+	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getDenominazioneSocieta() {
 		return denominazioneSocieta;
 	}

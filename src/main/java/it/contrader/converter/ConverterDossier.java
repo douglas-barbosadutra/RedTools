@@ -24,7 +24,7 @@ public class ConverterDossier {
 				dossierDTO.setNumeroDipendenti(dossier.getNumeroDipendenti());
 				dossierDTO.setCostiAttivitaRd(dossier.getCostiAttivitaRd());
 				dossierDTO.setCostiPersonaleRd(dossier.getCostiPersonaleRd());
-				dossierDTO.setPartitaIva(dossier.getPartitaIva());
+				dossierDTO.setIdUtentefinale(dossier.getIdUtenteFinale());
 				dossierDTO.setIdProgetto(dossier.getIdProgetto());
 				dossierDTO.setIdDossier(dossier.getIdDossier());
 				dossierDTO.setPeriodoDiImposta(dossier.getPeriodoDiImposta());
@@ -43,7 +43,7 @@ public class ConverterDossier {
 			dossier.setNumeroDipendenti(dossierDTO.getNumeroDipendenti());
 			dossier.setCostiAttivitaRd(dossierDTO.getCostiAttivitaRd());
 			dossier.setCostiPersonaleRd(dossierDTO.getCostiPersonaleRd());
-			dossier.setPartitaIva(dossierDTO.getPartitaIva());
+			dossier.setIdUtenteFinale(dossierDTO.getIdUtentefinale());
 			dossier.setIdProgetto(dossierDTO.getIdProgetto());
 			dossier.setIdDossier(dossierDTO.getIdDossier());
 			dossier.setPeriodoDiImposta(dossierDTO.getPeriodoDiImposta());
