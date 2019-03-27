@@ -127,7 +127,7 @@ public class UtenteFinaleDAO {
 		if (utenteFinaleToUpdate.getId() == 0 )
 			return false;
 
-		UtenteFinale utenteFinaleRead = readUtenteFinale(utenteFinaleToUpdate.getPartitaIva());
+		UtenteFinale utenteFinaleRead = readUtenteFinale(utenteFinaleToUpdate.getId());
 		if (!utenteFinaleRead.equals(utenteFinaleToUpdate)) {
 			try {
 				// Fill the utenteFinaleToUpdate object
