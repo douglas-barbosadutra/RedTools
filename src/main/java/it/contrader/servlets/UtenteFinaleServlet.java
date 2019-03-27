@@ -61,7 +61,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			UtenteFinaleDTO utenteFinaleUpdate = new UtenteFinaleDTO("", "", "", "", "", "", "", "", "", "", "", idUtente, id);
+			UtenteFinaleDTO utenteFinaleUpdate = new UtenteFinaleDTO("","","","","","","","","","","",0,0);
 			utenteFinaleUpdate.setId(id);
 
 			utenteFinaleUpdate = this.utenteFinaleServiceDTO.readUtenteFinale(id);
@@ -89,21 +89,21 @@ public class UtenteFinaleServlet extends HttpServlet {
 			final String natoAUpdate = request.getParameter("nato_a");
 			final String natoIlUpdate = request.getParameter("nato_il");
 			final int idUtenteUpdate =Integer.parseInt( request.getParameter("id_utente"));
-			final UtenteFinaleDTO utenteFinale1 = new UtenteFinaleDTO(denominazioneSocieta, formaGiuridica, sedeLegale,
-					partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl, idUtente, 0);
+			final UtenteFinaleDTO utenteFinale1 = new UtenteFinaleDTO(denominazioneSocietaUpdate,formaGiuridicaUpdate,sedeLegaleUpdate,partitaIvaUpdate,telefonoUpdate,
+								  emailUpdate,indirizzoUnitaLocaleUpdate,attivitaAziendaUpdate,legaleRappresentanteUpdate,natoAUpdate,natoIlUpdate,idUpdate,idUtenteUpdate );
 			
 			
-			utenteFinaleServiceDTO.updateUtenteFinale(utenteFinale);
-			showAllUsers(request, response);
+			utenteFinaleServiceDTO.updateUtenteFinale(utenteFinale1);
+			showAllUtenteFinale(request, response);
 			break;
 
 		case "delete":
 			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 
-			final UtenteFinaleDTO utenteFinaledelete = new  UtenteFinaleDTO("", "", "", "", "", "", "", "", "", "", "", idUtente, id);
+			final UtenteFinaleDTO utenteFinaledelete = new  UtenteFinaleDTO("", "", "", "", "", "", "", "", "", "", "", 0, 0);
 			utenteFinaledelete.setId(deleteId);
-			utenteFinaleServiceDTO.deleteUtenteFinale(id);
-			showAllUsers(request, response);
+			utenteFinaleServiceDTO.deleteUtenteFinale(deleteId);
+			showAllUtenteFinale(request, response);
 			break;
 
 		case "indietro":
@@ -118,7 +118,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 
 	}
 
-	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
+	private void showAllUtenteFinale(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinale();
 		request.setAttribute("allUser", allUtenteFinale);
