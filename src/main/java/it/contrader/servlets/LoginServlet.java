@@ -13,7 +13,7 @@ import it.contrader.service.UserService;
 
 public class LoginServlet extends HttpServlet {
 
-	private final UserService usersServiceDTO = new UserService();
+	private final UserService userServiceDTO = new UserService();
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 			final String nomeUtente = request.getParameter("username").toString().trim();
 			final String password = request.getParameter("password").toString().trim();
 			// recuperiamo l'utente
-			final UserDTO userDTO = usersServiceDTO.getUserByUsernameAndPasword(nomeUtente, password);
+			final UserDTO userDTO = userServiceDTO.getUserByUsernameAndPasword(nomeUtente, password);
 
 			if (userDTO != null)
 				session.setAttribute("utente", userDTO);
