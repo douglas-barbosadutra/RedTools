@@ -1,7 +1,7 @@
 <%@ include file="../header.jsp"%>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
+<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <style>
@@ -41,7 +41,7 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/wmesjsp/UserServlet?richiesta=update">
+		<form method="POST" action="/JspApp/UserServlet?richiesta=update">
 
 			<%
 				String selected = "selected=\"selected\"";
@@ -55,8 +55,8 @@
 
 			User type: <select style="width: 270px;" name="user_type">
 
-				<option <%=adminSelected%> value="admin">Admin</option>
-				<option <%=boSelected%> value="bo">Business owner</option>
+				<option <%=adminSelected%> value="superuser">Super User</option>
+				<option <%=boSelected%> value="user">Business owner</option>
 
 
 			</select>
@@ -76,7 +76,7 @@
 
 			<br>
 			<br>
-			<a href="/wmesjsp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

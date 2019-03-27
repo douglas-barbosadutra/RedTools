@@ -7,7 +7,7 @@
 <title>Inserisci nuovo utente</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
+<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 <style>
 .pre_contenitore {
 	width: 320px;
@@ -38,11 +38,11 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/wmesjsp/UserServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/UserServlet?richiesta=insert">
 
 		User type: <select style="width: 275px;" name="user_type">
-			<option value="admin">Admin</option>
-			<option value="bo">Business Owner</option>
+			<option value="superuser">Super User</option>
+			<option value="user">Business Owner</option>
 		</select>
 		<br>
 		<br>
@@ -57,7 +57,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/wmesjsp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>
