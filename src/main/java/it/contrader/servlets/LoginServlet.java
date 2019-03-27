@@ -13,7 +13,7 @@ import it.contrader.service.UserService;
 
 public class LoginServlet extends HttpServlet {
 
-	private final UserService userService = new UserService();
+	private final UserService usersServiceDTO = new UserService();
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,22 +22,22 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("utente", null);
 
 		if (request != null) {
-			final String nomeUtente = request.getParameter("username").toString();
-			final String password = request.getParameter("password").toString();
+			final String nomeUtente = request.getParameter("username").toString().trim();
+			final String password = request.getParameter("password").toString().trim();
 			// recuperiamo l'utente
-			final UserDTO userDTO = userService.getUserByUsernameAndPasword(nomeUtente, password);
+			final UserDTO userDTO = usersServiceDTO.getUserByUsernameAndPasword(nomeUtente, password);
 
 			if (userDTO != null)
 				session.setAttribute("utente", userDTO);
 
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
-			switch (userDTO.getUsertype()) {
+			switch (userDTO.getUsertype().toLowerCase()) {
 			case "superuser":
-				getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
 				break;
-			case "CHAT MASTER":
-				getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+			case "user":
+				getServletContext().getRequestDispatcher("/homeBO.jsp").forward(request, response);
 				break;
 			default:
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);

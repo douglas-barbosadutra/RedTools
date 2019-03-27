@@ -29,22 +29,22 @@ public class UserServlet extends HttpServlet {
 		case "UserManager":
 			allUsers = this.userServiceDTO.getAllUser();
 			request.setAttribute("allUser", allUsers);
-			getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("home.jsp").forward(request, response);
 			break;
 
-		case "insertRedirect":
-			response.sendRedirect("user/insertUser.jsp");
-			break;
-
-		case "insert":
-			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
-			final String username = request.getParameter("user_user");
-			final String password = request.getParameter("user_pass");
-			final String usertype = request.getParameter("user_type");
-			final UserDTO users = new UserDTO(username, password, usertype);
-			userServiceDTO.insertUser(users);
-			showAllUsers(request, response);
-			break;
+//		case "insertRedirect":
+//			response.sendRedirect("user/insertUser.jsp");
+//			break;
+//
+//		case "insert":
+//			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
+//			final String username = request.getParameter("user_user");
+//			final String password = request.getParameter("user_pass");
+//			final String usertype = request.getParameter("user_type");
+//			final UserDTO users = new UserDTO(username, password, usertype);
+//			userServiceDTO.insertUser(users);
+//			showAllUsers(request, response);
+//			break;
 
 //		case "updateRedirect":
 //			int id = Integer.parseInt(request.getParameter("id"));
@@ -57,24 +57,27 @@ public class UserServlet extends HttpServlet {
 //
 //			break;
 
-		case "update":
+
 			// System.out.println("ID: " +
 			// Integer.parseInt(request.getParameter("user_id")));
 			// System.out.println("username: " + request.getParameter("user_user"));
 			// System.out.println("password: " + request.getParameter("user_pass"));
 			// System.out.println("Tipo utente: " + request.getParameter("user_type"));
+			
+			
+//			case "update":
+//			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
+//			final String usernameUpdate = request.getParameter("user_user");
+//			final String passwordUpdate = request.getParameter("user_pass");
+//			final String usertypeUpdate = request.getParameter("user_type");
+//			final UserDTO user = new UserDTO(usernameUpdate, passwordUpdate, usertypeUpdate);
+//			user.setUserId(idUpdate);
+//			userServiceDTO.updateUser(user);
+//			showAllUsers(request, response);
+//			break;
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
-			final String usernameUpdate = request.getParameter("user_user");
-			final String passwordUpdate = request.getParameter("user_pass");
-			final String usertypeUpdate = request.getParameter("user_type");
-			final UserDTO user = new UserDTO(usernameUpdate, passwordUpdate, usertypeUpdate);
-			user.setUserId(idUpdate);
-
-			userServiceDTO.updateUser(user);
-			showAllUsers(request, response);
-			break;
-
+			
+			
 //			case "delete":
 //			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 //
@@ -84,13 +87,13 @@ public class UserServlet extends HttpServlet {
 //			showAllUsers(request, response);
 //			break;
 
-		case "indietro":
-			response.sendRedirect("homeAdmin.jsp");
-			break;
+//		case "indietro":
+//			response.sendRedirect("homeAdmin.jsp");
+//			break;
 
-		case "logsMenu":
-			response.sendRedirect("index.jsp");
-			break;
+//		case "logsMenu":
+//			response.sendRedirect("index.jsp");
+//			break;
 
 		}
 
@@ -100,6 +103,6 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		allUsers = this.userServiceDTO.getAllUser();
 		request.setAttribute("allUser", allUsers);
-		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("home.jsp").forward(request, response);
 	}
 }
