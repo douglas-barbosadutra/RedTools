@@ -1,9 +1,13 @@
 package it.contrader.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import it.contrader.converter.ConverterProgetto;
 import it.contrader.converter.ConverterProgetto;
 import it.contrader.dao.ProgettoDAO;
 import it.contrader.dto.ProgettoDTO;
+import it.contrader.dto.ProgettoDTO;
+import it.contrader.model.Progetto;
 import it.contrader.model.Progetto;
 
 public class ProgettoService {
@@ -15,8 +19,17 @@ private ProgettoDAO progettoDAO;
 			this.progettoDAO = new ProgettoDAO();
 		}
 
-		public List<Progetto> getAllProgetto() {
-			return this.progettoDAO.getAllProgetto();
+
+		public List<ProgettoDTO> getAllProgetto() {
+
+			List<Progetto> list = progettoDAO.getAllProgetto();
+			List<ProgettoDTO> listDTO = new ArrayList<>();
+			for (Progetto progetto : list) {
+				listDTO.add(ConverterProgetto.toDTO(progetto));
+				
+			}
+
+			return listDTO;
 		}
 
 		public boolean insertProgetto(ProgettoDTO progettoDTO) {
