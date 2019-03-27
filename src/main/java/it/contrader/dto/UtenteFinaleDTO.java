@@ -14,6 +14,7 @@ public class UtenteFinaleDTO {
 	String natoIl;
 	int idUtente;
 	int id;
+	int  filledFields;
 	
 	
 	public UtenteFinaleDTO(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String partitaIva,
@@ -125,5 +126,15 @@ public class UtenteFinaleDTO {
 	public void setIdUtente(int idUtente) {
 		this.idUtente = idUtente;
 	}
+
+	public int getFilledFields() {
+		return filledFields;
+	}
+
+	public void setFilledFields(int filledfields) {
+		this.filledFields = filledfields;
+	}
+	
+	
 
 }

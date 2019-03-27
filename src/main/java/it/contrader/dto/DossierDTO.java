@@ -10,6 +10,7 @@ public class DossierDTO {
 	private int idProgetto;
 	private int idDossier;
 	private String periodoDiImposta;
+	private int filledFields; 
 	
 	public DossierDTO() {
 	}
@@ -90,6 +91,16 @@ public class DossierDTO {
 	}
 	public void setPeriodoDiImposta(String periodoDiImposta) {
 		this.periodoDiImposta = periodoDiImposta;
+	}
+
+
+	public int getFilledFields() {
+		return filledFields;
+	}
+
+
+	public void setFilledFields(int filledFields) {
+		this.filledFields = filledFields;
 	}
 	
 	

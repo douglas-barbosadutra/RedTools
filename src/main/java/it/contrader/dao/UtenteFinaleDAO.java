@@ -20,7 +20,6 @@ public class UtenteFinaleDAO {
 
 	private final String QUERY_UPDATE = "UPDATE tab_utente_finale SET denominazione_societa = ?, forma_giuridica = ?, sede_legale = ?, partita_iva = ?, telefono = ?, e_mail = ?, indirizzo_unita_locale = ?, attivita_azienda = ?, legale_rappresentante = ?, nato_a = ?, nato_il = ?, id_utente = ? WHERE id = ?";
 	private final String QUERY_DELETE = "DELETE FROM tab_utente_finale WHERE id = ?";
-
 	public UtenteFinaleDAO() {
 
 	}
