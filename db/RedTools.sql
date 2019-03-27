@@ -1,6 +1,9 @@
+CREATE DATABASE  IF NOT EXISTS `redtools` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `redtools`;
+
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
--- Host: localhost    Database: rdtools
+-- Host: localhost    Database: redtools
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -36,8 +39,8 @@ CREATE TABLE `tab_dossier` (
   KEY `id_progetto_idx` (`id_progetto`),
   KEY `id_utente_finale_idx` (`id_utente_finale`),
   CONSTRAINT `id_progetto` FOREIGN KEY (`id_progetto`) REFERENCES `tab_progetto` (`idprogetto`),
-  CONSTRAINT `id_utente_finale` FOREIGN KEY (`id_utente_finale`) REFERENCES `tab_utente_finale` (`id_utente_finale`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `id_utente_finale` FOREIGN KEY (`id_utente_finale`) REFERENCES `tab_utente_finale` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,6 +49,7 @@ CREATE TABLE `tab_dossier` (
 
 LOCK TABLES `tab_dossier` WRITE;
 /*!40000 ALTER TABLE `tab_dossier` DISABLE KEYS */;
+INSERT INTO `tab_dossier` VALUES (20,'2019',12364,7872,232,23452,1234,4,8);
 /*!40000 ALTER TABLE `tab_dossier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,20 +62,20 @@ DROP TABLE IF EXISTS `tab_mom`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tab_mom` (
   `id_mom` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nome_utente_finale_mom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `luogo_mom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `data_del_giorno_mom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `orario_mom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `oggetto_mom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `progetto_mom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `partecipanti_mom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `testo_agenda_mom` longtext COLLATE utf8_unicode_ci,
-  `testo_azione_mom` longtext COLLATE utf8_unicode_ci,
-  `testo_note_mom` longtext COLLATE utf8_unicode_ci,
+  `nome_utente_finale_mom` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `luogo_mom` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data_del_giorno_mom` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `orario_mom` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `oggetto_mom` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `progetto_mom` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `partecipanti_mom` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `testo_agenda_mom` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `testo_azione_mom` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `testo_note_mom` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `chiave_est_ut_fin` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id_mom`),
   KEY `chiave_est_ut_fin_idx` (`chiave_est_ut_fin`),
-  CONSTRAINT `chiave_est_ut_fin` FOREIGN KEY (`chiave_est_ut_fin`) REFERENCES `tab_utente_finale` (`id_utente_finale`)
+  CONSTRAINT `chiave_est_ut_fin` FOREIGN KEY (`chiave_est_ut_fin`) REFERENCES `tab_utente_finale` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -94,8 +98,12 @@ DROP TABLE IF EXISTS `tab_progetto`;
 CREATE TABLE `tab_progetto` (
   `idprogetto` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nomeprogetto` varchar(45) NOT NULL,
-  PRIMARY KEY (`idprogetto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `idutentefinale` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idprogetto`),
+  KEY `id_utente_finale_idx` (`idutentefinale`),
+  KEY `id_utente_finale1_idx` (`idutentefinale`),
+  CONSTRAINT `idutentefinale` FOREIGN KEY (`idutentefinale`) REFERENCES `tab_utente_finale` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +112,7 @@ CREATE TABLE `tab_progetto` (
 
 LOCK TABLES `tab_progetto` WRITE;
 /*!40000 ALTER TABLE `tab_progetto` DISABLE KEYS */;
-INSERT INTO `tab_progetto` VALUES (1,'ReD');
+INSERT INTO `tab_progetto` VALUES (8,'Red',4);
 /*!40000 ALTER TABLE `tab_progetto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +129,7 @@ CREATE TABLE `tab_user` (
   `password` varchar(45) NOT NULL,
   `usertype` varchar(45) NOT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +138,7 @@ CREATE TABLE `tab_user` (
 
 LOCK TABLES `tab_user` WRITE;
 /*!40000 ALTER TABLE `tab_user` DISABLE KEYS */;
-INSERT INTO `tab_user` VALUES (1,'admin','admin','superuser'),(2,'ciccio','ciccio','user');
+INSERT INTO `tab_user` VALUES (7,'admin','admin','superuser'),(8,'ciccio','ciccio','user');
 /*!40000 ALTER TABLE `tab_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,11 +162,11 @@ CREATE TABLE `tab_utente_finale` (
   `nato_a` varchar(45) NOT NULL,
   `nato_il` varchar(45) NOT NULL,
   `id_utente` int(10) unsigned NOT NULL,
-  `id_utente_finale` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_utente_finale`),
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
   KEY `id_utente_idx` (`id_utente`),
   CONSTRAINT `id_utente` FOREIGN KEY (`id_utente`) REFERENCES `tab_user` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,7 +175,7 @@ CREATE TABLE `tab_utente_finale` (
 
 LOCK TABLES `tab_utente_finale` WRITE;
 /*!40000 ALTER TABLE `tab_utente_finale` DISABLE KEYS */;
-INSERT INTO `tab_utente_finale` VALUES ('Contrader','s.r.l','benevento','12345678901','123123123','contrader@contrader','via longobardi','ricerca e sviluppo','sabatino ','benevento','01-01-1980',2,1),('qweqwe','srl','asds','12345678902','234234','erwerw','werwer','ricerca','sdfsdf','sdfsd','sdff',2,2);
+INSERT INTO `tab_utente_finale` VALUES ('enel energia','spa','roma','01234567890','555','info@enel.it','via tal dei tali, 5','servizi','mario rossi','roma','01/01/1970',8,4);
 /*!40000 ALTER TABLE `tab_utente_finale` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -180,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-26 18:42:14
+-- Dump completed on 2019-03-27 10:25:22
