@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.ProgettoDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.ProgettoService;
 
 /**
@@ -43,50 +44,51 @@ public class ProgettoServlet extends HttpServlet {
 			break;
 
 		case "insert":
-			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
-			final int idprogetto = request.getParameter("progetto_idprogetto");
+
+			final Integer idprogetto = Integer.parseInt(request.getParameter("progetto_idprogetto"));
 			final String nomeprogetto = request.getParameter("progetto_nome");
-			final int idutentefinale = request.getParameter("progetto_idutentefinale");
-			final UserDTO users = new UserDTO(username, password, usertype);
-			userServiceDTO.insertUsers(users);
-			showAllUsers(request, response);
+			final Integer idutentefinale = Integer.parseInt(request.getParameter("progetto_idutentefinale"));
+			final ProgettoDTO progetto = new ProgettoDTO(idprogetto, nomeprogetto, idutentefinale);
+			progettoService.insertProgetto(progetto);
+			showAllProgetto(request, response);
 			break;
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			UserDTO userUpdate = new UserDTO("", "", "");
-			userUpdate.setId(id);
+			ProgettoDTO progettoUpdate = new ProgettoDTO(0, "", 0);
+			progettoUpdate.setIdProgetto(id);
 
-			userUpdate = this.userServiceDTO.readUser(userUpdate);
-			request.setAttribute("userUpdate", userUpdate);
-			getServletContext().getRequestDispatcher("/user/updateUser.jsp").forward(request, response);
+			progettoUpdate = this.progettoService.readProgetto(id);
+			request.setAttribute("progettoUpdate", progettoUpdate);
+			getServletContext().getRequestDispatcher("/progetto/updateProgetto.jsp").forward(request, response);
 
 			break;
 
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
-			//System.out.println("username: " + request.getParameter("user_user"));
-			//System.out.println("password: " + request.getParameter("user_pass"));
-			//System.out.println("Tipo utente: " + request.getParameter("user_type"));
+			// System.out.println("ID: " +
+			// Integer.parseInt(request.getParameter("user_id")));
+			// System.out.println("username: " + request.getParameter("user_user"));
+			// System.out.println("password: " + request.getParameter("user_pass"));
+			// System.out.println("Tipo utente: " + request.getParameter("user_type"));
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
-			final String usernameUpdate = request.getParameter("user_user");
-			final String passwordUpdate = request.getParameter("user_pass");
-			final String usertypeUpdate = request.getParameter("user_type");
-			final UserDTO user = new UserDTO(usernameUpdate, passwordUpdate, usertypeUpdate);
-			user.setId(idUpdate);
+			final Integer idprogettoUpdate = Integer.parseInt(request.getParameter("progetto_idprogetto"));
+			final String nomeprogettoUpdate = request.getParameter("progetto_nome");
+		    final Integer idutentefinaleUpdate = Integer.parseInt(request.getParameter("progetto_idutentefinale"));
 
-			userServiceDTO.updateUser(user);
-			showAllUsers(request, response);
+			final ProgettoDTO progettoUp = new ProgettoDTO(idprogettoUpdate, nomeprogettoUpdate, idutentefinaleUpdate);
+			progettoUp.setIdProgetto(idprogettoUpdate);
+
+			progettoService.updateProgetto(progettoUp);
+			showAllProgetto(request, response);
 			break;
 
 		case "delete":
-			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+			final Integer deleteId = Integer.parseInt(request.getParameter("progetto_idprogetto"));
 
-			final UserDTO userdelete = new UserDTO("", "", "");
-			userdelete.setId(deleteId);
-			userServiceDTO.deleteUsers(userdelete);
-			showAllUsers(request, response);
+			final ProgettoDTO progettodelete = new ProgettoDTO(0, "", 0);
+			progettodelete.setIdProgetto(deleteId);
+			progettoService.deleteProgetto(deleteId);
+			showAllProgetto(request, response);
 			break;
 
 		case "indietro":
@@ -101,10 +103,10 @@ public class ProgettoServlet extends HttpServlet {
 
 	}
 
-	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
+	private void showAllProgetto(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		allUsers = this.userServiceDTO.getAllUsers();
-		request.setAttribute("allUser", allUsers);
-		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+		allProgetto = this.progettoService.getAllProgetto();
+		request.setAttribute("allProgetto", allProgetto);
+		getServletContext().getRequestDispatcher("/progetto/manageProgetto.jsp").forward(request, response);
 	}
 }
