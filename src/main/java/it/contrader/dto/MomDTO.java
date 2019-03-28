@@ -13,13 +13,13 @@ public class MomDTO {
 	private String testo_agenda_mom;
 	private String testo_azione_mom;
 	private String testo_note_mom;
-	private String chiave_est_ut_fin;
+	private int chiave_est_ut_fin;
 	
 	public MomDTO() {}
 	
 	public MomDTO(String nome_utente_finale_mom, String luogo_mom, String data_del_giorno_mom,
 			String orario_mom, String oggetto_mom, String progetto_mom, String partecipanti_mom,
-			String testo_agenda_mom, String testo_azione_mom, String testo_note_mom, String chiave_est_ut_fin) {
+			String testo_agenda_mom, String testo_azione_mom, String testo_note_mom, int chiave_est_ut_fin) {
 		super();
 		
 		this.nome_utente_finale_mom = nome_utente_finale_mom;
@@ -123,11 +123,11 @@ public class MomDTO {
 		this.testo_note_mom = testo_note_mom;
 	}
 
-	public String getChiave_est_ut_fin() {
+	public int getChiave_est_ut_fin() {
 		return chiave_est_ut_fin;
 	}
 
-	public void setChiave_est_ut_fin(String chiave_est_ut_fin) {
+	public void setChiave_est_ut_fin(int chiave_est_ut_fin) {
 		this.chiave_est_ut_fin = chiave_est_ut_fin;
 	}
 	

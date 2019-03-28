@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.converter.ConverterMom;
-import it.contrader.converter.ConverterUser;
+
 import it.contrader.dao.MomDAO;
 
 import it.contrader.dto.MomDTO;
-import it.contrader.dto.UserDTO;
+
 import it.contrader.model.Mom;
-import it.contrader.model.User;
+
 
 
 public class MomService {
@@ -21,12 +21,6 @@ public class MomService {
 		this.momDAO = new MomDAO();
 	
 	}
-	
-	public MomDTO readMom(int momId) {
-		return ConverterMom.toDTO(this.momDAO.readMom(momId));
-	}
-	
-	
 	public List<MomDTO> getAllMom(int idUtenteFinale) {
 
 		List<Mom> list = momDAO.getAllMom(idUtenteFinale);
@@ -38,26 +32,14 @@ public class MomService {
 
 		return listDTO;
 	}
-	public List<MomDTO> getAllMom() {
-
-		List<Mom> list = momDAO.getAllMom();
-		List<MomDTO> listDTO = new ArrayList<>();
-
-		for (Mom mom : list) {
-			listDTO.add(ConverterMom.toDTO(mom));
-		}
-
-		return listDTO;
-	}
-	
-	
-	
-	
-	
 	public boolean insertMom(MomDTO momDTO) {
 		return this.momDAO.insertMom(ConverterMom.toEntity(momDTO));
 	}
 	
+	public MomDTO readMom(int momId) {
+		return ConverterMom.toDTO(this.momDAO.readMom(momId));
+	}
+
 	public boolean updateMom(MomDTO momDTO) {
 			return this.momDAO.updateMom(ConverterMom.toEntity(momDTO));
 		}
@@ -66,20 +48,6 @@ public class MomService {
 			return this.momDAO.deleteMom(id_mom);
 		}
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

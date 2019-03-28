@@ -3,7 +3,6 @@ package it.contrader.model;
 
 public class Mom {
 	
-	
 	private int id_mom;
 	private String nome_utente_finale_mom;
 	private String luogo_mom;
@@ -15,32 +14,15 @@ public class Mom {
 	private String testo_agenda_mom;
 	private String testo_azione_mom;
 	private String testo_note_mom;
-	private String chiave_est_ut_fin;
+	private int chiave_est_ut_fin;
 	
 	public Mom() {
 	}
 	
-	public Mom(String nome_utente_finale_mom, String luogo_mom, String data_del_giorno_mom,
-			String orario_mom, String oggetto_mom, String progetto_mom, String partecipanti_mom,
-			String testo_agenda_mom, String testo_azione_mom, String testo_note_mom, String chiave_est_ut_fin) {
-	
-		
-		this.nome_utente_finale_mom = nome_utente_finale_mom;
-		this.luogo_mom = luogo_mom;
-		this.data_del_giorno_mom = data_del_giorno_mom;
-		this.orario_mom = orario_mom;
-		this.oggetto_mom = oggetto_mom;
-		this.progetto_mom = progetto_mom;
-		this.partecipanti_mom = partecipanti_mom;
-		this.testo_agenda_mom = testo_agenda_mom;
-		this.testo_azione_mom = testo_azione_mom;
-		this.testo_note_mom = testo_note_mom;
-		this.chiave_est_ut_fin = chiave_est_ut_fin;
-	}
 	
 	public Mom(int id_mom, String nome_utente_finale_mom, String luogo_mom, String data_del_giorno_mom,
 			String orario_mom, String oggetto_mom, String progetto_mom, String partecipanti_mom,
-			String testo_agenda_mom, String testo_azione_mom, String testo_note_mom, String chiave_est_ut_fin) {
+			String testo_agenda_mom, String testo_azione_mom, String testo_note_mom, int chiave_est_ut_fin) {
 		super();
 		this.id_mom = id_mom;
 		this.nome_utente_finale_mom = nome_utente_finale_mom;
@@ -167,12 +149,12 @@ public class Mom {
 	}
 
 
-	public String getChiave_est_ut_fin() {
+	public int getChiave_est_ut_fin() {
 		return chiave_est_ut_fin;
 	}
 
 
-	public void setChiave_est_ut_fin(String chiave_est_ut_fin) {
+	public void setChiave_est_ut_fin(int chiave_est_ut_fin) {
 		this.chiave_est_ut_fin = chiave_est_ut_fin;
 	}
 

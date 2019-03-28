@@ -49,6 +49,7 @@ body {
 </head>
 <%
 	List<MomDTO> allMom = (List<MomDTO>) request.getAttribute("allMom");
+	int idUtenteFinale =  (Integer) request.getAttribute("id");
 %>
 </head>
 <body>
@@ -95,8 +96,8 @@ body {
 			<td><%=mom.getTesto_azione_mom()%></td>
 			<td><%=mom.getTesto_note_mom()%></td>
 			
-			<td class="center"><a href="/JspApp/MomServlet?richiesta=updateRedirect&id_ut=<%=mom.getId_mom()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/MomServlet?richiesta=delete&id=<%=mom.getId_mom()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/JspApp/MomServlet?richiesta=updateRedirect&updateId=<%=mom.getId_mom()%>&id=<%=idUtenteFinale%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/MomServlet?richiesta=delete&deleteId=<%=mom.getId_mom()%>&id=<%=idUtenteFinale%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -105,11 +106,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/MomServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Mom</i></a>
+	<a href="/JspApp/MomServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>"><i class="fas fa-plus-circle fa-lg"> New Mom</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/MomServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

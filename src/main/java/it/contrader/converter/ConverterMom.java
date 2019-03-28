@@ -1,8 +1,10 @@
 package it.contrader.converter;
 
+import java.util.ArrayList;
+import java.util.List;
 import it.contrader.dto.MomDTO;
-
 import it.contrader.model.Mom;
+
 
 public class ConverterMom {
 
@@ -52,7 +54,25 @@ public class ConverterMom {
 	
 	
 	
-	
+	public static List<MomDTO> toListDTO(List<Mom> list) {
+		List<MomDTO> listMomDTO = new ArrayList<>();
+		if (!list.isEmpty()) {
+			for (Mom mom : list) {
+				listMomDTO.add(ConverterMom.toDTO(mom));
+			}
+		}
+		return listMomDTO;
+	}
+
+	public static List<Mom> toListEntity(List<MomDTO> listMomDTO) {
+		List<Mom> list = new ArrayList<>();
+		if (!listMomDTO.isEmpty()) {
+			for (MomDTO momDTO : listMomDTO) {
+				list.add(ConverterMom.toEntity(momDTO));
+			}
+		}
+		return list;
+	}
 	
 	
 	

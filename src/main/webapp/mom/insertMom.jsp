@@ -29,6 +29,9 @@
 	line-height: 2px;
 }
 </style>
+<%
+	int idUtenteFinale =  (Integer) request.getAttribute("id");
+%>
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -43,6 +46,7 @@
 
 		
 		Nome Utente Finale: <input type="text" size="40" maxlength="40" name="nome_utente_finale_mom" />
+		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
 		<br>
 		<br>
 		Luogo: <input type="text" size="40" maxlength="40" name="luogo_mom" />
@@ -75,7 +79,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/MomServlet?richiesta=MomManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>
