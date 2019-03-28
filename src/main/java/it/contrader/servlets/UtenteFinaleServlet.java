@@ -69,7 +69,28 @@ public class UtenteFinaleServlet extends HttpServlet {
 
 			utenteFinaleUpdate = this.utenteFinaleServiceDTO.readUtenteFinale(id);
 			request.setAttribute("utenteUpdate", utenteFinaleUpdate);
-			getServletContext().getRequestDispatcher("/utenteFinale/updateUtenteFianle.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/utenteFinale/updateUtenteFinale.jsp").forward(request, response);
+
+			break;
+			
+		case "progetto":
+			int id1 = Integer.parseInt(request.getParameter("id"));
+			request.setAttribute("idUtenteFinale", id1);
+			getServletContext().getRequestDispatcher("/progetto/manageProgetto.jsp").forward(request, response);
+
+			break;
+			
+		case "dossier":
+			int id2 = Integer.parseInt(request.getParameter("id"));
+			request.setAttribute("idUtenteFinale", id2);
+			getServletContext().getRequestDispatcher("/progetto/manageProgetto.jsp").forward(request, response);
+
+			break;
+			
+		case "mom":
+			int id3 = Integer.parseInt(request.getParameter("id"));
+			request.setAttribute("idUtenteFinale", id3);
+			getServletContext().getRequestDispatcher("/progetto/manageProgetto.jsp").forward(request, response);
 
 			break;
 
