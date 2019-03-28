@@ -11,17 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.contrader.dto.MomDTO;
 import it.contrader.dto.UserDTO;
+import it.contrader.service.MomService;
 import it.contrader.service.UserService;
 
 
-public class MomServlet {
 
-	public class MomServlet extends HttpServlet {
+public class MomServlet extends HttpServlet {
 		
 		
 		private final MomService momService = new MomService();
-		
+		private List<MomDTO> allMom = new ArrayList<>();
 		
 		@Override
 		public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,21 +33,31 @@ public class MomServlet {
 			
 			
 			case "insert":
-				final String username = request.getParameter("user_user");
-				final String password = request.getParameter("user_pass");
-				final String usertype = request.getParameter("user_type");
-				final MomDTO mom = new MomDTO(username, password, usertype);
-				userService.insertUser(mom);
-				showAllUsers(request, response);
+				
+				final String nome_utente_finale_mom = request.getParameter("nome_utente_finale_mom");
+				final String luogo_mom = request.getParameter("luogo_mom");
+				final String data_del_giorno_mom = request.getParameter("data_del_giorno_mom");
+				final String orario_mom = request.getParameter("orario_mom");
+				final String oggetto_mom = request.getParameter("oggetto_mom");
+				final String progetto_mom = request.getParameter("progetto_mom");
+				final String partecipanti_mom = request.getParameter("partecipanti_mom");
+				final String testo_agenda_mom = request.getParameter("testo_agenda_mom");
+				final String testo_azione_mom = request.getParameter("testo_azione_mom");
+				final String testo_note_mom = request.getParameter("testo_note_mom");
+				final String chiave_est_ut_fin = request.getParameter("chiave_est_ut_fin");
+				
+				final MomDTO mom = new MomDTO(nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom, oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom, chiave_est_ut_fin);
+				momService.insertMom(mom);
+				showAllMom(request, response);
 				break;
 				
 				
 			case "delete":
 				final Integer deleteId = Integer.parseInt(request.getParameter("id"));
-				final MomDTO momdelete = new MomDTO("", "", "");
-				momdelete.setUserId(deleteId);
+				final MomDTO momdelete = new MomDTO("", "", "", "", "", "", "", "", "", "", "");
+				momdelete.setId_mom(deleteId);
 				momService.deleteMom(deleteId);
-				showAllUsers(request, response);
+				showAllMom(request, response);
 				break;
 			}
 		
@@ -54,12 +65,12 @@ public class MomServlet {
 		}
 		
 		
-	}
 	
-	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
+	
+	private void showAllMom(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		allUsers = this.momService.getAllUser();
-		request.setAttribute("allUser", allUsers);
+		allMom = this.momService.getAllMom();
+		request.setAttribute("allMom", allMom);
 		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
 	}
 }

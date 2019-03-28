@@ -17,11 +17,11 @@ public class MomDTO {
 	
 	public MomDTO() {}
 	
-	public MomDTO(int id_mom, String nome_utente_finale_mom, String luogo_mom, String data_del_giorno_mom,
+	public MomDTO(String nome_utente_finale_mom, String luogo_mom, String data_del_giorno_mom,
 			String orario_mom, String oggetto_mom, String progetto_mom, String partecipanti_mom,
 			String testo_agenda_mom, String testo_azione_mom, String testo_note_mom, String chiave_est_ut_fin) {
 		super();
-		this.id_mom = id_mom;
+		
 		this.nome_utente_finale_mom = nome_utente_finale_mom;
 		this.luogo_mom = luogo_mom;
 		this.data_del_giorno_mom = data_del_giorno_mom;

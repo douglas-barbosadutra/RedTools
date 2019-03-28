@@ -1,10 +1,16 @@
 package it.contrader.service;
 
-import it.contrader.converter.ConverterMom;
+import java.util.ArrayList;
+import java.util.List;
 
+import it.contrader.converter.ConverterMom;
+import it.contrader.converter.ConverterUser;
 import it.contrader.dao.MomDAO;
 
 import it.contrader.dto.MomDTO;
+import it.contrader.dto.UserDTO;
+import it.contrader.model.Mom;
+import it.contrader.model.User;
 
 
 public class MomService {
@@ -13,6 +19,19 @@ public class MomService {
 	
 	public MomService() {
 		this.momDAO = new MomDAO();
+	
+	}
+	
+	public List<MomDTO> getAllMom() {
+
+		List<Mom> list = momDAO.getAllMom();
+		List<MomDTO> listDTO = new ArrayList<>();
+
+		for (Mom mom : list) {
+			listDTO.add(ConverterMom.toDTO(mom));
+		}
+
+		return listDTO;
 	}
 	
 	
