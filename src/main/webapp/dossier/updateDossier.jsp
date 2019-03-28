@@ -27,6 +27,7 @@
 
 <%
 	DossierDTO updateDossier = (DossierDTO) request.getAttribute("dossierUpdate");
+	int idUtenteFinale =  (Integer) request.getAttribute("id");
 %>
 </head>
 
@@ -35,7 +36,7 @@
 
 		<div class="pre_contenitore">
 
-			<p>DOSSIER UPDATE</p>
+			<p>Dossier Update</p>
 
 		</div>
 		<br>
@@ -75,7 +76,7 @@
 
 			<br>
 			<br>
-			<a href="/wmesjsp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/DossierServlet?richiesta=MomManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

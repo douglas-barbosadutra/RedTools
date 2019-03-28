@@ -15,8 +15,8 @@ import it.contrader.utils.GestoreEccezioni;
 
 public class DossierDAO {
 
-	private final String QUERY_ALL = "select * from tab_dossier where id_utente_finale=";
-	private final String QUERY_INSERT = "insert into tab_dossier (periodo_di_imposta, costo_dipendenti_periodo_imposta, fatturato_periodo_di_imposta, numero_totale_dipendenti, costo_complessivo_attivita, costo_personale, idUtenteFinale, id_progetto ) values (?,?,?,?,?,?,?,?)";
+	private final String QUERY_ALL = "select * from tab_dossier where id_utente_finale=?";
+	private final String QUERY_INSERT = "insert into tab_dossier (periodo_di_imposta, costo_dipendenti_periodo_imposta, fatturato_periodo_di_imposta, numero_totale_dipendenti, costo_complessivo_attivita, costo_personale, id_Utente_Finale, id_progetto ) values (?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "select * from tab_dossier where id=?";
 	private final String QUERY_UPDATE = "UPDATE tab_dossier SET periodo_di_imposta=?, costo_dipendenti_periodo_imposta=?, fatturato_periodo_di_imposta=?, numero_totale_dipendenti=?, costo_complessivo_attivita=?, costo_personale=?, idUtenteFinale=?, id_progetto=?  where id=?";
 	private final String QUERY_DELETE = "DELETE FROM tab_dossier where id=?";

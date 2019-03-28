@@ -48,6 +48,7 @@ body {
 </head>
 <%
 	List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossier");
+	int idUtenteFinale =  (Integer) request.getAttribute("id");
 %>
 </head>
 <body>
@@ -102,11 +103,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/DossierServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Dossier</i></a>
+	<a href="/JspApp/DossierServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>"><i class="fas fa-plus-circle fa-lg"> New Dossier</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/DossierServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

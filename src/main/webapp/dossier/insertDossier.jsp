@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>INSERT NEW DOSSIER</title>
+<title>Inserisci Nuovo Dossier</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
@@ -28,20 +28,24 @@
 	line-height: 2px;
 }
 </style>
+<%
+	int idUtenteFinale =  (Integer) request.getAttribute("id");
+%>
 </head>
 <body>
 	<div class="pre_contenitore">
 
-		<p>NEW DOSIER</p>
+		<p>New Dossier</p>
 
 	</div>
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/UserServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/DossierServlet?richiesta=insert">
 
 		
 		Costo dipendneti: <input type="text" size="40" maxlength="40" name="costoDipendenti" />
+		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
 		<br>
 		<br>
 		Fatturato periodo di imposta: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" />
@@ -71,7 +75,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/DossierServlet?richiesta=manageDossier"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>
