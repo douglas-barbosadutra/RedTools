@@ -25,9 +25,9 @@ public class DossierService {
 		this.dossierDAO = new DossierDAO();
 	}
 
-	public List<DossierDTO> getAllDossier() {
+	public List<DossierDTO> getAllDossier(int idUtenteFinale) {
 
-		List<Dossier> list = dossierDAO.getAllDossier();
+		List<Dossier> list = dossierDAO.getAllDossier(idUtenteFinale);
 		List<DossierDTO> listDTO = new ArrayList<>();
 	
 

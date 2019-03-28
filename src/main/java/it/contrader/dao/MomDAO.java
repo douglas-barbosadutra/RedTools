@@ -15,7 +15,7 @@ import it.contrader.utils.GestoreEccezioni;
 
 public class MomDAO {
 
-	private final String QUERY_ALL_MOM = "SELECT * FROM tab_mom";
+	private final String QUERY_ALL_MOM = "SELECT * FROM tab_mom where chiave_est_ut_fin=?";
 	
 	private final String QUERY_INSERT_MOM = "INSERT INTO tab_mom (id_mom, nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom,"
 			+ " oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom, chiave_est_ut_fin) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -27,12 +27,15 @@ public class MomDAO {
 	private final String QUERY_DELETE_MOM = "DELETE FROM tab_mom WHERE id_mom=?";
 	
 
-	public List<Mom> getAllMom() {
+	public List<Mom> getAllMom(int idUtenteFinale) {
 		List<Mom> momList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_ALL_MOM);
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_ALL_MOM);
+			preparedStatement.setInt(1, idUtenteFinale);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
 			Mom mom;
 			while (resultSet.next()) {
 				int id_mom = resultSet.getInt("id_mom");
@@ -47,7 +50,6 @@ public class MomDAO {
 				String testo_azione_mom = resultSet.getString("testo_azione_mom");
 				String testo_note_mom = resultSet.getString("testo_note_mom");
 				String chiave_est_ut_fin = resultSet.getString("chiave_est_ut_fin");
-				
 				
 				mom = new Mom(id_mom, nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom, oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom, chiave_est_ut_fin);
 				mom.setId_mom(id_mom);

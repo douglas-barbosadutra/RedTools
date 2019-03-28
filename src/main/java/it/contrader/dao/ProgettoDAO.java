@@ -30,13 +30,9 @@ public class ProgettoDAO {
 		List<Progetto> progettoList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			//Statement statement = connection.createStatement();
-			
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_ALL);
 			preparedStatement.setInt(1, idUtenteFinale);
 			ResultSet resultSet = preparedStatement.executeQuery();
-			
-			//ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Progetto progetto;
 			while (resultSet.next()) {
 				int idProgetto = resultSet.getInt("idProgetto");

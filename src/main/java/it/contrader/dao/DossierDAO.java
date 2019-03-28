@@ -15,7 +15,7 @@ import it.contrader.utils.GestoreEccezioni;
 
 public class DossierDAO {
 
-	private final String QUERY_ALL = "select * from tab_dossier";
+	private final String QUERY_ALL = "select * from tab_dossier where id_utente_finale=";
 	private final String QUERY_INSERT = "insert into tab_dossier (periodo_di_imposta, costo_dipendenti_periodo_imposta, fatturato_periodo_di_imposta, numero_totale_dipendenti, costo_complessivo_attivita, costo_personale, idUtenteFinale, id_progetto ) values (?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "select * from tab_dossier where id=?";
 	private final String QUERY_UPDATE = "UPDATE tab_dossier SET periodo_di_imposta=?, costo_dipendenti_periodo_imposta=?, fatturato_periodo_di_imposta=?, numero_totale_dipendenti=?, costo_complessivo_attivita=?, costo_personale=?, idUtenteFinale=?, id_progetto=?  where id=?";
@@ -25,12 +25,13 @@ public class DossierDAO {
 
 	}
 
-	public List<Dossier> getAllDossier() {
+	public List<Dossier> getAllDossier(int idUtenteFinale) {
 		List<Dossier> dossierList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_ALL);
+			preparedStatement.setInt(1, idUtenteFinale);
+			ResultSet resultSet = preparedStatement.executeQuery();
 			Dossier dossier;
 			while (resultSet.next()) {
 				int costoDipendenti = resultSet.getInt("costo_dipendenti_periodo_imposta");
@@ -38,12 +39,12 @@ public class DossierDAO {
 				int numeroDipendenti = resultSet.getInt("numero_totale_dipendenti");
 				double costiAttivitaRd = resultSet.getDouble("costo_complessivo_attivita");
 				double costiPersonaleRd = resultSet.getDouble("costo_personale");
-				int idUtenteFinale = resultSet.getInt("idUtenteFinale"); 
+				int idUF = resultSet.getInt("id_utente_finale"); 
 				int idProgetto = resultSet.getInt("id_progetto");
 				int idDossier = resultSet.getInt("id");
 				String periodoDiImposta = resultSet.getString("periodo_di_imposta");
 				dossier = new Dossier(periodoDiImposta, costoDipendenti, fatturatoPeriodoDiImposta, numeroDipendenti,
-						costiAttivitaRd, costiPersonaleRd, idUtenteFinale, idProgetto, idDossier);
+						costiAttivitaRd, costiPersonaleRd, idUF, idProgetto, idDossier);
 				dossier.setIdUtenteFinale(idUtenteFinale);
 				dossierList.add(dossier);
 			}
@@ -91,7 +92,7 @@ public class DossierDAO {
 			int idProgetto;
 			int idUtenteFinale;
 			
-			idUtenteFinale = resultSet.getInt("idUtenetFinale");
+			idUtenteFinale = resultSet.getInt("id_utente_finale");
 			costoDipendenti = resultSet.getInt("costo_dipendenti_periodo_imposta");
 			fatturatoPeriodoDiImposta = resultSet.getDouble("fatturato_periodo_di_imposta");
 			numeroDipendente = resultSet.getInt("numero_totale_dipendenti");

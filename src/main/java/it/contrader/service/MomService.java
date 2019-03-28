@@ -27,9 +27,9 @@ public class MomService {
 	}
 	
 	
-	public List<MomDTO> getAllMom() {
+	public List<MomDTO> getAllMom(int idUtenteFinale) {
 
-		List<Mom> list = momDAO.getAllMom();
+		List<Mom> list = momDAO.getAllMom(idUtenteFinale);
 		List<MomDTO> listDTO = new ArrayList<>();
 
 		for (Mom mom : list) {
