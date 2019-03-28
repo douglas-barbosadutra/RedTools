@@ -131,7 +131,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 
 		case "indietro":
-			response.sendRedirect("homeAdmin.jsp");
+			response.sendRedirect("homeBO.jsp");
 			break;
 
 		case "logsMenu":
