@@ -20,7 +20,7 @@ public class MomDAO {
 	private final String QUERY_INSERT_MOM = "INSERT INTO tab_mom (nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom, oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom, chiave_est_ut_fin) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ_MOM = "SELECT * FROM tab_mom WHERE id_mom=?";
 	
-	private final String QUERY_UPDATE_MOM = "UPDATE tab_mom SET id_mom=?, nome_utente_finale_mom=?, luogo_mom=?, data_del_giorno_mom=?, orario_mom=?, oggetto_mom=?, progetto_mom=?, partecipanti_mom=?, testo_agenda_mom=?, testo_azione_mom=?, testo_note_mom=?, chiave_est_ut_fin=?) WHERE id_mom=?";
+	private final String QUERY_UPDATE_MOM = "UPDATE tab_mom SET id_mom=?, nome_utente_finale_mom=?, luogo_mom=?, data_del_giorno_mom=?, orario_mom=?, oggetto_mom=?, progetto_mom=?, partecipanti_mom=?, testo_agenda_mom=?, testo_azione_mom=?, testo_note_mom=?, chiave_est_ut_fin=? WHERE id_mom=?";
 
 	private final String QUERY_DELETE_MOM = "DELETE FROM tab_mom WHERE id_mom=?";
 	
@@ -142,6 +142,7 @@ public class MomDAO {
 					preparedStatement.setString(10, mom.getTesto_azione_mom());
 					preparedStatement.setString(11, mom.getTesto_note_mom());
 					preparedStatement.setInt(12, mom.getChiave_est_ut_fin());
+					preparedStatement.setInt(13, mom.getId_mom());
 					int a = preparedStatement.executeUpdate();
 					if (a > 0)
 						return true;

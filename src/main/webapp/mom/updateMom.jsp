@@ -43,10 +43,10 @@
 		<br>
 		<br>
 		<form method="POST" action="/JspApp/MomServlet?richiesta=update">
-			<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
 			<br>
-			Nome Utente Finale: <input type="text" size="40" maxlength="40" name="nome_utente_finale_mom" />
+		Nome Utente Finale: <input type="text" size="40" maxlength="40" name="nome_utente_finale_mom"  value="<%=updateMom.getNome_utente_finale_mom()%>"/>
 		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
+		<input type="hidden" name="idMom" value="<%=updateMom.getId_mom()%>">
 		<br>
 		<br>
 		Luogo: <input type="text" size="40" maxlength="40" name="luogo_mom" value="<%=updateMom.getLuogo_mom()%>"/>

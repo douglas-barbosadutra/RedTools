@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.MomDTO;
+import it.contrader.dto.ProgettoDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.service.MomService;
 import it.contrader.service.UserService;
@@ -77,9 +78,35 @@ public class MomServlet extends HttpServlet {
 
 				break;
 				
+			case "update":
+				// System.out.println("ID: " +
+				// Integer.parseInt(request.getParameter("user_id")));
+				// System.out.println("username: " + request.getParameter("user_user"));
+				// System.out.println("password: " + request.getParameter("user_pass"));
+				// System.out.println("Tipo utente: " + request.getParameter("user_type"));
+			    
+			    final String nome_utente_finale_mom1 = request.getParameter("nome_utente_finale_mom");
+				final String luogo_mom1 = request.getParameter("luogo_mom");
+				final String data_del_giorno_mom1 = request.getParameter("data_del_giorno_mom");
+				final String orario_mom1 = request.getParameter("orario_mom");
+				final String oggetto_mom1 = request.getParameter("oggetto_mom");
+				final String progetto_mom1 = request.getParameter("progetto_mom");
+				final String partecipanti_mom1 = request.getParameter("partecipanti_mom");
+				final String testo_agenda_mom1 = request.getParameter("testo_agenda_mom");
+				final String testo_azione_mom1 = request.getParameter("testo_azione_mom");
+				final String testo_note_mom1 = request.getParameter("testo_note_mom");
+				final int chiave_est_ut_fin1 = Integer.parseInt(request.getParameter("id"));
+				final int idMom1 = Integer.parseInt(request.getParameter("idMom"));
+
+				final MomDTO momUp = new MomDTO(nome_utente_finale_mom1, luogo_mom1, data_del_giorno_mom1, orario_mom1, oggetto_mom1, progetto_mom1, partecipanti_mom1, testo_agenda_mom1, testo_azione_mom1, testo_note_mom1, chiave_est_ut_fin1);
+				momUp.setId_mom(idMom1);
+				momUp.setChiave_est_ut_fin(chiave_est_ut_fin1);
+				momService.updateMom(momUp);
+				showAllMom(request, response);
+				break;
 				
 			case "delete":
-				final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+				final Integer deleteId = Integer.parseInt(request.getParameter("deleteId"));
 				momService.deleteMom(deleteId);
 				showAllMom(request, response);
 				break;
