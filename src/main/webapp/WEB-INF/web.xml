@@ -67,7 +67,7 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ProgettoServlet</servlet-name>
-		<url-pattern>/ProgettoFinaleServlet</url-pattern>
+		<url-pattern>/ProgettoServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>MomServlet</servlet-name>
