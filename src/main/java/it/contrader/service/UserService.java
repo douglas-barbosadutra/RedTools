@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.converter.ConverterUser;
-import it.contrader.converter.UsersConverter;
+
 import it.contrader.dao.UserDAO;
 import it.contrader.dto.UserDTO;
-import it.contrader.dto.UsersDTO;
+
 import it.contrader.model.User;
-import it.contrader.model.Users;
+
 
 public class UserService {
 
