@@ -55,7 +55,7 @@ body {
 
 	<div class="pre_contenitore">
 
-		<p>User Management</p>
+		<p>Mom Management</p>
 
 	</div>
 	<br>
@@ -95,7 +95,7 @@ body {
 			<td><%=mom.getTesto_azione_mom()%></td>
 			<td><%=mom.getTesto_note_mom()%></td>
 			
-			<td class="center"><a href="/JspApp/MomServlet?richiesta=updateRedirect&id=<%=mom.getId_mom()%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/MomServlet?richiesta=updateRedirect&id_ut=<%=mom.getId_mom()%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/JspApp/MomServlet?richiesta=delete&id=<%=mom.getId_mom()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>

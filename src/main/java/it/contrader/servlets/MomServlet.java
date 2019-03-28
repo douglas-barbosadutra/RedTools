@@ -32,8 +32,8 @@ public class MomServlet extends HttpServlet {
 			switch (scelta) {
 			
 			case "MomManager":
-				
-				allMom = this.momService.getAllMom();
+				final int id_ut = Integer.parseInt(request.getParameter("id"));
+				allMom = this.momService.getAllMom(id_ut);
 				request.setAttribute("allMom", allMom);
 				getServletContext().getRequestDispatcher("/mom/manageMom.jsp").forward(request, response);
 				break;
@@ -97,9 +97,10 @@ public class MomServlet extends HttpServlet {
 	
 	private void showAllMom(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		allMom = this.momService.getAllMom();
 		request.setAttribute("allMom", allMom);
-		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/mom/manageMom.jsp").forward(request, response);
 	}
 }
 

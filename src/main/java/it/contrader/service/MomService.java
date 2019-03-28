@@ -38,6 +38,20 @@ public class MomService {
 
 		return listDTO;
 	}
+	public List<MomDTO> getAllMom() {
+
+		List<Mom> list = momDAO.getAllMom();
+		List<MomDTO> listDTO = new ArrayList<>();
+
+		for (Mom mom : list) {
+			listDTO.add(ConverterMom.toDTO(mom));
+		}
+
+		return listDTO;
+	}
+	
+	
+	
 	
 	
 	public boolean insertMom(MomDTO momDTO) {
