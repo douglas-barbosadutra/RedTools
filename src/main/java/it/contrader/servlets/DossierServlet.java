@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.DossierDTO;
+import it.contrader.dto.ProgettoDTO;
 import it.contrader.dto.UtenteFinaleDTO;
 import it.contrader.service.DossierService;
 
@@ -19,25 +20,33 @@ import it.contrader.service.DossierService;
 
 public class DossierServlet extends HttpServlet {
 
-	private final DossierService DossierServiceDTO = new DossierService();
+	private final DossierService DossierService = new DossierService();
 	private List<DossierDTO> allDossier = new ArrayList<>();
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final String scelta = request.getParameter("richiesta");
+		final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
+		final int idProgetto = Integer.parseInt(request.getParameter("id"));
 		final HttpSession session = request.getSession(true);
 
 		switch (scelta) {
 
 		case "DossierManager":
-			allDossier = this.DossierServiceDTO.getAllDossier();
+			allDossier = this.DossierService.getAllDossier(idUtenteFinale);
+			allDossier = this.DossierService.getAllDossier(idProgetto);
 			request.setAttribute("allDossier", allDossier);
+			request.setAttribute("id", idUtenteFinale);
+			request.setAttribute("id", idProgetto);
+
 			getServletContext().getRequestDispatcher("/dossier/manageDossier.jsp").forward(request, response);
 			break;
 
 		case "insertRedirect":
-			response.sendRedirect("dossier/insertDossier.jsp");
+			request.setAttribute("id",Integer.parseInt(request.getParameter("id")));
+			getServletContext().getRequestDispatcher("/dossier/insertDossier.jsp").forward(request, response);
 			break;
+
 
 		case "insert":
 			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
@@ -48,21 +57,23 @@ public class DossierServlet extends HttpServlet {
 			final double costiAttivitaRd = Double.parseDouble(request.getParameter("costiAttivitaRd"));
 			final double costiPersonaleRd = Double.parseDouble (request.getParameter("costiPersonaleRd"));
 			final int idUtentefinale = Integer.parseInt(request.getParameter("idUtentefinale"));
-			final int idProgetto = Integer.parseInt(request.getParameter("idProgetto"));
-			final int idDossier = Integer.parseInt(request.getParameter("idDossier"));
+			final int idProgetto1 = Integer.parseInt(request.getParameter("id"));
 			final String periodoDiImposta = request.getParameter("periodoDiImposta");
-			final DossierDTO dossier = new DossierDTO(0, 0, numeroDipendenti,
-					costiAttivitaRd, costiPersonaleRd, 0, 0, 0, periodoDiImposta);
-			DossierServiceDTO.insertDossier(dossier);
-			showAllDossier(request, response);
+			
+			final DossierDTO dossier = new DossierDTO(costoDipendenti,fatturatoPeriodoDiImposta,numeroDipendenti,
+					costiAttivitaRd, costiPersonaleRd, idUtentefinale, idProgetto1, idProgetto1, periodoDiImposta);
+
+			
+			
+			
 			break;
 
 		case "updateRedirect":
-			int idDossier1 = Integer.parseInt(request.getParameter("idDossier"));
+			int id = Integer.parseInt(request.getParameter("user_id"));
 			DossierDTO updateDossier = new DossierDTO();
-			updateDossier.setIdDossier(idDossier1);
+			updateDossier.setIdDossier(id);
 
-			updateDossier = this.DossierServiceDTO.readDossier(idDossier1);
+			updateDossier = this.DossierService.readDossier(id);
 			request.setAttribute("updateDossier", updateDossier);
 			getServletContext().getRequestDispatcher("/dossier/updateDossier.jsp").forward(request, response);
 
@@ -80,22 +91,20 @@ public class DossierServlet extends HttpServlet {
 			final int idProgettoUpdate = Integer.parseInt(request.getParameter("idProgetto"));
 			final int idDossierUpdate = Integer.parseInt(request.getParameter("idDossier"));
 			final String periodoDiImpostaUpdate = request.getParameter("periodoDiImposta");
-			final DossierDTO dossier1 = new DossierDTO(0, 0, numeroDipendentiUpdate,
-					costiAttivitaRdUpdate, costiPersonaleRdUpdate, 0, 0, 0, periodoDiImpostaUpdate);
-			DossierServiceDTO.insertDossier(dossier1);
-			showAllDossier(request, response);
-
-			DossierServiceDTO.updateDossier(dossier1);
-			showAllDossier(request, response);
+			final DossierDTO dossier1 = new DossierDTO(costoDipendenti,fatturatoPeriodoDiImposta,numeroDipendenti,
+					costiAttivitaRd, costiPersonaleRd, idUtentefinale, idProgetto1, idProgetto1, periodoDiImposta);
+			dossier1.setIdProgetto(idProgettoUpdate);;
+			dossier1.setIdDossier(idDossierUpdate);
+			dossier1.setIdUtentefinale(idUtentefinaleUpdate);
 			break;
 
 		case "delete":
-			final Integer deleteidDossier = Integer.parseInt(request.getParameter("idDossier"));
+			
+			final int deleteidDossier = Integer.parseInt(request.getParameter("idDossier"));
 
-			final DossierDTO Dossierdelete = new  DossierDTO(0,0,0,0,0,0,0,0,"");
-			Dossierdelete.setIdDossier(deleteidDossier);
-			DossierServiceDTO.deleteDossier(deleteidDossier);
-			showAllDossier(request, response);
+			final DossierDTO dossierdelete = new  DossierDTO("", "", "", "", "", "");
+			dossier1.deleteDossier(dossierId);
+			showAllProgetto(request, response);
 			break;
 
 		case "indietro":
