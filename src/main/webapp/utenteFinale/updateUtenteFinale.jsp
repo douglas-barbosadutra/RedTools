@@ -27,7 +27,8 @@
 </style>
 
 <%
-	UserDTO updateUser = (UserDTO) request.getAttribute("userUpdate");
+	UtenteFinaleDTO updateUtenteFinale = (UtenteFinaleDTO) request.getAttribute("utenteFinaleUpdate");
+	
 %>
 </head>
 
@@ -36,37 +37,68 @@
 
 		<div class="pre_contenitore">
 
-			<p>User Update</p>
+			<p>UtenteFinale Update</p>
 
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/UserServlet?richiesta=update">
+		<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=update">
+ 			
+<%-- 			<% --%>
+<!-- // 				String selected = "selected=\"selected\""; -->
+<!-- // 				String adminSelected = ""; -->
+<!-- // 				String boSelected = ""; -->
+<!-- // 				if (updateUser.getUsertype().equals("admin")) { -->
+<!-- // 					adminSelected = selected; -->
+<!-- // 				} else -->
+<!-- // 					boSelected = selected; -->
+<%-- 			%> --%>
+		
 
-			<%
-				String selected = "selected=\"selected\"";
-				String adminSelected = "";
-				String boSelected = "";
-				if (updateUser.getUsertype().equals("admin")) {
-					adminSelected = selected;
-				} else
-					boSelected = selected;
-			%>
+<!-- 			User type: <select style="width: 270px;" name="user_type"> -->
 
-			User type: <select style="width: 270px;" name="user_type">
-
-				<option <%=adminSelected%> value="superuser">Super User</option>
-				<option <%=boSelected%> value="user">Business owner</option>
+<%-- 				<option <%=adminSelected%> value="superuser">Super User</option> --%>
+<%-- 				<option <%=boSelected%> value="user">Business owner</option> --%>
 
 
 			</select>
 			<br>
-			<input type="hidden" name="user_id" value="<%=updateUser.getUserId()%>" />
+			<input type="hidden" name="user_id" value="<%=updateUtenteFinale.getId()%>" />
 			<br>
-			Username: <input type="text" size="40" maxlength="40" name="user_user" value="<%=updateUser.getUsername()%>" />
+			DenominazioneSocieta: <input type="text" size="40" maxlength="40" name="denominazione_societa" value="<%=updateUtenteFinale.getDenominazioneSocieta()%>" />
 			<br>
 			<br>
-			Password: <input type="text" size="40" maxlength="40" name="user_pass" value="<%=updateUser.getPassword()%>" />
+			formaGiuridicaUpdate: <input type="text" size="40" maxlength="40" name="forma_giuridica" value="<%=updateUtenteFinale.getSedeLegale()%>" />
+			<br>
+			<br>
+			SedeLegale: <input type="text" size="40" maxlength="40" name="sede_legale" value="<%=updateUtenteFinale.getSedeLegale()%>" />
+			<br>
+			<br>
+			PartitaIva: <input type="text" size="40" maxlength="40" name="partita_iva" value="<%=updateUtenteFinale.getPartitaIva()%>" />
+			<br>
+			<br>
+			Telefono: <input type="text" size="40" maxlength="40" name="telefono" value="<%=updateUtenteFinale.getTelefono()%>" />
+			<br>
+			<br>
+			Email: <input type="text" size="40" maxlength="40" name="email" value="<%=updateUtenteFinale.getEmail()%>" />
+			<br>
+			<br>
+			IndirizzoUnitaLocale: <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" value="<%=updateUtenteFinale.getIndirizzoUnitaLocale()%>" />
+			<br>
+			<br>
+			AttivitaAzienda: <input type="text" size="40" maxlength="40" name="attivita_azienda" value="<%=updateUtenteFinale.getAttivitaAzienda()%>" />
+			<br>
+			<br>
+			LegaleRappresentante: <input type="text" size="40" maxlength="40" name="legale_rappresentante" value="<%=updateUtenteFinale.getLegaleRappresentante()%>" />
+			<br>
+			<br>
+			NatoA: <input type="text" size="40" maxlength="40" name="nato_a" value="<%=updateUtenteFinale.getNatoA()%>" />
+			<br>
+			<br>
+			NatoIl: <input type="text" size="40" maxlength="40" name="nato_il" value="<%=updateUtenteFinale.getNatoIl()%>" />
+			<br>
+			<br>
+			IdUtente: <input type="text" size="40" maxlength="40" name="id_utente" value="<%=updateUtenteFinale.getIdUtente()%>" />
 			<br>
 			<br>
 			<br>
@@ -76,7 +108,7 @@
 
 			<br>
 			<br>
-			<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 
