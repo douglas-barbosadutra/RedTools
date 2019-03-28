@@ -8,9 +8,8 @@ public class ProgettoDTO {
 	
 
 	
-	public ProgettoDTO(int idprogetto, String nomeprogetto, int idUtenteFinale) {
+	public ProgettoDTO(String nomeprogetto, int idUtenteFinale) {
 		super();
-		this.idprogetto = idprogetto;
 		this.nomeprogetto = nomeprogetto;
 		this.idUtenteFinale = idUtenteFinale;
 	}

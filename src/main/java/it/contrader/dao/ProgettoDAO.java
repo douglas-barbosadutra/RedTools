@@ -16,10 +16,10 @@ import it.contrader.utils.GestoreEccezioni;
 public class ProgettoDAO {
 
 	private final String QUERY_ALL = "select * from tab_progetto where idutentefinale=?";
-	private final String QUERY_INSERT = "insert into tab_progetto (nomeProgetto, idUtentefnale) values (?,?)";
+	private final String QUERY_INSERT = "insert into tab_progetto (nomeProgetto, idUtentefinale) values (?,?)";
 	private final String QUERY_READ = "select * from tab_progetto where idprogetto=?";
 
-	private final String QUERY_UPDATE = "UPDATE tab_progetto SET idprogetto=?,nomeprogetto=?, idUtenteFinale=?, WHERE idprogetto=?";
+	private final String QUERY_UPDATE = "UPDATE tab_progetto SET idprogetto=?,nomeprogetto=?, idUtenteFinale=? WHERE idprogetto=?";
 	private final String QUERY_DELETE = "delete from tab_progetto where idProgetto=?";
 
 	public ProgettoDAO() {
@@ -91,7 +91,6 @@ public class ProgettoDAO {
 
 	public boolean updateProgetto(Progetto progettoToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
-
 		// Check if id is present
 		if (progettoToUpdate.getIdProgetto() == 0)
 			return false;
@@ -105,7 +104,6 @@ public class ProgettoDAO {
 					progettoToUpdate.setNomeProgetto(progettoRead.getNomeProgetto());
 				
 				}
-				
 				// Update the progetto
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setInt(1, progettoToUpdate.getIdProgetto());
