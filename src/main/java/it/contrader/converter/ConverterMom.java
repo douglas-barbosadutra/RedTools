@@ -17,14 +17,14 @@ public class ConverterMom {
 			momDTO.setNome_utente_finale_mom(mom.getNome_utente_finale_mom());
 			momDTO.setLuogo_mom(mom.getLuogo_mom());
 			momDTO.setData_del_giorno_mom(mom.getData_del_giorno_mom());
-			momDTO.setOrario_mom(momDTO.getOrario_mom());
-			momDTO.setOggetto_mom(momDTO.getOggetto_mom());
-			momDTO.setProgetto_mom(momDTO.getProgetto_mom());
-			momDTO.setPartecipanti_mom(momDTO.getPartecipanti_mom());
-			momDTO.setTesto_agenda_mom(momDTO.getTesto_agenda_mom());
-			momDTO.setTesto_azione_mom(momDTO.getTesto_azione_mom());
-			momDTO.setTesto_note_mom(momDTO.getTesto_note_mom());
-			momDTO.setChiave_est_ut_fin(momDTO.getChiave_est_ut_fin());
+			momDTO.setOrario_mom(mom.getOrario_mom());
+			momDTO.setOggetto_mom(mom.getOggetto_mom());
+			momDTO.setProgetto_mom(mom.getProgetto_mom());
+			momDTO.setPartecipanti_mom(mom.getPartecipanti_mom());
+			momDTO.setTesto_agenda_mom(mom.getTesto_agenda_mom());
+			momDTO.setTesto_azione_mom(mom.getTesto_azione_mom());
+			momDTO.setTesto_note_mom(mom.getTesto_note_mom());
+			momDTO.setChiave_est_ut_fin(mom.getChiave_est_ut_fin());
 			
 			}
 		return momDTO;
