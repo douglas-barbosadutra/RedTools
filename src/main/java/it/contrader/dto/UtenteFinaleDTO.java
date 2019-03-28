@@ -19,8 +19,8 @@ public class UtenteFinaleDTO {
 	
 	public UtenteFinaleDTO(String denominazioneSocieta, String formaGiuridica, String sedeLegale, String partitaIva,
 			String telefono, String email, String indirizzoUnitaLocale, String attivitaAzienda,
-			String legaleRappresentante, String natoA, String natoIl, int idUtente, int id) {
-		super();
+			String legaleRappresentante, String natoA, String natoIl, int idUtente) {
+		
 		this.denominazioneSocieta = denominazioneSocieta;
 		this.formaGiuridica = formaGiuridica;
 		this.sedeLegale = sedeLegale;
@@ -33,7 +33,7 @@ public class UtenteFinaleDTO {
 		this.natoA = natoA;
 		this.natoIl = natoIl;
 		this.idUtente = idUtente;
-		this.id = id;
+		
 	}
 
 	public UtenteFinaleDTO() {

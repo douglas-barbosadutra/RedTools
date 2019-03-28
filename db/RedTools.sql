@@ -1,6 +1,8 @@
 CREATE DATABASE  IF NOT EXISTS `redtools` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 USE `redtools`;
 
+
+
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
 -- Host: localhost    Database: redtools
@@ -28,11 +30,11 @@ DROP TABLE IF EXISTS `tab_dossier`;
 CREATE TABLE `tab_dossier` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `periodo_di_imposta` varchar(4) NOT NULL,
-  `costo_dipendenti_periodo_imposta` double NOT NULL,
-  `fatturato_periodo_di_imposta` double NOT NULL,
-  `numero_totale_dipendenti` int(10) unsigned NOT NULL,
-  `costo_complessivo_attivita` double unsigned NOT NULL,
-  `costo_personale` double unsigned NOT NULL,
+  `costo_dipendenti_periodo_imposta` double DEFAULT NULL,
+  `fatturato_periodo_di_imposta` double DEFAULT NULL,
+  `numero_totale_dipendenti` int(10) unsigned DEFAULT NULL,
+  `costo_complessivo_attivita` double unsigned DEFAULT NULL,
+  `costo_personale` double unsigned DEFAULT NULL,
   `id_utente_finale` int(10) unsigned NOT NULL,
   `id_progetto` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
@@ -151,16 +153,16 @@ DROP TABLE IF EXISTS `tab_utente_finale`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tab_utente_finale` (
   `denominazione_societa` varchar(100) NOT NULL,
-  `forma_giuridica` varchar(45) NOT NULL,
-  `sede_legale` varchar(45) NOT NULL,
-  `partita_iva` varchar(11) NOT NULL,
-  `telefono` varchar(45) NOT NULL,
-  `e_mail` varchar(45) NOT NULL,
-  `indirizzo_unita_locale` varchar(100) NOT NULL,
-  `attivita_azienda` varchar(45) NOT NULL,
-  `legale_rappresentante` varchar(45) NOT NULL,
-  `nato_a` varchar(45) NOT NULL,
-  `nato_il` varchar(45) NOT NULL,
+  `forma_giuridica` varchar(45) DEFAULT NULL,
+  `sede_legale` varchar(45) DEFAULT NULL,
+  `partita_iva` varchar(11) DEFAULT NULL,
+  `telefono` varchar(45) DEFAULT NULL,
+  `e_mail` varchar(45) DEFAULT NULL,
+  `indirizzo_unita_locale` varchar(100) DEFAULT NULL,
+  `attivita_azienda` varchar(45) DEFAULT NULL,
+  `legale_rappresentante` varchar(45) DEFAULT NULL,
+  `nato_a` varchar(45) DEFAULT NULL,
+  `nato_il` varchar(45) DEFAULT NULL,
   `id_utente` int(10) unsigned NOT NULL,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
@@ -188,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-27 10:25:22
+-- Dump completed on 2019-03-28 10:05:29
