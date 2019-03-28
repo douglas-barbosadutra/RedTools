@@ -86,9 +86,9 @@ body {
 			<td><%=utenteFinale.getPartitaIva()%></td>
 			<td><%=utenteFinale.getTelefono()%></td>
 			<td><%=utenteFinale.getEmail()%></td>
-			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=progetto&id=<%=utenteFinale.getId()%>"><i class="fas fa-clipboard" title="Progetto"></i></a></td>
-			<td class="center"><a href="/JspApp/DossierServlet?richiesta=dossier&id=<%=utenteFinale.getId()%>"><i class="fas fa-book" title="Dossier"></i></a></td>
-			<td class="center"><a href="/JspApp/MomServlet?richiesta=mom&id=<%=utenteFinale.getId()%>"><i class="fas fa-pencil-alt" title="Mom"></i></a></td>
+			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-clipboard" title="Progetto"></i></a></td>
+			<td class="center"><a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-book" title="Dossier"></i></a></td>
+			<td class="center"><a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-pencil-alt" title="Mom"></i></a></td>
 			<td class="center"><a href="/JspApp/UtenteFinaleServlet?richiesta=updateRedirect&id=<%=utenteFinale.getId()%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/JspApp/UserServlet?richiesta=delete&id=<%=utenteFinale.getId()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
