@@ -23,7 +23,7 @@
 	<br>
 	<br>
 	<br>
-	<a href="LogoutServlet" target="self"><span class="fs">
+	<a href="LogoutServlet" ><span class="fs">
 			Logout </span></a>
 
 </body>
