@@ -7,7 +7,7 @@
 <title>Inserisci nuovo progetto</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
+<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 <style>
 .pre_contenitore {
 	width: 320px;
@@ -28,6 +28,10 @@
 	line-height: 2px;
 }
 </style>
+<%
+	int idUtenteFinale =  (Integer) request.getAttribute("id");
+%>
+
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -38,18 +42,13 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/wmesjsp/UserServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/ProgettoServlet?richiesta=insert">
 
-		User type: <select style="width: 275px;" name="user_type">
-			<option value="admin">Admin</option>
-			<option value="bo">Business Owner</option>
-		</select>
+	
 		<br>
+		Nome Progetto: <input type="text" size="40" maxlength="40" name="nomeProgetto" />
+		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
 		<br>
-		Username: <input type="text" size="40" maxlength="40" name="user_user" />
-		<br>
-		<br>
-		Password: <input type="text" size="40" maxlength="40" name="user_pass" />
 		<br>
 		<br>
 		<br>
@@ -57,7 +56,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/wmesjsp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

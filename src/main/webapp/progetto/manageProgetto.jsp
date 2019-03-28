@@ -22,7 +22,7 @@ body {
 	color: white;
 }
 </style>
-<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
+<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <style>
@@ -48,14 +48,15 @@ body {
 </style>
 </head>
 <%
-	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUser");
+	List<ProgettoDTO> allProgetto = (List<ProgettoDTO>) request.getAttribute("allProgetto");
+	int idUtenteFinale =  (Integer) request.getAttribute("id");
 %>
 </head>
 <body>
 
 	<div class="pre_contenitore">
 
-		<p>User Management</p>
+		<p>Progetto Management</p>
 
 	</div>
 	<br>
@@ -66,23 +67,18 @@ body {
 
 	<table>
 		<tr>
-			<th>ID</th>
-			<th>Username</th>
-			<th>Password</th>
-			<th>User Type</th>
-			<th>Update</th>
-			<th>Delete</th>
+			<th>ID Progetto</th>
+			<th>Nome Progetto</th>	
 		</tr>
 		<%
-			for (UserDTO user : allUser) {
+			for (ProgettoDTO progetto : allProgetto) {
 		%>
 		<tr>
-			<td><%=user.getId()%></td>
-			<td><%=user.getUsername()%></td>
-			<td><%=user.getPassword()%></td>
-			<td><%=convertUsertype(user.getUsertype())%></td>
-			<td class="center"><a href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td><%=progetto.getIdProgetto()%></td>
+			<td><%=progetto.getNomeProgetto()%></td>
+			
+			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=updateRedirect&updateId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=delete&deleteId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -91,11 +87,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
+	<a href="/JspApp/ProgettoServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
 
 	<br>
 	<br>
-	<a href="/wmesjsp/UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>
