@@ -20,9 +20,9 @@ private ProgettoDAO progettoDAO;
 		}
 
 
-		public List<ProgettoDTO> getAllProgetto() {
+		public List<ProgettoDTO> getAllProgetto(int idUtenteFinale) {
 
-			List<Progetto> list = progettoDAO.getAllProgetto();
+			List<Progetto> list = progettoDAO.getAllProgetto(idUtenteFinale);
 			List<ProgettoDTO> listDTO = new ArrayList<>();
 			for (Progetto progetto : list) {
 				listDTO.add(ConverterProgetto.toDTO(progetto));

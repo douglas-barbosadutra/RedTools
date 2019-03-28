@@ -15,7 +15,7 @@ import it.contrader.utils.GestoreEccezioni;
 
 public class ProgettoDAO {
 
-	private final String QUERY_ALL = "select * from tab_progetto";
+	private final String QUERY_ALL = "select * from tab_progetto where idutentefinale=?";
 	private final String QUERY_INSERT = "insert into tab_progetto (nomeProgetto, idUtentefnale) values (?,?)";
 	private final String QUERY_READ = "select * from tab_progetto where idprogetto=?";
 
@@ -26,18 +26,23 @@ public class ProgettoDAO {
 
 	}
 
-	public List<Progetto> getAllProgetto() {
+	public List<Progetto> getAllProgetto(int idUtenteFinale) {
 		List<Progetto> progettoList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			//Statement statement = connection.createStatement();
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_ALL);
+			preparedStatement.setInt(1, idUtenteFinale);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			//ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Progetto progetto;
 			while (resultSet.next()) {
 				int idProgetto = resultSet.getInt("idProgetto");
-				int idUtenteFinale = resultSet.getInt("idUtenteFinale");
+				int idUF = resultSet.getInt("idUtenteFinale");
 				String nomeProgetto = resultSet.getString("nomeProgetto");
-				progetto = new Progetto(idProgetto, nomeProgetto, idUtenteFinale);
+				progetto = new Progetto(idProgetto, nomeProgetto, idUF);
 				progetto.setIdProgetto(idProgetto);
 				progettoList.add(progetto);
 			}
