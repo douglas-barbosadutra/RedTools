@@ -90,7 +90,7 @@ body {
 			<td class="center"><a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-book" title="Dossier"></i></a></td>
 			<td class="center"><a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-pencil-alt" title="Mom"></i></a></td>
 			<td class="center"><a href="/JspApp/UtenteFinaleServlet?richiesta=updateRedirect&id=<%=utenteFinale.getId()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/UserServlet?richiesta=delete&id=<%=utenteFinale.getId()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/JspApp/UtenteFinaleServlet?richiesta=delete&id=<%=utenteFinale.getId()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -99,7 +99,7 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Utente Finale</i></a>
 
 	<br>
 	<br>

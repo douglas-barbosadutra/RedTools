@@ -32,32 +32,57 @@
 <body>
 	<div class="pre_contenitore">
 
-		<p>New User</p>
+		<p>New UtenteFinale</p>
 
 	</div>
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/UserServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=insert">
 
-		User type: <select style="width: 275px;" name="user_type">
-			<option value="superuser">Super User</option>
-			<option value="user">Business Owner</option>
-		</select>
+		
 		<br>
 		<br>
-		Username: <input type="text" size="40" maxlength="40" name="user_user" />
+		DenominazioneSocieta: <input type="text" size="40" maxlength="40" name="denominazione_societa" />
 		<br>
 		<br>
-		Password: <input type="text" size="40" maxlength="40" name="user_pass" />
+		FormaGiuridica <input type="text" size="40" maxlength="40" name="forma_giuridica" />
 		<br>
 		<br>
+		SedeLegale <input type="text" size="40" maxlength="40" name="sede_legale" />
+		<br>
+		<br>
+		PartitaIva <input type="text" size="40" maxlength="40" name="partita_iva" />
+		<br>
+		<br>
+		Telefono <input type="text" size="40" maxlength="40" name="telefono" />
+		<br>
+		<br>
+		email <input type="text" size="40" maxlength="40" name="email" />
+		<br>
+		<br>
+		IndirizzoUnitaLocale <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" />
+		<br>
+		<br>
+		AttivitaAzienda <input type="text" size="40" maxlength="40" name="attivita_azienda" />
+		<br>
+		<br>
+		LegaleRapresentante <input type="text" size="40" maxlength="40" name="legale_rappresentante" />
+		<br>
+		<br>
+		NatoA <input type="text" size="40" maxlength="40" name="nato_a" />
+		<br>
+		<br>
+		NatoIl <input type="text" size="40" maxlength="40" name="nato_il" />
+		<br>
+		<br>
+		IdUtente <input type="text" size="40" maxlength="40" name="id_utente" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

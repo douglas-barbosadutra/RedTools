@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cancella Utente</title>
+<title>Cancella Utente finale</title>
 </head>
 <body>
 	<h1>Utente eliminato con successo</h1>
