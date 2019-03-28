@@ -10,7 +10,7 @@ private String convertUsertype(String userType) {
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gestione Utenti</title>
+<title>MANAGE DOSSIER</title>
 <style>
 body {
 	background-image:
@@ -47,7 +47,7 @@ body {
 </style>
 </head>
 <%
-	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUser");
+	List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossier");
 %>
 </head>
 <body>
@@ -65,23 +65,35 @@ body {
 
 	<table>
 		<tr>
-			<th>ID</th>
-			<th>Username</th>
-			<th>Password</th>
-			<th>User Type</th>
-			<th>Update</th>
-			<th>Delete</th>
+		    <th>idDossier</th>
+			<th>costoDipendenti</th>
+			<th>fatturatoPeriodoDiImposta</th>
+			<th>numeroDipendenti</th>
+			<th>costiAttivitaRd</th>
+			<th>costiPersonaleRd</th>
+		    <th>idUtenteFinale</th>
+		    <th>idProgetto</th>
+		    <th>idDossier</th>
+		    <th>periodoDiImposta</th>
+		
 		</tr>
 		<%
-			for (UserDTO user : allUser) {
+			for (DossierDTO dossier : allDossier) {
 		%>
 		<tr>
-			<td><%=user.getId()%></td>
-			<td><%=user.getUsername()%></td>
-			<td><%=user.getPassword()%></td>
-			<td><%=convertUsertype(user.getUsertype())%></td>
-			<td class="center"><a href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td><%=dossier.getIdDossier()%></td>
+			<td><%=dossier.getCostoDipendenti()%></td>
+			<td><%=dossier.getFatturatoPeriodoDiImposta()%></td>
+			<td><%=dossier.getNumeroDipendenti()%></td>
+			<td><%=dossier.getCostiAttivitaRd()%></td>
+			<td><%=dossier.getCostiPersonaleRd()%></td>
+			<td><%=dossier.getIdUtentefinale()%></td>
+			<td><%=dossier.getIdProgetto()%></td>
+			<td><%=dossier.getIdDossier()%></td>
+			<td><%=dossier.getPeriodoDiImposta()%></td>
+			
+			<td class="center"><a href="/jspApp/dossier/DossierServlet?richiesta=updateRedirect&IdDossier=<%=dossier.getIdDossier()%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/dossier/DossierServlet?richiesta=delete&IdDossier=<%=dossier.getIdDossier()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -90,11 +102,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
+	<a href="/JspApp/DossierServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Dossier</i></a>
 
 	<br>
 	<br>
-	<a href="/wmesjsp/UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/DossierServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

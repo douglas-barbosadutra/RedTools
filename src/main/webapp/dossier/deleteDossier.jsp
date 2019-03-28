@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cancella Utente</title>
+<title>DELETED DOSSIER</title>
 </head>
 <body>
-	<h1>Utente eliminato con successo</h1>
+	<h1>DELETED DOSSIER WITH SUCCESS</h1>
 </body>
 </html> 

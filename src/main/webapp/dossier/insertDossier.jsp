@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Inserisci nuovo utente</title>
+<title>INSERT NEW DOSSIER</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
@@ -32,32 +32,46 @@
 <body>
 	<div class="pre_contenitore">
 
-		<p>New User</p>
+		<p>NEW DOSIER</p>
 
 	</div>
 
 	<br>
 	<br>
-	<form method="POST" action="/wmesjsp/UserServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/UserServlet?richiesta=insert">
 
-		User type: <select style="width: 275px;" name="user_type">
-			<option value="admin">Admin</option>
-			<option value="bo">Business Owner</option>
-		</select>
+		
+		Costo dipendneti: <input type="text" size="40" maxlength="40" name="costoDipendenti" />
 		<br>
 		<br>
-		Username: <input type="text" size="40" maxlength="40" name="user_user" />
+		Fatturato periodo di imposta: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" />
 		<br>
 		<br>
-		Password: <input type="text" size="40" maxlength="40" name="user_pass" />
+		Numero dipendenti: <input type="text" size="40" maxlength="40" name="numeroDipendenti" />
 		<br>
 		<br>
+		Costi attivita' RD: <input type="text" size="40" maxlength="40" name="costiAttivitaRd" />
+		<br>
+		<br>
+		Costi personale RD: <input type="text" size="40" maxlength="40" name="costiPersonaleRd" />
+		<br>
+		<br>
+		Id utente finale: <input type="text" size="40" maxlength="40" name="idUtentefinale" />
+		<br>
+		<br>
+		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" />
+		<br>
+		<br>
+		Id dossier: <input type="text" size="40" maxlength="40" name="idDossier" />
+		<br>
+		<br>
+		Periodo di imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/wmesjsp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/DossierServlet?richiesta=manageDossier"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

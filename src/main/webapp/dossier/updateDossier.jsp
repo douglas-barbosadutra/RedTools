@@ -26,7 +26,7 @@
 </style>
 
 <%
-	UserDTO updateUser = (UserDTO) request.getAttribute("userUpdate");
+	DossierDTO updateDossier = (DossierDTO) request.getAttribute("dossierUpdate");
 %>
 </head>
 
@@ -35,18 +35,18 @@
 
 		<div class="pre_contenitore">
 
-			<p>User Update</p>
+			<p>DOSSIER UPDATE</p>
 
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/wmesjsp/UserServlet?richiesta=update">
+		<form method="POST" action="/JspApp/DossierServlet?richiesta=update">
 
 			<%
 				String selected = "selected=\"selected\"";
 				String adminSelected = "";
 				String boSelected = "";
-				if (updateUser.getUsertype().equals("admin")) {
+				if (updateDossier.getupdateDossier().equals("admin")) {
 					adminSelected = selected;
 				} else
 					boSelected = selected;
