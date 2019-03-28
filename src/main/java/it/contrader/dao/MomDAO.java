@@ -59,6 +59,38 @@ public class MomDAO {
 		return momList;
 	}
 	
+	
+	public Mom readMom(int momId) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ_MOM);
+			preparedStatement.setInt(1, momId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			String nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom, oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom, chiave_est_ut_fin;
+
+			nome_utente_finale_mom = resultSet.getString("nome_utente_finale_mom");
+			luogo_mom = resultSet.getString("luogo_mom");
+			data_del_giorno_mom = resultSet.getString("data_del_giorno_mom");
+			orario_mom = resultSet.getString("orario_mom");
+			oggetto_mom = resultSet.getString("oggetto_mom");
+			progetto_mom = resultSet.getString("progetto_mom");
+			partecipanti_mom = resultSet.getString("partecipanti_mom");
+			testo_agenda_mom = resultSet.getString("testo_agenda_mom");
+			testo_azione_mom = resultSet.getString("testo_azione_mom");
+			testo_note_mom = resultSet.getString("testo_note_mom");
+			chiave_est_ut_fin = resultSet.getString("chiave_est_ut_fin");
+			Mom mom = new Mom(nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom, oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom, chiave_est_ut_fin);
+			mom.setId_mom(resultSet.getInt("id_mom"));
+
+			return mom;
+		} catch (SQLException e) {
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
+			return null;
+		}
+
+	}
+	
 	// Inserimento di una Mom
 
 		public boolean insertMom(Mom mom) {

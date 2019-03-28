@@ -22,6 +22,11 @@ public class MomService {
 	
 	}
 	
+	public MomDTO readMom(int momId) {
+		return ConverterMom.toDTO(this.momDAO.readMom(momId));
+	}
+	
+	
 	public List<MomDTO> getAllMom() {
 
 		List<Mom> list = momDAO.getAllMom();

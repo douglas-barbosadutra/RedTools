@@ -31,7 +31,17 @@ public class MomServlet extends HttpServlet {
 			final HttpSession session = request.getSession(true);
 			switch (scelta) {
 			
-			
+			case "MomManager":
+				
+				allMom = this.momService.getAllMom();
+				request.setAttribute("allMom", allMom);
+				getServletContext().getRequestDispatcher("/mom/manageMom.jsp").forward(request, response);
+				break;
+				
+			case "insertRedirect":
+				response.sendRedirect("mom/insertMom.jsp");
+				break;
+				
 			case "insert":
 				
 				final String nome_utente_finale_mom = request.getParameter("nome_utente_finale_mom");
@@ -51,6 +61,17 @@ public class MomServlet extends HttpServlet {
 				showAllMom(request, response);
 				break;
 				
+			case "updateRedirect":
+				int id = Integer.parseInt(request.getParameter("id_mom"));
+				MomDTO momUpdate = new MomDTO("", "", "","", "", "","", "", "","", "");
+				momUpdate.setId_mom(id);
+
+				momUpdate = this.momService.readMom(id);
+				request.setAttribute("momUpdate", momUpdate);
+				getServletContext().getRequestDispatcher("/mom/updateMom.jsp").forward(request, response);
+
+				break;
+				
 				
 			case "delete":
 				final Integer deleteId = Integer.parseInt(request.getParameter("id"));
@@ -59,13 +80,20 @@ public class MomServlet extends HttpServlet {
 				momService.deleteMom(deleteId);
 				showAllMom(request, response);
 				break;
+				
+			case "indietro":
+				response.sendRedirect("homeBO.jsp");
+				break;
+
+			case "logsMenu":
+				response.sendRedirect("index.jsp");
+				break;
 			}
 		
 		
 		}
 		
 		
-	
 	
 	private void showAllMom(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
