@@ -101,6 +101,7 @@ public class DossierDTO {
 
 	public void setFilledFields(int filledFields) {
 		this.filledFields = filledFields;
+		
 	}
 	
 	
