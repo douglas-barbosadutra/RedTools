@@ -74,7 +74,6 @@ body {
 			<th>costiPersonaleRd</th>
 		    <th>idUtenteFinale</th>
 		    <th>idProgetto</th>
-		    <th>idDossier</th>
 		    <th>periodoDiImposta</th>
 		
 		</tr>
@@ -90,11 +89,10 @@ body {
 			<td><%=dossier.getCostiPersonaleRd()%></td>
 			<td><%=dossier.getIdUtentefinale()%></td>
 			<td><%=dossier.getIdProgetto()%></td>
-			<td><%=dossier.getIdDossier()%></td>
 			<td><%=dossier.getPeriodoDiImposta()%></td>
 			
-			<td class="center"><a href="/jspApp/dossier/DossierServlet?richiesta=updateRedirect&IdDossier=<%=dossier.getIdDossier()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/dossier/DossierServlet?richiesta=delete&IdDossier=<%=dossier.getIdDossier()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/JspApp/DossierServlet?richiesta=updateRedirect&updateId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/DossierServlet?richiesta=delete&deleteId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%

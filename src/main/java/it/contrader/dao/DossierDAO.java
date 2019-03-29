@@ -18,7 +18,7 @@ public class DossierDAO {
 	private final String QUERY_ALL = "select * from tab_dossier where id_utente_finale=?";
 	private final String QUERY_INSERT = "insert into tab_dossier (periodo_di_imposta, costo_dipendenti_periodo_imposta, fatturato_periodo_di_imposta, numero_totale_dipendenti, costo_complessivo_attivita, costo_personale, id_Utente_Finale, id_progetto ) values (?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "select * from tab_dossier where id=?";
-	private final String QUERY_UPDATE = "UPDATE tab_dossier SET periodo_di_imposta=?, costo_dipendenti_periodo_imposta=?, fatturato_periodo_di_imposta=?, numero_totale_dipendenti=?, costo_complessivo_attivita=?, costo_personale=?, idUtenteFinale=?, id_progetto=?  where id=?";
+	private final String QUERY_UPDATE = "UPDATE tab_dossier SET periodo_di_imposta=?, costo_dipendenti_periodo_imposta=?, fatturato_periodo_di_imposta=?, numero_totale_dipendenti=?, costo_complessivo_attivita=?, costo_personale=?, id_Utente_Finale=?, id_progetto=?  where id=?";
 	private final String QUERY_DELETE = "DELETE FROM tab_dossier where id=?";
 
 	public DossierDAO() {
@@ -113,6 +113,7 @@ public class DossierDAO {
 
 	public boolean updateDossier(Dossier dossierToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
+		
 
 		// Check if id is present
 		if (dossierToUpdate.getIdDossier() == 0)
@@ -170,7 +171,7 @@ public class DossierDAO {
 				preparedStatement.setInt(7, dossierToUpdate.getIdUtenteFinale());
 				preparedStatement.setInt(8, dossierToUpdate.getIdProgetto());
 				preparedStatement.setInt(9, dossierToUpdate.getIdDossier());
-
+				
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

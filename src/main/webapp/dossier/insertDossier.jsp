@@ -66,9 +66,6 @@
 		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" />
 		<br>
 		<br>
-		Id dossier: <input type="text" size="40" maxlength="40" name="idDossier" />
-		<br>
-		<br>
 		Periodo di imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" />
 		<br>
 		<br>

@@ -26,7 +26,7 @@
 </style>
 
 <%
-	DossierDTO updateDossier = (DossierDTO) request.getAttribute("dossierUpdate");
+	DossierDTO updateDossier = (DossierDTO) request.getAttribute("updateDossier");
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
 %>
 </head>
@@ -43,40 +43,34 @@
 		<br>
 		<form method="POST" action="/JspApp/DossierServlet?richiesta=update">
 
-			<%
-				String selected = "selected=\"selected\"";
-				String adminSelected = "";
-				String boSelected = "";
-				if (updateDossier.getupdateDossier().equals("admin")) {
-					adminSelected = selected;
-				} else
-					boSelected = selected;
-			%>
-
-			User type: <select style="width: 270px;" name="user_type">
-
-				<option <%=adminSelected%> value="admin">Admin</option>
-				<option <%=boSelected%> value="bo">Business owner</option>
-
-
-			</select>
-			<br>
-			<input type="hidden" name="user_id" value="<%=updateUser.getId()%>" />
-			<br>
-			Username: <input type="text" size="40" maxlength="40" name="user_user" value="<%=updateUser.getUsername()%>" />
-			<br>
-			<br>
-			Password: <input type="text" size="40" maxlength="40" name="user_pass" value="<%=updateUser.getPassword()%>" />
-			<br>
-			<br>
-			<br>
-			<br>
-			<input type="SUBMIT" value="Update">
+		Costo dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendenti" value="<%=updateDossier.getCostoDipendenti() %>"/>
+		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
+		<input type="hidden" name="idDossier" value="<%=updateDossier.getIdDossier() %>"/>
+		<br>
+		<br>
+		Fatturato periodo di imposta: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta() %>"/>
+		<br>
+		<br>
+		Numero dipendenti: <input type="text" size="40" maxlength="40" name="numeroDipendenti" value="<%=updateDossier.getNumeroDipendenti() %>"/>
+		<br>
+		<br>
+		Costi attivita' RD: <input type="text" size="40" maxlength="40" name="costiAttivitaRd" value="<%=updateDossier.getCostiAttivitaRd() %>"/>
+		<br>
+		<br>
+		Costi personale RD: <input type="text" size="40" maxlength="40" name="costiPersonaleRd" value="<%=updateDossier.getCostiPersonaleRd() %>"/>
+		<br>
+		<br>
+		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="<%=updateDossier.getIdProgetto() %>"/>
+		<br>
+		<br>
 		
-
-			<br>
-			<br>
-			<a href="/JspApp/DossierServlet?richiesta=MomManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		Periodo di imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta() %>"/>
+		<br>
+		<br>
+		<input type="SUBMIT" value="Update">
+		<br>
+		<br>
+		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>>
 
 		</form>
 

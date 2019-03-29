@@ -52,12 +52,11 @@ public class DossierServlet extends HttpServlet {
 			final double costiAttivitaRd = Double.parseDouble(request.getParameter("costiAttivitaRd"));
 			final double costiPersonaleRd = Double.parseDouble (request.getParameter("costiPersonaleRd"));
 			final int idProgetto1 = Integer.parseInt(request.getParameter("idProgetto"));
-			final int idDossier = Integer.parseInt(request.getParameter("idDossier"));
 			final String periodoDiImposta = request.getParameter("periodoDiImposta");
 			
 			final DossierDTO dossier = new DossierDTO(costoDipendenti, fatturatoPeriodoDiImposta,
 					numeroDipendenti, costiAttivitaRd, costiPersonaleRd, idUtentefinale,
-					idProgetto1, idDossier, periodoDiImposta);
+					idProgetto1, 0, periodoDiImposta);
 					
 			dossierService.insertDossier(dossier);
 			showAllDossier(request, response);
@@ -67,10 +66,9 @@ public class DossierServlet extends HttpServlet {
 			int utenteFinale2 = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("id",utenteFinale2);
 			int idDossier1 = Integer.parseInt(request.getParameter("updateId"));
-			int idProgetto2 = Integer.parseInt(request.getParameter("idProgetto"));
 			DossierDTO updateDossier = new DossierDTO(0, 0,
-					0, 0, 0, utenteFinale2,
-					idProgetto2, idDossier1, "");
+					0, 0, 0, 0,
+					0, 0, "");
 			
 			updateDossier = this.dossierService.readDossier(idDossier1);
 			request.setAttribute("updateDossier", updateDossier);
