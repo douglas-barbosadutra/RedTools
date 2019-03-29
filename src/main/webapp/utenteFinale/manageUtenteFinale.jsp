@@ -32,15 +32,15 @@ body {
 	width: 700px;
 	margin: auto;
 	height: 50px;
-	border: 1px solid black;
+	border: 1px solid;
 	border-radius: 40px 40px 40px 40px;
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: rgba(41, 173, 123, 0.9);
 	box-shadow: 20px 30px 20px #000000;
 	padding: 20px;
 }
 
 .pre_contenitore p {
-	color: orange;
+	color: #9f00ff;;
 	text-align: center;
 	font-size: 1.9em;
 	font-family: arial;
@@ -74,7 +74,11 @@ body {
 			<th>partitaIva</th>
 			<th>telefono</th>
 			<th>email</th>
+			<th>completamento</th>
 		</tr>
+		
+		
+		
 		<%
 			for (UtenteFinaleDTO utenteFinale : allUtenteFinale) {
 		%>
@@ -86,6 +90,7 @@ body {
 			<td><%=utenteFinale.getPartitaIva()%></td>
 			<td><%=utenteFinale.getTelefono()%></td>
 			<td><%=utenteFinale.getEmail()%></td>
+			<td><%=utenteFinale.getFilledFields()%> su <%=Const.UTENTE_FINALE_NUMERO_CAMPI %></td>
 			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-clipboard" title="Progetto"></i></a></td>
 			<td class="center"><a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-book" title="Dossier"></i></a></td>
 			<td class="center"><a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-pencil-alt" title="Mom"></i></a></td>

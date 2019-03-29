@@ -31,24 +31,9 @@ public class DossierService {
 		List<DossierDTO> listDTO = new ArrayList<>();
 	
 
-		for (Dossier dossier : list) {
-			int i=1;
-			if(dossier.getCostoDipendenti()!= 0)
-				i++;
-			if(dossier.getFatturatoPeriodoDiImposta()!= 0)
-				i++;
-			if(dossier.getNumeroDipendenti()!= 0)
-				i++;
-			if(dossier.getCostiAttivitaRd()!= 0)
-				i++;
-			if(dossier.getCostiPersonaleRd()!= 0)
-				i++;
-			
+		for (Dossier dossier : list) {			
 			DossierDTO dossierDTO=ConverterDossier.toDTO(dossier);
-			dossierDTO.setFilledFields(i);
 			listDTO.add(dossierDTO);
-			
-			
 			
 		}
 

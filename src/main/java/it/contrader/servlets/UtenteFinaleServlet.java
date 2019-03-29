@@ -33,7 +33,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 
 		case "UtenteFinaleManager":
 			allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinale();
-			request.setAttribute("allUtenteFinale", allUtenteFinale);
+			request.setAttribute("allUtenteFinale", prepareDTO(allUtenteFinale));
 			getServletContext().getRequestDispatcher("/utenteFinale/manageUtenteFinale.jsp").forward(request, response);
 			break;
 
@@ -122,6 +122,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			utenteFinale1.setIdUtente(idUtenteUpdate);
 			utenteFinale1.setId(idUpdate);
 			
+			
 			utenteFinaleServiceDTO.updateUtenteFinale(utenteFinale1);
 			showAllUtenteFinale(request, response);
 			break;
@@ -149,7 +150,47 @@ public class UtenteFinaleServlet extends HttpServlet {
 	private void showAllUtenteFinale(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinale();
-		request.setAttribute("allUtenteFinale", allUtenteFinale);
+		request.setAttribute("allUtenteFinale", prepareDTO(allUtenteFinale));
 		getServletContext().getRequestDispatcher("/utenteFinale/manageUtenteFinale.jsp").forward(request, response);
 	}
+	
+	
+	private List<UtenteFinaleDTO> prepareDTO(List<UtenteFinaleDTO> allUtenteFInale) {
+		List<UtenteFinaleDTO> retAllUtenteFinale = new ArrayList<UtenteFinaleDTO>();
+		
+		for(UtenteFinaleDTO utenteFinale : allUtenteFInale) {
+			int i = 1;
+			
+			if(utenteFinale.getFormaGiuridica() != null && !utenteFinale.getFormaGiuridica().equals(""))
+				i++;
+			if(utenteFinale.getSedeLegale() != null && !utenteFinale.getSedeLegale().equals(""))
+				i++;
+			if(utenteFinale.getPartitaIva() != null && !utenteFinale.getPartitaIva().equals(""))
+				i++;
+			if(utenteFinale.getTelefono() != null && !utenteFinale.getTelefono().equals(""))
+				i++;
+			if(utenteFinale.getEmail() != null && !utenteFinale.getEmail().equals(""))
+				i++;
+			if(utenteFinale.getIndirizzoUnitaLocale() != null && !utenteFinale.getIndirizzoUnitaLocale().equals(""))
+				i++;
+			if(utenteFinale.getAttivitaAzienda() != null && !utenteFinale.getAttivitaAzienda().equals(""))
+				i++;
+			if(utenteFinale.getLegaleRappresentante() != null && !utenteFinale.getLegaleRappresentante().equals(""))
+				i++;
+			if(utenteFinale.getNatoA() != null && !utenteFinale.getNatoA().equals(""))
+				i++;
+			if(utenteFinale.getNatoIl() != null && !utenteFinale.getNatoIl().equals(""))
+				i++;
+			UtenteFinaleDTO uf = new UtenteFinaleDTO();
+			uf = utenteFinale;
+			uf.setFilledFields(i);
+			retAllUtenteFinale.add(uf);
+			
+		}
+		
+		return retAllUtenteFinale;
+		
+	}
+	
+	
 }

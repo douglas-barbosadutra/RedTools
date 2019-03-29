@@ -23,32 +23,8 @@ public class UtenteFinaleService {
 	
 
 		for (UtenteFinale utenteFinale : list) {
-			int i=1;
-			if(utenteFinale.getFormaGiuridica()!= null)
-				i++;
-			if(utenteFinale.getSedeLegale()!= null)
-				i++;
-			if(utenteFinale.getPartitaIva()!= null)
-				i++;
-			if(utenteFinale.getTelefono()!= null)
-				i++;
-			if(utenteFinale.getEmail()!= null)
-				i++;
-			if(utenteFinale.getIndirizzoUnitaLocale()!= null)
-				i++;
-			if(utenteFinale.getAttivitaAzienda()!= null)
-				i++;
-			if(utenteFinale.getLegaleRappresentante()!= null)
-				i++;
-			if(utenteFinale.getNatoA()!= null)
-				i++;
-			if(utenteFinale.getNatoIl()!= null)
-				i++;
 			UtenteFinaleDTO utenteFinaleDTO=ConverterUtenteFinale.toDTO(utenteFinale);
-			utenteFinaleDTO.setFilledFields(i);
 			listDTO.add(utenteFinaleDTO);
-			
-			
 			
 		}
 

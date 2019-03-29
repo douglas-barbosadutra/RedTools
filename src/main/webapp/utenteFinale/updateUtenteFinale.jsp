@@ -68,34 +68,56 @@
 			DenominazioneSocieta: <input type="text" size="40" maxlength="40" name="denominazione_societa" value="<%=updateUtenteFinale.getDenominazioneSocieta()%>" />
 			<br>
 			<br>
+			<br>
+			<br>
 			formaGiuridicaUpdate: <input type="text" size="40" maxlength="40" name="forma_giuridica" value="<%=updateUtenteFinale.getSedeLegale()%>" />
+			<br>
+			<br>
 			<br>
 			<br>
 			SedeLegale: <input type="text" size="40" maxlength="40" name="sede_legale" value="<%=updateUtenteFinale.getSedeLegale()%>" />
 			<br>
 			<br>
+			<br>
+			<br>
 			PartitaIva: <input type="text" size="40" maxlength="40" name="partita_iva" value="<%=updateUtenteFinale.getPartitaIva()%>" />
+			<br>
+			<br>
 			<br>
 			<br>
 			Telefono: <input type="text" size="40" maxlength="40" name="telefono" value="<%=updateUtenteFinale.getTelefono()%>" />
 			<br>
 			<br>
+			<br>
+			<br>
 			Email: <input type="text" size="40" maxlength="40" name="email" value="<%=updateUtenteFinale.getEmail()%>" />
+			<br>
+			<br>
 			<br>
 			<br>
 			IndirizzoUnitaLocale: <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" value="<%=updateUtenteFinale.getIndirizzoUnitaLocale()%>" />
 			<br>
 			<br>
+			<br>
+			<br>
 			AttivitaAzienda: <input type="text" size="40" maxlength="40" name="attivita_azienda" value="<%=updateUtenteFinale.getAttivitaAzienda()%>" />
+			<br>
+			<br>
 			<br>
 			<br>
 			LegaleRappresentante: <input type="text" size="40" maxlength="40" name="legale_rappresentante" value="<%=updateUtenteFinale.getLegaleRappresentante()%>" />
 			<br>
 			<br>
+			<br>
+			<br>
 			NatoA: <input type="text" size="40" maxlength="40" name="nato_a" value="<%=updateUtenteFinale.getNatoA()%>" />
 			<br>
 			<br>
+			<br>
+			<br>
 			NatoIl: <input type="text" size="40" maxlength="40" name="nato_il" value="<%=updateUtenteFinale.getNatoIl()%>" />
+			<br>
+			<br>
 			<br>
 			<br>
 			IdUtente: <input type="text" size="40" maxlength="40" name="id_utente" value="<%=updateUtenteFinale.getIdUtente()%>" />

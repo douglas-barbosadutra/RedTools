@@ -134,41 +134,7 @@ public class UtenteFinaleDAO {
 					utenteFinaleToUpdate.setDenominazioneSocieta(utenteFinaleRead.getDenominazioneSocieta());
 				}
 				
-				if (utenteFinaleToUpdate.getFormaGiuridica() == null || utenteFinaleToUpdate.getFormaGiuridica().equals("")) {
-					utenteFinaleToUpdate.setFormaGiuridica(utenteFinaleRead.getFormaGiuridica());
-				}
 				
-				if (utenteFinaleToUpdate.getSedeLegale() == null || utenteFinaleToUpdate.getSedeLegale().equals("")) {
-					utenteFinaleToUpdate.setSedeLegale(utenteFinaleRead.getSedeLegale());
-				}
-				
-				if (utenteFinaleToUpdate.getTelefono() == null || utenteFinaleToUpdate.getTelefono().equals("")) {
-					utenteFinaleToUpdate.setTelefono(utenteFinaleRead.getTelefono());
-				}
-				
-				if (utenteFinaleToUpdate.getEmail() == null || utenteFinaleToUpdate.getEmail().equals("")) {
-					utenteFinaleToUpdate.setEmail(utenteFinaleRead.getEmail());
-				}
-				
-				if (utenteFinaleToUpdate.getIndirizzoUnitaLocale() == null || utenteFinaleToUpdate.getIndirizzoUnitaLocale().equals("")) {
-					utenteFinaleToUpdate.setIndirizzoUnitaLocale(utenteFinaleRead.getIndirizzoUnitaLocale());
-				}
-				
-				if (utenteFinaleToUpdate.getAttivitaAzienda() == null || utenteFinaleToUpdate.getAttivitaAzienda().equals("")) {
-					utenteFinaleToUpdate.setAttivitaAzienda(utenteFinaleRead.getAttivitaAzienda());
-				}
-				
-				if (utenteFinaleToUpdate.getLegaleRappresentante() == null || utenteFinaleToUpdate.getLegaleRappresentante().equals("")) {
-					utenteFinaleToUpdate.setLegaleRappresentante(utenteFinaleRead.getLegaleRappresentante());
-				}
-				
-				if (utenteFinaleToUpdate.getNatoA() == null || utenteFinaleToUpdate.getNatoA().equals("")) {
-					utenteFinaleToUpdate.setNatoA(utenteFinaleRead.getNatoA());
-				}
-				
-				if (utenteFinaleToUpdate.getNatoIl() == null || utenteFinaleToUpdate.getNatoIl().equals("")) {
-					utenteFinaleToUpdate.setNatoIl(utenteFinaleRead.getNatoIl());
-				}
 				
 				if (utenteFinaleToUpdate.getIdUtente() == 0) {
 					utenteFinaleToUpdate.setIdUtente(utenteFinaleRead.getIdUtente());
