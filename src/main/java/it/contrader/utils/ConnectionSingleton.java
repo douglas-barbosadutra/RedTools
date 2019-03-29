@@ -35,7 +35,7 @@ public class ConnectionSingleton {
                 dataSource.setDriverClassName(driver);
                 connection = dataSource.getConnection();
             } catch (Exception e) {
-                e.printStackTrace();
+            		e.printStackTrace();
             }
         }
         return connection;

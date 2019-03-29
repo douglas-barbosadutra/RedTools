@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.UserDTO;
 import it.contrader.service.UserService;
+import it.contrader.utils.GestoreEccezioni;
 
 public class LoginServlet extends HttpServlet {
 
@@ -32,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
+			try {
 			switch (userDTO.getUsertype().toLowerCase()) {
 			case "superuser":
 				getServletContext().getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
@@ -43,7 +45,14 @@ public class LoginServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 				break;
 			}
+			} catch (Exception e) {
+				
+				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			}
+			
+			}
+			
 		}
 	}
 
-}
+
