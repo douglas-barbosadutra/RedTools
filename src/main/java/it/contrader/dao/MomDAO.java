@@ -24,6 +24,8 @@ public class MomDAO {
 
 	private final String QUERY_DELETE_MOM = "DELETE FROM tab_mom WHERE id_mom=?";
 	
+	private final String QUERY_SEARCH_MOM = "SELECT * FROM redtools.tab_mom WHERE testo_agenda_mom LIKE '%?%' UNION SELECT * FROM redtools.tab_mom WHERE testo_azione_mom LIKE '%?%' UNION SELECT * FROM redtools.tab_mom WHERE testo_note_mom LIKE '%?%'";
+	
 	public MomDAO() {
 
 	}
@@ -85,6 +87,40 @@ public class MomDAO {
 				}
 			}
 	
+			
+			public Mom searchMom(String keyword) {
+				Connection connection = ConnectionSingleton.getInstance();
+				try {
+					PreparedStatement preparedStatement = connection.prepareStatement(QUERY_SEARCH_MOM);
+					preparedStatement.setString(1, keyword);
+					ResultSet resultSet = preparedStatement.executeQuery();
+					resultSet.next();
+					int id_mom;
+					String nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom, oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom; 
+					int chiave_est_ut_fin;
+					
+					id_mom = resultSet.getInt("id_mom");
+					nome_utente_finale_mom = resultSet.getString("nome_utente_finale_mom");
+					luogo_mom = resultSet.getString("luogo_mom");
+					data_del_giorno_mom = resultSet.getString("data_del_giorno_mom");
+					orario_mom = resultSet.getString("orario_mom");
+					oggetto_mom = resultSet.getString("oggetto_mom");
+					progetto_mom = resultSet.getString("progetto_mom");
+					partecipanti_mom = resultSet.getString("partecipanti_mom");
+					testo_agenda_mom = resultSet.getString("testo_agenda_mom");
+					testo_azione_mom = resultSet.getString("testo_azione_mom");
+					testo_note_mom = resultSet.getString("testo_note_mom");
+					chiave_est_ut_fin = resultSet.getInt("chiave_est_ut_fin");
+					Mom mom = new Mom(id_mom, nome_utente_finale_mom, luogo_mom, data_del_giorno_mom, orario_mom, oggetto_mom, progetto_mom, partecipanti_mom, testo_agenda_mom, testo_azione_mom, testo_note_mom, chiave_est_ut_fin);
+					mom.setId_mom(resultSet.getInt("id_mom"));
+
+					return mom;
+				} catch (SQLException e) {
+					GestoreEccezioni.getInstance().gestisciEccezione(e);
+					return null;
+				}
+
+			}			
 			// Lettura di una Mom
 	public Mom readMom(int idMom) {
 		Connection connection = ConnectionSingleton.getInstance();

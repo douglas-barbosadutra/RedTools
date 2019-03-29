@@ -49,5 +49,9 @@ public class MomService {
 		}
 		
 	
+	public MomDTO searchMom(String momId) {
+		return ConverterMom.toDTO(this.momDAO.searchMom(momId));
+	}
+	
 	
 }
