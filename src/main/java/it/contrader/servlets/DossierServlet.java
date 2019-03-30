@@ -124,7 +124,7 @@ public class DossierServlet extends HttpServlet {
 		final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
 		allDossier = this.dossierService.getAllDossier(idUtenteFinale);
 		request.setAttribute("allDossier", prepareDTO(allDossier));
-		
+		request.setAttribute("id", idUtenteFinale);
 		getServletContext().getRequestDispatcher("/dossier/manageDossier.jsp").forward(request, response);
 	}
 	
@@ -134,9 +134,7 @@ public class DossierServlet extends HttpServlet {
 		List<DossierDTO> retAllDossier = new ArrayList<DossierDTO>();
 		
 		for(DossierDTO dossier : allDossier) {
-			System.out.println(dossier.toString() );
-			System.out.println(allDossier.toString() );
-			int y=4;
+			int y=1;
 			if((dossier.getCostiPersonaleRd() !=0))
 				y++;
 			if(dossier.getCostoDipendenti() !=0)

@@ -73,7 +73,6 @@ body {
 			<th>numeroDipendenti</th>
 			<th>costiAttivitaRd</th>
 			<th>costiPersonaleRd</th>
-		    <th>idUtenteFinale</th>
 		    <th>idProgetto</th>
 		    <th>periodoDiImposta</th>
 		    <th>completamento</th>
@@ -89,7 +88,6 @@ body {
 			<td><%=dossier.getNumeroDipendenti()%></td>
 			<td><%=dossier.getCostiAttivitaRd()%></td>
 			<td><%=dossier.getCostiPersonaleRd()%></td>
-			<td><%=dossier.getIdUtentefinale()%></td>
 			<td><%=dossier.getIdProgetto()%></td>
 			<td><%=dossier.getPeriodoDiImposta()%></td>
 			<td><%=dossier.getFilledFields()%> su <%=Const.DOSSIER_NUMERO_CAMPI %></td>

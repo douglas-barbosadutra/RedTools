@@ -44,29 +44,27 @@
 	<form method="POST" action="/JspApp/DossierServlet?richiesta=insert">
 
 		
-		Costo dipendneti: <input type="text" size="40" maxlength="40" name="costoDipendenti" />
+		Costo dipendneti: <input type="text" size="40" maxlength="40" name="costoDipendenti" value="0"/>
 		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
+		<input type="hidden" name="idUtentefinale" value="<%=idUtenteFinale %>"/>
 		<br>
 		<br>
-		Fatturato periodo di imposta: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" />
+		Fatturato periodo di imposta: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0"/>
 		<br>
 		<br>
-		Numero dipendenti: <input type="text" size="40" maxlength="40" name="numeroDipendenti" />
+		Numero dipendenti: <input type="text" size="40" maxlength="40" name="numeroDipendenti" value="0"/>
 		<br>
 		<br>
-		Costi attivita' RD: <input type="text" size="40" maxlength="40" name="costiAttivitaRd" />
+		Costi attivita' RD: <input type="text" size="40" maxlength="40" name="costiAttivitaRd" value="0"/>
 		<br>
 		<br>
-		Costi personale RD: <input type="text" size="40" maxlength="40" name="costiPersonaleRd" />
+		Costi personale RD: <input type="text" size="40" maxlength="40" name="costiPersonaleRd" value="0"/>
 		<br>
 		<br>
-		Id utente finale: <input type="text" size="40" maxlength="40" name="idUtentefinale" />
+		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="0"/>
 		<br>
 		<br>
-		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" />
-		<br>
-		<br>
-		Periodo di imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" />
+		Periodo di imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="2019"/>
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
