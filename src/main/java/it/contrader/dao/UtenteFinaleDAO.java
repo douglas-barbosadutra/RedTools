@@ -162,7 +162,6 @@ public class UtenteFinaleDAO {
 					return false;
 
 			} catch (SQLException e) {
-				System.out.println(e);
 				return false;
 			}
 		}

@@ -49,13 +49,14 @@ body {
 <%
 	List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossier");
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	
 %>
 </head>
 <body>
 
 	<div class="pre_contenitore">
 
-		<p>User Management</p>
+		<p>Dossier Management</p>
 
 	</div>
 	<br>
@@ -75,6 +76,7 @@ body {
 		    <th>idUtenteFinale</th>
 		    <th>idProgetto</th>
 		    <th>periodoDiImposta</th>
+		    <th>completamento</th>
 		
 		</tr>
 		<%
@@ -90,6 +92,7 @@ body {
 			<td><%=dossier.getIdUtentefinale()%></td>
 			<td><%=dossier.getIdProgetto()%></td>
 			<td><%=dossier.getPeriodoDiImposta()%></td>
+			<td><%=dossier.getFilledFields()%> su <%=Const.DOSSIER_NUMERO_CAMPI %></td>
 			
 			<td class="center"><a href="/JspApp/DossierServlet?richiesta=updateRedirect&updateId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/JspApp/DossierServlet?richiesta=delete&deleteId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>

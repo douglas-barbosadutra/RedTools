@@ -179,6 +179,8 @@ public class DossierDAO {
 					return false;
 
 			} catch (SQLException e) {
+				
+				
 				return false;
 			}
 		}

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.DossierDTO;
+import it.contrader.dto.UtenteFinaleDTO;
 import it.contrader.service.DossierService;
 
 
@@ -32,10 +33,15 @@ public class DossierServlet extends HttpServlet {
 		case "DossierManager":
 			
 			allDossier = this.dossierService.getAllDossier(idUtenteFinale);
-			request.setAttribute("allDossier", allDossier);
+			request.setAttribute("allDossier", prepareDTO(allDossier));
 			request.setAttribute("id", idUtenteFinale);
+			
 			getServletContext().getRequestDispatcher("/dossier/manageDossier.jsp").forward(request, response);
 			break;
+		
+
+			
+			
 
 		case "insertRedirect":
 			request.setAttribute("id",Integer.parseInt(request.getParameter("id")));
@@ -117,8 +123,43 @@ public class DossierServlet extends HttpServlet {
 			throws ServletException, IOException {
 		final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
 		allDossier = this.dossierService.getAllDossier(idUtenteFinale);
-		request.setAttribute("allDossier", allDossier);
-		request.setAttribute("id", idUtenteFinale);
+		request.setAttribute("allDossier", prepareDTO(allDossier));
+		
 		getServletContext().getRequestDispatcher("/dossier/manageDossier.jsp").forward(request, response);
+	}
+	
+	
+	
+	private List<DossierDTO> prepareDTO(List<DossierDTO> allDossier) {
+		List<DossierDTO> retAllDossier = new ArrayList<DossierDTO>();
+		
+		for(DossierDTO dossier : allDossier) {
+			System.out.println(dossier.toString() );
+			System.out.println(allDossier.toString() );
+			int y=4;
+			if((dossier.getCostiPersonaleRd() !=0))
+				y++;
+			if(dossier.getCostoDipendenti() !=0)
+				y++;
+			if(dossier.getNumeroDipendenti() !=0)
+				y++;
+			if(dossier.getCostiAttivitaRd() !=0)
+				y++;
+			if(dossier.getFatturatoPeriodoDiImposta() !=0)
+				y++;
+			DossierDTO d = new DossierDTO();
+			d = dossier;
+			d.setFilledFields(y);
+			retAllDossier.add(d);
+			
+			
+		}
+		return retAllDossier;
+		
+		
+		
+		
+		
+		
 	}
 }
