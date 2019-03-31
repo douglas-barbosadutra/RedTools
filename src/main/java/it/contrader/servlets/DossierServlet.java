@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.DossierDTO;
-import it.contrader.dto.UtenteFinaleDTO;
 import it.contrader.service.DossierService;
 
 

@@ -5,11 +5,8 @@ import java.util.List;
 
 
 import it.contrader.converter.ConverterDossier;
-import it.contrader.converter.ConverterDossier;
 import it.contrader.dao.DossierDAO;
 import it.contrader.dto.DossierDTO;
-import it.contrader.dto.DossierDTO;
-import it.contrader.model.Dossier;
 import it.contrader.model.Dossier;
 
 

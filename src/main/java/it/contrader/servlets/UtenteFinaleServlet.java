@@ -27,21 +27,27 @@ public class UtenteFinaleServlet extends HttpServlet {
 	public void service(HttpServletRequest request,   HttpServletResponse response) throws ServletException, IOException {
 	
 		final String scelta = request.getParameter("richiesta");
+		final int idBO = Integer.parseInt(request.getParameter("idBO"));
 		final HttpSession session = request.getSession(true);
 
 		switch (scelta) {
 
 		case "UtenteFinaleManager":
-			allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinale();
+			request.setAttribute("idBO", idBO);
+			allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinaleBo(idBO);
 			request.setAttribute("allUtenteFinale", prepareDTO(allUtenteFinale));
 			getServletContext().getRequestDispatcher("/utenteFinale/manageUtenteFinale.jsp").forward(request, response);
 			break;
 
 		case "insertRedirect":
-			response.sendRedirect("utenteFinale/insertUtenteFinale.jsp");
+			request.setAttribute("idBO",idBO);
+			getServletContext().getRequestDispatcher("/utenteFinale/insertUtenteFinale.jsp").forward(request, response);
 			break;
+//			response.sendRedirect("utenteFinale/insertUtenteFinale.jsp");
+//			break;
 
 		case "insert":
+			request.setAttribute("idBO", idBO);
 			// final Integer id = Integer.parseInt(request.getParameter("id"));
 			final String denominazioneSocieta = request.getParameter("denominazione_societa");
 			final String formaGiuridica = request.getParameter("forma_giuridica");
@@ -54,7 +60,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			final String legaleRappresentante = request.getParameter("legale_rappresentante");
 			final String natoA = request.getParameter("nato_a");
 			final String natoIl = request.getParameter("nato_il");
-			final int idUtente =Integer.parseInt( request.getParameter("id_utente"));
+			final int idUtente =Integer.parseInt( request.getParameter("idBO"));
 			
 			final UtenteFinaleDTO utenteFinale = new UtenteFinaleDTO(denominazioneSocieta, formaGiuridica, sedeLegale,
 					partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda, legaleRappresentante, natoA, natoIl);
@@ -65,8 +71,9 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 
 		case "updateRedirect":
+			request.setAttribute("idBO", idBO);
 			
-			int id = Integer.parseInt(request.getParameter("id"));
+			int id = Integer.parseInt(request.getParameter("idBO"));
 			UtenteFinaleDTO utenteFinaleUpdate = new UtenteFinaleDTO("","","","","","","","","","","");
 			utenteFinaleUpdate.setIdUtente(id);
 
@@ -99,6 +106,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 
 		case "update":
+			request.setAttribute("idBO", idBO);
 			//System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
 			//System.out.println("username: " + request.getParameter("user_user"));
 			//System.out.println("password: " + request.getParameter("user_pass"));
@@ -116,7 +124,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			final String legaleRappresentanteUpdate = request.getParameter("legale_rappresentante");
 			final String natoAUpdate = request.getParameter("nato_a");
 			final String natoIlUpdate = request.getParameter("nato_il");
-			final int idUtenteUpdate =Integer.parseInt( request.getParameter("id_utente"));
+			final int idUtenteUpdate =Integer.parseInt( request.getParameter("idBO"));
 			final UtenteFinaleDTO utenteFinale1 = new UtenteFinaleDTO(denominazioneSocietaUpdate,formaGiuridicaUpdate,sedeLegaleUpdate,partitaIvaUpdate,telefonoUpdate,
 								  emailUpdate,indirizzoUnitaLocaleUpdate,attivitaAziendaUpdate,legaleRappresentanteUpdate,natoAUpdate,natoIlUpdate );
 			utenteFinale1.setIdUtente(idUtenteUpdate);
@@ -128,6 +136,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 
 		case "delete":
+			request.setAttribute("idBO", idBO);
 			final int deleteId =Integer.parseInt( request.getParameter("id"));
 			final UtenteFinaleDTO utenteFinaledelete = new  UtenteFinaleDTO("", "", "", "", "", "", "", "", "", "", "");
 			utenteFinaledelete.setId(deleteId);
@@ -136,7 +145,9 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 
 		case "indietro":
-			response.sendRedirect("homeBO.jsp");
+			request.setAttribute("idBO", idBO);
+			getServletContext().getRequestDispatcher("/homeBO.jsp").forward(request, response);
+			//response.sendRedirect("homeBO.jsp");
 			break;
 
 		case "logsMenu":
@@ -149,8 +160,10 @@ public class UtenteFinaleServlet extends HttpServlet {
 
 	private void showAllUtenteFinale(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinale();
+		final int idBO = Integer.parseInt(request.getParameter("idBO"));
+		allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinaleBo(idBO);
 		request.setAttribute("allUtenteFinale", prepareDTO(allUtenteFinale));
+		request.setAttribute("idBO", idBO);
 		getServletContext().getRequestDispatcher("/utenteFinale/manageUtenteFinale.jsp").forward(request, response);
 	}
 	

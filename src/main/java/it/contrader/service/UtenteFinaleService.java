@@ -16,9 +16,9 @@ public class UtenteFinaleService {
 		this.utenteFinaleDAO = new UtenteFinaleDAO();
 	}
 
-	public List<UtenteFinaleDTO> getAllUtenteFinale() {
+	public List<UtenteFinaleDTO> getAllUtenteFinaleBo(int idBO) {
 
-		List<UtenteFinale> list = utenteFinaleDAO.getAllUtenteFinale();
+		List<UtenteFinale> list = utenteFinaleDAO.getAllUtenteFinaleBo(idBO);
 		List<UtenteFinaleDTO> listDTO = new ArrayList<>();
 	
 

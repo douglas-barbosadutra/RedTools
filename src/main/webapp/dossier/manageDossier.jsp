@@ -90,7 +90,7 @@ body {
 			<td><%=dossier.getCostiPersonaleRd()%></td>
 			<td><%=dossier.getIdProgetto()%></td>
 			<td><%=dossier.getPeriodoDiImposta()%></td>
-			<td><%=dossier.getFilledFields()%> su <%=Const.DOSSIER_NUMERO_CAMPI %></td>
+			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 			
 			<td class="center"><a href="/JspApp/DossierServlet?richiesta=updateRedirect&updateId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/JspApp/DossierServlet?richiesta=delete&deleteId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>

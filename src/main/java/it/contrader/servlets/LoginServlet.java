@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("utente", null);
 
 		if (request != null) {
+			try {
 			final String nomeUtente = request.getParameter("username").toString().trim();
 			final String password = request.getParameter("password").toString().trim();
 			// recuperiamo l'utente
@@ -30,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 
 			if (userDTO != null)
 				session.setAttribute("utente", userDTO);
+			final int idBO = userDTO.getUserId();
 
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
@@ -39,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
 				break;
 			case "user":
+				request.setAttribute("idBO", idBO);
 				getServletContext().getRequestDispatcher("/homeBO.jsp").forward(request, response);
 				break;
 			default:
@@ -50,8 +53,12 @@ public class LoginServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 			
+			}catch (Exception e) {
+				
+				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			}
-			
+		}
+	
 		}
 	}
 

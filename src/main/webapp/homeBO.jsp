@@ -10,6 +10,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home BO</title>
+<% 
+int idBO =  (Integer) request.getAttribute("idBO");
+%>
 </head>
 <body>
 
@@ -18,7 +21,7 @@
 
 
 
-	<a href="UtenteFinaleServlet?richiesta=UtenteFinaleManager"><span class="fs">
+	<a href="UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><span class="fs">
 			Utente Finale Management </span></a>
 	<br>
 	<br>

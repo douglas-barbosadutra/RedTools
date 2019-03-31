@@ -50,6 +50,7 @@ body {
 </head>
 <%
 	List<UtenteFinaleDTO> allUtenteFinale = (List<UtenteFinaleDTO>) request.getAttribute("allUtenteFinale");
+	int idBO =  (Integer) request.getAttribute("idBO");
 %>
 </head>
 <body>
@@ -90,7 +91,7 @@ body {
 			<td><%=utenteFinale.getPartitaIva()%></td>
 			<td><%=utenteFinale.getTelefono()%></td>
 			<td><%=utenteFinale.getEmail()%></td>
-			<td><%=utenteFinale.getFilledFields()%> su <%=Const.UTENTE_FINALE_NUMERO_CAMPI %></td>
+			<td><%=utenteFinale.getFilledFields()%> on <%=Const.UTENTE_FINALE_NUMERO_CAMPI %></td>
 			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-clipboard" title="Progetto"></i></a></td>
 			<td class="center"><a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-book" title="Dossier"></i></a></td>
 			<td class="center"><a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-pencil-alt" title="Mom"></i></a></td>
@@ -104,11 +105,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Utente Finale</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=insertRedirect&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> New Utente Finale</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=indietro&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

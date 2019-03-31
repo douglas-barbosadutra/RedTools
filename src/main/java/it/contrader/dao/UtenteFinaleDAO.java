@@ -14,6 +14,7 @@ import it.contrader.utils.GestoreEccezioni;
 
 public class UtenteFinaleDAO {
 
+	private final String QUERY_ALL_OF_BO = "SELECT * FROM tab_utente_finale WHERE id_utente=?";
 	private final String QUERY_ALL = "SELECT * FROM tab_utente_finale";
 	private final String QUERY_INSERT = "INSERT INTO tab_utente_finale (denominazione_societa, forma_giuridica, sede_legale, partita_iva, telefono, e_mail, indirizzo_unita_locale, attivita_azienda, legale_rappresentante, nato_a, nato_il, id_utente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM tab_utente_finale WHERE id = ?";
@@ -24,12 +25,14 @@ public class UtenteFinaleDAO {
 
 	}
 
-	public List<UtenteFinale> getAllUtenteFinale() {
+	//prendo gli utenti finali del singolo BO
+	public List<UtenteFinale> getAllUtenteFinaleBo(int idUtenteBO) {
 		List<UtenteFinale> utenteFinaleList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_ALL_OF_BO);
+			preparedStatement.setInt(1, idUtenteBO);
+			ResultSet resultSet = preparedStatement.executeQuery();
 			UtenteFinale utenteFinale;
 			while (resultSet.next()) {
 				String denominazioneSocieta= resultSet.getString("denominazione_societa");
@@ -48,6 +51,7 @@ public class UtenteFinaleDAO {
 				utenteFinale = new UtenteFinale(denominazioneSocieta, formaGiuridica, sedeLegale,
 						partitaIva, telefono, email, indirizzoUnitaLocale, attivitaAzienda,
 						legaleRappresentante, natoA, natoIl, idUtente, id);
+				//utenteFinale.setIdUtenteFinale(idUtenteFinale);
 				utenteFinaleList.add(utenteFinale);
 			}
 		} catch (SQLException e) {
@@ -55,6 +59,7 @@ public class UtenteFinaleDAO {
 		}
 		return utenteFinaleList;
 	}
+	
 
 	public boolean insertUtenteFinale(UtenteFinale utenteFinale) {
 		Connection connection = ConnectionSingleton.getInstance();

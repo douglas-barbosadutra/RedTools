@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <title>Inserisci nuovo utente</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -28,8 +29,13 @@
 	line-height: 2px;
 }
 </style>
+
+
 </head>
 <body>
+<%
+int idBO =  (Integer) request.getAttribute("idBO");
+%>
 	<div class="pre_contenitore">
 
 		<p>New UtenteFinale</p>
@@ -38,7 +44,7 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=insert&idBO=<%=idBO%>">
 
 		
 		<br>
@@ -82,7 +88,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>
