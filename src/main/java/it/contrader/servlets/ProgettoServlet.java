@@ -30,11 +30,17 @@ public class ProgettoServlet extends HttpServlet {
 
 		final String scelta = request.getParameter("richiesta");
 		final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
+		final int idBO = Integer.parseInt(request.getParameter("idBO"));
+		
+		
+		
 		final HttpSession session = request.getSession(true);
 
 		switch (scelta) {
 
 		case "ProgettoManager":
+			
+			request.setAttribute("idBO", idBO);
 			allProgetto = this.progettoService.getAllProgetto(idUtenteFinale);
 			request.setAttribute("allProgetto", allProgetto);
 			request.setAttribute("id", idUtenteFinale);
@@ -42,12 +48,13 @@ public class ProgettoServlet extends HttpServlet {
 			break;
 
 		case "insertRedirect":
+			request.setAttribute("idBO", idBO);
 			request.setAttribute("id",Integer.parseInt(request.getParameter("id")));
 			getServletContext().getRequestDispatcher("/progetto/insertProgetto.jsp").forward(request, response);
 			break;
 
 		case "insert":
-
+			request.setAttribute("idBO", idBO);
 			final String nomeProgetto = request.getParameter("nomeProgetto");
 			final Integer idUtenteFinale1 = Integer.parseInt(request.getParameter("id"));
 			final ProgettoDTO progetto = new ProgettoDTO(nomeProgetto,idUtenteFinale1 );
@@ -56,6 +63,7 @@ public class ProgettoServlet extends HttpServlet {
 			break;
 
 		case "updateRedirect":
+			request.setAttribute("idBO", idBO);
 			int utenteFinale2 = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("id",utenteFinale2);
 			int id = Integer.parseInt(request.getParameter("updateId"));
@@ -69,6 +77,7 @@ public class ProgettoServlet extends HttpServlet {
 			break;
 
 		case "update":
+			request.setAttribute("idBO", idBO);
 			// System.out.println("ID: " +
 			// Integer.parseInt(request.getParameter("user_id")));
 			// System.out.println("username: " + request.getParameter("user_user"));
@@ -86,13 +95,16 @@ public class ProgettoServlet extends HttpServlet {
 			break;
 
 		case "delete":
+			request.setAttribute("idBO", idBO);
 			final Integer deleteId = Integer.parseInt(request.getParameter("deleteId"));
 			progettoService.deleteProgetto(deleteId);
 			showAllProgetto(request, response);
 			break;
 
 		case "indietro":
-			response.sendRedirect("homeBO.jsp");
+			request.setAttribute("idBO", idBO);
+			getServletContext().getRequestDispatcher("homeBO.jsp").forward(request, response);
+		
 			break;
 
 		case "logsMenu":
@@ -106,6 +118,8 @@ public class ProgettoServlet extends HttpServlet {
 	private void showAllProgetto(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
+		final int idBO = Integer.parseInt(request.getParameter("idBO"));
+		request.setAttribute("idBO", idBO);
 		allProgetto = this.progettoService.getAllProgetto(idUtenteFinale);
 		request.setAttribute("allProgetto", allProgetto);
 		request.setAttribute("id", idUtenteFinale);

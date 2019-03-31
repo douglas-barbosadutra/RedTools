@@ -29,6 +29,7 @@
 <%
 	ProgettoDTO updateProgetto = (ProgettoDTO) request.getAttribute("progettoUpdate");
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 </head>
 
@@ -42,7 +43,7 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/ProgettoServlet?richiesta=update">
+		<form method="POST" action="/JspApp/ProgettoServlet?richiesta=update&idBO=<%=idBO%>">
 			<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
 			<br>
 			Nome Progetto: <input type="text" size="40" maxlength="40" name="nomeProgetto" value="<%=updateProgetto.getNomeProgetto()%>" />
@@ -57,7 +58,7 @@
 
 			<br>
 			<br>
-			<a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

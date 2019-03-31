@@ -28,11 +28,14 @@ public class UtenteFinaleServlet extends HttpServlet {
 	
 		final String scelta = request.getParameter("richiesta");
 		final int idBO = Integer.parseInt(request.getParameter("idBO"));
+
+		
 		final HttpSession session = request.getSession(true);
 
 		switch (scelta) {
 
 		case "UtenteFinaleManager":
+			
 			request.setAttribute("idBO", idBO);
 			allUtenteFinale = this.utenteFinaleServiceDTO.getAllUtenteFinaleBo(idBO);
 			request.setAttribute("allUtenteFinale", prepareDTO(allUtenteFinale));
@@ -71,11 +74,14 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 
 		case "updateRedirect":
-			request.setAttribute("idBO", idBO);
 			
-			int id = Integer.parseInt(request.getParameter("idBO"));
+			final int id = Integer.parseInt(request.getParameter("id"));
+			request.setAttribute("idBO", idBO);
+			request.setAttribute("id", id);
+			
+		
 			UtenteFinaleDTO utenteFinaleUpdate = new UtenteFinaleDTO("","","","","","","","","","","");
-			utenteFinaleUpdate.setIdUtente(id);
+			utenteFinaleUpdate.setIdUtente(idBO);
 
 			utenteFinaleUpdate = this.utenteFinaleServiceDTO.readUtenteFinale(id);
 			request.setAttribute("utenteFinaleUpdate", utenteFinaleUpdate);
@@ -85,6 +91,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			
 			
 		case "progetto":
+			request.setAttribute("idBO", idBO);
 			int id1 = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("idUtenteFinale", id1);
 			getServletContext().getRequestDispatcher("/progetto/manageProgetto.jsp").forward(request, response);
@@ -92,6 +99,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 			
 		case "dossier":
+			request.setAttribute("idBO", idBO);
 			int id2 = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("idUtenteFinale", id2);
 			getServletContext().getRequestDispatcher("/progetto/manageProgetto.jsp").forward(request, response);
@@ -99,6 +107,7 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 			
 		case "mom":
+			request.setAttribute("idBO", idBO);
 			int id3 = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("idUtenteFinale", id3);
 			getServletContext().getRequestDispatcher("/progetto/manageProgetto.jsp").forward(request, response);
@@ -106,7 +115,11 @@ public class UtenteFinaleServlet extends HttpServlet {
 			break;
 
 		case "update":
+			int id4 = Integer.parseInt(request.getParameter("id"));
+			
+			request.setAttribute("id", id4);
 			request.setAttribute("idBO", idBO);
+			
 			//System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
 			//System.out.println("username: " + request.getParameter("user_user"));
 			//System.out.println("password: " + request.getParameter("user_pass"));

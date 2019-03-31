@@ -30,10 +30,13 @@ public class MomServlet extends HttpServlet {
 
 			final String scelta = request.getParameter("richiesta");
 			final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
+			final int idBO = Integer.parseInt(request.getParameter("idBO"));
 			final HttpSession session = request.getSession(true);
 			switch (scelta) {
 			
 			case "MomManager":
+				
+				request.setAttribute("idBO", idBO);
 				
 				allMom = this.momService.getAllMom(idUtenteFinale);
 				request.setAttribute("allMom", allMom);
@@ -42,12 +45,13 @@ public class MomServlet extends HttpServlet {
 				break;
 				
 			case "insertRedirect":
+				request.setAttribute("idBO", idBO);
 				request.setAttribute("id",Integer.parseInt(request.getParameter("id")));
 				getServletContext().getRequestDispatcher("/mom/insertMom.jsp").forward(request, response);
 				break;
 				
 			case "insert":
-				
+				request.setAttribute("idBO", idBO);
 				final String nome_utente_finale_mom = request.getParameter("nome_utente_finale_mom");
 				final String luogo_mom = request.getParameter("luogo_mom");
 				final String data_del_giorno_mom = request.getParameter("data_del_giorno_mom");
@@ -66,6 +70,7 @@ public class MomServlet extends HttpServlet {
 				break;
 				
 			case "updateRedirect":
+				request.setAttribute("idBO", idBO);
 				int utenteFinale2 = Integer.parseInt(request.getParameter("id"));
 				request.setAttribute("id",utenteFinale2);
 				int id = Integer.parseInt(request.getParameter("updateId"));
@@ -79,6 +84,7 @@ public class MomServlet extends HttpServlet {
 				break;
 				
 			case "update":
+				request.setAttribute("idBO", idBO);
 				// System.out.println("ID: " +
 				// Integer.parseInt(request.getParameter("user_id")));
 				// System.out.println("username: " + request.getParameter("user_user"));
@@ -106,13 +112,15 @@ public class MomServlet extends HttpServlet {
 				break;
 				
 			case "delete":
+				request.setAttribute("idBO", idBO);
 				final Integer deleteId = Integer.parseInt(request.getParameter("deleteId"));
 				momService.deleteMom(deleteId);
 				showAllMom(request, response);
 				break;
 				
 			case "indietro":
-				response.sendRedirect("homeBO.jsp");
+				request.setAttribute("idBO", idBO);
+				getServletContext().getRequestDispatcher("homeBO.jsp").forward(request, response);
 				break;
 
 			case "logsMenu":
@@ -127,7 +135,9 @@ public class MomServlet extends HttpServlet {
 	
 	private void showAllMom(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		final int idBO = Integer.parseInt(request.getParameter("idBO"));
 		final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("idBO", idBO);
 		allMom = this.momService.getAllMom(idUtenteFinale);
 		request.setAttribute("allMom", allMom);
 		request.setAttribute("id", idUtenteFinale);

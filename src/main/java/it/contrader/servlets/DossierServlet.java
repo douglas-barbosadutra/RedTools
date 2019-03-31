@@ -26,10 +26,13 @@ public class DossierServlet extends HttpServlet {
 		
 		final String scelta = request.getParameter("richiesta");
 		final int idUtenteFinale = Integer.parseInt(request.getParameter("id"));
+		final int idBO = Integer.parseInt(request.getParameter("idBO"));
 		final HttpSession session = request.getSession(true);
 		switch (scelta) {
 
 		case "DossierManager":
+			
+			request.setAttribute("idBO", idBO);
 			
 			allDossier = this.dossierService.getAllDossier(idUtenteFinale);
 			request.setAttribute("allDossier", prepareDTO(allDossier));
@@ -43,12 +46,14 @@ public class DossierServlet extends HttpServlet {
 			
 
 		case "insertRedirect":
+			request.setAttribute("idBO", idBO);
 			request.setAttribute("id",Integer.parseInt(request.getParameter("id")));
 			getServletContext().getRequestDispatcher("/dossier/insertDossier.jsp").forward(request, response);
 			break;
 
 
 		case "insert":
+			request.setAttribute("idBO", idBO);
 			
 			final Integer idUtentefinale = Integer.parseInt(request.getParameter("id"));
 			final int costoDipendenti = Integer.parseInt(request.getParameter("costoDipendenti"));
@@ -68,6 +73,7 @@ public class DossierServlet extends HttpServlet {
 			break;
 
 		case "updateRedirect":
+			request.setAttribute("idBO", idBO);
 			int utenteFinale2 = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("id",utenteFinale2);
 			int idDossier1 = Integer.parseInt(request.getParameter("updateId"));
@@ -82,6 +88,7 @@ public class DossierServlet extends HttpServlet {
 			break;
 
 		case "update":
+			request.setAttribute("idBO", idBO);
 			
 
 			final Integer idUtentefinale2 = Integer.parseInt(request.getParameter("id"));
@@ -101,13 +108,16 @@ public class DossierServlet extends HttpServlet {
 			break;
 
 		case "delete":
+			request.setAttribute("idBO", idBO);
 			final Integer deleteId = Integer.parseInt(request.getParameter("deleteId"));
 			dossierService.deleteDossier(deleteId);
 			showAllDossier(request, response);
 			break;
 
 		case "indietro":
-			response.sendRedirect("homeBO.jsp");
+			request.setAttribute("idBO", idBO);
+			getServletContext().getRequestDispatcher("homeBO.jsp").forward(request, response);
+			
 			break;
 
 		case "logsMenu":

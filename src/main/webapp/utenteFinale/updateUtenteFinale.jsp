@@ -28,6 +28,10 @@
 
 <%
 	UtenteFinaleDTO updateUtenteFinale = (UtenteFinaleDTO) request.getAttribute("utenteFinaleUpdate");
+
+int idBO =  (Integer) request.getAttribute("idBO");
+int id=  (Integer) request.getAttribute("id");
+
 	
 %>
 </head>
@@ -42,7 +46,7 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=update">
+		<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=update&idBO=<%=idBO%>&id=<%=id%>">
  			
 <%-- 			<% --%>
 <!-- // 				String selected = "selected=\"selected\""; -->
@@ -61,7 +65,7 @@
 <%-- 				<option <%=boSelected%> value="user">Business owner</option> --%>
 
 
-			</select>
+	<%-- 		</select>  --%>
 			<br>
 			<input type="hidden" name="user_id" value="<%=updateUtenteFinale.getId()%>" />
 			<br>
@@ -130,7 +134,7 @@
 
 			<br>
 			<br>
-			<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

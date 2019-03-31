@@ -49,6 +49,7 @@ body {
 <%
 	List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossier");
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idBO= (Integer) request.getAttribute("idBO");
 	
 %>
 </head>
@@ -92,8 +93,8 @@ body {
 			<td><%=dossier.getPeriodoDiImposta()%></td>
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 			
-			<td class="center"><a href="/JspApp/DossierServlet?richiesta=updateRedirect&updateId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/DossierServlet?richiesta=delete&deleteId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/JspApp/DossierServlet?richiesta=updateRedirect&updateId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/DossierServlet?richiesta=delete&deleteId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -102,11 +103,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/DossierServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>"><i class="fas fa-plus-circle fa-lg"> New Dossier</i></a>
+	<a href="/JspApp/DossierServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> New Dossier</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

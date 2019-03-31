@@ -30,6 +30,7 @@
 </style>
 <%
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 </head>
 <body>
@@ -41,7 +42,7 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/DossierServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/DossierServlet?richiesta=insert&idBO=<%=idBO%>">
 
 		
 		Costo dipendneti: <input type="text" size="40" maxlength="40" name="costoDipendenti" value="0"/>
@@ -70,7 +71,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

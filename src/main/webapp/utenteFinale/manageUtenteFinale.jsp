@@ -51,6 +51,7 @@ body {
 <%
 	List<UtenteFinaleDTO> allUtenteFinale = (List<UtenteFinaleDTO>) request.getAttribute("allUtenteFinale");
 	int idBO =  (Integer) request.getAttribute("idBO");
+	
 %>
 </head>
 <body>
@@ -92,11 +93,12 @@ body {
 			<td><%=utenteFinale.getTelefono()%></td>
 			<td><%=utenteFinale.getEmail()%></td>
 			<td><%=utenteFinale.getFilledFields()%> on <%=Const.UTENTE_FINALE_NUMERO_CAMPI %></td>
-			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-clipboard" title="Progetto"></i></a></td>
-			<td class="center"><a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-book" title="Dossier"></i></a></td>
-			<td class="center"><a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=utenteFinale.getId()%>"><i class="fas fa-pencil-alt" title="Mom"></i></a></td>
-			<td class="center"><a href="/JspApp/UtenteFinaleServlet?richiesta=updateRedirect&id=<%=utenteFinale.getId()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/UtenteFinaleServlet?richiesta=delete&id=<%=utenteFinale.getId()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			
+			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=utenteFinale.getId()%>&idBO=<%=idBO%>"><i class="fas fa-clipboard" title="Progetto"></i></a></td>
+			<td class="center"><a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=utenteFinale.getId()%>&idBO=<%=idBO%>"><i class="fas fa-book" title="Dossier"></i></a></td>
+			<td class="center"><a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=utenteFinale.getId()%>&idBO=<%=idBO%>"><i class="fas fa-pencil-alt" title="Mom"></i></a></td>
+			<td class="center"><a href="/JspApp/UtenteFinaleServlet?richiesta=updateRedirect&id=<%=utenteFinale.getId()%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/UtenteFinaleServlet?richiesta=delete&id=<%=utenteFinale.getId()%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%

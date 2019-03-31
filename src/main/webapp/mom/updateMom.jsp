@@ -29,6 +29,7 @@
 <%
 	MomDTO updateMom = (MomDTO) request.getAttribute("momUpdate");
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 </head>
 
@@ -42,7 +43,7 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/MomServlet?richiesta=update">
+		<form method="POST" action="/JspApp/MomServlet?richiesta=update&idBO=<%=idBO%>">
 			<br>
 		Nome Utente Finale: <input type="text" size="40" maxlength="40" name="nome_utente_finale_mom"  value="<%=updateMom.getNome_utente_finale_mom()%>"/>
 		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
@@ -81,7 +82,7 @@
 
 			<br>
 			<br>
-			<a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

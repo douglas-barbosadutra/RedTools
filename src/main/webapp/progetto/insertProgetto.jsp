@@ -30,6 +30,7 @@
 </style>
 <%
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 
 </head>
@@ -42,7 +43,7 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/ProgettoServlet?richiesta=insert">
+	<form method="POST" action="/JspApp/ProgettoServlet?richiesta=insert&idBO=<%=idBO%>">
 
 	
 		<br>
@@ -56,7 +57,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

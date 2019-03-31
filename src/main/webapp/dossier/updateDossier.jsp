@@ -28,6 +28,7 @@
 <%
 	DossierDTO updateDossier = (DossierDTO) request.getAttribute("updateDossier");
 	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 </head>
 
@@ -41,7 +42,7 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/DossierServlet?richiesta=update">
+		<form method="POST" action="/JspApp/DossierServlet?richiesta=update&idBO=<%=idBO%>">
 
 		Costo dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendenti" value="<%=updateDossier.getCostoDipendenti() %>"/>
 		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
@@ -70,7 +71,7 @@
 		<input type="SUBMIT" value="Update">
 		<br>
 		<br>
-		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>>
+		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>>
 
 		</form>
 

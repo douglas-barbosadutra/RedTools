@@ -49,7 +49,8 @@ body {
 </head>
 <%
 	List<ProgettoDTO> allProgetto = (List<ProgettoDTO>) request.getAttribute("allProgetto");
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idUtenteFinale =  (Integer) request.getAttribute("id");
+	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 </head>
 <body>
@@ -77,8 +78,8 @@ body {
 			<td><%=progetto.getIdProgetto()%></td>
 			<td><%=progetto.getNomeProgetto()%></td>
 			
-			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=updateRedirect&updateId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=delete&deleteId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=updateRedirect&updateId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=delete&deleteId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -87,11 +88,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/ProgettoServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
+	<a href="/JspApp/ProgettoServlet?richiesta=insertRedirect&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>
