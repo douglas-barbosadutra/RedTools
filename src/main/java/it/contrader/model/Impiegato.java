@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -24,8 +25,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="esrecizio")
-public class Esercizio {
+@Table(name="impiegato")
+public class Impiegato {
 	
 	@Id
 	@Column(name = "id_nome")
@@ -52,11 +53,20 @@ public class Esercizio {
 	@Column(name = "titolodiStudio")
 	private String titoloDiStudio;
 	
-	@ManyToMany
-	@JoinTable(name = "dossierEsercizio",
-	joinColumns = {@JoinColumn(name = "idNome", nullable = false)},
-	inverseJoinColumns = {@JoinColumn(name = "idDossier", nullable = false)})
+	@NotNull
+	@Column(name = "totale_ore_lavorate")
+	private int totaleOreLavorate;
+	
+	@NotNull
+	@Column(name = "costo_lordo_annuo")
+	private int costoLordoAnnuo;
+	
+	@OneToMany(mappedBy = "impiegato")
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private List<Esercizio> esercizios;
+	private List<TotaleOreReD> totaleOreReDs;
+	
+	@ManyToOne
+	@JoinColumn(name = "idAziendaCliente")
+	private AziendaCliente aziendaClientes;
 	
 }

@@ -8,13 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,17 +21,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="costi_esterni")
-public class CostiEsterni {
+@Table(name="fattura")
+public class Fattura {
 	
 	@Id
-	@Column(name = "id_fornitore")
+	@Column(name = "id_fattura")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idFornitore;
-	
-	@NotNull
-	@Column(name = "nominativo_fornitore")
-	private String nominativoFornitore;
+	private int idFattura;
 	
 	@NotNull
 	@Column(name = "data_fattura")
@@ -56,11 +49,16 @@ public class CostiEsterni {
 	@Column(name = "percentuale_ammissibile")
 	private int percentualeAmmissibile;
 	
-	@ManyToMany
-	@JoinTable(name = "dossierCostiEsterni",
-	joinColumns = {@JoinColumn(name = "idFornitore", nullable = false)},
-	inverseJoinColumns = {@JoinColumn(name = "idDossier", nullable = false)})
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	private List<CostiEsterni> costiEsternis;
+	@NotNull
+	@Column(name = "nominativo_fornitore")
+	private String nominativoFornitore;
+	
+	@ManyToOne
+	@JoinColumn(name = "idDossier")
+	private Dossier dossier;
+	
+	@ManyToOne
+	@JoinColumn(name = "idFornitore")
+	private Fornitore fornitore;
 
 }
