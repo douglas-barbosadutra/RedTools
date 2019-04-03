@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TotaleOreReD {
+public class TotaleOreReDDTO {
 	
 	private int id_totaleOreRed;
 	
