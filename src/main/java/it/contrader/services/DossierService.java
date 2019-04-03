@@ -1,0 +1,63 @@
+package it.contrader.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import it.contrader.converter.ConverterUser;
+import it.contrader.dao.DossierRepository;
+import it.contrader.dto.DossierDTO;
+import it.contrader.model.Dossier;
+
+@Service
+public class DossierService {
+	
+	private final DossierRepository dossierRepository;
+	
+	@Autowired
+	public DossierService(DossierRepository dossierRepository) {
+		this.dossierRepository = dossierRepository;
+	}
+
+	
+	public List<DossierDTO> getListaDossierDTO() {
+		return ConverterDossier.toListDTO((List<Dossier>) dossierRepository.findAll());
+	}
+	
+	
+	public DossierDTO getDossierDTOById(Integer id) {
+		return ConverterDossier.toDTO(dossierRepository.findById(id).get());
+	}
+	
+	
+	public DossierDTO getPeriodoDiImposta(String periodoDiImposta) {
+
+		final Dossier dossier = dossierRepository.findDossierByPeriodoDiImposta(periodoDiImposta);
+
+		return ConverterDossier.toDTO(dossier);
+	}
+	
+	public boolean insertDossier(DossierDTO dossierDTO) {
+		return dossierRepository.save(ConverterDossier.toEntity(dossierDTO)) != null;
+	}
+
+	public boolean updateDossier(DossierDTO dossierDTO) {
+		return dossierRepository.save(ConverterUser.toEntity(dossierDTO)) != null;
+	}
+	
+	public void deleteDossierById(Integer id) {
+		dossierRepository.deleteById(id);
+	}
+	
+	
+public List<DossierDTO> findDossierDTOByPeriodoDiImposta(String periodoDiImposta) {
+		
+		final List<Dossier> list = dossierRepository.findAllByPeriodoDiImposta(periodoDiImposta);
+		final List<DossierDTO> dossierDTOs = new ArrayList<>();
+		list.forEach(i -> dossierDTOs.add(ConverterDossier.toDTO(i)));
+		return dossierDTOs;
+	
+	}
+}

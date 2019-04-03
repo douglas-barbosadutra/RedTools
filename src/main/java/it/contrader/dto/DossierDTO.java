@@ -17,10 +17,8 @@ public class DossierDTO {
 	private int costoDipendentiPeriodoDiImposta;
 	private double fatturatoPeriodoDiImposta;
 	private int numeroTotaleDipendenti;
-	private double costoComplessivo;
-	private double costoPersonale;
-	private int idProgetto;
-	private int idAziendaCliente;
+	private Progetto progetto ;
+	private AziendaCliente azindaCliente;
 	private int filledFields; 
 	
 	
