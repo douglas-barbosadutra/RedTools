@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.contrader.converter.ConverterUser;
+import it.contrader.converter.ConverterDossier;
 import it.contrader.dao.DossierRepository;
 import it.contrader.dto.DossierDTO;
 import it.contrader.model.Dossier;
@@ -34,7 +34,7 @@ public class DossierService {
 	
 	public DossierDTO getPeriodoDiImposta(String periodoDiImposta) {
 
-		final Dossier dossier = dossierRepository.findDossierByPeriodoDiImposta(periodoDiImposta);
+		final Dossier dossier = (Dossier) dossierRepository.findAllByPeriodoDiImposta(periodoDiImposta);
 
 		return ConverterDossier.toDTO(dossier);
 	}
@@ -44,7 +44,7 @@ public class DossierService {
 	}
 
 	public boolean updateDossier(DossierDTO dossierDTO) {
-		return dossierRepository.save(ConverterUser.toEntity(dossierDTO)) != null;
+		return dossierRepository.save(ConverterDossier.toEntity(dossierDTO)) != null;
 	}
 	
 	public void deleteDossierById(Integer id) {
