@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import it.contrader.converter.ConverterDossier;
 import it.contrader.dao.DossierRepository;
 import it.contrader.dto.DossierDTO;
+import it.contrader.model.AziendaCliente;
 import it.contrader.model.Dossier;
+import it.contrader.model.Fattura;
 
 @Service
 public class DossierService {
@@ -30,6 +32,11 @@ public class DossierService {
 	public DossierDTO getDossierDTOById(Integer id) {
 		return ConverterDossier.toDTO(dossierRepository.findById(id).get());
 	}
+	
+	public DossierDTO getDossierDTOByFattura(Fattura fattura) {
+		return ConverterDossier.toDTO(dossierRepository.findByFattura(fattura));
+	}
+	
 	
 	
 	public DossierDTO getPeriodoDiImposta(String periodoDiImposta) {
@@ -60,4 +67,29 @@ public List<DossierDTO> findDossierDTOByPeriodoDiImposta(String periodoDiImposta
 		return dossierDTOs;
 	
 	}
+
+public List<DossierDTO> findDossierDTOByProgetto(Progetto progetto) {
+	
+	final List<Dossier> list = dossierRepository.findAllByProgetto(progetto);
+	final List<DossierDTO> dossierDTOs = new ArrayList<>();
+	list.forEach(i -> dossierDTOs.add(ConverterDossier.toDTO(i)));
+	return dossierDTOs;
+
+}
+
+public List<DossierDTO> findDossierDTOByAziendaCliente(AziendaCliente aziendaCliente) {
+	
+	final List<Dossier> list = dossierRepository.findAllByAziendaCliente(aziendaCliente);
+	final List<DossierDTO> dossierDTOs = new ArrayList<>();
+	list.forEach(i -> dossierDTOs.add(ConverterDossier.toDTO(i)));
+	return dossierDTOs;
+
+}
+
+
+
+
+
+
+
 }
