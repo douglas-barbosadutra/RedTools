@@ -8,14 +8,11 @@ import it.contrader.model.AziendaCliente;
 
 public class ConverterAziendaCliente {
 
-	
-	
-
-	public static AziendaClienteDTO toDTO(AziendaCliente aziendaCliente) {
+		public static AziendaClienteDTO toDTO(AziendaCliente aziendaCliente) {
 		AziendaClienteDTO aziendaClienteDTO = null;
 		if (aziendaCliente != null) {
 			aziendaClienteDTO = new AziendaClienteDTO();
-			aziendaClienteDTO.setIdAzienda(aziendaCliente.getIdAziendaCliente());
+			aziendaClienteDTO.setIdAziendaCliente(aziendaCliente.getIdAziendaCliente());
 			aziendaClienteDTO.setDenominazioneSocieta(aziendaCliente.getDenominazioneSocieta());
 			aziendaClienteDTO.setFormaGiuridica(aziendaCliente.getFormaGiuridica());
 			aziendaClienteDTO.setSedeLegale(aziendaCliente.getSedeLegale());
@@ -28,6 +25,10 @@ public class ConverterAziendaCliente {
 			aziendaClienteDTO.setNatoA(aziendaCliente.getNatoA());
 			aziendaClienteDTO.setNatoIl(aziendaCliente.getNatoIl());
 			aziendaClienteDTO.setNatoIl(aziendaCliente.getNatoIl());
+			aziendaClienteDTO.setUserDTO(ConverterUser.toDTO(aziendaCliente.getUser()));
+			
+			
+			
 		}
 		return aziendaClienteDTO;
 	}
@@ -36,20 +37,31 @@ public class ConverterAziendaCliente {
 		AziendaCliente aziendaCliente = null;
 		if (aziendaClienteDTO != null) {
 			aziendaCliente = new AziendaCliente();
-			aziendaCliente.setIdAzienda(aziendaClienteDTO.getIdAziendaCliente());
-			aziendaCliente.setUsername(aziendaClienteDTO.getUsername());
-			aziendaCliente.setPassword(aziendaClienteDTO.getPassword());
+			
+			aziendaCliente.setIdAziendaCliente(aziendaClienteDTO.getIdAziendaCliente());
+			aziendaCliente.setDenominazioneSocieta(aziendaClienteDTO.getDenominazioneSocieta());
+			aziendaCliente.setFormaGiuridica(aziendaClienteDTO.getFormaGiuridica());
+			aziendaCliente.setSedeLegale(aziendaClienteDTO.getSedeLegale());
+			aziendaCliente.setPartitaIva(aziendaClienteDTO.getPartitaIva());
+			aziendaCliente.setTelefono(aziendaClienteDTO.getTelefono());
 			aziendaCliente.setEmail(aziendaClienteDTO.getEmail());
-			aziendaCliente.setRuolo(aziendaClienteDTO.getRuolo());
+			aziendaCliente.setIndirizzoUnitaLocale(aziendaClienteDTO.getIndirizzoUnitaLocale());
+			aziendaCliente.setAttivitaAzienda(aziendaClienteDTO.getAttivitaAzienda());
+			aziendaCliente.setLegaleRappresentante(aziendaClienteDTO.getLegaleRappresentante());
+			aziendaCliente.setNatoA(aziendaClienteDTO.getNatoA());
+			aziendaCliente.setNatoIl(aziendaClienteDTO.getNatoIl());
+			aziendaCliente.setNatoIl(aziendaClienteDTO.getNatoIl());
+			aziendaCliente.setUserDTO(ConverterUser.toDTO(aziendaClienteDTO.getUser()));
+			
 		}
 		return aziendaCliente;
 	}
 
-	public static List<AziendaClienteDTO> toListDTO(List<AziendaCliente> list) {
+	public static List<AziendaClienteDTO> toListDTO(List<AziendaCliente> listAziendaCliente) {
 		List<AziendaClienteDTO> listAziendaClienteDTO = new ArrayList<>();
-		if (!list.isEmpty()) {
-			for (AziendaCliente user : list) {
-				listAziendaClienteDTO.add(ConverterAziendaCliente.toDTO(user));
+		if (!listAziendaCliente.isEmpty()) {
+			for (AziendaCliente aziendaCliente : listAziendaCliente) {
+				listAziendaClienteDTO.add(ConverterAziendaCliente.toDTO(aziendaCliente));
 			}
 		}
 		return listAziendaClienteDTO;
@@ -58,8 +70,8 @@ public class ConverterAziendaCliente {
 	public static List<AziendaCliente> toListEntity(List<AziendaClienteDTO> listAziendaClienteDTO) {
 		List<AziendaCliente> list = new ArrayList<>();
 		if (!listAziendaClienteDTO.isEmpty()) {
-			for (AziendaClienteDTO userDTO : listAziendaClienteDTO) {
-				list.add(ConverterAziendaCliente.toEntity(userDTO));
+			for (AziendaClienteDTO aziendaClienteDTO : listAziendaClienteDTO) {
+				list.add(ConverterAziendaCliente.toEntity(aziendaClienteDTO));
 			}
 		}
 		return list;
