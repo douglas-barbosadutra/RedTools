@@ -32,7 +32,7 @@ public class UserController {
 		request.setAttribute("allUserDTO", allUser);
 	}
 	
-	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/userManagement", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		visualUser(request);
 		return "homeUser";		
