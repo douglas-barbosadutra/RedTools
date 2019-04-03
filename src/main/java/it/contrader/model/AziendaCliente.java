@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="AziendaCliente")
 public class AziendaCliente {
 	
 	@Id
@@ -66,7 +65,7 @@ public class AziendaCliente {
 	
 	@ManyToOne
 	@JoinColumn(name="idUser")
-	private int user;
+	private User user;
 	
 	@OneToMany(mappedBy="aziendaCliente")
 	@OnDelete(action=OnDeleteAction.CASCADE)
@@ -78,5 +77,5 @@ public class AziendaCliente {
 	
 	@OneToMany(mappedBy="aziendaCliente")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Mom> progetto;
+	private List<Progetto> progetto;
 }
