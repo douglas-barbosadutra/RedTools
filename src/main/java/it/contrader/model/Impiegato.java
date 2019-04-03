@@ -38,7 +38,7 @@ public class Impiegato {
 	
 	@NotNull
 	@Column(name = "livello")
-	private String livello;
+	private int livello;
 	
 	@NotNull
 	@Column(name = "qualifica")

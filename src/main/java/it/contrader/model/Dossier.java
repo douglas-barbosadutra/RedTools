@@ -40,7 +40,6 @@ public class Dossier {
 	@Column(name = "costoDipendentiPeriodoDiImposta")
 	private double costoDipendentiPeriodoDiImposta;
 
-
 	@Column(name = "fatturatoPeriodoDiImposta")
 	private double fatturatoPeriodoDiImposta;
 

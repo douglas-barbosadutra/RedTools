@@ -46,10 +46,6 @@ public class Fattura {
 	@Column(name = "percentuale_ammissibile")
 	private int percentualeAmmissibile;
 	
-	@NotNull
-	@Column(name = "nominativo_fornitore")
-	private String nominativoFornitore;
-	
 	@ManyToOne
 	@JoinColumn(name = "idDossier")
 	private Dossier dossier;
