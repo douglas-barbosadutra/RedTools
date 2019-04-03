@@ -1,5 +1,7 @@
 package it.contrader.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,13 +23,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Aziende")
+@Table(name="AziendaCliente")
 public class AziendaCliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idAzienda")
-	private int idAzienda;
+	@Column(name = "idAziendaCliente")
+	private int idAziendaCliente;
 	
 	@Column(name = "denominazioneSocieta")
 	private String denominazioneSocieta;
@@ -59,7 +65,18 @@ public class AziendaCliente {
 	private String natoIl;
 	
 	@ManyToOne
-	@JoinColumn(name="idBusinessOwner")
-	private int idBusinessOwner;
+	@JoinColumn(name="idUser")
+	private int user;
 	
+	@OneToMany(mappedBy="aziendaCliente")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Dossier> dossier;
+	
+	@OneToMany(mappedBy="aziendaCliente")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Mom> mom;
+	
+	@OneToMany(mappedBy="aziendaCliente")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Mom> progetto;
 }
