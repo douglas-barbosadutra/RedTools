@@ -78,4 +78,8 @@ public class AziendaCliente {
 	@OneToMany(mappedBy="aziendaCliente")
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Progetto> progetto;
+	
+	@OneToMany(mappedBy="aziendaCliente")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Impiegato> impiegato;
 }
