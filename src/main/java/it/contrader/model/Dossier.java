@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
@@ -31,7 +32,7 @@ public class Dossier {
 	@Id
 	@Column(name = "idDossier")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idUser;
+	private Integer idDossier;
 
 	@Column(name = "periodoDiImposta")
 	@NotNull
@@ -40,17 +41,12 @@ public class Dossier {
 	@Column(name = "costoDipendentiPeriodoDiImposta")
 	private double costoDipendentiPeriodoDiImposta;
 
+
 	@Column(name = "fatturatoPeriodoDiImposta")
 	private double fatturatoPeriodoDiImposta;
 
 	@Column(name = "numeroTotaleDipendenti")
 	private int numeroTotaleDipendenti;
-	
-	@Column(name = "costoComplessivo")
-	private double costoComplessivo;
-
-	@Column(name = "costoPersonale")
-	private double costoPersonale;
 	
 	@ManyToOne
 	@JoinColumn(name="idProgetto")
@@ -60,19 +56,16 @@ public class Dossier {
 	@JoinColumn(name="idAziendaCliente")
 	private AziendaCliente aziendaCliente;
 	
-	@ManyToMany
-	@JoinTable(name = "dossierEsercizio",
-	joinColumns= {@JoinColumn(name = "idDossier", nullable = false)},
-	inverseJoinColumns= {@JoinColumn(name = "idNome" , nullable = false)})
+	@OneToMany(mappedBy="dossier")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Esercizio> esercizios;
+	private List<Fattura> fatturas;
 	
-	@ManyToMany
-	@JoinTable(name = "dossierCostiEsterni",
-	joinColumns= {@JoinColumn(name = "idDossier", nullable = false)},
-	inverseJoinColumns= {@JoinColumn(name = "idFornitore" , nullable = false)})
+	
+	@OneToMany(mappedBy="dossier")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<CostiEsterni> costiEsternis;
+	private List<TotaleOreReD> totaleOreReDs;
+	
+	
 	
 
 }
