@@ -22,12 +22,12 @@
 <nav class='navbar navbar-inverse'>
      <div class='container-fluid'>
          <ul class='nav navbar-nav navbar-inverse navbar-custom'>
-            <li><a href="/userManagement/insertUser.jsp">User</a></li>
+            <li><a href="/user/userManagement.jsp">User</a></li>
    
-            <li><a href="/userManagement/logout.jsp/">Logout</a></li>
+            <li><a href="/user/logout.jsp">Logout</a></li>
          </ul>
     </div>
 </nav>
-<h1>Benvenuto in RedToolsSpring</h1>
+<h1>Inserisci utente</h1>
 </body>
 </html>

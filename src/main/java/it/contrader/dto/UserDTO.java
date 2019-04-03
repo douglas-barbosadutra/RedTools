@@ -18,4 +18,9 @@ public class UserDTO {
 	private String ruolo;
 	
 	private String email;
+
+
+	
+
+	
 }
