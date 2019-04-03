@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -37,9 +39,6 @@ public class Mom {
 	@Column(name = "oggetto_mom")
 	private String oggettoMom;
 	
-	@Column(name = "progetto_mom")
-	private String progettoMom;
-	
 	@Column(name = "partecipanti_mom")
 	private String partecipantiMom;
 	
@@ -52,4 +51,12 @@ public class Mom {
 	@Column(name = "testo_note_mom")
 	private String testoNoteMom;
 
+	@ManyToOne
+	@JoinColumn(name = "idAziendaCliente")
+	private AziendaCliente aziendaClientes;
+	
+	@ManyToOne
+	@JoinColumn(name="idProgetto")
+	private Progetto progettoMom ;
+	
 }
