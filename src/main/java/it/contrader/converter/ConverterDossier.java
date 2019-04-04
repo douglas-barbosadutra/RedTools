@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.DossierDTO;
+import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.Dossier;
+import it.contrader.model.Progetto;
 
 
 
@@ -65,5 +67,16 @@ public class ConverterDossier {
 			return listDossierDTO;
 		}
 		
+		
+
+		public static List<Dossier> toListEntity(List<DossierDTO> listDossierDTO) {
+			List<Dossier> list = new ArrayList<>();
+			if (!listDossierDTO.isEmpty()) {
+				for (DossierDTO dossierDTO : listDossierDTO) {
+					list.add(ConverterDossier.toEntity(dossierDTO));
+				}
+			}
+			return list;
+		}
 		
 }
