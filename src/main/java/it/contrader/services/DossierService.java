@@ -12,6 +12,7 @@ import it.contrader.dto.DossierDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Dossier;
 import it.contrader.model.Fattura;
+import it.contrader.model.Progetto;
 
 @Service
 public class DossierService {
@@ -33,10 +34,7 @@ public class DossierService {
 		return ConverterDossier.toDTO(dossierRepository.findById(id).get());
 	}
 	
-	public DossierDTO getDossierDTOByFattura(Fattura fattura) {
-		return ConverterDossier.toDTO(dossierRepository.findByFattura(fattura));
-	}
-	
+	 
 	
 	
 	public DossierDTO getPeriodoDiImposta(String periodoDiImposta) {
@@ -45,6 +43,18 @@ public class DossierService {
 
 		return ConverterDossier.toDTO(dossier);
 	}
+	
+	
+	public DossierDTO getfattura(Fattura fattura) {
+
+		final Dossier dossier = (Dossier) dossierRepository.findByFattura(fattura);
+
+		return ConverterDossier.toDTO(dossier);
+	}
+	
+	
+	
+	
 	
 	public boolean insertDossier(DossierDTO dossierDTO) {
 		return dossierRepository.save(ConverterDossier.toEntity(dossierDTO)) != null;
