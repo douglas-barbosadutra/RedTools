@@ -9,8 +9,7 @@ import org.springframework.stereotype.Service;
 import it.contrader.converter.ConverterImpiegato;
 import it.contrader.dao.ImpiegatoRepository;
 import it.contrader.dto.ImpiegatoDTO;
-import it.contrader.model.Dossier;
-import it.contrader.model.Fattura;
+import it.contrader.model.AziendaCliente;
 import it.contrader.model.Impiegato;
 
 @Service

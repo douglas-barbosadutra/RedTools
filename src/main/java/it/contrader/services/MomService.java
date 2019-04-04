@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import it.contrader.converter.ConverterMom;
 import it.contrader.dao.MomRepository;
 import it.contrader.dto.MomDTO;
+import it.contrader.model.AziendaCliente;
 import it.contrader.model.Mom;
+import it.contrader.model.Progetto;
 
 @Service
 public class MomService {

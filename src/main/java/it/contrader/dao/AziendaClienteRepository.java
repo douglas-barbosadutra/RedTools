@@ -8,7 +8,7 @@ import it.contrader.model.AziendaCliente;
 
 
 
-public interface AziendaClienteRepository extends JpaRepository< AziendaCliente, Integer>{
+public interface AziendaClienteRepository extends JpaRepository<AziendaCliente, Integer>{
 	
 	
 	public AziendaCliente findByIdAziendaCliente(int idAziendaCliente);

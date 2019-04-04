@@ -4,8 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import it.contrader.model.Fattura;
-import it.contrader.model.Fornitore;
+import it.contrader.model.AziendaCliente;
 import it.contrader.model.Impiegato;
 
 public interface ImpiegatoRepository extends JpaRepository<Impiegato, Integer> {

@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import it.contrader.model.Dossier;
 import it.contrader.model.Fattura;
 import it.contrader.model.Fornitore;
-import it.contrader.model.Dossier;
 
 public interface FatturaRepository extends JpaRepository<Fattura, Integer> {
 

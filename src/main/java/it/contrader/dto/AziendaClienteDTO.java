@@ -3,8 +3,6 @@ package it.contrader.dto;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import it.contrader.model.Dossier;
 import it.contrader.model.Mom;
