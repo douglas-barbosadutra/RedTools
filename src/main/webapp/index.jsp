@@ -21,16 +21,24 @@
 </head>
 
 <body class="text-center">
-	<form class="form-signin" action="/User/login" method="post">
+	
+	<form class="form-signin" action="/UserController/login" method="post">
+		<div align="center">
+  
 		<h1 class="h3 mb-3 font-weight-normal">RedToolsSpring Login</h1>
-
+		<br>
+		<br>
+		<br>
 		<label for="inputUser" class="sr-only">Username</label> 
 		<input type="text" name="username" id="inputUser" class="form-control" placeholder="inserisci Username" required autofocus> 
-		
+		<br>
+		<br>
 		<label for="inputPassword" class="sr-only">Password</label> 
 		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="inserisci Password" required> 
-		
+		<br>
+		<br>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+		</div>
 	</form>
 	
 </body>

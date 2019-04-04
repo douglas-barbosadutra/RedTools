@@ -13,7 +13,7 @@ import it.contrader.dto.UserDTO;
 import it.contrader.services.UserService;
 
 @Controller
-@RequestMapping("/Home")
+@RequestMapping("/HomeController")
 public class HomeController {
 
 	private final UserService userService;
@@ -23,17 +23,17 @@ public class HomeController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value = "/chatManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/BoManagement", method = RequestMethod.GET)
 	public String chatManagement(HttpServletRequest request) {
 		return "homeChatbot";
 
 	}
 
-	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/userManage", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		List<UserDTO> allUser = this.userService.getListaUserDTO();
 		request.setAttribute("allUserDTO", allUser);
-		return "homeUser";
+		return "homeAdmin";
 
 	}
 

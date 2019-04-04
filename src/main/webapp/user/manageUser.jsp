@@ -42,13 +42,14 @@ body {
 </head>
 <%
 	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUserDTO");
+	
 %>
 </head>
 <body>
 
 	<div class="pre_contenitore">
 
-		<p>User Management</p>
+		<p>Gestione Utenti</p>
 
 	</div>
 	<br>
@@ -56,7 +57,7 @@ body {
 
 
 	<br />
-
+<div align="center">
 	<table>
 		<tr>
 			<th>ID</th>
@@ -76,21 +77,26 @@ body {
 			<td><%=user.getPassword()%></td>
 			<td><%=user.getRuolo()%></td>
 			<td><%=user.getEmail()%></td>
-			<td class="center"><a href="/User/updateRedirect?id=<%=user.getIdUser()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/UserServlet?richiesta=delete&id=<%=user.getIdUser()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/UserController/updateRedirect?id=<%=user.getIdUser()%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/UserController/delete?id=<%=user.getIdUser()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
 			}
 		%>
 	</table>
+	</div>
 	<br>
 	<br>
-	<a href="/JspApp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
+	<br>
+	<br>
+	<br>
+	<br>
+	<a href="/UserController/crea?"><i class="fas fa-plus-circle fa-lg" style="color:black;"> New User</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/HomeController/userManage"><i class="fas fa-arrow-alt-circle-left fa-lg" style="color:black;"> Back</i></a>
 
 
 </body>

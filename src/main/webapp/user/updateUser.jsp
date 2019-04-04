@@ -74,12 +74,12 @@
 			<br>
 			<br>
 			<br>
-			<input type="SUBMIT" value="Update">
+			<input type="SUBMIT" value="Update" style="width: 100px; height: 50px ">
 		
 
 			<br>
 			<br>
-			<a href="/User/userManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/UserController/userManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

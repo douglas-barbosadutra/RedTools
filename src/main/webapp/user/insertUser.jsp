@@ -38,26 +38,31 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/UserServlet?richiesta=insert">
+	<form method="POST" action="/UserController/creaUser">
 
-		User type: <select style="width: 275px;" name="user_type">
+		Ruolo: <select style="width: 275px;" name="ruolo">
 			<option value="superuser">Super User</option>
 			<option value="user">Business Owner</option>
 		</select>
 		<br>
 		<br>
-		Username: <input type="text" size="40" maxlength="40" name="user_user" />
 		<br>
-		<br>
-		Password: <input type="text" size="40" maxlength="40" name="user_pass" />
-		<br>
+		Username: <input type="text" size="40" maxlength="40" name="username" />
 		<br>
 		<br>
 		<br>
-		<input type="SUBMIT" value="Add">
+		Password: <input type="text" size="40" maxlength="40" name="password" />
 		<br>
 		<br>
-		<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<br>
+		Email: <input type="text" size="40" maxlength="40" name="email" />
+		<br>
+		<br>
+		<br>
+		<input type="SUBMIT" value="Add" style="width: 100px; height: 50px ">
+		<br>
+		<br>
+		<a href="/UserController/userManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

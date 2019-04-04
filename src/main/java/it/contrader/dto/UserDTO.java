@@ -1,8 +1,12 @@
 package it.contrader.dto;
 
+import javax.persistence.Column;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @AllArgsConstructor
@@ -18,9 +22,6 @@ public class UserDTO {
 	private String ruolo;
 	
 	private String email;
-
-
-	
 
 	
 }

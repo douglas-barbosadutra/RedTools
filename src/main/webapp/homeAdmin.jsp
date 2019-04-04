@@ -16,12 +16,12 @@
 	<p>Welcome!</p>
 
 
-	<a href="/User/userManagement"><span class="fs">
+	<a href="/UserController/userManagement"><span class="fs">
 			User Management </span></a>
 	<br>
 	<br>
 	<br>
-	<a href="/User/logout" ><span class="fs">
+	<a href="/UserController/logout" ><span class="fs">
 			Logout </span></a>
 
 </body>
