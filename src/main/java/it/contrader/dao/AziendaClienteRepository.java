@@ -11,7 +11,7 @@ import it.contrader.model.AziendaCliente;
 public interface AziendaClienteRepository extends JpaRepository< AziendaCliente, Integer>{
 	
 	
-	public AziendaCliente findAziendaClienteByIdAziendaCliente(int idAziendaCliente);
+	public AziendaCliente findByIdAziendaCliente(int idAziendaCliente);
 	public List<AziendaCliente> findAllByIdBusinessOwner(int idBusinessOwner);
 	
 	
