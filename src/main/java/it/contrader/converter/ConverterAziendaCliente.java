@@ -25,7 +25,7 @@ public class ConverterAziendaCliente {
 			aziendaClienteDTO.setNatoA(aziendaCliente.getNatoA());
 			aziendaClienteDTO.setNatoIl(aziendaCliente.getNatoIl());
 			aziendaClienteDTO.setNatoIl(aziendaCliente.getNatoIl());
-			aziendaClienteDTO.setUserDTO(ConverterUser.toDTO(aziendaCliente.getUser()));
+		
 			
 			
 			
@@ -51,7 +51,7 @@ public class ConverterAziendaCliente {
 			aziendaCliente.setNatoA(aziendaClienteDTO.getNatoA());
 			aziendaCliente.setNatoIl(aziendaClienteDTO.getNatoIl());
 			aziendaCliente.setNatoIl(aziendaClienteDTO.getNatoIl());
-			aziendaCliente.setUserDTO(ConverterUser.toDTO(aziendaClienteDTO.getUser()));
+			
 			
 		}
 		return aziendaCliente;

@@ -56,12 +56,12 @@ public class Dossier {
 	
 	@OneToMany(mappedBy="dossier")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Fattura> fatturas;
+	private List<Fattura> fattura;
 	
 	
 	@OneToMany(mappedBy="dossier")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<TotaleOreReD> totaleOreReDs;
+	private List<TotaleOreReD> totaleOreReD;
 	
 	
 	

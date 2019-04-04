@@ -47,7 +47,7 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private List<AziendaCliente> aziendaClientes;
+	private List<AziendaCliente> aziendaCliente;
 
 
 }

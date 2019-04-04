@@ -12,7 +12,8 @@ public interface AziendaClienteRepository extends JpaRepository<AziendaCliente, 
 	
 	
 	public AziendaCliente findByIdAziendaCliente(int idAziendaCliente);
-	public List<AziendaCliente> findAllByIdBusinessOwner(int idBusinessOwner);
+	public List<AziendaCliente> findAllByUser(AziendaCliente user);
+	public AziendaCliente deleteByIdAziendaCliente(int idAziendaCliente);
 	
 	
 

@@ -20,6 +20,7 @@ import it.contrader.model.User;
 	public class AziendaClienteService {
 
 		private final AziendaClienteRepository aziendaClienteRepository;
+	
 
 		@Autowired
 		public AziendaClienteService(AziendaClienteRepository aziendaClienteRepository) {
@@ -27,9 +28,10 @@ import it.contrader.model.User;
 		}
 		
 
-		public AziendaClienteDTO getAziendaClienteDTOByIdUser(Integer id) {
-			return ConverterAziendaCliente.toDTO(aziendaClienteRepository.findByIdAziendaCliente(id).get());
+		public AziendaClienteDTO getAziendaClienteDTOById(Integer id) {
+			return ConverterAziendaCliente.toDTO(aziendaClienteRepository.findByIdAziendaCliente(id));
 		}
+		
 		
 		
 		public List<AziendaClienteDTO> getListaAziendaClienteDTO() {
@@ -37,16 +39,11 @@ import it.contrader.model.User;
 		}
 		
 
-		public AziendaClienteDTO getByUsernameAndPassword(String username, String password) {
-
-			final AziendaCliente aziendaCliente = aziendaClienteRepository.findUserByUsernameAndPassword(username, password);
-
-			return ConverterAziendaCliente.toDTO(aziendaCliente);
-		}
 		
-		public List<AziendaClienteDTO> findAziendaClienteDTOByUsername(String username) {
+		
+		public List<AziendaClienteDTO> findAziendaClienteDTOByIdUser(AziendaCliente user) {
 			
-			final List<AziendaCliente> list = aziendaClienteRepository.findAllByUsername(username);
+			final List<AziendaCliente> list = aziendaClienteRepository.findAllByUser(user);
 			final List<AziendaClienteDTO> aziendaClienteDTOs = new ArrayList<>();
 			list.forEach(i -> aziendaClienteDTOs.add(ConverterAziendaCliente.toDTO(i)));
 			return aziendaClienteDTOs;
@@ -64,7 +61,7 @@ import it.contrader.model.User;
 		}
 		
 		public void deleteAziendaClienteByIdAziendaCliente(Integer id) {
-			aziendaClienteRepository.deleteById(id);
+			aziendaClienteRepository.deleteByIdAziendaCliente(id);
 		}
 		
 		

@@ -15,7 +15,7 @@ public class ConverterProgetto {
 			progettoDTO = new ProgettoDTO();
 			progettoDTO.setIdProgetto(progetto.getIdProgetto());
 			progettoDTO.setNomeProgetto(progetto.getNomeProgetto());
-			progettoDTO.setIdUtenteFinale(progetto.getIdUtenteFinale());
+			
 			
 		}
 		return progettoDTO;
@@ -27,7 +27,7 @@ public class ConverterProgetto {
 			progetto = new Progetto();
 			progetto.setIdProgetto(progettoDTO.getIdProgetto());
 			progetto.setNomeProgetto(progettoDTO.getNomeProgetto());
-			progetto.setIdUtenteFinale(progettoDTO.getIdUtenteFinale());
+			
 		}
 		return progetto;
 	}

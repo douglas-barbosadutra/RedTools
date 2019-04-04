@@ -1,5 +1,7 @@
 package it.contrader.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.services.AziendaClienteService;
-
-import java.util.List;
 
 
 @Controller
@@ -42,7 +42,7 @@ public class AziendaClienteController {
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		request.setAttribute("id", id);
-		this.aziendaClienteService.deleteAziendaClienteById(id);
+		this.aziendaClienteService.deleteAziendaClienteByIdAziendaCliente(id);
 		visualAziendaCliente(request);
 		return "homeAziendaCliente";
 		
@@ -59,22 +59,34 @@ public class AziendaClienteController {
 	@RequestMapping(value = "/cercaAziendaCliente", method = RequestMethod.GET)
 	public String cercaAziendaCliente(HttpServletRequest request) {
 
-		final String content = request.getParameter("search");
+		int content = Integer.parseInt(request.getParameter("idAziendaCliente"));
 
-		List<AziendaClienteDTO> allAziendaCliente = this.aziendaClienteService.findAziendaClienteDTOByUsername(content);
-		request.setAttribute("allAziendaClienteDTO", allAziendaCliente);
+		AziendaClienteDTO AziendaCliente = this.aziendaClienteService.getAziendaClienteDTOById(content);
+		request.setAttribute("AziendaClienteDTO", AziendaCliente);
 
 		return "homeAziendaCliente";
 
 	}
 	
+	
 	@RequestMapping(value = "/creaAziendaCliente", method = RequestMethod.POST)
 	public String insertAziendaCliente(HttpServletRequest request) {
-		String username = request.getParameter("username").toString();
-		String password = request.getParameter("password").toString();
-		String ruolo = request.getParameter("ruolo").toString();
+		
+		String denominazioneSocieta = request.getParameter("denominazioneSocieta").toString();
+		String formaGiuridica = request.getParameter("formaGiuridica").toString();
+		String sedeLegale = request.getParameter("sedeLegale").toString();
+		String partitaIva = request.getParameter("partitaIva").toString();
+		String telefono = request.getParameter("telefono").toString();
+		String email = request.getParameter("email").toString();
+		String indirizzoUnitaLocale = request.getParameter("indirizzoUnitaLocale").toString();
+		String attivitaAzienda = request.getParameter("attivitaAzienda").toString();
+		String legaleRappresentante = request.getParameter("legaleRappresentante").toString();
+		String natoA = request.getParameter("natoA").toString();
+		String natoIl = request.getParameter("natoIl").toString();
+		int idUser =Integer.parseInt(request.getParameter("idUser"));
+		
 
-		AziendaClienteDTO aziendaClienteObj = new AziendaClienteDTO(0, username, password, ruolo,"");
+		AziendaClienteDTO aziendaClienteObj = new AziendaClienteDTO();
 		
 		aziendaClienteService.insertAziendaCliente(aziendaClienteObj);
 
@@ -82,22 +94,5 @@ public class AziendaClienteController {
 		return "homeAziendaCliente";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request) {
-
-		session = request.getSession();
-		final String username = request.getParameter("username");
-		final String password = request.getParameter("password");
-		final AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getByUsernameAndPassword(username, password);
-		final String ruolo = aziendaClienteDTO.getRuolo();
-		if (!StringUtils.isEmpty(ruolo)) {
-			session.setAttribute("utenteCollegato", aziendaClienteDTO);
-			if (ruolo.equals("ADMIN")) {
-				return "home";
-			} else if (ruolo.equals("CHATMASTER")) {
-				return "home";
-			}
-		}
-		return "index";
-	}
+	
 }

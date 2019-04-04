@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TotaleOreReDDTO {
 	
-	private int id_totaleOreRed;
+	private int idTotaleOreReD;
 	
 	private int oreLavorateRed;
 

@@ -53,10 +53,10 @@ public class Mom {
 
 	@ManyToOne
 	@JoinColumn(name = "idAziendaCliente")
-	private AziendaCliente aziendaClientes;
+	private AziendaCliente aziendaCliente;
 	
 	@ManyToOne
 	@JoinColumn(name="idProgetto")
-	private Progetto progettoMom ;
+	private Progetto progetto ;
 	
 }

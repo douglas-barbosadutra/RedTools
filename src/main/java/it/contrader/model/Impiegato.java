@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 public class Impiegato {
 	
 	@Id
-	@Column(name = "id_nome")
+	@Column(name = "idNome")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idNome;
 	
@@ -62,10 +62,10 @@ public class Impiegato {
 	
 	@OneToMany(mappedBy = "impiegato")
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private List<TotaleOreReD> totaleOreReDs;
+	private List<TotaleOreReD> totaleOreReD;
 	
 	@ManyToOne
 	@JoinColumn(name = "idAziendaCliente")
-	private AziendaCliente aziendaClientes;
+	private AziendaCliente aziendaCliente;
 	
 }

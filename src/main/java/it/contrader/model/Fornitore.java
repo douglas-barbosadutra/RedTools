@@ -36,6 +36,6 @@ public class Fornitore {
 	
 	@OneToMany(mappedBy = "fornitore")
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private List<Fattura> fatturas;
+	private List<Fattura> fattura;
 
 }

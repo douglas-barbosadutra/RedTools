@@ -22,9 +22,9 @@ import lombok.NoArgsConstructor;
 public class TotaleOreReD {
 	
 	@Id
-	@Column(name = "id_totale_ore_red")
+	@Column(name = "idTotaleOreReD")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_totaleOreRed;
+	private int idTotaleOreReD;
 	
 	@NotNull
 	@Column(name = "ore_lavorate_red")
@@ -35,7 +35,7 @@ public class TotaleOreReD {
 	private Dossier dossier;
 	
 	@ManyToOne
-	@JoinColumn(name = "idFornitore")
-	private Fornitore fornitore;
+	@JoinColumn(name = "idNome")
+	private Fornitore impiegato;
 
 }

@@ -10,7 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
+import it.contrader.model.AziendaCliente;
+import it.contrader.model.Progetto;
+import it.contrader.services.AziendaClienteService;
 import it.contrader.services.MomService;
 
 
@@ -19,16 +23,18 @@ import it.contrader.services.MomService;
 public class MomController {
 
 	private final MomService momService;
+	private AziendaClienteService aziendaClienteService;
 	private HttpSession session;
 	
 	@Autowired
 	public MomController(MomService momService) {
 		this.momService = momService;
 	}
-
+	
 	private void visualMom(HttpServletRequest request){
-		final AziendaCliente aziendaCliente = request.getParameter("aziendaCliente");
-		List<MomDTO> allMom = this.momService.findMomDTOByAziendaCliente(aziendaCliente);
+		final int idAziendaCliente = Integer.parseInt(request.getParameter("idAziendaCliente"));
+		AziendaClienteDTO aziendaClienteDTO = this.aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
+		List<MomDTO> allMom = this.momService.findMomDTOByIdAziendaCliente(aziendaClienteDTO);
 		request.setAttribute("allMomDTO", allMom);
 	}
 	
@@ -56,17 +62,7 @@ public class MomController {
 		
 	}
 	
-	@RequestMapping(value = "/cercaMom", method = RequestMethod.GET)
-	public String cercaMom(HttpServletRequest request) {
-
-		final Progetto progetto = request.getParameter("progetto");
-
-		List<MomDTO> allMom = this.momService.findMomDTOByProgetto(progetto);
-		request.setAttribute("allMomDTO", allMom);
-
-		return "homeMom";
-
-	}
+	
 	
 	@RequestMapping(value = "/creaMom", method = RequestMethod.POST)
 	public String insertMom(HttpServletRequest request) {
