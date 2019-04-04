@@ -92,10 +92,10 @@ public class UserController {
 		final String ruolo = userDTO.getRuolo();
 		if (!StringUtils.isEmpty(ruolo)) {
 			session.setAttribute("utenteCollegato", userDTO);
-			if (ruolo.equals("ADMIN")) {
-				return "home";
-			} else if (ruolo.equals("CHATMASTER")) {
-				return "home";
+			if (ruolo.equals("superuser")) {
+				return "homeAdmin";
+			} else if (ruolo.equals("user")) {
+				return "homeBO";
 			}
 		}
 		return "index";

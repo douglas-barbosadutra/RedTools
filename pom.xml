@@ -32,10 +32,10 @@
 <!-- 		Spring Security(la depebd qui sotto) è il framework della famiglia Spring dedicato all’implementazione  -->
 <!-- 		delle logiche di autenticazione e autorizzazione in progetti basati su Spring e Spring MVC. -->
 			
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-security</artifactId> -->
+<!-- 		</dependency> -->
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
