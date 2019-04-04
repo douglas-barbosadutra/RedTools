@@ -18,3 +18,4 @@ public interface DossierRepository  extends  JpaRepository<Dossier, Integer>{
 	public List<Dossier> findAllByAziendaCliente(AziendaCliente aziendaCliente);
 
 }
+  
