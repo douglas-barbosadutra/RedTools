@@ -24,16 +24,14 @@
 	<form class="form-signin" action="/User/login" method="post">
 		<h1 class="h3 mb-3 font-weight-normal">RedToolsSpring Login</h1>
 
-		<label for="inputUser" class="sr-only">Username</label> <input
-			type="text" name="username" id="inputUser" class="form-control"
-			placeholder="Username" required autofocus> <label
-			for="inputPassword" class="sr-only">Password</label> <input
-			type="password" name="password" id="inputPassword"
-			class="form-control" placeholder="Password" required> <input
-			type="text" name="richiesta" value="login" hidden>
-
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-			in</button>
+		<label for="inputUser" class="sr-only">Username</label> 
+		<input type="text" name="username" id="inputUser" class="form-control" placeholder="inserisci Username" required autofocus> 
+		
+		<label for="inputPassword" class="sr-only">Password</label> 
+		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="inserisci Password" required> 
+		
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
 	</form>
+	
 </body>
 </html>

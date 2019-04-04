@@ -13,17 +13,15 @@
 </head>
 <body>
 
-
 	<p>Welcome!</p>
 
 
-
-	<a href="UserServlet?richiesta=UserManager"><span class="fs">
+	<a href="/User/userManagement"><span class="fs">
 			User Management </span></a>
 	<br>
 	<br>
 	<br>
-	<a href="LogoutServlet" ><span class="fs">
+	<a href="/User/logout" ><span class="fs">
 			Logout </span></a>
 
 </body>

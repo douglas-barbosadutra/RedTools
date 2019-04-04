@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/UserController")
 public class UserController {
 
 	private final UserService userService;
@@ -32,10 +32,10 @@ public class UserController {
 		request.setAttribute("allUserDTO", allUser);
 	}
 	
-	@RequestMapping(value = "/user/userManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "userManagement", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		visualUser(request);
-		return "homeUser";		
+		return "/user/manageUser";		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -45,6 +45,13 @@ public class UserController {
 		this.userService.deleteUserById(id);
 		visualUser(request);
 		return "homeUser";
+		
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) {
+		session.setAttribute("utenteCollegato", null);
+		return "index";
 		
 	}
 	
@@ -81,6 +88,36 @@ public class UserController {
 		visualUser(request);
 		return "homeUser";
 	}
+	
+	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
+	public String updateRedirect(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		UserDTO userUpdate = new UserDTO();
+		// userUpdate.setUserId(id);
+
+		userUpdate = this.userService.getUserDTOById(id);
+		request.setAttribute("userUpdate", userUpdate);
+		return "user/updateUser";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(HttpServletRequest request) {
+		Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
+		String usernameUpdate = request.getParameter("user_user");
+		String passwordUpdate = request.getParameter("user_pass");
+		String usertypeUpdate = request.getParameter("user_type");
+		
+		UserDTO user = new UserDTO();
+		user.setUserUser(usernameUpdate);
+		user.setUserPass(passwordUpdate);
+		user.setUserType(usertypeUpdate);
+		user.setUserId(idUpdate);
+
+		userService.updateUser(user);
+		visualUser(request);
+		return "user/manageUser";
+	}
+	
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request) {
