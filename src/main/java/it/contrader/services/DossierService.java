@@ -87,9 +87,9 @@ public List<DossierDTO> findDossierDTOByProgetto(Progetto progetto) {
 
 }
 
-public List<DossierDTO> findDossierDTOByAziendaCliente(AziendaCliente aziendaCliente) {
+public List<DossierDTO> findDossierDTOByAziendaCliente(int idAziendaCliente) {
 	
-	final List<Dossier> list = dossierRepository.findAllByAziendaCliente(aziendaCliente);
+	final List<Dossier> list = dossierRepository.findAllByAziendaCliente(idAziendaCliente);
 	final List<DossierDTO> dossierDTOs = new ArrayList<>();
 	list.forEach(i -> dossierDTOs.add(ConverterDossier.toDTO(i)));
 	return dossierDTOs;
