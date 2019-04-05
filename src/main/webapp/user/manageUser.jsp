@@ -42,13 +42,14 @@ body {
 </head>
 <%
 	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUserDTO");
+	int iduser = UserService.utenteCollegato.getIdUser();
 	
 %>
 </head>
 <body>
 
 	<div class="pre_contenitore">
-
+<%=iduser %>
 		<p>Gestione Utenti</p>
 
 	</div>

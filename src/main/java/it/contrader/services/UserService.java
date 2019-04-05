@@ -15,6 +15,7 @@ import it.contrader.model.User;
 public class UserService {
 
 	private final UserRepository userRepository;
+	public static UserDTO utenteCollegato;
 	
 
 	@Autowired

@@ -33,7 +33,8 @@ public class UserController {
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
 		final String ruolo = userDTO.getRuolo();
 		if (!StringUtils.isEmpty(ruolo)) {
-			session.setAttribute("utenteCollegato", userDTO);
+			//session.setAttribute("utenteCollegato", userDTO);
+			UserService.utenteCollegato = userDTO;
 			if (ruolo.equals("superuser")) {
 				return "homeAdmin";
 			} else if (ruolo.equals("user")) {
