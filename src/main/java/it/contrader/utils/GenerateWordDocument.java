@@ -10,22 +10,29 @@ import java.io.OutputStream;
 import org.wickedsource.docxstamper.DocxStamper;
 import org.wickedsource.docxstamper.DocxStamperConfiguration;
 
+import it.contrader.dto.AziendaClienteDTO;
+import it.contrader.dto.DossierDTO;
+
 public class GenerateWordDocument {
 
-	public static void generateDocx() {
+	public static void generateDocx(AziendaClienteDTO aziendaClienteDTO, DossierDTO dossierDTO) {
 		DocxStamper stamper = new DocxStamper(new DocxStamperConfiguration());
-		DocxContext context = new DocxContext();
-		context.setName("John");
 		InputStream template;
+		InputStream tmp2;
+		OutputStream tmp1;
+		OutputStream out;
 		try {
-			template = new FileInputStream(new File("template.docx"));
-			OutputStream out;
-			out = new FileOutputStream("output_template.docx");
-			stamper.stamp(template, context, out);
+			template = new FileInputStream(new File("Esempio.docx"));
+			tmp1 = new FileOutputStream("tmp.docx");
+			stamper.stamp(template, aziendaClienteDTO, tmp1);
+			tmp1.close();
+			tmp2= new FileInputStream(new File("tmp.docx"));
+			out = new FileOutputStream("export.docx");
+			tmp1.close();
+			stamper.stamp(tmp2, dossierDTO, out);
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
 		}
 	}
 }
