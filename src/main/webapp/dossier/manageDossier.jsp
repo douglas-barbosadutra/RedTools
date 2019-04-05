@@ -1,14 +1,6 @@
 <%@ include file="/header.jsp"%>
 <%@ page import="it.contrader.dto.DossierDTO" %>
 
-<%!
-private String convertUsertype(String userType) {
-		if (userType.equals("admin"))
-			return "Admin";
-		else
-			return "Business Owner";
-	}%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,17 +41,15 @@ body {
 </style>
 </head>
 <%
- List<DossierDTO> allDossier = (List<DossierDTO) request.getAttribute("allDossier");
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
-	final int idBO= (Integer) request.getAttribute("idBO");
-	
+ List<DossierDTO> allDossier = (List<DossierDTO) request.getAttribute("allDossierDTO");
+
 %>
 </head>
 <body>
 
 	<div class="pre_contenitore">
 
-		<p>Dossier Management</p>
+		<p> Gestione Dossier </p>
 
 	</div>
 	<br>
@@ -67,18 +57,23 @@ body {
 
 
 	<br />
-
+<div align="center">
 	<table>
 		<tr>
-		    <th>idDossier</th>
-			<th>costoDipendenti</th>
-			<th>fatturatoPeriodoDiImposta</th>
-			<th>numeroDipendenti</th>
-			<th>costiAttivitaRd</th>
-			<th>costiPersonaleRd</th>
-		    <th>idProgetto</th>
-		    <th>periodoDiImposta</th>
-		    <th>completamento</th>
+		    <th>Id</th>
+			<th>Anno Di Imposta</th>
+			<th>Costo Dipendenti</th>
+			<th>Fatturato</th>
+			<th>Numero Totale Dipendenti</th>
+			<th>IdProgetto</th>
+		    <th>idAziendaCliente</th>
+		    <th>Update</th>
+		    <th>Delete</th>
+		    <th>Completamento</th>
+		    <th>Costi esterni</th>
+		    <th>Esercizio</th>
+		    <th>Word</th>
+		    
 		
 		</tr>
 		<%
@@ -86,17 +81,16 @@ body {
 		%>
 		<tr>
 			<td><%=dossier.getIdDossier()%></td>
-			<td><%=dossier.getCostoDipendenti()%></td>
-			<td><%=dossier.getFatturatoPeriodoDiImposta()%></td>
-			<td><%=dossier.getNumeroDipendenti()%></td>
-			<td><%=dossier.getCostiAttivitaRd()%></td>
-			<td><%=dossier.getCostiPersonaleRd()%></td>
-			<td><%=dossier.getIdProgetto()%></td>
 			<td><%=dossier.getPeriodoDiImposta()%></td>
+			<td><%=dossier.getCostoDipendentiPeriodoDiImposta()%></td>
+			<td><%=dossier.getFatturatoPeriodoDiImposta()%></td>
+			<td><%=dossier.getNumeroTotaleDipendenti()%></td>
+			<td><%=dossier.getIdProgetto()%></td>
+			<td><%=dossier.geIdAziendaCliente()%></td>
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 			
-			<td class="center"><a href="/JspApp/DossierServlet?richiesta=updateRedirect&updateId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/DossierServlet?richiesta=delete&deleteId=<%=dossier.getIdDossier()%>&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/DossierController/updateRedirect?id =<%=dossier.getIdDossier()%>&idAzienda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/DossierController/deletedelete&deleteId=<%=dossier.getIdDossier()%>&idAzinda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
