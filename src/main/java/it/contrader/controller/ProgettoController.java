@@ -16,7 +16,7 @@ import it.contrader.services.ProgettoService;
 
 
 @Controller
-@RequestMapping("/Progetto")
+@RequestMapping("/ProgettoController")
 
 public class ProgettoController {
 
@@ -36,10 +36,10 @@ public class ProgettoController {
 		request.setAttribute("allProgettoDTO", allProgetto);
 	}
 	
-	@RequestMapping(value = "/Progetto/ProgettoManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/progettoManagement", method = RequestMethod.GET)
 	public String ProgettoManagement(HttpServletRequest request) {
 		visualProgetto(request);
-		return "homeProgetto";		
+		return "manageProgetto";		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)

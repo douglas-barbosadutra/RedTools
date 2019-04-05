@@ -24,8 +24,6 @@ public class DossierController {
 	private final DossierService dossierService;
 	private HttpSession session;
 	
-	
-
 	@Autowired
 	public DossierController(DossierService dossierService) {
 		this.dossierService = dossierService;
@@ -37,7 +35,6 @@ public class DossierController {
 		request.setAttribute("allDossierDTO", allDossier);
 	}
 
-	
 	
 	@RequestMapping(value = "/dossierManagement", method = RequestMethod.GET)
 	public String dossierManagement(HttpServletRequest request) {
@@ -76,7 +73,7 @@ public class DossierController {
 		DossierDTO dossierUpdate = new DossierDTO();
 		// userUpdate.setUserId(id);
 
-		dossierUpdate = this.dossierService.getUserDTOById(id);
+		dossierUpdate = this.dossierService.getDossierDTOById(id);
 		request.setAttribute("dossierUpdate", dossierUpdate);
 		return "/dossier/updateDossier";
 	}
@@ -85,28 +82,26 @@ public class DossierController {
 	public String update(HttpServletRequest request) {
 		Integer idDossierUpdate = Integer.parseInt(request.getParameter("dossierId"));
 		String periodoDiImpostaUpdate = request.getParameter("periodoDiImposta");
-		String costoDipendentiPeriodoDiImpostaUpdate = request.getParameter("costoDipendentiPeriodoDiImposta");
-		String fatturatoPeriodoDiImpostaUpdate = request.getParameter("fatturatoPeriodoDiImposta");
-		String numeroTotaleDipendentiUpdate = request.getParameter("numeroTotaleDipendenti");
+		int costoDipendentiPeriodoDiImpostaUpdate = Integer.parseInt(request.getParameter("costoDipendentiPeriodoDiImposta"));
+		double fatturatoPeriodoDiImpostaUpdate = Integer.parseInt(request.getParameter("fatturatoPeriodoDiImposta"));
+		int numeroTotaleDipendentiUpdate = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
+		
 		DossierDTO dossier = new DossierDTO();
-		Dossier.setIdDossier(dossierId);
-		Dossier.setPeriodoDiImposta(periodoDiImposta);
-		Dossier.setcostoDipendentiPeriodoDiImposta(costoDipendentiPeriodoDiImposta);
-		Dossier.setfatturatoPeriodoDiImposta(fatturatoPeriodoDiImposta);
-		Dossier.setnumeroTotaleDipendenti(numeroTotaleDipendenti);
+		dossier.setIdDossier(idDossierUpdate);
+		dossier.setPeriodoDiImposta(periodoDiImpostaUpdate);
+		dossier.setCostoDipendentiPeriodoDiImposta(costoDipendentiPeriodoDiImpostaUpdate);
+		dossier.setFatturatoPeriodoDiImposta(fatturatoPeriodoDiImpostaUpdate);
+		dossier.setNumeroTotaleDipendenti(numeroTotaleDipendentiUpdate);
 		dossierService.updateDossier(dossier);
 		visualDossier(request);
 		return "/dossier/manageDossier";
 	}
 	
-	
-
 	@RequestMapping(value = "/crea", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		visualDossier(request);
 		request.setAttribute("option", "insert");
 		return "/dossier/manageDossier";
-		
 	}
 	
 	@RequestMapping(value = "/creaDossier", method = RequestMethod.POST)
@@ -124,36 +119,6 @@ public class DossierController {
 		visualDossier(request);
 		return "/dossier/manageDossier";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

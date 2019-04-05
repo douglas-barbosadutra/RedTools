@@ -25,16 +25,14 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request) {
-		String b=request.getParameter("b");
-		if (!(b=="username")){
 		session = request.getSession();
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
 		final String ruolo = userDTO.getRuolo();
 		if (!StringUtils.isEmpty(ruolo)) {
-			//session.setAttribute("utenteCollegato", userDTO);
-			UserService.utenteCollegato = userDTO;
+			session.setAttribute("utenteCollegato", userDTO);
+			//UserService.utenteCollegato = userDTO;
 			if (ruolo.equals("superuser")) {
 				return "homeAdmin";
 			} else if (ruolo.equals("user")) {
@@ -42,11 +40,10 @@ public class UserController {
 			}
 		}
 		return "index";
-		}
-		return "homeAdmin";
+	
 	}
 	
-	@RequestMapping(value = "userManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		visualUser(request);
 		return "/user/manageUser";		

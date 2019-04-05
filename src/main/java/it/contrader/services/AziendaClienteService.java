@@ -20,8 +20,7 @@ import it.contrader.model.User;
 	public class AziendaClienteService {
 
 		private final AziendaClienteRepository aziendaClienteRepository;
-	
-
+		
 		@Autowired
 		public AziendaClienteService(AziendaClienteRepository aziendaClienteRepository) {
 			this.aziendaClienteRepository = aziendaClienteRepository;
@@ -29,7 +28,7 @@ import it.contrader.model.User;
 		
 
 		public AziendaClienteDTO getAziendaClienteDTOById(Integer id) {
-			return ConverterAziendaCliente.toDTO(aziendaClienteRepository.findByIdAziendaCliente(id));
+			return ConverterAziendaCliente.toDTO(aziendaClienteRepository.getOne(id));
 		}
 		
 		
@@ -41,8 +40,9 @@ import it.contrader.model.User;
 
 		
 		
-		public List<AziendaClienteDTO> findAziendaClienteDTOByIdUser(AziendaCliente user) {
-			
+		public List<AziendaClienteDTO> findAziendeClientiDTOByIdUser(int idBO) {
+			User user = new User();
+			user.setIdUser(idBO);
 			final List<AziendaCliente> list = aziendaClienteRepository.findAllByUser(user);
 			final List<AziendaClienteDTO> aziendaClienteDTOs = new ArrayList<>();
 			list.forEach(i -> aziendaClienteDTOs.add(ConverterAziendaCliente.toDTO(i)));
@@ -61,7 +61,7 @@ import it.contrader.model.User;
 		}
 		
 		public void deleteAziendaClienteByIdAziendaCliente(Integer id) {
-			aziendaClienteRepository.deleteByIdAziendaCliente(id);
+			aziendaClienteRepository.deleteById(id);
 		}
 		
 		

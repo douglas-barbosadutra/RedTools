@@ -1,11 +1,5 @@
 <%@ include file="/header.jsp"%>
-<%!
-private String convertUsertype(String userType) {
-		if (userType.equals("admin"))
-			return "Admin";
-		else
-			return "Business Owner";
-	}%>
+
 
 <!DOCTYPE html>
 <html>
@@ -49,8 +43,7 @@ body {
 </head>
 <%
 	List<ProgettoDTO> allProgetto = (List<ProgettoDTO>) request.getAttribute("allProgetto");
-	final int idUtenteFinale =  (Integer) request.getAttribute("id");
-	final int idBO= (Integer) request.getAttribute("idBO");
+	
 %>
 </head>
 <body>

@@ -25,7 +25,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/BoManagement", method = RequestMethod.GET)
 	public String chatManagement(HttpServletRequest request) {
-		return "homeChatbot";
+		return "homeBO";
 
 	}
 

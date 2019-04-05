@@ -7,35 +7,43 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.AziendaClienteDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.services.AziendaClienteService;
+import it.contrader.services.UserService;
 
 
 @Controller
-@RequestMapping("/AziendaCliente")
+@RequestMapping("/AziendaClienteController")
 public class AziendaClienteController {
 
-	private final AziendaClienteService aziendaClienteService;
+	private AziendaClienteService aziendaClienteService;
 	private HttpSession session;
+	
+	
+	//int idBO = UserService.utenteCollegato.getIdUser();
 	
 	@Autowired
 	public AziendaClienteController(AziendaClienteService aziendaClienteService) {
 		this.aziendaClienteService = aziendaClienteService;
 	}
 
+	//Visualizzazione della lista delle Aziende Clienti del Business Owner
+	
 	private void visualAziendaCliente(HttpServletRequest request){
-		List<AziendaClienteDTO> allAziendaCliente = this.aziendaClienteService.getListaAziendaClienteDTO();
+		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
+		int idBO = userDTO.getIdUser();
+		List<AziendaClienteDTO> allAziendaCliente = this.aziendaClienteService.findAziendeClientiDTOByIdUser(idBO);
 		request.setAttribute("allAziendaClienteDTO", allAziendaCliente);
 	}
 	
-	@RequestMapping(value = "/aziendaCliente/aziendaClienteManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/aziendaClienteManagement", method = RequestMethod.GET)
 	public String aziendaClienteManagement(HttpServletRequest request) {
 		visualAziendaCliente(request);
-		return "homeAziendaCliente";		
+		return "manageAziendaCliente";		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -44,32 +52,25 @@ public class AziendaClienteController {
 		request.setAttribute("id", id);
 		this.aziendaClienteService.deleteAziendaClienteByIdAziendaCliente(id);
 		visualAziendaCliente(request);
-		return "homeAziendaCliente";
-		
+		return "manageAziendaCliente";
 	}
 	
-	@RequestMapping(value = "/crea", method = RequestMethod.GET)
+//	@RequestMapping(value = "/cercaAziendaCliente", method = RequestMethod.GET)
+//	public String cercaAziendaCliente(HttpServletRequest request) {
+//		int content = Integer.parseInt(request.getParameter("idAziendaCliente"));
+//		AziendaClienteDTO AziendaCliente = this.aziendaClienteService.getAziendaClienteDTOById(content);
+//		request.setAttribute("AziendaClienteDTO", AziendaCliente);
+//		return "homeAziendaCliente";
+//	}
+	
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		visualAziendaCliente(request);
 		request.setAttribute("option", "insert");
-		return "creaAziendaCliente";
-		
+		return "insertAziendaCliente";
 	}
 	
-	@RequestMapping(value = "/cercaAziendaCliente", method = RequestMethod.GET)
-	public String cercaAziendaCliente(HttpServletRequest request) {
-
-		int content = Integer.parseInt(request.getParameter("idAziendaCliente"));
-
-		AziendaClienteDTO AziendaCliente = this.aziendaClienteService.getAziendaClienteDTOById(content);
-		request.setAttribute("AziendaClienteDTO", AziendaCliente);
-
-		return "homeAziendaCliente";
-
-	}
-	
-	
-	@RequestMapping(value = "/creaAziendaCliente", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertAziendaCliente(HttpServletRequest request) {
 		
 		String denominazioneSocieta = request.getParameter("denominazioneSocieta").toString();
@@ -85,13 +86,11 @@ public class AziendaClienteController {
 		String natoIl = request.getParameter("natoIl").toString();
 		int idUser =Integer.parseInt(request.getParameter("idUser"));
 		
-
 		AziendaClienteDTO aziendaClienteObj = new AziendaClienteDTO();
-		
 		aziendaClienteService.insertAziendaCliente(aziendaClienteObj);
 
 		visualAziendaCliente(request);
-		return "homeAziendaCliente";
+		return "manageAziendaCliente";
 	}
 	
 	

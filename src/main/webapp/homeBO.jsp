@@ -1,6 +1,9 @@
 <%@ page import="it.contrader.dto.*"%>
-<%@ page import="it.contrader.service.*"%>
+<%@ page import="it.contrader.services.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="it.contrader.utils.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 
@@ -11,18 +14,19 @@
 <meta charset="ISO-8859-1">
 <title>Home BO</title>
 <% 
-int idBO =  (Integer) request.getAttribute("idBO");
+UserDTO userBO = (UserDTO) session.getAttribute("utenteCollegato");
+int idBO = userBO.getIdUser();
 %>
 </head>
 <body>
 
 
-	<p>Welcome!</p>
+	<p><h1>Welcome Business Owner n° <%=idBO%>!</h1></p>
 
 
 
-	<a href="UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><span class="fs">
-			Utente Finale Management </span></a>
+	<a href="/AziendaClienteController/aziendaClienteManagement"><span class="fs">
+			Aziende Clienti Management </span></a>
 	<br>
 	<br>
 	<br>
