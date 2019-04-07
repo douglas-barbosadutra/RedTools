@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.DossierDTO;
 import it.contrader.dto.UserDTO;
+import it.contrader.services.DossierService;
 import it.contrader.services.UserService;
 
 @Controller
@@ -17,6 +19,7 @@ import it.contrader.services.UserService;
 public class HomeController {
 
 	private final UserService userService;
+	private final DossierService dossierService;
 
 	@Autowired
 	public HomeController(UserService userService) {
@@ -37,6 +40,17 @@ public class HomeController {
 
 	}
 
+	
+	@RequestMapping(value = "/dossierManage", method = RequestMethod.GET)
+	public String dossierManage(HttpServletRequest request) {
+		List<DossierDTO> allDossier = this.dossierService.getListaDossierDTO();
+		request.setAttribute("allDossierDTO", allDossier);
+		return "aziendaClienteManage";
+
+	}
+
+	
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		return "index";

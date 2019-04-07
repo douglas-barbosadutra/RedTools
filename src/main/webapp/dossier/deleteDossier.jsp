@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>DELETED DOSSIER</title>
+<title>Canella Dossier</title>
 </head>
 <body>
-	<h1>DELETED DOSSIER WITH SUCCESS</h1>
+	<h1>Dossier eliminato con successo</h1>
 </body>
 </html> 

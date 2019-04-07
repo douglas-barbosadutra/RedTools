@@ -29,7 +29,7 @@
 }
 </style>
 <%
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	int idAziendaCliente =  (Integer) request.getAttribute("idAzienda");
 	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 </head>
@@ -42,36 +42,35 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/DossierServlet?richiesta=insert&idBO=<%=idBO%>">
+	<form method="POST" action="/DossierController/insertRedirect?&id=<%=idAziendaCliente %>&idBO=<%=idBO%>">
 
 		
-		Costo dipendneti: <input type="text" size="40" maxlength="40" name="costoDipendenti" value="0"/>
-		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
-		<input type="hidden" name="idUtentefinale" value="<%=idUtenteFinale %>"/>
+		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0"/>
+		<input type="hidden" name="idAzienda" value="<%=idAziendaCliente %>"/>
+		<input type="hidden" name="idBOe" value="<%=idBO %>"/>
 		<br>
 		<br>
-		Fatturato periodo di imposta: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0"/>
+		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0"/>
 		<br>
 		<br>
-		Numero dipendenti: <input type="text" size="40" maxlength="40" name="numeroDipendenti" value="0"/>
+		fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0"/>
 		<br>
 		<br>
-		Costi attivita' RD: <input type="text" size="40" maxlength="40" name="costiAttivitaRd" value="0"/>
-		<br>
-		<br>
-		Costi personale RD: <input type="text" size="40" maxlength="40" name="costiPersonaleRd" value="0"/>
+		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0"/>
 		<br>
 		<br>
 		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="0"/>
 		<br>
 		<br>
-		Periodo di imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="2019"/>
+		Id Azienda Cliente: <input type="text" size="40" maxlength="40" name="idAziendaCliente" value="0"/>
+		<br>
+		<br>
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/DossierController/insert&idAzienda=<%=idAziendaCliente %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

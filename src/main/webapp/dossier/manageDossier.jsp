@@ -90,8 +90,11 @@ body {
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 			
 			<td class="center"><a href="/DossierController/updateRedirect?id =<%=dossier.getIdDossier()%>&idAzienda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/DossierController/deletedelete&deleteId=<%=dossier.getIdDossier()%>&idAzinda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
-
+			<td class="center"><a href="/DossierController/delete&deleteId=<%=dossier.getIdDossier()%>&idAzinda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/NUOVO PERCORSO1"><i class="fas fa-clipboard" title="1"></i></a></td>
+			<td class="center"><a href="NUOVOPERCORSO2"><i class="fas fa-clipboard" title="2"></i></a></td>
+			<td class="center"><a href="NUOVOPERCORSE 3"><i class="fas fa-clipboard" title="3"></i></a></td>
+             //
 		</tr>
 		<%
 			}
@@ -99,11 +102,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/DossierServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> New Dossier</i></a>
+	<a href="/DossierController/insertRedirect?&idAzienda=<%=idAziendaCliente %>&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> Nuovo Dossier</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/HomeController/dossierManage><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

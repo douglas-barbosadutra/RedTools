@@ -97,14 +97,14 @@ public class DossierController {
 		return "/dossier/manageDossier";
 	}
 	
-	@RequestMapping(value = "/crea", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		visualDossier(request);
 		request.setAttribute("option", "insert");
 		return "/dossier/manageDossier";
 	}
 	
-	@RequestMapping(value = "/creaDossier", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertDossier(HttpServletRequest request) {
 		int idAzienda = Integer.parseInt(request.getParameter("idAzienda"));
 		int idBO= Integer.parseInt(request.getParameter("idBO"));

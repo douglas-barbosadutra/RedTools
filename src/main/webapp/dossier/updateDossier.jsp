@@ -27,7 +27,7 @@
 
 <%
 	DossierDTO updateDossier = (DossierDTO) request.getAttribute("updateDossier");
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
+	int idAziendaCliente =  (Integer) request.getAttribute("idAzienda");
 	final int idBO= (Integer) request.getAttribute("idBO");
 %>
 </head>
@@ -42,36 +42,32 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/DossierServlet?richiesta=update&idBO=<%=idBO%>">
+		<form method="POST" action="/DossierController/updateRedirect"&idBO=<%=idBO%>">
 
-		Costo dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendenti" value="<%=updateDossier.getCostoDipendenti() %>"/>
-		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
-		<input type="hidden" name="idDossier" value="<%=updateDossier.getIdDossier() %>"/>
+		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0"/>
+		<input type="hidden" name="idAzienda" value="<%=idAziendaCliente %>"/>
+		<input type="hidden" name="idBOe" value="<%=idBO %>"/>
 		<br>
 		<br>
-		Fatturato periodo di imposta: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta() %>"/>
+		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0"/>
 		<br>
 		<br>
-		Numero dipendenti: <input type="text" size="40" maxlength="40" name="numeroDipendenti" value="<%=updateDossier.getNumeroDipendenti() %>"/>
+		fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0"/>
 		<br>
 		<br>
-		Costi attivita' RD: <input type="text" size="40" maxlength="40" name="costiAttivitaRd" value="<%=updateDossier.getCostiAttivitaRd() %>"/>
+		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0"/>
 		<br>
 		<br>
-		Costi personale RD: <input type="text" size="40" maxlength="40" name="costiPersonaleRd" value="<%=updateDossier.getCostiPersonaleRd() %>"/>
+		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="0"/>
 		<br>
 		<br>
-		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="<%=updateDossier.getIdProgetto() %>"/>
-		<br>
-		<br>
-		
-		Periodo di imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta() %>"/>
+		Id Azienda Cliente: <input type="text" size="40" maxlength="40" name="idAziendaCliente" value="0"/>
 		<br>
 		<br>
 		<input type="SUBMIT" value="Update">
 		<br>
 		<br>
-		<a href="/JspApp/DossierServlet?richiesta=DossierManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>>
+		<a href="/DossierController/insert&idAzienda=<%=idAziendaCliente %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 
