@@ -45,7 +45,7 @@ public class HomeController {
 	public String dossierManage(HttpServletRequest request) {
 		List<DossierDTO> allDossier = this.dossierService.getListaDossierDTO();
 		request.setAttribute("allDossierDTO", allDossier);
-		return "aziendaClienteManage";
+		return "manageAziendaCliente";
 
 	}
 

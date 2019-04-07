@@ -1,5 +1,6 @@
 package it.contrader.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.DossierDTO;
-import it.contrader.model.Dossier;
 import it.contrader.services.DossierService;
 
 
@@ -119,6 +119,33 @@ public class DossierController {
 		visualDossier(request);
 		return "/dossier/manageDossier";
 	}
+	
+	
+	
+	/**	
+	 *   verificare correttezza per istanziare filledfields
+	 * 
+	 * private List<DossierDTO> prepareDTO(List<DossierDTO> allDossier) {
+		List<DossierDTO> retAllDossier = new ArrayList<DossierDTO>();
+		
+		for(DossierDTO dossier : allDossier) {
+			int y=1;
+			if((dossier.getCostoDipendentiPeriodoDiImposta() !=0))
+				y++;
+			if(dossier.getFatturatoPeriodoDiImposta() !=0)
+				y++;
+			if(dossier.getNumeroTotaleDipendenti() !=0)
+				y++;
+			DossierDTO d = new DossierDTO();
+			d = dossier;
+			d.setFilledFields(y);
+			retAllDossier.add(d);
+			
+			
+		}
+		return retAllDossier;
+	
+	                      **/
 	
 	
 }
