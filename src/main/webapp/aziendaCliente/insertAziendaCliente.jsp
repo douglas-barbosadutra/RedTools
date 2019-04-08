@@ -5,7 +5,7 @@
 <head>
 
 <meta charset="ISO-8859-1">
-<title>Inserisci nuovo utente</title>
+<title>Nuova Azienda</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
@@ -34,61 +34,62 @@
 </head>
 <body>
 <%
-int idBO =  (Integer) request.getAttribute("idBO");
+//int idBO =  (Integer) request.getAttribute("idBO");
 %>
 	<div class="pre_contenitore">
 
-		<p>New UtenteFinale</p>
+		<p>Nuova Azienda Cliente</p>
 
 	</div>
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=insert&idBO=<%=idBO%>">
+	<form method="POST" action="/AziendaClienteController/insert">
 
 		
 		<br>
 		<br>
-		DenominazioneSocieta: <input type="text" size="40" maxlength="40" name="denominazione_societa" />
+		Denominazione Societa: <input type="text" size="40" maxlength="40" name="denominazioneSocieta" />
 		<br>
 		<br>
-		FormaGiuridica <input type="text" size="40" maxlength="40" name="forma_giuridica" />
+		Forma Giuridica <input type="text" size="40" maxlength="40" name="formaGiuridica" />
 		<br>
 		<br>
-		SedeLegale <input type="text" size="40" maxlength="40" name="sede_legale" />
+		Sede Legale <input type="text" size="40" maxlength="40" name="sedeLegale" />
 		<br>
 		<br>
-		PartitaIva <input type="text" size="40" maxlength="40" name="partita_iva" />
+		Partita Iva <input type="text" size="40" maxlength="40" name="partitaIva" />
 		<br>
 		<br>
 		Telefono <input type="text" size="40" maxlength="40" name="telefono" />
 		<br>
 		<br>
-		email <input type="text" size="40" maxlength="40" name="email" />
+		Email <input type="text" size="40" maxlength="40" name="email" />
 		<br>
 		<br>
-		IndirizzoUnitaLocale <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" />
+		Indirizzo Unita Locale <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" />
 		<br>
 		<br>
-		AttivitaAzienda <input type="text" size="40" maxlength="40" name="attivita_azienda" />
+		Attivita Azienda <input type="text" size="40" maxlength="40" name="attivitaAzienda" />
 		<br>
 		<br>
-		LegaleRapresentante <input type="text" size="40" maxlength="40" name="legale_rappresentante" />
+		Legale Rapresentante <input type="text" size="40" maxlength="40" name="legaleRappresentante" />
 		<br>
 		<br>
-		NatoA <input type="text" size="40" maxlength="40" name="nato_a" />
+		Nato A <input type="text" size="40" maxlength="40" name="natoA" />
 		<br>
 		<br>
-		NatoIl <input type="text" size="40" maxlength="40" name="nato_il" />
+		Nato Il <input type="text" size="40" maxlength="40" name="natoIl" />
 		<br>
-		<br>
-		IdUtente <input type="text" size="40" maxlength="40" name="id_utente" />
-		<br>
-		<br>
+<!-- 		<br> -->
+<!-- 		Inserisci Id Business Owner <input type="text" size="40" maxlength="40" name="id_utente" /> -->
+
+		<br> 
+ 		<br> 
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="/AziendaClienteController/aziendaClienteManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

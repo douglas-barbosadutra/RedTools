@@ -118,11 +118,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/AziendaClienteController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> Nuova Azienda Cliente</i></a>
+	<a href="/AziendaClienteController/insertRedirect"><i class="fas fa-plus-circle fa-lg" style="color:black"> Nuova Azienda Cliente</i></a>
 
 	<br>
 	<br>
-	<a href="/HomeController/BoManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/HomeController/BoManagement"><i class="fas fa-arrow-alt-circle-left fa-lg" style="color:black"> Back</i></a>
 
 
 </body>

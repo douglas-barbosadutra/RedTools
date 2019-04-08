@@ -25,6 +25,7 @@ public class AziendaClienteController {
 	private HttpSession session;
 	
 	
+	
 	//int idBO = UserService.utenteCollegato.getIdUser();
 	
 	@Autowired
@@ -54,7 +55,7 @@ public class AziendaClienteController {
 		request.setAttribute("id", id);
 		this.aziendaClienteService.deleteAziendaClienteByIdAziendaCliente(id);
 		visualAziendaCliente(request);
-		return "manageAziendaCliente";
+		return "/aziendaCliente/manageAziendaCliente";
 	}
 	
 //	@RequestMapping(value = "/cercaAziendaCliente", method = RequestMethod.GET)
@@ -67,32 +68,39 @@ public class AziendaClienteController {
 	
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
+		session = request.getSession();
+		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
+		int idBO = userDTO.getIdUser();
 		visualAziendaCliente(request);
 		request.setAttribute("option", "insert");
-		return "insertAziendaCliente";
+		return "/aziendaCliente/insertAziendaCliente";
 	}
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertAziendaCliente(HttpServletRequest request) {
-		
-		String denominazioneSocieta = request.getParameter("denominazioneSocieta").toString();
-		String formaGiuridica = request.getParameter("formaGiuridica").toString();
-		String sedeLegale = request.getParameter("sedeLegale").toString();
-		String partitaIva = request.getParameter("partitaIva").toString();
-		String telefono = request.getParameter("telefono").toString();
-		String email = request.getParameter("email").toString();
-		String indirizzoUnitaLocale = request.getParameter("indirizzoUnitaLocale").toString();
-		String attivitaAzienda = request.getParameter("attivitaAzienda").toString();
-		String legaleRappresentante = request.getParameter("legaleRappresentante").toString();
-		String natoA = request.getParameter("natoA").toString();
-		String natoIl = request.getParameter("natoIl").toString();
-		int idUser =Integer.parseInt(request.getParameter("idUser"));
-		
+		session = request.getSession();
+		UserDTO userDTOs = (UserDTO) session.getAttribute("utenteCollegato");
+		//int idBOs = userDTOs.getIdUser();
 		AziendaClienteDTO aziendaClienteObj = new AziendaClienteDTO();
+		
+		aziendaClienteObj.setDenominazioneSocieta(request.getParameter("denominazioneSocieta").toString());
+		aziendaClienteObj.setFormaGiuridica(request.getParameter("formaGiuridica").toString());
+		aziendaClienteObj.setSedeLegale(request.getParameter("sedeLegale").toString());
+		aziendaClienteObj.setPartitaIva(request.getParameter("partitaIva").toString());
+		aziendaClienteObj.setTelefono(request.getParameter("telefono").toString());
+		aziendaClienteObj.setEmail(request.getParameter("email").toString());
+		aziendaClienteObj.setIndirizzoUnitaLocale(request.getParameter("indirizzoUnitaLocale").toString());
+		aziendaClienteObj.setAttivitaAzienda(request.getParameter("attivitaAzienda").toString());
+		aziendaClienteObj.setLegaleRappresentante(request.getParameter("legaleRappresentante").toString());
+		aziendaClienteObj.setNatoA(request.getParameter("natoA").toString());
+		aziendaClienteObj.setNatoIl(request.getParameter("natoIl").toString());
+		aziendaClienteObj.setUserDTO(userDTOs);
+		
+		
 		aziendaClienteService.insertAziendaCliente(aziendaClienteObj);
 
 		visualAziendaCliente(request);
-		return "manageAziendaCliente";
+		return "/aziendaCliente/manageAziendaCliente";
 	}
 	
 	private List<AziendaClienteDTO> CompletamentoDTO(List<AziendaClienteDTO> allAziendeComplet) {
@@ -100,7 +108,8 @@ public class AziendaClienteController {
 		
 		for(AziendaClienteDTO azienda : allAziendeComplet) {
 			int i = 1;
-			
+			if(azienda.getDenominazioneSocieta() != null && !azienda.getDenominazioneSocieta().equals(""))
+				i++;
 			if(azienda.getFormaGiuridica() != null && !azienda.getFormaGiuridica().equals(""))
 				i++;
 			if(azienda.getSedeLegale() != null && !azienda.getSedeLegale().equals(""))

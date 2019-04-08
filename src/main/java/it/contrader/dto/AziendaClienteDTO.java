@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import it.contrader.model.Dossier;
 import it.contrader.model.Mom;
 import it.contrader.model.Progetto;
+import it.contrader.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,7 +43,7 @@ public class AziendaClienteDTO {
 	
 	private int filledFields;
 	
-	private int idUser;
+	private UserDTO userDTO;
 	
 	private List<Dossier> dossier;
 	

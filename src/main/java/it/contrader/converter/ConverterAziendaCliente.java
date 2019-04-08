@@ -51,6 +51,8 @@ public class ConverterAziendaCliente {
 			aziendaCliente.setNatoA(aziendaClienteDTO.getNatoA());
 			aziendaCliente.setNatoIl(aziendaClienteDTO.getNatoIl());
 			aziendaCliente.setNatoIl(aziendaClienteDTO.getNatoIl());
+			aziendaCliente.setUser(ConverterUser.toEntity(aziendaClienteDTO.getUserDTO()));
+			
 			
 			
 		}
