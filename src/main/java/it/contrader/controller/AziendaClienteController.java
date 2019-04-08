@@ -58,13 +58,15 @@ public class AziendaClienteController {
 		return "/aziendaCliente/manageAziendaCliente";
 	}
 	
-//	@RequestMapping(value = "/cercaAziendaCliente", method = RequestMethod.GET)
-//	public String cercaAziendaCliente(HttpServletRequest request) {
-//		int content = Integer.parseInt(request.getParameter("idAziendaCliente"));
-//		AziendaClienteDTO AziendaCliente = this.aziendaClienteService.getAziendaClienteDTOById(content);
-//		request.setAttribute("AziendaClienteDTO", AziendaCliente);
-//		return "homeAziendaCliente";
-//	}
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String leggiAziendaCliente(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		AziendaClienteDTO AziendaCliente = this.aziendaClienteService.getAziendaClienteDTOById(id);
+		request.setAttribute("AziendaClienteDTO", AziendaCliente);
+		visualAziendaCliente(request);
+		return "/aziendaCliente/readAziendaCliente";
+	}
+	
 	
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
