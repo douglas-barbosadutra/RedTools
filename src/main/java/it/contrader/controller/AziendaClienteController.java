@@ -1,5 +1,6 @@
 package it.contrader.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,19 +32,20 @@ public class AziendaClienteController {
 		this.aziendaClienteService = aziendaClienteService;
 	}
 
-	//Visualizzazione della lista delle Aziende Clienti del Business Owner
+	//Caricamento nella request della lista delle Aziende Clienti del Business Owner
 	
 	private void visualAziendaCliente(HttpServletRequest request){
+		session = request.getSession();
 		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
 		int idBO = userDTO.getIdUser();
 		List<AziendaClienteDTO> allAziendaCliente = this.aziendaClienteService.findAziendeClientiDTOByIdUser(idBO);
-		request.setAttribute("allAziendaClienteDTO", allAziendaCliente);
+		request.setAttribute("allAziendaClienteDTO", CompletamentoDTO(allAziendaCliente));
 	}
 	
 	@RequestMapping(value = "/aziendaClienteManagement", method = RequestMethod.GET)
 	public String aziendaClienteManagement(HttpServletRequest request) {
 		visualAziendaCliente(request);
-		return "manageAziendaCliente";		
+		return "/aziendaCliente/manageAziendaCliente";		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -93,5 +95,40 @@ public class AziendaClienteController {
 		return "manageAziendaCliente";
 	}
 	
-	
+	private List<AziendaClienteDTO> CompletamentoDTO(List<AziendaClienteDTO> allAziendeComplet) {
+		List<AziendaClienteDTO> retAllUtenteFinale = new ArrayList<AziendaClienteDTO>();
+		
+		for(AziendaClienteDTO azienda : allAziendeComplet) {
+			int i = 1;
+			
+			if(azienda.getFormaGiuridica() != null && !azienda.getFormaGiuridica().equals(""))
+				i++;
+			if(azienda.getSedeLegale() != null && !azienda.getSedeLegale().equals(""))
+				i++;
+			if(azienda.getPartitaIva() != null && !azienda.getPartitaIva().equals(""))
+				i++;
+			if(azienda.getTelefono() != null && !azienda.getTelefono().equals(""))
+				i++;
+			if(azienda.getEmail() != null && !azienda.getEmail().equals(""))
+				i++;
+			if(azienda.getIndirizzoUnitaLocale() != null && !azienda.getIndirizzoUnitaLocale().equals(""))
+				i++;
+			if(azienda.getAttivitaAzienda() != null && !azienda.getAttivitaAzienda().equals(""))
+				i++;
+			if(azienda.getLegaleRappresentante() != null && !azienda.getLegaleRappresentante().equals(""))
+				i++;
+			if(azienda.getNatoA() != null && !azienda.getNatoA().equals(""))
+				i++;
+			if(azienda.getNatoIl() != null && !azienda.getNatoIl().equals(""))
+				i++;
+			AziendaClienteDTO uf = new AziendaClienteDTO();
+			uf = azienda;
+			uf.setFilledFields(i);
+			retAllUtenteFinale.add(uf);
+			
+		}
+		
+		return retAllUtenteFinale;
+		
+	}
 }

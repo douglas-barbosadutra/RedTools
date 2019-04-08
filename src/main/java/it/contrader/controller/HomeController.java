@@ -19,7 +19,7 @@ import it.contrader.services.UserService;
 public class HomeController {
 
 	private final UserService userService;
-	private final DossierService dossierService;
+	
 
 	@Autowired
 	public HomeController(UserService userService) {
@@ -40,14 +40,14 @@ public class HomeController {
 
 	}
 
-	
-	@RequestMapping(value = "/dossierManage", method = RequestMethod.GET)
-	public String dossierManage(HttpServletRequest request) {
-		List<DossierDTO> allDossier = this.dossierService.getListaDossierDTO();
-		request.setAttribute("allDossierDTO", allDossier);
-		return "manageAziendaCliente";
-
-	}
+//	dà errore se si toglie il commento e non penso sia corretto inserirlo in questo punto
+//	@RequestMapping(value = "/dossierManage", method = RequestMethod.GET)
+//	public String dossierManage(HttpServletRequest request) {
+//		List<DossierDTO> allDossier = this.dossierService.getListaDossierDTO();
+//		request.setAttribute("allDossierDTO", allDossier);
+//		return "manageAziendaCliente";
+//
+//	}
 
 	
 	

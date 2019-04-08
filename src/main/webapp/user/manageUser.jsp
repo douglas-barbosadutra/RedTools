@@ -91,11 +91,11 @@ body {
 	<br>
 	<br>
 	<br>
-	<a href="/UserController/crea?"><i class="fas fa-plus-circle fa-lg" style="color:black;"> New User</i></a>
+	<a href="/UserController/crea?"><i class="fas fa-plus-circle fa-lg" style="color:black"> New User</i></a>
 
 	<br>
 	<br>
-	<a href="/HomeController/userManage"><i class="fas fa-arrow-alt-circle-left fa-lg" style="color:black;"> Back</i></a>
+	<a href="/HomeController/userManage"><i class="fas fa-arrow-alt-circle-left fa-lg" style="color:black"> Back</i></a>
 
 
 </body>

@@ -40,6 +40,8 @@ public class AziendaClienteDTO {
 	
 	private String natoIl;
 	
+	private int filledFields;
+	
 	private int idUser;
 	
 	private List<Dossier> dossier;

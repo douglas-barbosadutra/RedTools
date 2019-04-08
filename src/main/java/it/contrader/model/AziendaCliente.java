@@ -62,6 +62,9 @@ public class AziendaCliente {
 	@Column(name = "natoIl")
 	private String natoIl;
 	
+	@Column(name = "filledFields")
+	private Integer filledFields;
+	
 	@ManyToOne
 	@JoinColumn(name="idUser")
 	private User user;

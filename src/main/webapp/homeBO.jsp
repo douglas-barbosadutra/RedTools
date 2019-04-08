@@ -21,7 +21,7 @@ int idBO = userBO.getIdUser();
 <body>
 
 
-	<p><h1>Welcome Business Owner n° <%=idBO%>!</h1></p>
+	<p><h1>Welcome Business Owner id=<%=idBO%>!</h1></p>
 
 
 
@@ -30,7 +30,7 @@ int idBO = userBO.getIdUser();
 	<br>
 	<br>
 	<br>
-	<a href="LogoutServlet" ><span class="fs">
+	<a href="/UserController/logout"><span class="fs">
 			Logout </span></a>
 
 </body>
