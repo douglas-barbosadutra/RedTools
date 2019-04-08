@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterAziendaCliente;
 import it.contrader.converter.ConverterMom;
+import it.contrader.converter.ConverterProgetto;
 import it.contrader.dao.MomRepository;
 import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
-import it.contrader.model.AziendaCliente;
+import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.Mom;
-import it.contrader.model.Progetto;
 
 @Service
 public class MomService {
@@ -23,6 +23,10 @@ public class MomService {
 	@Autowired
 	public MomService(MomRepository momRepository) {
 		this.momRepository = momRepository;
+	}
+	
+	public MomDTO getMomDTOById(Integer id) {
+		return ConverterMom.toDTO(momRepository.findById(id).get());
 	}
 
 	public boolean insertMom(MomDTO momDTO) {
@@ -53,7 +57,7 @@ public class MomService {
 		return momDTOs;
 	}
 	
-	public List<MomDTO> findMomDTOByIdAziendaCliente(AziendaClienteDTO aziendaClienteDTO) {
+	public List<MomDTO> findMomDTOByAziendaCliente(AziendaClienteDTO aziendaClienteDTO) {
 		
 		final List<Mom> list = momRepository.findAllByAziendaCliente(ConverterAziendaCliente.toEntity(aziendaClienteDTO));
 		final List<MomDTO> momDTOs = new ArrayList<>();
@@ -61,9 +65,9 @@ public class MomService {
 		return momDTOs;
 	}
 	
-	public List<MomDTO> findMomDTOByProgetto(Progetto progetto) {
+	public List<MomDTO> findMomDTOByProgetto(ProgettoDTO progettoDTO) {
 		
-		final List<Mom> list = momRepository.findAllByProgetto(progetto);
+		final List<Mom> list = momRepository.findAllByProgetto(ConverterProgetto.toEntity(progettoDTO));
 		final List<MomDTO> momDTOs = new ArrayList<>();
 		list.forEach(i -> momDTOs.add(ConverterMom.toDTO(i)));
 		return momDTOs;
