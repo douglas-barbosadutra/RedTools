@@ -1,5 +1,11 @@
 <%@ include file="/header.jsp"%>
 <%@ page import="it.contrader.dto.DossierDTO" %>
+<%@page import="it.contrader.model.AziendaCliente"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="it.contrader.utils.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ include file="../header.jsp"%>
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +47,9 @@ body {
 </style>
 </head>
 <%
- List<DossierDTO> allDossier = (List<DossierDTO) request.getAttribute("allDossierDTO");
+ List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossierDTO");
+
+
 
 %>
 </head>
@@ -85,8 +93,8 @@ body {
 			<td><%=dossier.getCostoDipendentiPeriodoDiImposta()%></td>
 			<td><%=dossier.getFatturatoPeriodoDiImposta()%></td>
 			<td><%=dossier.getNumeroTotaleDipendenti()%></td>
-			<td><%=dossier.getIdProgetto()%></td>
-			<td><%=dossier.geIdAziendaCliente()%></td>
+			<td><%=dossier.getProgetto().getIdProgetto() %></td>
+			<td><%=dossier.getAziendaCliente().getIdAziendaCliente()%></td>
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 			
 			<td class="center"><a href="/DossierController/updateRedirect?id =<%=dossier.getIdDossier()%>&idAzienda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
