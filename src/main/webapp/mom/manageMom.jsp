@@ -1,11 +1,4 @@
 <%@ include file="../header.jsp"%>
-<%-- <%--  --%>
-<!-- // private String convertUsertype(String userType) { -->
-<!-- // 		if (userType.equals("superuser")) -->
-<!-- // 			return "Super User"; -->
-<!-- // 		else -->
-<!-- // 			return "Business Owner"; -->
-<%-- <%-- 	--%> 
 
 <!DOCTYPE html>
 <html>
@@ -49,8 +42,7 @@ body {
 </head>
 <%
 	List<MomDTO> allMom = (List<MomDTO>) request.getAttribute("allMom");
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
-	final int idBO= (Integer) request.getAttribute("idBO");
+	int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 %>
 </head>
 <body>

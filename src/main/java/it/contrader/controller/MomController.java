@@ -47,7 +47,7 @@ public class MomController {
 	public String insert(HttpServletRequest request) {
 		visualMom(request);
 		request.setAttribute("option", "insert");
-		return "creaMom";
+		return "/mom/creaMom";
 		
 	}
 	
@@ -97,14 +97,16 @@ public class MomController {
 		String testoAgendaMom = request.getParameter("testoAgendaMom").toString();
 		String testoAzioneMom = request.getParameter("testoAzioneMom").toString();
 		String testoNoteMom = request.getParameter("testoNoteMom").toString();
+		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
+		int idProgetto = Integer.parseInt(request.getParameter("idProgetto"));
 		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
 		AziendaCliente aziendaCliente = ConverterAziendaCliente.toEntity(aziendaClienteDTO);
 		ProgettoDTO progettoDTO = progettoService.getProgettoDTOById(idProgetto);
 		Progetto progetto = ConverterProgetto.toEntity(progettoDTO);
-		MomDTO momObj = new MomDTO(0, luogoMom, dataDelGiornoMom, orarioMom, oggettoMom,
+		MomDTO momObj = new MomDTO(idUpdate, luogoMom, dataDelGiornoMom, orarioMom, oggettoMom,
 				partecipantiMom, testoAgendaMom, testoAzioneMom, testoNoteMom,
 				aziendaCliente, progetto);
-		momService.updateMom(mom);
+		momService.updateMom(momObj);
 		visualMom(request);
 		return "/mom/manageMom";
 	}
@@ -124,5 +126,4 @@ public class MomController {
 		List<MomDTO> allMom = this.momService.findMomDTOByAziendaCliente(aziendaClienteDTO);
 		request.setAttribute("allMomDTO", allMom);
 	}
-	
 }
