@@ -26,10 +26,10 @@ public class ProgettoService {
 	}
 
 	
-	public List<ProgettoDTO> getListaProgettoDTO() {
-		return ConverterProgetto.toListDTO((List<Progetto>) progettoRepository.findAll());
-	}
-	
+//	public List<ProgettoDTO> getListaProgettoDTO(AziendaCliente aziendaCliente) {
+//		return ConverterProgetto.toListDTO(List<Progetto>) progettoRepository.findAllByAziendaCliente(aziendaCliente);
+//	}
+//	
 	
 	public ProgettoDTO getProgettoDTOById(Integer id) {
 		return ConverterProgetto.toDTO(progettoRepository.findById(id).get());
@@ -42,12 +42,6 @@ public class ProgettoService {
 		return ConverterProgetto.toDTO(progettoRepository.findByDossier(dossier));
 	}
 	
-	public ProgettoDTO getProgettoDTOByMom(Mom mom) {
-		
-		final Progetto progetto = (Progetto) progettoRepository.findByMom(mom);
-		
-		return ConverterProgetto.toDTO(progettoRepository.findByMom(mom));
-	}
 	
 	public boolean insertProgetto(ProgettoDTO ProgettoDTO) {
 		return progettoRepository.save(ConverterProgetto.toEntity(ProgettoDTO)) != null;
@@ -71,9 +65,10 @@ public List<ProgettoDTO> findProgettoDTOByidProgetto(int idProgetto) {
 
 		}
 
-public List<ProgettoDTO> findProgettoDTOByAziendaCliente(AziendaCliente aziendacliente) {
-	
-	final List<Progetto> list = progettoRepository.findAllByAziendaCliente(aziendacliente);
+public List<ProgettoDTO> findProgettoDTOByAziendaCliente(int idAziendaCliente) {
+	AziendaCliente aziendaCliente = new AziendaCliente();
+	aziendaCliente.setIdAziendaCliente(idAziendaCliente);
+	final List<Progetto> list = progettoRepository.findAllByAziendaCliente(aziendaCliente);
 	final List<ProgettoDTO> ProgettoDTOs = new ArrayList<>();
 	list.forEach(i -> ProgettoDTOs.add(ConverterProgetto.toDTO(i)));
 	return ProgettoDTOs;

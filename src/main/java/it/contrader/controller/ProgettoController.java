@@ -21,9 +21,7 @@ import it.contrader.services.ProgettoService;
 public class ProgettoController {
 
 
-
-
-	private final ProgettoService progettoService;
+    private final ProgettoService progettoService;
 	private HttpSession session;
 	
 	@Autowired
@@ -32,14 +30,15 @@ public class ProgettoController {
 	}
 
 	private void visualProgetto(HttpServletRequest request){
-		List<ProgettoDTO> allProgetto = this.progettoService.getListaProgettoDTO();
+		Integer idAziendaCliente=Integer.parseInt(request.getParameter("id"));
+		List<ProgettoDTO> allProgetto = this.progettoService.findProgettoDTOByAziendaCliente(idAziendaCliente);
 		request.setAttribute("allProgettoDTO", allProgetto);
 	}
 	
 	@RequestMapping(value = "/progettoManagement", method = RequestMethod.GET)
 	public String ProgettoManagement(HttpServletRequest request) {
 		visualProgetto(request);
-		return "manageProgetto";		
+		return "/progetto/manageProgetto";		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -79,7 +78,7 @@ public class ProgettoController {
 		String nomeProgetto = request.getParameter("nomeProgetto").toString();
 		int idUtenteFinale = Integer.parseInt(request.getParameter("idUtenteFinale").toString());
 
-		ProgettoDTO progettoObj = new ProgettoDTO(0, nomeProgetto, 0);
+		ProgettoDTO progettoObj = new ProgettoDTO();
 		
 		progettoService.insertProgetto(progettoObj);
 

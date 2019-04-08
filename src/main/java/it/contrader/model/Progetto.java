@@ -31,13 +31,16 @@ public class Progetto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idProgetto;
 
-	@Column(name = "nomeProgetto")
+	@Column(name = "titoloProgetto")
 	@NotNull
-	private String nomeProgetto;
+	private String titoloProgetto;
+	
+	@Column(name = "dettagliProgetto")
+	private String dettagliProgetto;
+	
+	@Column(name = "coordinateDIIN")
+	private String coordinateDIIN;
 
-	@Column(name = "idUtentefinale")
-	@NotNull
-	private Integer password;
 
 	@OneToMany(mappedBy="progetto")
 	@OnDelete(action=OnDeleteAction.CASCADE)
@@ -47,8 +50,6 @@ public class Progetto {
 	@JoinColumn(name="idAziendaCliente")
 	private AziendaCliente aziendaCliente;
 	
-	@OneToMany(mappedBy="progetto")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Mom> mom;
+	
 
 }

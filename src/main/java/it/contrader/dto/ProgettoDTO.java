@@ -12,9 +12,13 @@ public class ProgettoDTO {
 
     private Integer idProgetto;
 
-	private String nomeProgetto;
+	private String titoloProgetto;
 	
-	private Integer idUtenteFinale;
+	private AziendaClienteDTO aziendaClienteDTO;
+	
+	private String dettagliProgetto;
+	
+	private String coordinateDIIN;
 
 
 }

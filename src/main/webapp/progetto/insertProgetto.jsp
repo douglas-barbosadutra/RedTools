@@ -47,7 +47,7 @@
 
 	
 		<br>
-		Nome Progetto: <input type="text" size="40" maxlength="40" name="nomeProgetto" />
+		Titolo Progetto: <input type="text" size="40" maxlength="40" name="titoloProgetto" />
 		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
 		<br>
 		<br>

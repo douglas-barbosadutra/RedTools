@@ -1,4 +1,10 @@
-<%@ include file="/header.jsp"%>
+<%@page import="it.contrader.model.AziendaCliente"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="it.contrader.utils.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ include file="../header.jsp"%>
+
 
 
 <!DOCTYPE html>
@@ -42,7 +48,7 @@ body {
 </style>
 </head>
 <%
-	List<ProgettoDTO> allProgetto = (List<ProgettoDTO>) request.getAttribute("allProgetto");
+	List<ProgettoDTO> allProgetto = (List<ProgettoDTO>) request.getAttribute("allProgettoDTO");
 	
 %>
 </head>
@@ -61,18 +67,22 @@ body {
 
 	<table>
 		<tr>
-			<th>ID Progetto</th>
-			<th>Nome Progetto</th>	
+			<th>ID </th>
+			<th>Titolo </th>
+			<th>Dettagli </th>
+			<th>Coordinate DIIN</th>	
 		</tr>
 		<%
 			for (ProgettoDTO progetto : allProgetto) {
 		%>
 		<tr>
 			<td><%=progetto.getIdProgetto()%></td>
-			<td><%=progetto.getNomeProgetto()%></td>
+			<td><%=progetto.getTitoloProgetto()%></td>
+			<td><%=progetto.getDettagliProgetto()%></td>
+			<td><%=progetto.getCoordinateDIIN()%></td>
 			
-			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=updateRedirect&updateId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/ProgettoServlet?richiesta=delete&deleteId=<%=progetto.getIdProgetto()%>&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/ProgettoController/Update"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/ProgettoController/Delete"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -81,11 +91,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/ProgettoServlet?richiesta=insertRedirect&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
+	<a href="/ProgettoConttroller/InsertRedirect"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/AziendaClienteController/"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

@@ -46,7 +46,7 @@
 		<form method="POST" action="/JspApp/ProgettoServlet?richiesta=update&idBO=<%=idBO%>">
 			<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
 			<br>
-			Nome Progetto: <input type="text" size="40" maxlength="40" name="nomeProgetto" value="<%=updateProgetto.getNomeProgetto()%>" />
+			Titolo Progetto: <input type="text" size="40" maxlength="40" name="titoloProgetto" value="<%=updateProgetto.getTitoloProgetto()%>" />
 			<input type="hidden" name="idProgetto" value="<%=updateProgetto.getIdProgetto()%>">
 			<br>
 			<br>
