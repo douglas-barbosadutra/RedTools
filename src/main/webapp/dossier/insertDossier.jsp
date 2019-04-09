@@ -57,7 +57,7 @@
 		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0"/>
 		<br>
 		<br>
-		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="0"/>
+		Id progetto: <input type="text" size="40" maxlength="40" name="idprogetto" value="0"/>
 		<br>
 		<br>
 		

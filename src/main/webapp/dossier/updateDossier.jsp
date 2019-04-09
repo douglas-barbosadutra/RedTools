@@ -26,9 +26,8 @@
 </style>
 
 <%
-	DossierDTO updateDossier = (DossierDTO) request.getAttribute("updateDossier");
-	int idAziendaCliente =  (Integer) request.getAttribute("idAzienda");
-	final int idBO= (Integer) request.getAttribute("idBO");
+   List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossierDTO");
+    
 %>
 </head>
 
@@ -42,11 +41,11 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/DossierController/updateRedirect"&idBO=<%=idBO%>">
+		<form method="POST" action="/DossierController/updat">
 
 		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0"/>
-		<input type="hidden" name="idAzienda" value="<%=idAziendaCliente %>"/>
-		<input type="hidden" name="idBOe" value="<%=idBO %>"/>
+		
+		
 		<br>
 		<br>
 		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0"/>
@@ -61,13 +60,10 @@
 		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="0"/>
 		<br>
 		<br>
-		Id Azienda Cliente: <input type="text" size="40" maxlength="40" name="idAziendaCliente" value="0"/>
-		<br>
-		<br>
 		<input type="SUBMIT" value="Update">
 		<br>
 		<br>
-		<a href="/DossierController/insert&idAzienda=<%=idAziendaCliente %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="dossierManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

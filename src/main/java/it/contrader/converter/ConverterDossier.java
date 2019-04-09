@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.DossierDTO;
-import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.Dossier;
-import it.contrader.model.Progetto;
 
 
 
@@ -21,10 +19,11 @@ public class ConverterDossier {
 			dossier = new Dossier();
 			dossier.setIdDossier(dossierDTO.getIdDossier());
 			dossier.setPeriodoDiImposta(dossierDTO.getPeriodoDiImposta());
+			dossier.setCostoDipendentiPeriodoDiImposta(dossierDTO.getCostoDipendentiPeriodoDiImposta());
 			dossier.setFatturatoPeriodoDiImposta(dossierDTO.getFatturatoPeriodoDiImposta());
 			dossier.setNumeroTotaleDipendenti(dossierDTO.getNumeroTotaleDipendenti());
-			dossier.setAziendaCliente(dossierDTO.getAziendaCliente());
-			dossier.setProgetto(dossierDTO.getProgetto());
+			dossier.setAziendaCliente(ConverterAziendaCliente.toEntity(dossierDTO.getAziendaClienteDTO()));
+			//dossier.setProgetto(dossierDTO.getProgetto());
 		}
 
 		return dossier;
@@ -37,13 +36,14 @@ public class ConverterDossier {
 			DossierDTO dossierDTO = null;
 			if (dossier != null) {
 				dossierDTO= new DossierDTO();
-				dossierDTO.setIdDossier(dossierDTO.getIdDossier());
-				dossierDTO.setPeriodoDiImposta(dossierDTO.getPeriodoDiImposta());
-				dossierDTO.setFatturatoPeriodoDiImposta(dossierDTO.getFatturatoPeriodoDiImposta());
-				dossierDTO.setNumeroTotaleDipendenti(dossierDTO.getNumeroTotaleDipendenti());
-				dossierDTO.setAziendaCliente(dossier.getAziendaCliente());
-				dossierDTO.setProgetto(dossier.getProgetto());
-				dossierDTO.setFilledFields(dossierDTO.getFilledFields());
+				dossierDTO.setIdDossier(dossier.getIdDossier());
+				dossierDTO.setPeriodoDiImposta(dossier.getPeriodoDiImposta());
+				dossierDTO.setCostoDipendentiPeriodoDiImposta(dossier.getCostoDipendentiPeriodoDiImposta());
+				dossierDTO.setFatturatoPeriodoDiImposta(dossier.getFatturatoPeriodoDiImposta());
+				dossierDTO.setNumeroTotaleDipendenti(dossier.getNumeroTotaleDipendenti());
+				dossierDTO.setAziendaClienteDTO(ConverterAziendaCliente.toDTO(dossier.getAziendaCliente()));
+				//dossierDTO.setProgetto(dossier.getProgetto());
+				//dossierDTO.setFilledFields(dossierDTO.getFilledFields());
 			}
 	
 			return dossierDTO;

@@ -1,4 +1,4 @@
-package it.contrader.model;
+ package it.contrader.model;
 
 import java.util.List;
 
@@ -28,40 +28,40 @@ public class Dossier {
 	
 
 	@Id
-	@Column(name = "idDossier")
+	@Column(name = "id_dossier")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idDossier;
 
-	@Column(name = "periodoDiImposta")
-	@NotNull
+	@Column(name = "periodo_di_imposta")
+
 	private String periodoDiImposta;
 
-	@Column(name = "costoDipendentiPeriodoDiImposta")
+	@Column(name = "costo_dipendenti_periodo_di_imposta")
 	private double costoDipendentiPeriodoDiImposta;
 
 
-	@Column(name = "fatturatoPeriodoDiImposta")
+	@Column(name = "fatturato_periodo_di_imposta")
 	private double fatturatoPeriodoDiImposta;
 
-	@Column(name = "numeroTotaleDipendenti")
+	@Column(name = "numero_totale_dipendenti")
 	private int numeroTotaleDipendenti;
 	
-	@ManyToOne
-	@JoinColumn(name="idProgetto")
-	private Progetto progetto ;
+//	@ManyToOne
+//	@JoinColumn(name="idProgetto")
+//	private Progetto progetto ;
 	
 	@ManyToOne
-	@JoinColumn(name="idAziendaCliente")
+	@JoinColumn(name="id_azienda_cliente")
 	private AziendaCliente aziendaCliente;
 	
-	@OneToMany(mappedBy="dossier")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Fattura> fattura;
-	
-	
-	@OneToMany(mappedBy="dossier")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<TotaleOreReD> totaleOreReD;
+//	@OneToMany(mappedBy="dossier")
+//	@OnDelete(action=OnDeleteAction.CASCADE)
+//	private List<Fattura> fattura;
+//	
+//	
+//	@OneToMany(mappedBy="dossier")
+//	@OnDelete(action=OnDeleteAction.CASCADE)
+//	private List<TotaleOreReD> totaleOreReD;
 	
 	
 	

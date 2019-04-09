@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
 import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.AziendaCliente;
@@ -27,14 +28,14 @@ public class DossierController {
 	//private static final AziendaCliente AziendaCliente = null;
 	private final DossierService dossierService;
 	private final AziendaClienteService aziendaClienteService;
-	private final ProgettoService progettoService;
+	//private final ProgettoService progettoService;
 	private HttpSession session;
 	
 	@Autowired
 	public DossierController(DossierService dossierService, AziendaClienteService aziendaClienteService, ProgettoService progettoService) {
 		this.dossierService = dossierService;
 		this.aziendaClienteService = aziendaClienteService;
-		this.progettoService = progettoService;
+		//this.progettoService = progettoService;
 	}
 	
 	@RequestMapping(value = "/dossierManagement", method = RequestMethod.GET)
@@ -55,16 +56,16 @@ public class DossierController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertDossier(HttpServletRequest request) {
-		String periodoDiImposta = request.getParameter("priodoDiImposta").toString();
+		String periodoDiImposta = request.getParameter("periodoDiImposta").toString();
 		double costoDipendentiPeriodoDiImposta = Double.parseDouble(request.getParameter("costoDipendentiPeriodoDiImposta"));
 		double fatturatoPeriodoDiImposta = Double.parseDouble(request.getParameter("fatturatoPeriodoDiImposta"));
 		int numeroTotaleDipendenti = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
-		int idProgetto = Integer.parseInt(request.getParameter("idprogetto"));
+		//int idProgetto = Integer.parseInt(request.getParameter("idprogetto"));
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
-		AziendaCliente aziendaCliente = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
-		Progetto progetto = progettoService.getProgettoById(idProgetto);
+		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
+		//Progetto progetto = progettoService.getProgettoById(idProgetto);
 
-		DossierDTO dossierObj = new DossierDTO(0, periodoDiImposta, costoDipendentiPeriodoDiImposta, fatturatoPeriodoDiImposta, numeroTotaleDipendenti, aziendaCliente, progetto, 0);
+		DossierDTO dossierObj = new DossierDTO(0, periodoDiImposta, costoDipendentiPeriodoDiImposta, fatturatoPeriodoDiImposta, numeroTotaleDipendenti, aziendaClienteDTO, 0);
 		
 		dossierService.insertDossier(dossierObj);
 
@@ -78,8 +79,8 @@ public class DossierController {
 	public String updateRedirect(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		DossierDTO dossierUpdate = new DossierDTO();
-		// userUpdate.setUserId(id);
-
+		
+		System.out.println("abcdefghijklmnopq" + id);
 		dossierUpdate = this.dossierService.getDossierDTOById(id);
 		request.setAttribute("dossierUpdate", dossierUpdate);
 		return "/dossier/updateDossier";

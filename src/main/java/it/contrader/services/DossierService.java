@@ -32,26 +32,26 @@ public class DossierService {
 	
 	
 	public DossierDTO getDossierDTOById(Integer id) {
-		return ConverterDossier.toDTO(dossierRepository.findById(id).get());
+		return ConverterDossier.toDTO(dossierRepository.getOne(id));
 	}
-	
+
 	 
 	
+//	
+//	public DossierDTO getPeriodoDiImposta(String periodoDiImposta) {
+//
+//		final Dossier dossier = (Dossier) dossierRepository.findAllByPeriodoDiImposta(periodoDiImposta);
+//
+//		return ConverterDossier.toDTO(dossier);
+//	}
 	
-	public DossierDTO getPeriodoDiImposta(String periodoDiImposta) {
-
-		final Dossier dossier = (Dossier) dossierRepository.findAllByPeriodoDiImposta(periodoDiImposta);
-
-		return ConverterDossier.toDTO(dossier);
-	}
 	
-	
-	public DossierDTO getfattura(Fattura fattura) {
-
-		final Dossier dossier = (Dossier) dossierRepository.findByFattura(fattura);
-
-		return ConverterDossier.toDTO(dossier);
-	}
+//	public DossierDTO getfattura(Fattura fattura) {
+//
+//		final Dossier dossier = (Dossier) dossierRepository.findByFattura(fattura);
+//
+//		return ConverterDossier.toDTO(dossier);
+//	}
 	
 	
 	
@@ -78,15 +78,15 @@ public List<DossierDTO> findDossierDTOByPeriodoDiImposta(String periodoDiImposta
 		return dossierDTOs;
 	
 	}
-
-public List<DossierDTO> findDossierDTOByProgetto(Progetto progetto) {
-	
-	final List<Dossier> list = dossierRepository.findAllByProgetto(progetto);
-	final List<DossierDTO> dossierDTOs = new ArrayList<>();
-	list.forEach(i -> dossierDTOs.add(ConverterDossier.toDTO(i)));
-	return dossierDTOs;
-
-}
+//
+//public List<DossierDTO> findDossierDTOByProgetto(Progetto progetto) {
+//	
+//	final List<Dossier> list = dossierRepository.findAllByProgetto(progetto);
+//	final List<DossierDTO> dossierDTOs = new ArrayList<>();
+//	list.forEach(i -> dossierDTOs.add(ConverterDossier.toDTO(i)));
+//	return dossierDTOs;
+//
+//}
 
 public List<DossierDTO> findDossierDTOByAziendaCliente(AziendaCliente aziendaCliente) {
 	final List<Dossier> list = dossierRepository.findAllByAziendaCliente(aziendaCliente);
