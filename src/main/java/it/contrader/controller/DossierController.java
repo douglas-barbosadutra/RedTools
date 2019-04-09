@@ -1,5 +1,6 @@
 package it.contrader.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
-import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.AziendaCliente;
-import it.contrader.model.Progetto;
 import it.contrader.services.AziendaClienteService;
 import it.contrader.services.DossierService;
 import it.contrader.services.ProgettoService;
@@ -80,7 +79,6 @@ public class DossierController {
 		int id = Integer.parseInt(request.getParameter("id"));
 		DossierDTO dossierUpdate = new DossierDTO();
 		
-		System.out.println("abcdefghijklmnopq" + id);
 		dossierUpdate = this.dossierService.getDossierDTOById(id);
 		request.setAttribute("dossierUpdate", dossierUpdate);
 		return "/dossier/updateDossier";
@@ -93,14 +91,10 @@ public class DossierController {
 		int costoDipendentiPeriodoDiImpostaUpdate = Integer.parseInt(request.getParameter("costoDipendentiPeriodoDiImposta"));
 		double fatturatoPeriodoDiImpostaUpdate = Integer.parseInt(request.getParameter("fatturatoPeriodoDiImposta"));
 		int numeroTotaleDipendentiUpdate = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
-		
-		DossierDTO dossier = new DossierDTO();
-		dossier.setIdDossier(idDossierUpdate);
-		dossier.setPeriodoDiImposta(periodoDiImpostaUpdate);
-		dossier.setCostoDipendentiPeriodoDiImposta(costoDipendentiPeriodoDiImpostaUpdate);
-		dossier.setFatturatoPeriodoDiImposta(fatturatoPeriodoDiImpostaUpdate);
-		dossier.setNumeroTotaleDipendenti(numeroTotaleDipendentiUpdate);
-		dossierService.updateDossier(dossier);
+		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
+		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
+		DossierDTO dossierObj = new DossierDTO(idDossierUpdate, periodoDiImpostaUpdate, costoDipendentiPeriodoDiImpostaUpdate, fatturatoPeriodoDiImpostaUpdate, numeroTotaleDipendentiUpdate, aziendaCliente, 0);
+		dossierService.updateDossier(dossierObj);
 		visualDossier(request);
 		return "/dossier/manageDossier";
 	}
@@ -126,23 +120,15 @@ public class DossierController {
 
 	
 	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	/**	
-	 *   verificare correttezza per istanziare filledfields
-	 * 
-	 * private List<DossierDTO> prepareDTO(List<DossierDTO> allDossier) {
+	  
+	private List<DossierDTO> CompletamentoDTO(List<DossierDTO> allDossier) {
 		List<DossierDTO> retAllDossier = new ArrayList<DossierDTO>();
 		
+		System.out.println("hhhhhhhhhhhhhhhh");
 		for(DossierDTO dossier : allDossier) {
 			int y=1;
+			if((dossier.getPeriodoDiImposta() != null && dossier.getPeriodoDiImposta().equals("")));
+				y++;
 			if((dossier.getCostoDipendentiPeriodoDiImposta() !=0))
 				y++;
 			if(dossier.getFatturatoPeriodoDiImposta() !=0)
@@ -158,7 +144,8 @@ public class DossierController {
 		}
 		return retAllDossier;
 	
-	                      **/
+	                     
 	
 	
+}
 }

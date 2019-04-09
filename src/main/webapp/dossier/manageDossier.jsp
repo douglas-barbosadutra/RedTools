@@ -93,7 +93,7 @@ body {
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 			
 			<td class="center"><a href="/DossierController/updateRedirect?id=<%=dossier.getIdDossier()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/DossierController/delete&deleteId=<%=dossier.getIdDossier()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/DossierController//delete?id=<%=dossier.getIdDossier()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 			<td class="center"><a href="/NUOVO PERCORSO1"><i class="fas fa-clipboard" title="1"></i></a></td>
 			<td class="center"><a href="NUOVOPERCORSO2"><i class="fas fa-clipboard" title="2"></i></a></td>
 			<td class="center"><a href="NUOVOPERCORSE 3"><i class="fas fa-clipboard" title="3"></i></a></td>

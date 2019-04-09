@@ -26,8 +26,10 @@
 </style>
 
 <%
-   List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossierDTO");
-    
+
+    DossierDTO updateDossier = (DossierDTO) request.getAttribute("dossierUpdate");
+    int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
+
 %>
 </head>
 
