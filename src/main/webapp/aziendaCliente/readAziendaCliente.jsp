@@ -66,43 +66,43 @@
 			<br>
 			<br>
 			<br>
-			Forma Giuridica: <%=readAziendaClienteDTO.getFormaGiuridica()%> 
+			<font color="blue"><b>Forma Giuridica</b></font>: <br/><b><%=readAziendaClienteDTO.getFormaGiuridica()%> </b>
 			<br>
 			<br>
 			<br>
-			Sede Legale: <%=readAziendaClienteDTO.getSedeLegale()%>
+			<font color="blue"><b>Sede Legale</b></font>: <br/><b><%=readAziendaClienteDTO.getSedeLegale()%></b>
 			<br>
 			<br>
 			<br>
-			Partita Iva: <%=readAziendaClienteDTO.getPartitaIva()%>
+			<font color="blue"><b>Partita Iva</b></font>: <br/><b><%=readAziendaClienteDTO.getPartitaIva()%></b>
 			<br>
 			<br>
 			<br>
-			Telefono: <%=readAziendaClienteDTO.getTelefono()%>
+			<font color="blue"><b>Telefono</b></font>: <br/><b><%=readAziendaClienteDTO.getTelefono()%></b>
 			<br>
 			<br>
 			<br>
-			Email: <%=readAziendaClienteDTO.getEmail()%>
+			<font color="blue"><b>Email</b></font>: <br/><b><%=readAziendaClienteDTO.getEmail()%></b>
 			<br>
 			<br>
 			<br>
-			Indirizzo Unita Locale: <%=readAziendaClienteDTO.getIndirizzoUnitaLocale()%>
+			<font color="blue"><b>Indirizzo Unita Locale</b></font>: <br/><b><%=readAziendaClienteDTO.getIndirizzoUnitaLocale()%></b>
 			<br>
 			<br>
 			<br>
-			Attività Azienda: <%=readAziendaClienteDTO.getAttivitaAzienda()%>
+			<font color="blue"><b>Attività Azienda</b></font>: <br/><b><%=readAziendaClienteDTO.getAttivitaAzienda()%></b>
 			<br>
 			<br>
 			<br>
-			Legale Rappresentante: <%=readAziendaClienteDTO.getLegaleRappresentante()%>
+			<font color="blue"><b>Legale Rappresentante</b></font>: <br/><b><%=readAziendaClienteDTO.getLegaleRappresentante()%></b>
 			<br>
 			<br>
 			<br>
-			Nato A: <%=readAziendaClienteDTO.getNatoA()%>
+			<font color="blue"><b>Nato A</b></font>: <br/><b><%=readAziendaClienteDTO.getNatoA()%></b>
 			<br>
 			<br>
 			<br>
-			Nato Il: <%=readAziendaClienteDTO.getNatoIl()%>
+			<font color="blue"><b>Nato Il</b></font>: <br/><b><%=readAziendaClienteDTO.getNatoIl()%></b>
 			<br>
 			<br>
 			<br>

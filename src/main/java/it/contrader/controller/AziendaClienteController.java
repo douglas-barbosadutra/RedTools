@@ -80,6 +80,7 @@ public class AziendaClienteController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertAziendaCliente(HttpServletRequest request) {
+		
 		session = request.getSession();
 		UserDTO userDTOs = (UserDTO) session.getAttribute("utenteCollegato");
 		//int idBOs = userDTOs.getIdUser();
@@ -98,9 +99,43 @@ public class AziendaClienteController {
 		aziendaClienteObj.setNatoIl(request.getParameter("natoIl").toString());
 		aziendaClienteObj.setUserDTO(userDTOs);
 		
-		
 		aziendaClienteService.insertAziendaCliente(aziendaClienteObj);
 
+		visualAziendaCliente(request);
+		return "/aziendaCliente/manageAziendaCliente";
+	}
+	
+	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
+	public String updateRedirect(HttpServletRequest request) {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		AziendaClienteDTO aziendaClienteUpdate = new AziendaClienteDTO();
+		// userUpdate.setUserId(id);
+
+		aziendaClienteUpdate = this.aziendaClienteService.getAziendaClienteDTOById(id);
+		request.setAttribute("AziendaClienteUpdateDTO", aziendaClienteUpdate);
+		return "/aziendaCliente/updateAziendaCliente";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(HttpServletRequest request) {
+		session = request.getSession();
+		UserDTO userDTOs = (UserDTO) session.getAttribute("utenteCollegato");
+		AziendaClienteDTO aziendaCliente = new AziendaClienteDTO();
+		aziendaCliente.setIdAziendaCliente(Integer.parseInt(request.getParameter("id")));
+		aziendaCliente.setDenominazioneSocieta(request.getParameter("DenominazioneSocieta"));
+		aziendaCliente.setFormaGiuridica(request.getParameter("FormaGiuridica"));
+		aziendaCliente.setSedeLegale(request.getParameter("SedeLegale"));
+		aziendaCliente.setPartitaIva(request.getParameter("PartitaIva"));
+		aziendaCliente.setTelefono(request.getParameter("telefono"));
+		aziendaCliente.setEmail(request.getParameter("email"));
+		aziendaCliente.setIndirizzoUnitaLocale(request.getParameter("indirizzoUnitaLocale"));
+		aziendaCliente.setAttivitaAzienda(request.getParameter("AttivitaAzienda"));
+		aziendaCliente.setLegaleRappresentante(request.getParameter("LegaleRappresentante"));
+		aziendaCliente.setNatoA(request.getParameter("NatoA"));
+		aziendaCliente.setNatoIl(request.getParameter("NatoIl"));
+		aziendaCliente.setUserDTO(userDTOs);
+		aziendaClienteService.updateAziendaCliente(aziendaCliente);
 		visualAziendaCliente(request);
 		return "/aziendaCliente/manageAziendaCliente";
 	}

@@ -27,10 +27,12 @@ import it.contrader.model.User;
 		}
 		
 
+		public AziendaClienteDTO getAziendaClienteDTOById(Integer id) {
+			return ConverterAziendaCliente.toDTO(aziendaClienteRepository.getOne(id));
+		}
 		public AziendaCliente getAziendaClienteById(Integer id) {
 			return aziendaClienteRepository.getOne(id);
 		}
-		
 		
 		
 		public List<AziendaClienteDTO> getListaAziendaClienteDTO() {
