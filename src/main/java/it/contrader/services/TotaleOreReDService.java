@@ -22,6 +22,14 @@ public class TotaleOreReDService {
 	public TotaleOreReDService(TotaleOreReDRepository totaleOreReDRepository) {
 		this.totaleOreReDRepository = totaleOreReDRepository;
 	}
+	
+	public TotaleOreReD getTotaleOreReDById(Integer id) {
+		return totaleOreReDRepository.findById(id).get();
+	}
+	
+	public TotaleOreReDDTO getTotaleOreReDDTOById(Integer id) {
+		return ConverterTotaleOreReD.toDTO(totaleOreReDRepository.findById(id).get());
+	}
 
 	public boolean insertTotaleOreReD(TotaleOreReDDTO totaleOreReDDTO) {
 		return totaleOreReDRepository.save(ConverterTotaleOreReD.toEntity(totaleOreReDDTO)) != null;
@@ -43,7 +51,7 @@ public class TotaleOreReDService {
 		return totaleOreReDDTOs;
 	}
 	
-	public List<TotaleOreReDDTO> findTotaleOreReDDTOByProgetto(Dossier dossier) {
+	public List<TotaleOreReDDTO> findTotaleOreReDDTOByDossier(Dossier dossier) {
 		
 		final List<TotaleOreReD> list = totaleOreReDRepository.findAllByDossier(dossier);
 		final List<TotaleOreReDDTO> totaleOreReDDTOs = new ArrayList<>();

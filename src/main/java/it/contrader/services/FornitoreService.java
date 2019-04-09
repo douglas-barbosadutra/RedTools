@@ -1,5 +1,7 @@
 package it.contrader.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,18 @@ public class FornitoreService {
 	public FornitoreService(FornitoreRepository fornitoreRepository) {
 		this.fornitoreRepository = fornitoreRepository;
 	}
+	
+	public List<FornitoreDTO> getAllFornitoreDTO() {
+		return ConverterFornitore.toListDTO((List<Fornitore>) fornitoreRepository.findAll());
+	}
+	public Fornitore getFornitoreById(Integer id) {
+		return fornitoreRepository.findById(id).get();
+	}
+	
+	public FornitoreDTO getFornitoreDTOById(Integer id) {
+		return ConverterFornitore.toDTO(fornitoreRepository.findById(id).get());
+	}
+	
 	
 	public FornitoreDTO getByNomeFornitore(String nomeFornitore) {
 

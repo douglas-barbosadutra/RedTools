@@ -26,6 +26,10 @@ public class MomService {
 		this.momRepository = momRepository;
 	}
 	
+	public Mom getMomById(Integer id) {
+		return momRepository.findById(id).get();
+	}
+	
 	public MomDTO getMomDTOById(Integer id) {
 		return ConverterMom.toDTO(momRepository.findById(id).get());
 	}

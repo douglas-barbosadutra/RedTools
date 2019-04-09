@@ -58,7 +58,7 @@ public class Impiegato {
 	
 	@NotNull
 	@Column(name = "costo_lordo_annuo")
-	private int costoLordoAnnuo;
+	private double costoLordoAnnuo;
 	
 	@OneToMany(mappedBy = "impiegato")
 	@OnDelete(action = OnDeleteAction.CASCADE)

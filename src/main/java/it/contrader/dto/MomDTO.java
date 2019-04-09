@@ -1,10 +1,6 @@
 package it.contrader.dto;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-
 import it.contrader.model.AziendaCliente;
-import it.contrader.model.Progetto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

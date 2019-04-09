@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterFattura;
+import it.contrader.converter.ConverterMom;
 import it.contrader.dao.FatturaRepository;
 import it.contrader.dto.FatturaDTO;
+import it.contrader.dto.MomDTO;
 import it.contrader.model.Dossier;
 import it.contrader.model.Fattura;
 import it.contrader.model.Fornitore;
+import it.contrader.model.Mom;
 
 @Service
 public class FatturaService {
@@ -23,6 +26,14 @@ public class FatturaService {
 		this.fatturaRepository = fatturaRepository;
 	}
 
+	public Fattura getFatturaById(Integer id) {
+		return fatturaRepository.findById(id).get();
+	}
+	
+	public FatturaDTO getFatturaDTOById(Integer id) {
+		return ConverterFattura.toDTO(fatturaRepository.findById(id).get());
+	}
+	
 	public boolean insertFattura(FatturaDTO fatturaDTO) {
 		return fatturaRepository.save(ConverterFattura.toEntity(fatturaDTO)) != null;
 	}

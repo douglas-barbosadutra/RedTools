@@ -1,5 +1,7 @@
 package it.contrader.dto;
 
+import it.contrader.model.Dossier;
+import it.contrader.model.Fornitore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,5 +22,9 @@ public class FatturaDTO {
 	private double totaleImponibile;
 	
 	private int percentualeAmmissibile;
+	
+	private Dossier dossier;
+	
+	private Fornitore fornitore;
 	
 }

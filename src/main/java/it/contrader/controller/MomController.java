@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.services.AziendaClienteService;

@@ -8,12 +8,9 @@ import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterDossier;
 import it.contrader.dao.DossierRepository;
-import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Dossier;
-import it.contrader.model.Fattura;
-import it.contrader.model.Progetto;
 
 @Service
 public class DossierService {
@@ -33,6 +30,10 @@ public class DossierService {
 	
 	public DossierDTO getDossierDTOById(Integer id) {
 		return ConverterDossier.toDTO(dossierRepository.getOne(id));
+	}
+	
+	public Dossier getDossierById(Integer id) {
+		return dossierRepository.getOne(id);
 	}
 
 	 

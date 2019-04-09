@@ -21,6 +21,8 @@ public class ConverterImpiegato {
 			impiegatoDTO.setTitoloDiStudio(impiegato.getTitoloDiStudio());
 			impiegatoDTO.setTotaleOreLavorate(impiegato.getTotaleOreLavorate());
 			impiegatoDTO.setCostoLordoAnnuo(impiegato.getCostoLordoAnnuo());
+			impiegatoDTO.setAziendaCliente(impiegato.getAziendaCliente());
+			
 			}
 		return impiegatoDTO;
 	}
@@ -35,8 +37,9 @@ public class ConverterImpiegato {
 			impiegato.setQualifica(impiegatoDTO.getQualifica());
 			impiegato.setMansione(impiegatoDTO.getMansione());
 			impiegato.setTitoloDiStudio(impiegatoDTO.getTitoloDiStudio());
-			impiegatoDTO.setTotaleOreLavorate(impiegato.getTotaleOreLavorate());
-			impiegatoDTO.setCostoLordoAnnuo(impiegato.getCostoLordoAnnuo());
+			impiegato.setTotaleOreLavorate(impiegatoDTO.getTotaleOreLavorate());
+			impiegato.setCostoLordoAnnuo(impiegatoDTO.getCostoLordoAnnuo());
+			impiegato.setAziendaCliente(impiegatoDTO.getAziendaCliente());
 			}
 		return impiegato;
 	}

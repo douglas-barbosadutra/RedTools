@@ -15,6 +15,7 @@ public class ConverterTotaleOreReD {
 			totaleOreReDDTO = new TotaleOreReDDTO();
 			totaleOreReDDTO.setIdTotaleOreReD(totaleOreReD.getIdTotaleOreReD());
 			totaleOreReDDTO.setOreLavorateRed(totaleOreReD.getOreLavorateRed());
+			totaleOreReDDTO.setDossier(totaleOreReD.getDossier());
 			}
 		return totaleOreReDDTO;
 	}
@@ -25,6 +26,7 @@ public class ConverterTotaleOreReD {
 			totaleOreReD = new TotaleOreReD();
 			totaleOreReD.setIdTotaleOreReD(totaleOreReDDTO.getIdTotaleOreReD());
 			totaleOreReD.setOreLavorateRed(totaleOreReDDTO.getOreLavorateRed());
+			totaleOreReD.setDossier(totaleOreReDDTO.getDossier());
 			}
 		return totaleOreReD;
 	}

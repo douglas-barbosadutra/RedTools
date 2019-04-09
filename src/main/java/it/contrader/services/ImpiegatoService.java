@@ -22,6 +22,14 @@ public class ImpiegatoService {
 		this.impiegatoRepository = impiegatoRepository;
 	}
 	
+	public Impiegato getImpiegatoById(Integer id) {
+		return impiegatoRepository.findById(id).get();
+	}
+	
+	public ImpiegatoDTO getImpiegatoDTOById(Integer id) {
+		return ConverterImpiegato.toDTO(impiegatoRepository.findById(id).get());
+	}
+	
 	public ImpiegatoDTO getByNominativo(String nominativo) {
 
 		final Impiegato impiegato = impiegatoRepository.findByNominativo(nominativo);
