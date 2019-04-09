@@ -44,41 +44,38 @@
 	<form method="POST" action="/MomController/insert">
 
 		
-		Nome Utente Finale: <input type="text" size="40" maxlength="40" name="nome_utente_finale_mom" />
 		<input type="hidden" name="id" value="<%=idAziendaCliente %>"/>
+		Luogo: <input type="text" size="40" maxlength="40" name="luogoMom" />
 		<br>
 		<br>
-		Luogo: <input type="text" size="40" maxlength="40" name="luogo_mom" />
+		Data: <input type="text" size="40" maxlength="40" name="dataDelGiornoMom" />
 		<br>
 		<br>
-		Data: <input type="text" size="40" maxlength="40" name="data_del_giorno_mom" />
+		Orario: <input type="text" size="40" maxlength="40" name="orarioMom" />
 		<br>
 		<br>
-		Orario: <input type="text" size="40" maxlength="40" name="orario_mom" />
+		Oggetto: <input type="text" size="40" maxlength="40" name="oggettoMom" />
 		<br>
 		<br>
-		Oggetto: <input type="text" size="40" maxlength="40" name="oggetto_mom" />
+		Progetto: <input type="text" size="40" maxlength="40" name="progettoMom" />
 		<br>
 		<br>
-		Progetto: <input type="text" size="40" maxlength="40" name="progetto_mom" />
+		Partecipanti: <input type="text" size="40" maxlength="40" name="partecipantiMom" />
 		<br>
 		<br>
-		Partecipanti: <input type="text" size="40" maxlength="40" name="partecipanti_mom" />
+		Agenda: <input type="text" size="400" maxlength="400" name="testoAgendaMom" />
 		<br>
 		<br>
-		Agenda: <input type="text" size="400" maxlength="400" name="testo_agenda_mom" />
+		Azione: <input type="text" size="400" maxlength="400" name="testoAzioneMom" />
 		<br>
 		<br>
-		Azione: <input type="text" size="400" maxlength="400" name="testo_azione_mom" />
-		<br>
-		<br>
-		Note: <input type="text" size="400" maxlength="400" name="testo_note_mom" />
+		Note: <input type="text" size="400" maxlength="400" name="testoNoteMom" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="MomController/momManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="momManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

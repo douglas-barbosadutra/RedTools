@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.services.AziendaClienteService;
@@ -68,9 +69,18 @@ public class MomController {
 		return "/mom/manageMom";
 	}
 	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String leggiMom(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("readId"));
+		MomDTO mom = this.momService.getMomDTOById(id);
+		request.setAttribute("momDTO", mom);
+		visualMom(request);
+		return "/mom/readMom";
+	}
+	
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("updateId"));
 		MomDTO momUpdate = new MomDTO();
 		// momUpdate.setMomId(id);
 
@@ -103,7 +113,7 @@ public class MomController {
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("deleteId"));
 		request.setAttribute("id", id);
 		this.momService.deleteMomById(id);
 		visualMom(request);
