@@ -126,5 +126,13 @@ public class ProgettoController {
 		return "/progetto/manageProgetto";
 	}
 	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String leggiProgetto(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("idProgettoRead"));
+		ProgettoDTO progetto = this.progettoService.findProgettoDTOById(id);
+		request.setAttribute("ProgettoDTO", progetto);
+		visualProgetto(request);
+		return "/progetto/readProgetto";
+	}
 	
 }
