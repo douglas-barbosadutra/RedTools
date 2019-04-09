@@ -60,6 +60,8 @@ body {
 	<table>
 		<tr>
 			<th>Id Mom</th>
+			<th>Denominazione Azienda</th>
+			<th>Partita Iva</th>
 			<th>Luogo</th>
 			<th>Data</th>
 			<th>Orario</th>
@@ -76,6 +78,8 @@ body {
 		%>
 		<tr>
 			<td><%=mom.getIdMom()%></td>
+			<td><%=mom.getAziendaCliente().getDenominazioneSocieta()%></td>
+			<td><%=mom.getAziendaCliente().getPartitaIva()%></td>
 			<td><%=mom.getLuogoMom()%></td>
 			<td><%=mom.getDataDelGiornoMom()%></td>
 			<td><%=mom.getOrarioMom()%></td>
@@ -86,6 +90,7 @@ body {
 			<td><%=mom.getTestoAzioneMom()%></td>
 			<td><%=mom.getTestoNoteMom()%></td>
 			
+			<td class="center"><a href="/MomController/read?readId=<%=mom.getIdMom()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
 			<td class="center"><a href="/MomController/updateRedirect?updateId=<%=mom.getIdMom()%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/MomController/delete?deleteId=<%=mom.getIdMom()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.services.AziendaClienteService;
@@ -66,6 +67,15 @@ public class MomController {
 		momService.insertMom(momObj);
 		visualMom(request);
 		return "/mom/manageMom";
+	}
+	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String leggiMom(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("readId"));
+		MomDTO mom = this.momService.getMomDTOById(id);
+		request.setAttribute("momDTO", mom);
+		visualMom(request);
+		return "/mom/readMom";
 	}
 	
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
