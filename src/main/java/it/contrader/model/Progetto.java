@@ -42,9 +42,9 @@ public class Progetto {
 	private String coordinateDIIN;
 
 
-	@OneToMany(mappedBy="progetto")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Dossier> dossier;
+//	@OneToMany(mappedBy="progetto")
+//	@OnDelete(action=OnDeleteAction.CASCADE)
+//	private List<Dossier> dossier;
 	
 	@ManyToOne
 	@JoinColumn(name="idAziendaCliente")

@@ -11,7 +11,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.ProgettoDTO;
+import it.contrader.model.AziendaCliente;
+import it.contrader.services.AziendaClienteService;
 import it.contrader.services.ProgettoService;
 
 
@@ -20,13 +23,14 @@ import it.contrader.services.ProgettoService;
 
 public class ProgettoController {
 
-
+	private AziendaClienteService aziendaClienteService ;
     private final ProgettoService progettoService;
 	private HttpSession session;
 	
 	@Autowired
 	public ProgettoController(ProgettoService progettoService) {
 		this.progettoService = progettoService;
+		this.aziendaClienteService = aziendaClienteService;
 	}
 
 	private void visualProgetto(HttpServletRequest request){
@@ -37,6 +41,9 @@ public class ProgettoController {
 	
 	@RequestMapping(value = "/progettoManagement", method = RequestMethod.GET)
 	public String ProgettoManagement(HttpServletRequest request) {
+		session = request.getSession();
+		int idAziendaCliente = Integer.parseInt(request.getParameter("id"));
+		session.setAttribute("idAziendaCliente", idAziendaCliente);
 		visualProgetto(request);
 		return "/progetto/manageProgetto";		
 	}
@@ -47,43 +54,50 @@ public class ProgettoController {
 		request.setAttribute("id", idProgetto);
 		this.progettoService.deleteProgettoByidProgetto(idProgetto);
 		visualProgetto(request);
-		return "homeProgetto";
+		return "/progetto/manageProgetto";
 		
 	}
 	
-	@RequestMapping(value = "/crea", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
-		visualProgetto(request);
+		//visualProgetto(request);
 		request.setAttribute("option", "insert");
-		return "creaProgetto";
+		return "/progetto/insertProgetto";
 		
 	}
 	
-	@RequestMapping(value = "/cercaProgetto", method = RequestMethod.GET)
-	public String cercaProgetto(HttpServletRequest request) {
-
-		final int content = Integer.parseInt(request.getParameter("search"));
-
-		List<ProgettoDTO> allProgetto = this.progettoService.findProgettoDTOByidProgetto(content);
-		request.setAttribute("allProgettoDTO", allProgetto);
-
-		return "homeProgetto";
-
-	}
+//	@RequestMapping(value = "/cercaProgetto", method = RequestMethod.GET)
+//	public String cercaProgetto(HttpServletRequest request) {
+//
+//		final int content = Integer.parseInt(request.getParameter("search"));
+//
+//		List<ProgettoDTO> allProgetto = this.progettoService.findProgettoDTOByidProgetto(content);
+//		request.setAttribute("allProgettoDTO", allProgetto);
+//
+//		return "homeProgetto";
+//
+//	}
 	
-	@RequestMapping(value = "/creaProgetto", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertProgetto(HttpServletRequest request) {
-		
-		int idProgetto = Integer.parseInt(request.getParameter("idProgetto").toString());
-		String nomeProgetto = request.getParameter("nomeProgetto").toString();
-		int idUtenteFinale = Integer.parseInt(request.getParameter("idUtenteFinale").toString());
-
+		//session = request.getSession();
+		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		ProgettoDTO progettoObj = new ProgettoDTO();
+		
+		progettoObj.setTitoloProgetto(request.getParameter("titoloProgetto").toString());
+		progettoObj.setDettagliProgetto(request.getParameter("dettaglioProgetto").toString());
+		progettoObj.setCoordinateDIIN(request.getParameter("coordinateDIIN").toString());
+		//System.out.println(idAziendaCliente+"**********************************************************");
+		AziendaCliente aziendaClientes = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
+		progettoObj.setAziendaCliente(aziendaClientes);
+		//int idAziendaCliente = Integer.parseInt(request.getParameter("idAziendaCliente").toString());
+
+		
 		
 		progettoService.insertProgetto(progettoObj);
 
 		visualProgetto(request);
-		return "homeProgetto";
+		return "/progetto/manageProgetto";
 	}
 	
 	

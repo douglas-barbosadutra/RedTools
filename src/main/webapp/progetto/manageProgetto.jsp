@@ -81,8 +81,8 @@ body {
 			<td><%=progetto.getDettagliProgetto()%></td>
 			<td><%=progetto.getCoordinateDIIN()%></td>
 			
-			<td class="center"><a href="/ProgettoController/Update"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/ProgettoController/Delete"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/ProgettoController/update?idProgettoUpdate=<%=progetto.getIdProgetto()%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/ProgettoController/delete?idProgettoDelete=<%=progetto.getIdProgetto()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -91,11 +91,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/ProgettoConttroller/InsertRedirect"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
+	<a href="/ProgettoController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
 
 	<br>
 	<br>
-	<a href="/AziendaClienteController/"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/AziendaClienteController/aziendaClienteManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

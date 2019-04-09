@@ -15,7 +15,7 @@ public interface ProgettoRepository extends JpaRepository<Progetto, Integer> {
 	
 	public List<Progetto> findAllByidProgetto(int idProgetto);
 	public List<Progetto> findAllByAziendaCliente(AziendaCliente aziendaCliente);
-    public Progetto findByDossier(Dossier dossier);
+    //public Progetto findByDossier(Dossier dossier);
     
 }
 

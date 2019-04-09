@@ -35,13 +35,13 @@ public class ProgettoService {
 		return ConverterProgetto.toDTO(progettoRepository.findById(id).get());
 	}
 	
-	public ProgettoDTO getProgettoDTOByDossier(Dossier dossier) {
-		
-		final Progetto progetto = (Progetto) progettoRepository.findByDossier(dossier);
-		
-		return ConverterProgetto.toDTO(progettoRepository.findByDossier(dossier));
-	}
-	
+//	public ProgettoDTO getProgettoDTOByDossier(Dossier dossier) {
+//		
+//		final Progetto progetto = (Progetto) progettoRepository.findByDossier(dossier);
+//		
+//		return ConverterProgetto.toDTO(progettoRepository.findByDossier(dossier));
+//	}
+//	
 	
 	public boolean insertProgetto(ProgettoDTO ProgettoDTO) {
 		return progettoRepository.save(ConverterProgetto.toEntity(ProgettoDTO)) != null;

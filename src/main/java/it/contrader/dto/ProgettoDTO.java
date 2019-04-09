@@ -1,5 +1,6 @@
 package it.contrader.dto;
 
+import it.contrader.model.AziendaCliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ public class ProgettoDTO {
 
 	private String titoloProgetto;
 	
-	private AziendaClienteDTO aziendaClienteDTO;
+	private AziendaCliente aziendaCliente;
 	
 	private String dettagliProgetto;
 	
