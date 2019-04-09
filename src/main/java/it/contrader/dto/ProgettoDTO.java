@@ -8,14 +8,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class ProgettoDTO {
 
     private Integer idProgetto;
 
 	private String titoloProgetto;
 	
-	private AziendaCliente aziendaCliente;
+	private AziendaClienteDTO aziendaClienteDTO;
 	
 	private String dettagliProgetto;
 	

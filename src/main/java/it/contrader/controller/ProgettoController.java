@@ -88,12 +88,9 @@ public class ProgettoController {
 		progettoObj.setDettagliProgetto(request.getParameter("dettaglioProgetto").toString());
 		progettoObj.setCoordinateDIIN(request.getParameter("coordinateDIIN").toString());
 		//System.out.println(idAziendaCliente+"**********************************************************");
-		AziendaCliente aziendaClientes = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
-		progettoObj.setAziendaCliente(aziendaClientes);
+		AziendaClienteDTO aziendaClientes = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
+		progettoObj.setAziendaClienteDTO(aziendaClientes);
 		//int idAziendaCliente = Integer.parseInt(request.getParameter("idAziendaCliente").toString());
-
-		
-		
 		progettoService.insertProgetto(progettoObj);
 
 		visualProgetto(request);

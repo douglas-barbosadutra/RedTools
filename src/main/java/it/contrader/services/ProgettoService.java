@@ -31,8 +31,8 @@ public class ProgettoService {
 //	}
 //	
 	
-	public ProgettoDTO getProgettoDTOById(Integer id) {
-		return ConverterProgetto.toDTO(progettoRepository.findById(id).get());
+	public ProgettoDTO findProgettoDTOById(Integer id) {
+		return ConverterProgetto.toDTO(progettoRepository.getOne(id));
 	}
 	
 //	public ProgettoDTO getProgettoDTOByDossier(Dossier dossier) {

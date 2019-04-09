@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Progetto {
 
 	@Id
@@ -32,7 +31,6 @@ public class Progetto {
 	private Integer idProgetto;
 
 	@Column(name = "titoloProgetto")
-	@NotNull
 	private String titoloProgetto;
 	
 	@Column(name = "dettagliProgetto")
@@ -50,6 +48,4 @@ public class Progetto {
 	@JoinColumn(name="idAziendaCliente")
 	private AziendaCliente aziendaCliente;
 	
-	
-
 }
