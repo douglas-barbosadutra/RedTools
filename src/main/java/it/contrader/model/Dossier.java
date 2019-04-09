@@ -23,8 +23,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name="dossier")
-//@Table(name="dossier")
+@Entity
+@Table(name="dossier")
 public class Dossier {
 	
 

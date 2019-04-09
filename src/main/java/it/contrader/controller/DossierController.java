@@ -124,7 +124,7 @@ public class DossierController {
 	private List<DossierDTO> CompletamentoDTO(List<DossierDTO> allDossier) {
 		List<DossierDTO> retAllDossier = new ArrayList<DossierDTO>();
 		
-		System.out.println("hhhhhhhhhhhhhhhh");
+		
 		for(DossierDTO dossier : allDossier) {
 			int y=1;
 			if((dossier.getPeriodoDiImposta() != null && dossier.getPeriodoDiImposta().equals("")));
