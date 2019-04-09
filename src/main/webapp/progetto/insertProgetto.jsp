@@ -28,7 +28,9 @@
 	line-height: 2px;
 }
 </style>
-
+<%
+	int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
+%>
 
 </head>
 <body>
@@ -57,7 +59,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/ProgettoController/progettoManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="progettoManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

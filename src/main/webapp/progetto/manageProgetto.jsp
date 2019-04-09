@@ -81,7 +81,7 @@ body {
 			<td><%=progetto.getDettagliProgetto()%></td>
 			<td><%=progetto.getCoordinateDIIN()%></td>
 			
-			<td class="center"><a href="/ProgettoController/update?idProgettoUpdate=<%=progetto.getIdProgetto()%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/ProgettoController/updateRedirect?idProgettoUpdate=<%=progetto.getIdProgetto()%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/ProgettoController/delete?idProgettoDelete=<%=progetto.getIdProgetto()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>

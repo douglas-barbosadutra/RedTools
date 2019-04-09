@@ -26,23 +26,22 @@ import lombok.NoArgsConstructor;
 public class Progetto {
 
 	@Id
-	@Column(name = "idProgetto")
+	@Column(name = "id_progetto")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idProgetto;
 
-	@Column(name = "titoloProgetto")
+	@Column(name = "titolo_progetto")
 	private String titoloProgetto;
 	
-	@Column(name = "dettagliProgetto")
+	@Column(name = "dettagli_progetto")
 	private String dettagliProgetto;
 	
-	@Column(name = "coordinateDIIN")
+	@Column(name = "coordinate_diin")
 	private String coordinateDIIN;
 
-
-//	@OneToMany(mappedBy="progetto")
-//	@OnDelete(action=OnDeleteAction.CASCADE)
-//	private List<Dossier> dossier;
+	@OneToMany(mappedBy="progetto")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Dossier> dossier;
 	
 	@ManyToOne
 	@JoinColumn(name="idAziendaCliente")

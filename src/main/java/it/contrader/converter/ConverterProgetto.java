@@ -15,6 +15,9 @@ public class ConverterProgetto {
 			progettoDTO = new ProgettoDTO();
 			progettoDTO.setIdProgetto(progetto.getIdProgetto());
 			progettoDTO.setTitoloProgetto(progetto.getTitoloProgetto());
+			progettoDTO.setAziendaClienteDTO(ConverterAziendaCliente.toDTO(progetto.getAziendaCliente()));
+			progettoDTO.setDettagliProgetto(progetto.getDettagliProgetto());
+			progettoDTO.setCoordinateDIIN(progetto.getCoordinateDIIN());
 			
 			}
 		return progettoDTO;
@@ -26,6 +29,9 @@ public class ConverterProgetto {
 			progetto = new Progetto();
 			progetto.setIdProgetto(progettoDTO.getIdProgetto());
 			progetto.setTitoloProgetto(progettoDTO.getTitoloProgetto());
+			progetto.setAziendaCliente(ConverterAziendaCliente.toEntity(progettoDTO.getAziendaClienteDTO()));
+			progetto.setDettagliProgetto(progettoDTO.getDettagliProgetto());
+			progetto.setCoordinateDIIN(progettoDTO.getCoordinateDIIN());
 			
 		}
 		return progetto;

@@ -28,8 +28,7 @@
 
 <%
 	ProgettoDTO updateProgetto = (ProgettoDTO) request.getAttribute("progettoUpdate");
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
-	final int idBO= (Integer) request.getAttribute("idBO");
+	int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
 %>
 </head>
 
@@ -43,22 +42,25 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/ProgettoServlet?richiesta=update&idBO=<%=idBO%>">
-			<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
+		<form method="POST" action="/ProgettoController/update">
+			<input type="hidden" name="id" value="<%=idAziendaCliente %>"/>
 			<br>
 			Titolo Progetto: <input type="text" size="40" maxlength="40" name="titoloProgetto" value="<%=updateProgetto.getTitoloProgetto()%>" />
 			<input type="hidden" name="idProgetto" value="<%=updateProgetto.getIdProgetto()%>">
 			<br>
 			<br>
+			DettagliProgetto:<input type="text" size="40" maxlength="40" name="dettaglioProgetto" value="<%=updateProgetto.getDettagliProgetto()%>"/>
 			<br>
 			<br>
+			CoordinateDIIN:<input type="text" size="40" maxlength="40" name="coordinateDIIN" value="<%=updateProgetto.getCoordinateDIIN()%>"/>
+		    <br>
 			<br>
 			<input type="SUBMIT" value="Update">
 		
 
 			<br>
 			<br>
-			<a href="/JspApp/ProgettoServlet?richiesta=ProgettoManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="progettoManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 
