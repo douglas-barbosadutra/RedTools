@@ -28,8 +28,7 @@
 
 <%
 	MomDTO updateMom = (MomDTO) request.getAttribute("momUpdate");
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
-	final int idBO= (Integer) request.getAttribute("idBO");
+	int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
 %>
 </head>
 
@@ -43,46 +42,43 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/MomServlet?richiesta=update&idBO=<%=idBO%>">
-			<br>
-		Nome Utente Finale: <input type="text" size="40" maxlength="40" name="nome_utente_finale_mom"  value="<%=updateMom.getNome_utente_finale_mom()%>"/>
-		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
-		<input type="hidden" name="idMom" value="<%=updateMom.getId_mom()%>">
+		<form method="POST" action="/MomController/update">
+		<br>
+		Mom Id: <%=updateMom.getIdMom()%>
+		<input type="hidden" name="idMom" value="<%=updateMom.getIdMom()%>">
 		<br>
 		<br>
-		Luogo: <input type="text" size="40" maxlength="40" name="luogo_mom" value="<%=updateMom.getLuogo_mom()%>"/>
+		Luogo: <input type="text" size="40" maxlength="40" name="luogoMom" value="<%=updateMom.getLuogoMom()%>"/>
 		<br>
 		<br>
-		Data: <input type="text" size="40" maxlength="40" name="data_del_giorno_mom" value="<%=updateMom.getData_del_giorno_mom()%>"/>
+		Data: <input type="text" size="40" maxlength="40" name="dataDelGiornoMom" value="<%=updateMom.getDataDelGiornoMom()%>"/>
 		<br>
 		<br>
-		Orario: <input type="text" size="40" maxlength="40" name="orario_mom" value="<%=updateMom.getOrario_mom()%>"/>
+		Orario: <input type="text" size="40" maxlength="40" name="orarioMom" value="<%=updateMom.getOrarioMom()%>"/>
 		<br>
 		<br>
-		Oggetto: <input type="text" size="40" maxlength="40" name="oggetto_mom" value="<%=updateMom.getOggetto_mom()%>"/>
+		Oggetto: <input type="text" size="40" maxlength="40" name="oggettoMom" value="<%=updateMom.getOggettoMom()%>"/>
 		<br>
 		<br>
-		Progetto: <input type="text" size="40" maxlength="40" name="progetto_mom" value="<%=updateMom.getProgetto_mom()%>"/>
+		Progetto: <input type="text" size="40" maxlength="40" name="progettoMom" value="<%=updateMom.getProgettoMom()%>"/>
 		<br>
 		<br>
-		Partecipanti: <input type="text" size="40" maxlength="40" name="partecipanti_mom" value="<%=updateMom.getPartecipanti_mom()%>"/>
+		Partecipanti: <input type="text" size="40" maxlength="40" name="partecipantiMom" value="<%=updateMom.getPartecipantiMom()%>"/>
 		<br>
 		<br>
-		Agenda: <input type="text" size="400" maxlength="400" name="testo_agenda_mom" value="<%=updateMom.getTesto_agenda_mom()%>"/>
+		Agenda: <input type="text" size="400" maxlength="400" name="testoAgendaMom" value="<%=updateMom.getTestoAgendaMom()%>"/>
 		<br>
 		<br>
-		Azione: <input type="text" size="400" maxlength="400" name="testo_azione_mom" value="<%=updateMom.getTesto_azione_mom()%>"/>
+		Azione: <input type="text" size="400" maxlength="400" name="testoAzioneMom" value="<%=updateMom.getTestoAzioneMom()%>"/>
 		<br>
 		<br>
-		Note: <input type="text" size="400" maxlength="400" name="testo_note_mom" value="<%=updateMom.getTesto_note_mom()%>"/>
+		Note: <input type="text" size="400" maxlength="400" name="testoNoteMom" value="<%=updateMom.getTestoNoteMom()%>"/>
 		<br>
-			<br>
-			<input type="SUBMIT" value="Update">
-		
-
-			<br>
-			<br>
-			<a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<br>
+		<input type="SUBMIT" value="Update">
+		<br>
+		<br>
+		<a href="momManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

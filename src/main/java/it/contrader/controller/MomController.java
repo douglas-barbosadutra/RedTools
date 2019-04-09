@@ -70,7 +70,7 @@ public class MomController {
 	
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("updateId"));
 		MomDTO momUpdate = new MomDTO();
 		// momUpdate.setMomId(id);
 
@@ -103,7 +103,7 @@ public class MomController {
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("deleteId"));
 		request.setAttribute("id", id);
 		this.momService.deleteMomById(id);
 		visualMom(request);
