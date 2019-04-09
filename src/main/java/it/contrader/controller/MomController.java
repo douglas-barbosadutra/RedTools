@@ -10,66 +10,59 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.contrader.converter.ConverterAziendaCliente;
-import it.contrader.converter.ConverterProgetto;
-import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
-import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.AziendaCliente;
-import it.contrader.model.Progetto;
 import it.contrader.services.AziendaClienteService;
 import it.contrader.services.MomService;
-import it.contrader.services.ProgettoService;
 
 @Controller
 @RequestMapping("/MomController")
 public class MomController {
 
 	private final MomService momService;
-	private AziendaClienteService aziendaClienteService;
-	private ProgettoService progettoService;
+	private final AziendaClienteService aziendaClienteService;
 	private HttpSession session;
 	
 	@Autowired
-	public MomController(MomService momService) {
+	public MomController(MomService momService, AziendaClienteService aziendaClienteService) {
 		this.momService = momService;
+		this.aziendaClienteService = aziendaClienteService;
 	}
 	
 	
 	@RequestMapping(value = "/momManagement", method = RequestMethod.GET)
 	public String momManagement(HttpServletRequest request) {
 		session = request.getSession();
+		int idAziendaCliente = Integer.parseInt(request.getParameter("id"));
+		session.setAttribute("idAziendaCliente", idAziendaCliente);
 		visualMom(request);
 		return "/mom/manageMom";		
 	}
 	
-	@RequestMapping(value = "/crea", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		visualMom(request);
 		request.setAttribute("option", "insert");
-		return "/mom/creaMom";
+		return "/mom/insertMom";
 		
 	}
 	
-	@RequestMapping(value = "/creaMom", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertMom(HttpServletRequest request) {
 		String luogoMom = request.getParameter("luogoMom").toString();
 		String dataDelGiornoMom = request.getParameter("dataDelGiornoMom").toString();
 		String orarioMom = request.getParameter("orarioMom").toString();
 		String oggettoMom = request.getParameter("oggettoMom").toString();
+		String progettoMom = request.getParameter("progettoMom").toString();
 		String partecipantiMom = request.getParameter("partecipantiMom").toString();
 		String testoAgendaMom = request.getParameter("testoAgendaMom").toString();
 		String testoAzioneMom = request.getParameter("testoAzioneMom").toString();
 		String testoNoteMom = request.getParameter("testoNoteMom").toString();
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
-		int idProgetto = Integer.parseInt(request.getParameter("idProgetto"));
-		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
-		AziendaCliente aziendaCliente = ConverterAziendaCliente.toEntity(aziendaClienteDTO);
-		ProgettoDTO progettoDTO = progettoService.getProgettoDTOById(idProgetto);
-		Progetto progetto = ConverterProgetto.toEntity(progettoDTO);
+		AziendaCliente aziendaCliente = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
 		MomDTO momObj = new MomDTO(0, luogoMom, dataDelGiornoMom, orarioMom, oggettoMom,
-				partecipantiMom, testoAgendaMom, testoAzioneMom, testoNoteMom,
-				aziendaCliente, progetto);
+				progettoMom, partecipantiMom, testoAgendaMom, testoAzioneMom, testoNoteMom,
+				aziendaCliente);
 		momService.insertMom(momObj);
 		visualMom(request);
 		return "/mom/manageMom";
@@ -93,19 +86,16 @@ public class MomController {
 		String dataDelGiornoMom = request.getParameter("dataDelGiornoMom").toString();
 		String orarioMom = request.getParameter("orarioMom").toString();
 		String oggettoMom = request.getParameter("oggettoMom").toString();
+		String progettoMom = request.getParameter("progettoMom").toString();
 		String partecipantiMom = request.getParameter("partecipantiMom").toString();
 		String testoAgendaMom = request.getParameter("testoAgendaMom").toString();
 		String testoAzioneMom = request.getParameter("testoAzioneMom").toString();
 		String testoNoteMom = request.getParameter("testoNoteMom").toString();
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
-		int idProgetto = Integer.parseInt(request.getParameter("idProgetto"));
-		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
-		AziendaCliente aziendaCliente = ConverterAziendaCliente.toEntity(aziendaClienteDTO);
-		ProgettoDTO progettoDTO = progettoService.getProgettoDTOById(idProgetto);
-		Progetto progetto = ConverterProgetto.toEntity(progettoDTO);
+		AziendaCliente aziendaCliente = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
 		MomDTO momObj = new MomDTO(idUpdate, luogoMom, dataDelGiornoMom, orarioMom, oggettoMom,
-				partecipantiMom, testoAgendaMom, testoAzioneMom, testoNoteMom,
-				aziendaCliente, progetto);
+				progettoMom, partecipantiMom, testoAgendaMom, testoAzioneMom, testoNoteMom,
+				aziendaCliente);
 		momService.updateMom(momObj);
 		visualMom(request);
 		return "/mom/manageMom";
@@ -122,8 +112,8 @@ public class MomController {
 	
 	private void visualMom(HttpServletRequest request){
 		final int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
-		AziendaClienteDTO aziendaClienteDTO = this.aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
-		List<MomDTO> allMom = this.momService.findMomDTOByAziendaCliente(aziendaClienteDTO);
+		AziendaCliente aziendaCliente = this.aziendaClienteService.getAziendaClienteById(idAziendaCliente);
+		List<MomDTO> allMom = this.momService.findMomDTOByAziendaCliente(aziendaCliente);
 		request.setAttribute("allMomDTO", allMom);
 	}
 }

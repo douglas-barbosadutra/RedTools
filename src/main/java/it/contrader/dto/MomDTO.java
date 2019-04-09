@@ -24,6 +24,8 @@ public class MomDTO {
 	
 	private String oggettoMom;
 	
+	private String progettoMom;
+	
 	private String partecipantiMom;
 	
 	private String testoAgendaMom;
@@ -34,5 +36,4 @@ public class MomDTO {
 	
 	private AziendaCliente aziendaCliente;
 	
-	private Progetto progetto;
 }

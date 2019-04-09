@@ -18,12 +18,12 @@ public class ConverterMom {
 			momDTO.setDataDelGiornoMom(mom.getDataDelGiornoMom());
 			momDTO.setOrarioMom(mom.getOrarioMom());
 			momDTO.setOggettoMom(mom.getOggettoMom());
+			momDTO.setProgettoMom(mom.getProgettoMom());
 			momDTO.setPartecipantiMom(mom.getPartecipantiMom());
 			momDTO.setTestoAgendaMom(mom.getTestoAgendaMom());
 			momDTO.setTestoAzioneMom(mom.getTestoAzioneMom());
 			momDTO.setTestoNoteMom(mom.getTestoNoteMom());
 			momDTO.setAziendaCliente(mom.getAziendaCliente());
-			momDTO.setProgetto(mom.getProgetto());
 			}
 		return momDTO;
 	}
@@ -37,12 +37,12 @@ public class ConverterMom {
 			mom.setDataDelGiornoMom(momDTO.getDataDelGiornoMom());
 			mom.setOrarioMom(momDTO.getOrarioMom());
 			mom.setOggettoMom(momDTO.getOggettoMom());
+			mom.setProgettoMom(momDTO.getProgettoMom());
 			mom.setPartecipantiMom(momDTO.getPartecipantiMom());
 			mom.setTestoAgendaMom(momDTO.getTestoAgendaMom());
 			mom.setTestoAzioneMom(momDTO.getTestoAzioneMom());
 			mom.setTestoNoteMom(momDTO.getTestoNoteMom());
 			mom.setAziendaCliente(momDTO.getAziendaCliente());
-			mom.setProgetto(momDTO.getProgetto());
 			
 			}
 		return mom;

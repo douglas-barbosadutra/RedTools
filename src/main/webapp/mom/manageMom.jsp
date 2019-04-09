@@ -41,8 +41,7 @@ body {
 </style>
 </head>
 <%
-	List<MomDTO> allMom = (List<MomDTO>) request.getAttribute("allMom");
-	int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
+	List<MomDTO> allMom = (List<MomDTO>) request.getAttribute("allMomDTO");
 %>
 </head>
 <body>
@@ -61,7 +60,6 @@ body {
 	<table>
 		<tr>
 			<th>Id Mom</th>
-			<th>Nome Utente Finale</th>
 			<th>Luogo</th>
 			<th>Data</th>
 			<th>Orario</th>
@@ -77,20 +75,19 @@ body {
 			for (MomDTO mom : allMom) {
 		%>
 		<tr>
-			<td><%=mom.getId_mom()%></td>
-			<td><%=mom.getNome_utente_finale_mom()%></td>
-			<td><%=mom.getLuogo_mom()%></td>
-			<td><%=mom.getData_del_giorno_mom()%></td>
-			<td><%=mom.getOrario_mom()%></td>
-			<td><%=mom.getOggetto_mom()%></td>
-			<td><%=mom.getProgetto_mom()%></td>
-			<td><%=mom.getPartecipanti_mom()%></td>
-			<td><%=mom.getTesto_agenda_mom()%></td>
-			<td><%=mom.getTesto_azione_mom()%></td>
-			<td><%=mom.getTesto_note_mom()%></td>
+			<td><%=mom.getIdMom()%></td>
+			<td><%=mom.getLuogoMom()%></td>
+			<td><%=mom.getDataDelGiornoMom()%></td>
+			<td><%=mom.getOrarioMom()%></td>
+			<td><%=mom.getOggettoMom()%></td>
+			<td><%=mom.getProgettoMom()%></td>
+			<td><%=mom.getPartecipantiMom()%></td>
+			<td><%=mom.getTestoAgendaMom()%></td>
+			<td><%=mom.getTestoAzioneMom()%></td>
+			<td><%=mom.getTestoNoteMom()%></td>
 			
-			<td class="center"><a href="/JspApp/MomServlet?richiesta=updateRedirect&updateId=<%=mom.getId_mom()%>&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/JspApp/MomServlet?richiesta=delete&deleteId=<%=mom.getId_mom()%>&id=<%=idUtenteFinale%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/MomController/updateRedirect?updateId=<%=mom.getIdMom()%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/MomController/delete?deleteId=<%=mom.getIdMom()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -99,11 +96,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/JspApp/MomServlet?richiesta=insertRedirect&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> New Mom</i></a>
+	<a href="/MomController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Mom</i></a>
 
 	<br>
 	<br>
-	<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/AziendaClienteController/aziendaClienteManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

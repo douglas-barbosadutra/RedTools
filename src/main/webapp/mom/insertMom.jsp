@@ -29,8 +29,7 @@
 }
 </style>
 <%
-	int idUtenteFinale =  (Integer) request.getAttribute("id");
-	final int idBO= (Integer) request.getAttribute("idBO");
+	int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
 %>
 </head>
 <body>
@@ -42,11 +41,11 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/JspApp/MomServlet?richiesta=insert&idBO=<%=idBO%>">
+	<form method="POST" action="/MomController/insert">
 
 		
 		Nome Utente Finale: <input type="text" size="40" maxlength="40" name="nome_utente_finale_mom" />
-		<input type="hidden" name="id" value="<%=idUtenteFinale %>"/>
+		<input type="hidden" name="id" value="<%=idAziendaCliente %>"/>
 		<br>
 		<br>
 		Luogo: <input type="text" size="40" maxlength="40" name="luogo_mom" />
@@ -79,7 +78,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/JspApp/MomServlet?richiesta=MomManager&id=<%=idUtenteFinale %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="MomController/momManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

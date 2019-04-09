@@ -39,6 +39,10 @@ public class Mom {
 	@Column(name = "oggetto_mom")
 	private String oggettoMom;
 	
+	@NotNull
+	@Column(name = "progetto_mom")
+	private String progettoMom;
+	
 	@Column(name = "partecipanti_mom")
 	private String partecipantiMom;
 	
@@ -54,9 +58,5 @@ public class Mom {
 	@ManyToOne
 	@JoinColumn(name = "idAziendaCliente")
 	private AziendaCliente aziendaCliente;
-	
-	@ManyToOne
-	@JoinColumn(name="idProgetto")
-	private Progetto progetto ;
 	
 }

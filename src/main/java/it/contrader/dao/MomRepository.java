@@ -10,8 +10,8 @@ import it.contrader.model.Progetto;
 
 public interface MomRepository extends JpaRepository<Mom, Integer> {
 
+	public Mom findByProgettoMom(String progettoMom);
 	public List<Mom> findAllByLuogoMom(String luogoMom);
 	public List<Mom> findAllByDataDelGiornoMom(String dataDelGiornoMom);
 	public List<Mom> findAllByAziendaCliente(AziendaCliente aziendaCliente);
-	public List<Mom> findAllByProgetto(Progetto progetto);
 }
