@@ -27,12 +27,7 @@
 </style>
 
 <%
-	UtenteFinaleDTO updateUtenteFinale = (UtenteFinaleDTO) request.getAttribute("utenteFinaleUpdate");
-
-int idBO =  (Integer) request.getAttribute("idBO");
-int id=  (Integer) request.getAttribute("id");
-
-	
+	AziendaClienteDTO aziendaClienteUpdateDTO = (AziendaClienteDTO) request.getAttribute("AziendaClienteUpdateDTO");
 %>
 </head>
 
@@ -41,12 +36,12 @@ int id=  (Integer) request.getAttribute("id");
 
 		<div class="pre_contenitore">
 
-			<p>UtenteFinale Update</p>
+			<p>Azienda Cliente Update</p>
 
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/JspApp/UtenteFinaleServlet?richiesta=update&idBO=<%=idBO%>&id=<%=id%>">
+		<form method="POST" action="/AziendaClienteController/update">
  			
 <%-- 			<% --%>
 <!-- // 				String selected = "selected=\"selected\""; -->
@@ -67,64 +62,60 @@ int id=  (Integer) request.getAttribute("id");
 
 	<%-- 		</select>  --%>
 			<br>
-			<input type="hidden" name="user_id" value="<%=updateUtenteFinale.getId()%>" />
+			<input type="hidden" name="id" value="<%=aziendaClienteUpdateDTO.getIdAziendaCliente()%>" />
 			<br>
-			DenominazioneSocieta: <input type="text" size="40" maxlength="40" name="denominazione_societa" value="<%=updateUtenteFinale.getDenominazioneSocieta()%>" />
-			<br>
-			<br>
-			<br>
-			<br>
-			formaGiuridicaUpdate: <input type="text" size="40" maxlength="40" name="forma_giuridica" value="<%=updateUtenteFinale.getSedeLegale()%>" />
+			Denominazione Società: <input type="text" size="40" maxlength="40" name="DenominazioneSocieta" value="<%=aziendaClienteUpdateDTO.getDenominazioneSocieta()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			SedeLegale: <input type="text" size="40" maxlength="40" name="sede_legale" value="<%=updateUtenteFinale.getSedeLegale()%>" />
+			Forma Giuridica: <input type="text" size="40" maxlength="40" name="FormaGiuridica" value="<%=aziendaClienteUpdateDTO.getFormaGiuridica()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			PartitaIva: <input type="text" size="40" maxlength="40" name="partita_iva" value="<%=updateUtenteFinale.getPartitaIva()%>" />
+			Sede Legale: <input type="text" size="40" maxlength="40" name="SedeLegale" value="<%=aziendaClienteUpdateDTO.getSedeLegale()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			Telefono: <input type="text" size="40" maxlength="40" name="telefono" value="<%=updateUtenteFinale.getTelefono()%>" />
+			PartitaIva: <input type="text" size="40" maxlength="40" name="PartitaIva" value="<%=aziendaClienteUpdateDTO.getPartitaIva()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			Email: <input type="text" size="40" maxlength="40" name="email" value="<%=updateUtenteFinale.getEmail()%>" />
+			Telefono: <input type="text" size="40" maxlength="40" name="telefono" value="<%=aziendaClienteUpdateDTO.getTelefono()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			IndirizzoUnitaLocale: <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" value="<%=updateUtenteFinale.getIndirizzoUnitaLocale()%>" />
+			Email: <input type="text" size="40" maxlength="40" name="email" value="<%=aziendaClienteUpdateDTO.getEmail()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			AttivitaAzienda: <input type="text" size="40" maxlength="40" name="attivita_azienda" value="<%=updateUtenteFinale.getAttivitaAzienda()%>" />
+			Indirizzo Unità Locale: <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" value="<%=aziendaClienteUpdateDTO.getIndirizzoUnitaLocale()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			LegaleRappresentante: <input type="text" size="40" maxlength="40" name="legale_rappresentante" value="<%=updateUtenteFinale.getLegaleRappresentante()%>" />
+			Attività Azienda: <input type="text" size="40" maxlength="40" name="AttivitaAzienda" value="<%=aziendaClienteUpdateDTO.getAttivitaAzienda()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			NatoA: <input type="text" size="40" maxlength="40" name="nato_a" value="<%=updateUtenteFinale.getNatoA()%>" />
+			Legale Rappresentante: <input type="text" size="40" maxlength="40" name="LegaleRappresentante" value="<%=aziendaClienteUpdateDTO.getLegaleRappresentante()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			NatoIl: <input type="text" size="40" maxlength="40" name="nato_il" value="<%=updateUtenteFinale.getNatoIl()%>" />
+			Nato A: <input type="text" size="40" maxlength="40" name="NatoA" value="<%=aziendaClienteUpdateDTO.getNatoA()%>" />
 			<br>
 			<br>
 			<br>
 			<br>
-			IdUtente: <input type="text" size="40" maxlength="40" name="id_utente" value="<%=updateUtenteFinale.getIdUtente()%>" />
+			Nato Il: <input type="text" size="40" maxlength="40" name="NatoIl" value="<%=aziendaClienteUpdateDTO.getNatoIl()%>" />
+			<br>
 			<br>
 			<br>
 			<br>
@@ -134,7 +125,7 @@ int id=  (Integer) request.getAttribute("id");
 
 			<br>
 			<br>
-			<a href="/JspApp/UtenteFinaleServlet?richiesta=UtenteFinaleManager&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/AziendaClienteController/aziendaClienteManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

@@ -24,8 +24,8 @@ import it.contrader.services.DossierService;
 public class DossierController {
 	
 	//private static final AziendaCliente AziendaCliente = null;
-	private final DossierService dossierService;
-	private final AziendaClienteService aziendaClienteService;
+	private DossierService dossierService;
+	private AziendaClienteService aziendaClienteService;
 	private HttpSession session;
 	
 	@Autowired
@@ -35,7 +35,7 @@ public class DossierController {
 	}
 	
 	private void visualDossier(HttpServletRequest request){
-		final int idAziendaCliente = Integer.parseInt(request.getParameter("id"));
+		int idAziendaCliente = Integer.parseInt(request.getParameter("id"));
 		AziendaCliente aziendaCliente = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
 		List<DossierDTO> allDossier = this.dossierService.findDossierDTOByAziendaCliente(aziendaCliente);
 		request.setAttribute("allDossierDTO", allDossier);

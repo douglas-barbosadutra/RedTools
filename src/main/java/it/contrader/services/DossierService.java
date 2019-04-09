@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterDossier;
 import it.contrader.dao.DossierRepository;
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Dossier;

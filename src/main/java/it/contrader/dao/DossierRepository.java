@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Dossier;
 import it.contrader.model.Fattura;

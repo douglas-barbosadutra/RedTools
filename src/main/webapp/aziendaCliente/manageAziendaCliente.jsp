@@ -1,8 +1,6 @@
 <%@page import="it.contrader.model.AziendaCliente"%>
 <%@ page import="javax.servlet.http.HttpSession"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ page import="it.contrader.utils.*"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <%@ include file="../header.jsp"%>
 
 <!DOCTYPE html>
@@ -66,7 +64,7 @@ body {
 	<table>
 		<tr>
 			<th>ID Azienda</th>
-			<th>Societ√†</th>
+			<th>Societ‡</th>
 			<th>Forma Giuridica</th>
 			<th>Partita Iva</th>
 			<th>Telefono</th>
@@ -75,7 +73,7 @@ body {
 <!-- 			<th>Sede Legale</th> -->
 <!-- 			<th>Email</th> -->
 <!-- 			<th>Indirizzo Unita Locale</th> -->
-<!-- 			<th>Attivit√† Azienda</th> -->
+<!-- 			<th>Attivit‡ Azienda</th> -->
 <!-- 			<th>Legale Rappresentante</th> -->
 <!-- 			<th>nato A</th> -->
 <!-- 			<th>nato il</th> -->
@@ -108,7 +106,7 @@ body {
 			<td class="center"><a href="/DossierController/dossierManagement?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-book" title="Dossier" style="color:black"></i></a></td>
 			<td class="center"><a href="/MomController/momManagement?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-pencil-alt" title="Mom" style="color:black"></i></a></td>
 			<td class="center"><a href="/AziendaClienteController/read?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
-			<td class="center"><a href="/AziendaClienteController/updateRedirect"><i class="fas fa-edit" title="Aggiorna" style="color:black"></i></a></td>
+			<td class="center"><a href="/AziendaClienteController/updateRedirect?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-edit" title="Aggiorna" style="color:black"></i></a></td>
 			<td class="center"><a href="/AziendaClienteController/delete?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-trash-alt" title="Cancella" style="color:black"></i></a></td>
 
 		</tr>
