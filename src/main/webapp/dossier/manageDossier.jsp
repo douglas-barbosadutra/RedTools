@@ -73,8 +73,8 @@ body {
 			<th>Costo Dipendenti</th>
 			<th>Fatturato</th>
 			<th>Numero Totale Dipendenti</th>
-			<th>IdProgetto</th>
-		    <th>idAziendaCliente</th>
+			<th>Nome Progetto</th>
+		    <th>Denominazione Azienda Cliente</th>
 		    <th>Update</th>
 		    <th>Delete</th>
 		    <th>Completamento</th>
@@ -93,12 +93,12 @@ body {
 			<td><%=dossier.getCostoDipendentiPeriodoDiImposta()%></td>
 			<td><%=dossier.getFatturatoPeriodoDiImposta()%></td>
 			<td><%=dossier.getNumeroTotaleDipendenti()%></td>
-			<td><%=dossier.getProgetto().getIdProgetto() %></td>
-			<td><%=dossier.getAziendaCliente().getIdAziendaCliente()%></td>
+			<td><%=dossier.getProgetto().getTitoloProgetto() %></td>
+			<td><%=dossier.getAziendaCliente().getDenominazioneSocieta()%></td>
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 			
-			<td class="center"><a href="/DossierController/updateRedirect?id =<%=dossier.getIdDossier()%>&idAzienda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/DossierController/delete&deleteId=<%=dossier.getIdDossier()%>&idAzinda=<%=idAziendaCliente%>&idBO=<%=idBO%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+			<td class="center"><a href="/DossierController/updateRedirect?id =<%=dossier.getIdDossier()%>"><i class="fas fa-edit" title="Update"></i></a></td>
+			<td class="center"><a href="/DossierController/delete&deleteId=<%=dossier.getIdDossier()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 			<td class="center"><a href="/NUOVO PERCORSO1"><i class="fas fa-clipboard" title="1"></i></a></td>
 			<td class="center"><a href="NUOVOPERCORSO2"><i class="fas fa-clipboard" title="2"></i></a></td>
 			<td class="center"><a href="NUOVOPERCORSE 3"><i class="fas fa-clipboard" title="3"></i></a></td>
@@ -110,11 +110,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/DossierController/insertRedirect?&idAzienda=<%=idAziendaCliente %>&idBO=<%=idBO%>"><i class="fas fa-plus-circle fa-lg"> Nuovo Dossier</i></a>
+	<a href="/DossierController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> Nuovo Dossier</i></a>
 
 	<br>
 	<br>
-	<a href="/HomeController/dossierManage><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/AziendaClienteController/aziendaClienteManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

@@ -16,7 +16,7 @@ public class DossierDTO {
 	
 	private int idDossier;
 	private String periodoDiImposta;
-	private int costoDipendentiPeriodoDiImposta;
+	private double costoDipendentiPeriodoDiImposta;
 	private double fatturatoPeriodoDiImposta;
 	private int numeroTotaleDipendenti;
 	private AziendaCliente aziendaCliente;

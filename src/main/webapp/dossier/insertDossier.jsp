@@ -29,8 +29,8 @@
 }
 </style>
 <%
-	int idAziendaCliente =  (Integer) request.getAttribute("idAzienda");
-	final int idBO= (Integer) request.getAttribute("idBO");
+		int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
+	
 %>
 </head>
 <body>
@@ -42,12 +42,10 @@
 
 	<br>
 	<br>
-	<form method="POST" action="/DossierController/insertRedirect?&id=<%=idAziendaCliente %>&idBO=<%=idBO%>">
+	<form method="POST" action="/DossierController/insert">
 
 		
 		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0"/>
-		<input type="hidden" name="idAzienda" value="<%=idAziendaCliente %>"/>
-		<input type="hidden" name="idBOe" value="<%=idBO %>"/>
 		<br>
 		<br>
 		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0"/>
@@ -62,15 +60,13 @@
 		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="0"/>
 		<br>
 		<br>
-		Id Azienda Cliente: <input type="text" size="40" maxlength="40" name="idAziendaCliente" value="0"/>
-		<br>
-		<br>
+		
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/DossierController/insert&idAzienda=<%=idAziendaCliente %>&idBO=<%=idBO%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="dossierManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>
