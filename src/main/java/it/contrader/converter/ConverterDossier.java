@@ -23,7 +23,7 @@ public class ConverterDossier {
 			dossier.setFatturatoPeriodoDiImposta(dossierDTO.getFatturatoPeriodoDiImposta());
 			dossier.setNumeroTotaleDipendenti(dossierDTO.getNumeroTotaleDipendenti());
 			dossier.setAziendaCliente(ConverterAziendaCliente.toEntity(dossierDTO.getAziendaClienteDTO()));
-			//dossier.setProgetto(dossierDTO.getProgetto());
+			dossier.setProgetto(dossierDTO.getProgetto());
 		}
 
 		return dossier;
@@ -42,7 +42,7 @@ public class ConverterDossier {
 				dossierDTO.setFatturatoPeriodoDiImposta(dossier.getFatturatoPeriodoDiImposta());
 				dossierDTO.setNumeroTotaleDipendenti(dossier.getNumeroTotaleDipendenti());
 				dossierDTO.setAziendaClienteDTO(ConverterAziendaCliente.toDTO(dossier.getAziendaCliente()));
-				//dossierDTO.setProgetto(dossier.getProgetto());
+				dossierDTO.setProgetto(dossier.getProgetto());
 				//dossierDTO.setFilledFields(dossierDTO.getFilledFields());
 			}
 	

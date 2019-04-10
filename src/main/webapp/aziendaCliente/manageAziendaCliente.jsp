@@ -103,7 +103,6 @@ body {
 			
 			
 			<td class="center"><a href="/ProgettoController/progettoManagement?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-clipboard" title="Progetto" style="color:black"></i></a></td>
-			<td class="center"><a href="/DossierController/dossierManagement?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-book" title="Dossier" style="color:black"></i></a></td>
 			<td class="center"><a href="/MomController/momManagement?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-pencil-alt" title="Mom" style="color:black"></i></a></td>
 			<td class="center"><a href="/AziendaClienteController/read?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
 			<td class="center"><a href="/AziendaClienteController/updateRedirect?id=<%=aziendaCliente.getIdAziendaCliente()%>"><i class="fas fa-edit" title="Aggiorna" style="color:black"></i></a></td>

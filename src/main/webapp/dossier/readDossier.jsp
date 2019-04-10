@@ -45,7 +45,7 @@ body {
 </head>
 <%
 	    DossierDTO read = (DossierDTO) request.getAttribute("ReadDossierDTO");
-	    int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
+	    int idProgetto =  (int) session.getAttribute("idProgetto");
 %>
 
 </head>
@@ -87,7 +87,7 @@ body {
 			
 			<br>
 			<br>
-			<a href="/dossierManagement?id=<%=idAziendaCliente%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/DossierController/dossierManagement?id=<%=idProgetto%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 	

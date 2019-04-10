@@ -29,7 +29,7 @@
 <%
 
     DossierDTO updateDossier = (DossierDTO) request.getAttribute("dossierUpdate");
-    int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
+    int idProgetto =  (int) session.getAttribute("idProgetto");
 
 %>
 </head>
@@ -48,7 +48,6 @@
 
 		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta()%>">
 		
-		
 		<br>
 		<br>
 		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="<%=updateDossier.getCostoDipendentiPeriodoDiImposta()%>">
@@ -60,13 +59,13 @@
 		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="<%=updateDossier.getNumeroTotaleDipendenti()%>">
 		<br>
 		<br>
-<!-- 		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value=""> -->
+
 		<br>
 		<br>
 		<input type="SUBMIT" value="Update">
 		<br>
 		<br>
-		<a href="dossierManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="dossierManagement?id=<%=idProgetto %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 		</form>
 

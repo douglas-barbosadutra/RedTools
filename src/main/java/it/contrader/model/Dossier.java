@@ -47,22 +47,22 @@ public class Dossier {
 	@Column(name = "numero_totale_dipendenti")
 	private int numeroTotaleDipendenti;
 	
-//	@ManyToOne
-//	@JoinColumn(name="idProgetto")
-//	private Progetto progetto ;
-	
 	@ManyToOne
 	@JoinColumn(name="id_azienda_cliente")
 	private AziendaCliente aziendaCliente;
 	
-//	@OneToMany(mappedBy="dossier")
-//	@OnDelete(action=OnDeleteAction.CASCADE)
-//	private List<Fattura> fattura;
-//	
-//	
-//	@OneToMany(mappedBy="dossier")
-//	@OnDelete(action=OnDeleteAction.CASCADE)
-//	private List<TotaleOreReD> totaleOreReD;
+	@ManyToOne
+	@JoinColumn(name="idProgetto")
+	private Progetto progetto;
+	
+	@OneToMany(mappedBy="dossier")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Fattura> fattura;
+	
+	
+	@OneToMany(mappedBy="dossier")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<TotaleOreReD> totaleOreReD;
 	
 	
 	

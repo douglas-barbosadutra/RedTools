@@ -20,7 +20,7 @@ public class DossierDTO {
 	private double fatturatoPeriodoDiImposta;
 	private int numeroTotaleDipendenti;
 	private AziendaClienteDTO aziendaClienteDTO;
-//	private Progetto progetto;
+	private Progetto progetto;
 	private int filledFields; 
 	
 	

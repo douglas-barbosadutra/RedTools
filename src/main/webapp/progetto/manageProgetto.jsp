@@ -81,6 +81,7 @@ body {
 			<td><%=progetto.getDettagliProgetto()%></td>
 			<td><%=progetto.getCoordinateDIIN()%></td>
 			
+			<td class="center"><a href="/DossierController/dossierManagement?id=<%=progetto.getIdProgetto()%>"><i class="fas fa-book" title="Dossier" style="color:black"></i></a></td>
 			<td class="center"><a href="/ProgettoController/read?idProgettoRead=<%=progetto.getIdProgetto()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:white"></i></a></td>
 			<td class="center"><a href="/ProgettoController/updateRedirect?idProgettoUpdate=<%=progetto.getIdProgetto()%>"><i class="fas fa-edit" title="Update" style="color:white"></i></a></td>
 			<td class="center"><a href="/ProgettoController/delete?idProgettoDelete=<%=progetto.getIdProgetto()%>"><i class="fas fa-trash-alt" title="Delete" style="color:white"></i></a></td>

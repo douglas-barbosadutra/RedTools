@@ -1,4 +1,5 @@
 <%@ include file="/header.jsp"%>
+<%@ page import="it.contrader.dto.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -29,7 +30,8 @@
 }
 </style>
 <%
-		int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
+	
+	int idProgetto =  (int) session.getAttribute("idProgetto");
 	
 %>
 </head>
@@ -45,19 +47,16 @@
 	<form method="POST" action="/DossierController/insert">
 
 		
-		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0"/>
+		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" >
 		<br>
 		<br>
-		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0"/>
+		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" >
 		<br>
 		<br>
-		fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0"/>
+		Fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" >
 		<br>
 		<br>
-		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0"/>
-		<br>
-		<br>
-		Id progetto: <input type="text" size="40" maxlength="40" name="idprogetto" value="0"/>
+		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" >
 		<br>
 		<br>
 		
@@ -66,7 +65,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="dossierManagement?id=<%=idAziendaCliente %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+		<a href="dossierManagement?id=<%=idProgetto%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>

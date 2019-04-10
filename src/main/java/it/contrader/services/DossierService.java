@@ -11,6 +11,7 @@ import it.contrader.dao.DossierRepository;
 import it.contrader.dto.DossierDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Dossier;
+import it.contrader.model.Progetto;
 
 @Service
 public class DossierService {
@@ -25,6 +26,10 @@ public class DossierService {
 	
 	public List<DossierDTO> getListaDossierDTO() {
 		return ConverterDossier.toListDTO((List<Dossier>) dossierRepository.findAll());
+	}
+	
+	public List<DossierDTO> findDossierDTOByProgetto(Progetto progetto) {
+		return ConverterDossier.toListDTO((List<Dossier>) dossierRepository.findAllByProgetto(progetto));
 	}
 	
 	

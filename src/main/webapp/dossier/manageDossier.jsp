@@ -44,10 +44,8 @@ body {
 </style>
 </head>
 <%
- List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossierDTO");
-
-
-
+ 	List<DossierDTO> allDossier = (List<DossierDTO>) request.getAttribute("allDossierDTO");
+	int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
 %>
 </head>
 <body>
@@ -86,7 +84,6 @@ body {
 			<td><%=dossier.getCostoDipendentiPeriodoDiImposta()%></td>
 			<td><%=dossier.getFatturatoPeriodoDiImposta()%></td>
 			<td><%=dossier.getNumeroTotaleDipendenti()%></td>
-<%-- 	<td><%=dossier.getProgetto().getTitoloProgetto() %></td> --%>
 			<td><%=dossier.getAziendaClienteDTO().getDenominazioneSocieta()%></td>
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 		
@@ -109,7 +106,7 @@ body {
 
 	<br>
 	<br>
-	<a href="/AziendaClienteController/aziendaClienteManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="/ProgettoController/progettoManagement?id=<%=idAziendaCliente%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 </body>
 
