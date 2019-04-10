@@ -88,8 +88,8 @@ public class DossierController {
 	public String update(HttpServletRequest request) {
 		Integer idDossierUpdate = Integer.parseInt(request.getParameter("dossierId"));
 		String periodoDiImpostaUpdate = request.getParameter("periodoDiImposta");
-		int costoDipendentiPeriodoDiImpostaUpdate = Integer.parseInt(request.getParameter("costoDipendentiPeriodoDiImposta"));
-		double fatturatoPeriodoDiImpostaUpdate = Integer.parseInt(request.getParameter("fatturatoPeriodoDiImposta"));
+		double costoDipendentiPeriodoDiImpostaUpdate = Double.parseDouble(request.getParameter("costoDipendentiPeriodoDiImposta"));
+		double fatturatoPeriodoDiImpostaUpdate = Double.parseDouble(request.getParameter("fatturatoPeriodoDiImposta"));
 		int numeroTotaleDipendentiUpdate = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
@@ -110,12 +110,23 @@ public class DossierController {
 		
 	}	
 	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String leggiDossier(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		DossierDTO dossier = this.dossierService.getDossierDTOById(id);
+		request.setAttribute("ReadDossierDTO", dossier);
+//		visualDossier(request);
+		System.out.println("kkkkkkkkkkkkkk" + dossier + id);
+		return "/dossier/readDossier";
+	}
+	
+	
 	
 	private void visualDossier(HttpServletRequest request){
 		final int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaCliente aziendaCliente = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
 		List<DossierDTO> allDossier = this.dossierService.findDossierDTOByAziendaCliente(aziendaCliente);
-		request.setAttribute("allDossierDTO", allDossier);
+		request.setAttribute("allDossierDTO",  CompletamentoDTO(allDossier));
 	}
 
 	
@@ -126,7 +137,7 @@ public class DossierController {
 		
 		
 		for(DossierDTO dossier : allDossier) {
-			int y=1;
+			int y=2;
 			if((dossier.getPeriodoDiImposta() != null && dossier.getPeriodoDiImposta().equals("")));
 				y++;
 			if((dossier.getCostoDipendentiPeriodoDiImposta() !=0))

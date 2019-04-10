@@ -1,4 +1,5 @@
 <%@ include file="/header.jsp"%>
+<%@ page import="it.contrader.dto.*"%>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
@@ -43,23 +44,23 @@
 		</div>
 		<br>
 		<br>
-		<form method="POST" action="/DossierController/updat">
+		<form method="POST" action="/DossierController/update?dossierId=<%=updateDossier.getIdDossier()%>">
 
-		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0"/>
+		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta()%>">
 		
 		
 		<br>
 		<br>
-		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0"/>
+		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="<%=updateDossier.getCostoDipendentiPeriodoDiImposta()%>">
 		<br>
 		<br>
-		fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0"/>
+		fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="<%=updateDossier.getFatturatoPeriodoDiImposta()%>">
 		<br>
 		<br>
-		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0"/>
+		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="<%=updateDossier.getNumeroTotaleDipendenti()%>">
 		<br>
 		<br>
-		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value="0"/>
+<!-- 		Id progetto: <input type="text" size="40" maxlength="40" name="idProgetto" value=""> -->
 		<br>
 		<br>
 		<input type="SUBMIT" value="Update">
