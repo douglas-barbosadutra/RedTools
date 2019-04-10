@@ -54,12 +54,13 @@ public class ImpiegatoController {
 		String qualifica = request.getParameter("qualifica").toString();
 		String mansione = request.getParameter("mansione").toString();
 		String titoloDiStudio = request.getParameter("titoloDiStudio").toString();
+		Double costoOrario = Double.parseDouble(request.getParameter("costoOrario"));
 		Integer totaleOreLavorate = Integer.parseInt(request.getParameter("totaleOreLavorate"));
 		Double costoLordoAnnuo = Double.parseDouble(request.getParameter("costoLordoAnnuo"));
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaCliente aziendaCliente = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
 		ImpiegatoDTO impiegatoObj = new ImpiegatoDTO(0, nominativo, livello, qualifica, mansione, titoloDiStudio,
-				totaleOreLavorate, costoLordoAnnuo, aziendaCliente);
+				costoOrario, totaleOreLavorate, costoLordoAnnuo, aziendaCliente);
 		impiegatoService.insertImpiegato(impiegatoObj);
 		visualImpiegato(request);
 		return "/impiegato/manageImpiegato";
@@ -93,12 +94,13 @@ public class ImpiegatoController {
 		String qualifica = request.getParameter("qualifica").toString();
 		String mansione = request.getParameter("mansione").toString();
 		String titoloDiStudio = request.getParameter("titoloDiStudio").toString();
+		Double costoOrario = Double.parseDouble(request.getParameter("costoOrario"));
 		Integer totaleOreLavorate = Integer.parseInt(request.getParameter("totaleOreLavorate"));
 		Double costoLordoAnnuo = Double.parseDouble(request.getParameter("costoLordoAnnuo"));
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaCliente aziendaCliente = aziendaClienteService.getAziendaClienteById(idAziendaCliente);
 		ImpiegatoDTO impiegatoObj = new ImpiegatoDTO(idUpdate, nominativo, livello, qualifica, mansione, titoloDiStudio,
-				totaleOreLavorate, costoLordoAnnuo, aziendaCliente);
+				costoOrario, totaleOreLavorate, costoLordoAnnuo, aziendaCliente);
 		impiegatoService.updateImpiegato(impiegatoObj);
 		visualImpiegato(request);
 		return "/impiegato/manageImpiegato";

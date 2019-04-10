@@ -67,6 +67,7 @@ body {
 			<th>Qualifica</th>
 			<th>Mansione</th>
 			<th>Titolo di studio</th>
+			<th>Costo Orario</th>
 			<th>Totale ore lavorate</th>
 			<th>Costo Lordo Annuo</th>
 		</tr>
@@ -82,6 +83,7 @@ body {
 			<td><%=impiegato.getQualifica()%></td>
 			<td><%=impiegato.getMansione()%></td>
 			<td><%=impiegato.getTitoloDiStudio()%></td>
+			<td><%=impiegato.getCostoOrario()%></td>
 			<td><%=impiegato.getTotaleOreLavorate()%></td>
 			<td><%=impiegato.getCostoLordoAnnuo()%></td>
 			

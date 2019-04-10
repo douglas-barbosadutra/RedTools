@@ -63,10 +63,13 @@
 		Titolo di studio: <input type="text" size="40" maxlength="40" name="titoloDiStudio" value="<%=updateImpiegato.getTitoloDiStudio()%>"/>
 		<br>
 		<br>
-		Totale ore lavorate: <input type="text" size="400" maxlength="400" name="totaleOreLavorate" value="<%=updateImpiegato.getTotaleOreLavorate()%>"/>
+		Costo orario: <input type="text" size="40" maxlength="40" name="costoOrario" value="<%=updateImpiegato.getCostoOrario()%>"/>
 		<br>
 		<br>
-		Costo Lordo Annuo: <input type="text" size="400" maxlength="400" name="costoLordoAnnuo" value="<%=updateImpiegato.getCostoLordoAnnuo()%>"/>
+		Totale ore lavorate: <input type="text" size="40" maxlength="40" name="totaleOreLavorate" value="<%=updateImpiegato.getTotaleOreLavorate()%>"/>
+		<br>
+		<br>
+		Costo Lordo Annuo: <input type="text" size="40" maxlength="40" name="costoLordoAnnuo" value="<%=updateImpiegato.getCostoLordoAnnuo()%>"/>
 		<br>
 		<br>
 		<input type="SUBMIT" value="Update">

@@ -53,6 +53,10 @@ public class Impiegato {
 	private String titoloDiStudio;
 	
 	@NotNull
+	@Column(name = "costo_orario")
+	private double costoOrario;
+	
+	@NotNull
 	@Column(name = "totale_ore_lavorate")
 	private int totaleOreLavorate;
 	

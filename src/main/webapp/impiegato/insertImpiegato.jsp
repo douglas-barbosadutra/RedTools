@@ -59,10 +59,13 @@
 		Titolo di studio: <input type="text" size="40" maxlength="40" name="titoloDiStudio" />
 		<br>
 		<br>
-		Totale ore lavorate: <input type="text" size="400" maxlength="400" name="totaleOreLavorate" />
+		Costo orario: <input type="text" size="40" maxlength="40" name="costoOrario" />
 		<br>
 		<br>
-		Costo Lordo Annuo: <input type="text" size="400" maxlength="400" name="costoLordoAnnuo" />
+		Totale ore lavorate: <input type="text" size="40" maxlength="40" name="totaleOreLavorate" />
+		<br>
+		<br>
+		Costo Lordo Annuo: <input type="text" size="40" maxlength="40" name="costoLordoAnnuo" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">

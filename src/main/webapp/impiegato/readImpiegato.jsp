@@ -72,6 +72,10 @@
 			<br>
 			<br>
 			<br>
+			<font color="blue"><b>Costo orario</b></font>: <br/><b><%=readImpiegatoDTO.getCostoOrario()%></b>
+			<br>
+			<br>
+			<br>
 			<font color="blue"><b>Totale ore lavorate</b></font>: <br/><b><%=readImpiegatoDTO.getTotaleOreLavorate()%></b>
 			<br>
 			<br>

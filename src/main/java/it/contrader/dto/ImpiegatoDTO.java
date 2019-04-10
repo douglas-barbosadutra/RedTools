@@ -22,6 +22,8 @@ public class ImpiegatoDTO {
 	
 	private String titoloDiStudio;
 	
+	private double costoOrario;
+	
 	private int totaleOreLavorate;
 	
 	private double costoLordoAnnuo;
