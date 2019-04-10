@@ -91,9 +91,11 @@ body {
 			<td class="center"><a href="/DossierController/updateRedirect?id=<%=dossier.getIdDossier()%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/DossierController/delete?id=<%=dossier.getIdDossier()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 		    <td class="center"><a href="/DossierController/read?id=<%=dossier.getIdDossier()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
-			<td class="center"><a href="/NUOVO PERCORSO1"><i class="fas fa-clipboard" title="1"></i></a></td>
-			<td class="center"><a href="NUOVOPERCORSO2"><i class="fas fa-clipboard" title="2"></i></a></td>
-			<td class="center"><a href="NUOVOPERCORSE 3"><i class="fas fa-clipboard" title="3"></i></a></td>
+		    <td class="center"><a href="/ImpiegatoController/impiegatoManagement?id=<%=dossier.getIdDossier()%>"><i class="fas fa-user-alt" title="Impiegato" style="color:black"></i></a></td>
+		    <td class="center"><a href="/FornitoreController/fornitoreManagement?id=<%=dossier.getIdDossier()%>"><i class="fas fa-truck-moving" title="Fornitori" style="color:black"></i></a></td>
+		    <td class="center"><a href="excel"><i class="far fa-file-excel" title="Excel" style="color:black"></i></a></td>
+		    <td class="center"><a href="pratica"><i class="fas fa-folder-open" title="Visualizzazione pratica" style="color:black"></i></a></td>
+			
              
 		</tr>
 		<%
