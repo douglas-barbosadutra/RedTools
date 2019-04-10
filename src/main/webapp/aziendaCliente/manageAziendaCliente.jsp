@@ -52,7 +52,7 @@ body {
 
 	<div class="pre_contenitore">
 
-		<p><h1>Gestione Aziende Clienti</h1></p>
+		<p>Gestione Aziende Clienti</p>
 
 	</div>
 	<br>
