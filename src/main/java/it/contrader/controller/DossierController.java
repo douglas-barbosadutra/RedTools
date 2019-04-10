@@ -131,6 +131,17 @@ public class DossierController {
 		return "/dossier/readDossier";
 	}
 	
+	@RequestMapping(value = "/readPratica", method = RequestMethod.GET)
+	public String leggiPratica(HttpServletRequest request) {
+		
+		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
+		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
+		request.setAttribute("ReadAziendaCliente", aziendaCliente);
+		int id = Integer.parseInt(request.getParameter("id"));
+		DossierDTO dossier = this.dossierService.getDossierDTOById(id);
+		request.setAttribute("ReadDossierDTO", dossier);
+		return "/dossier/readPratica";
+	}
 	
 	
 	private void visualDossier(HttpServletRequest request){
