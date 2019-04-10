@@ -6,13 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.contrader.converter.ConverterAziendaCliente;
 import it.contrader.converter.ConverterMom;
-import it.contrader.converter.ConverterProgetto;
 import it.contrader.dao.MomRepository;
-import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
-import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Mom;
 

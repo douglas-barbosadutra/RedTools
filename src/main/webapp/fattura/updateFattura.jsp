@@ -50,7 +50,7 @@
 		Anno Di Imposta: <%=updateFattura.getDossier().getPeriodoDiImposta()%>
 		<br>
 		<br>
-		Fornitore: <%=updateFattura.getFornitore().getNomeFornitore()%>/>
+		Fornitore: <%=updateFattura.getFornitore().getNomeFornitore()%>
 		<br>
 		<br>
 		<input type="hidden" name="idFattura" value="<%=updateFattura.getIdFattura()%>">

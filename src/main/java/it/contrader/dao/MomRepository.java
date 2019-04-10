@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Mom;
-import it.contrader.model.Progetto;
 
 public interface MomRepository extends JpaRepository<Mom, Integer> {
 

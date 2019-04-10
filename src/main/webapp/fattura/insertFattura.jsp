@@ -56,7 +56,7 @@
 		Totale Imponibile: <input type="text" size="40" maxlength="40" name="totaleImponibile" />
 		<br>
 		<br>
-		Percentuale Ammissibile:: <input type="text" size="40" maxlength="40" name="percentualeAmmissibile" />
+		Percentuale Ammissibile: <input type="text" size="40" maxlength="40" name="percentualeAmmissibile" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
