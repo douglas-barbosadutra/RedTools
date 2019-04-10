@@ -77,4 +77,12 @@ public class FatturaService {
 		list.forEach(i -> fatturaDTOs.add(ConverterFattura.toDTO(i)));
 		return fatturaDTOs;
 	}
+	
+	public List<FatturaDTO> findFatturaDTOByFornitoreAndDossier(Fornitore fornitore, Dossier dossier) {
+		
+		final List<Fattura> list = fatturaRepository.findAllByFornitoreAndDossier(fornitore, dossier);
+		final List<FatturaDTO> fatturaDTOs = new ArrayList<>();
+		list.forEach(i -> fatturaDTOs.add(ConverterFattura.toDTO(i)));
+		return fatturaDTOs;
+	}
 }

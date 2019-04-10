@@ -58,4 +58,12 @@ public class TotaleOreReDService {
 		list.forEach(i -> totaleOreReDDTOs.add(ConverterTotaleOreReD.toDTO(i)));
 		return totaleOreReDDTOs;
 	}
+	
+	public List<TotaleOreReDDTO> findTotaleOreReDDTOByImpiegatoAndDossier(Impiegato impiegato, Dossier dossier) {
+		
+		final List<TotaleOreReD> list = totaleOreReDRepository.findAllByImpiegatoAndDossier(impiegato, dossier);
+		final List<TotaleOreReDDTO> totaleOreReDDTOs = new ArrayList<>();
+		list.forEach(i -> totaleOreReDDTOs.add(ConverterTotaleOreReD.toDTO(i)));
+		return totaleOreReDDTOs;
+	}
 }

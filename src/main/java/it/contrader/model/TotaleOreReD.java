@@ -36,6 +36,6 @@ public class TotaleOreReD {
 	
 	@ManyToOne
 	@JoinColumn(name = "idNome")
-	private Fornitore impiegato;
+	private Impiegato impiegato;
 
 }

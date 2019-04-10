@@ -3,6 +3,7 @@ package it.contrader.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import it.contrader.services.FornitoreService;
 public class FornitoreController {
 
 	private final FornitoreService fornitoreService;
+	private HttpSession session;
 	
 	@Autowired
 	public FornitoreController(FornitoreService fornitoreService) {
@@ -26,6 +28,9 @@ public class FornitoreController {
 	
 	@RequestMapping(value = "/fornitoreManagement", method = RequestMethod.GET)
 	public String fornitoreManagement(HttpServletRequest request) {
+		session = request.getSession();
+		int idDossier = Integer.parseInt(request.getParameter("id"));
+		session.setAttribute("idDossier", idDossier);
 		visualFornitore(request);
 		return "/fornitore/manageFornitore";		
 	}

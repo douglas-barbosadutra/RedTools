@@ -38,8 +38,8 @@ public class FatturaController {
 	@RequestMapping(value = "/fatturaManagement", method = RequestMethod.GET)
 	public String fatturaManagement(HttpServletRequest request) {
 		session = request.getSession();
-		int idDossier = Integer.parseInt(request.getParameter("id"));
-		session.setAttribute("idDossier", idDossier);
+		int idFornitore = Integer.parseInt(request.getParameter("id"));
+		session.setAttribute("idFornitore", idFornitore);
 		visualFattura(request);
 		return "/fattura/manageFattura";		
 	}
@@ -61,7 +61,7 @@ public class FatturaController {
 		int percentualeAmmissibile = Integer.parseInt(request.getParameter("percentualeAmmissibile"));
 		int idDossier = (int) session.getAttribute("idDossier");
 		Dossier dossier = dossierService.getDossierById(idDossier);
-		int idFornitore = Integer.parseInt(request.getParameter("idFornitore"));
+		int idFornitore = (int) session.getAttribute("idFornitore");
 		Fornitore fornitore = fornitoreService.getFornitoreById(idFornitore);
 		FatturaDTO fatturaObj = new FatturaDTO(0, dataFattura, numeroFattura, descrizione,
 				totaleImponibile, percentualeAmmissibile, dossier, fornitore);
@@ -100,7 +100,7 @@ public class FatturaController {
 		int percentualeAmmissibile = Integer.parseInt(request.getParameter("percentualeAmmissibile"));
 		int idDossier = (int) session.getAttribute("idDossier");
 		Dossier dossier = dossierService.getDossierById(idDossier);
-		int idFornitore = Integer.parseInt(request.getParameter("idFornitore"));
+		int idFornitore = (int) session.getAttribute("idFornitore");
 		Fornitore fornitore = fornitoreService.getFornitoreById(idFornitore);
 		FatturaDTO fatturaObj = new FatturaDTO(idUpdate, dataFattura, numeroFattura, descrizione,
 				totaleImponibile, percentualeAmmissibile, dossier, fornitore);
@@ -119,9 +119,11 @@ public class FatturaController {
 	}
 	
 	private void visualFattura(HttpServletRequest request){
+		final int idFornitore = (int) session.getAttribute("idFornitore");
 		final int idDossier = (int) session.getAttribute("idDossier");
+		Fornitore fornitore = this.fornitoreService.getFornitoreById(idFornitore);
 		Dossier dossier = this.dossierService.getDossierById(idDossier);
-		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
+		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByFornitoreAndDossier(fornitore, dossier);
 		request.setAttribute("allFatturaDTO", allFattura);
 	}
 }

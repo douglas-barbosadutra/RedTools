@@ -12,4 +12,5 @@ public interface TotaleOreReDRepository  extends  JpaRepository<TotaleOreReD, In
 	
 	public List<TotaleOreReD> findAllByImpiegato(Impiegato impiegato);
 	public List<TotaleOreReD> findAllByDossier(Dossier dossier);
+	public List<TotaleOreReD> findAllByImpiegatoAndDossier(Impiegato impiegato, Dossier dossier);
 }

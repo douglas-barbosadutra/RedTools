@@ -33,6 +33,8 @@ public class ImpiegatoController {
 	@RequestMapping(value = "/impiegatoManagement", method = RequestMethod.GET)
 	public String impiegatoManagement(HttpServletRequest request) {
 		session = request.getSession();
+		int idDossier = Integer.parseInt(request.getParameter("id"));
+		session.setAttribute("idDossier", idDossier);
 		visualImpiegato(request);
 		return "/impiegato/manageImpiegato";		
 	}

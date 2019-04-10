@@ -38,8 +38,8 @@ public class TotaleOreReDController {
 	@RequestMapping(value = "/totaleOreReDManagement", method = RequestMethod.GET)
 	public String totaleOreReDManagement(HttpServletRequest request) {
 		session = request.getSession();
-		int idDossier = Integer.parseInt(request.getParameter("id"));
-		session.setAttribute("idDossier", idDossier);
+		int idImpiegato = Integer.parseInt(request.getParameter("id"));
+		session.setAttribute("idImpiegato", idImpiegato);
 		visualTotaleOreReD(request);
 		return "/totaleOreReD/manageTotaleOreReD";		
 	}
@@ -57,7 +57,7 @@ public class TotaleOreReDController {
 		int oreLavorateRed = Integer.parseInt(request.getParameter("oreLavorateRed"));
 		int idDossier = (int) session.getAttribute("idDossier");
 		Dossier dossier = dossierService.getDossierById(idDossier);
-		int idNome = Integer.parseInt(request.getParameter("idNome"));
+		int idNome = (int) session.getAttribute("idImpiegato");
 		Impiegato impiegato = impiegatoService.getImpiegatoById(idNome);
 		TotaleOreReDDTO totaleOreReDObj = new TotaleOreReDDTO(0, oreLavorateRed,
 				dossier, impiegato);
@@ -92,7 +92,7 @@ public class TotaleOreReDController {
 		int idDossier = (int) session.getAttribute("idDossier");
 		int oreLavorateRed = Integer.parseInt(request.getParameter("oreLavorateRed"));
 		Dossier dossier = dossierService.getDossierById(idDossier);
-		int idNome = Integer.parseInt(request.getParameter("idNome"));
+		int idNome = (int) session.getAttribute("idImpiegato");
 		Impiegato impiegato = impiegatoService.getImpiegatoById(idNome);
 		TotaleOreReDDTO totaleOreReDObj = new TotaleOreReDDTO(idUpdate, oreLavorateRed,
 				dossier, impiegato);
@@ -113,7 +113,9 @@ public class TotaleOreReDController {
 	private void visualTotaleOreReD(HttpServletRequest request){
 		final int idDossier = (int) session.getAttribute("idDossier");
 		Dossier dossier = this.dossierService.getDossierById(idDossier);
-		List<TotaleOreReDDTO> allTotaleOreReD = this.totaleOreReDService.findTotaleOreReDDTOByDossier(dossier);
+		final int idNome = (int) session.getAttribute("idImpiegato");
+		Impiegato impiegato = this.impiegatoService.getImpiegatoById(idNome);
+		List<TotaleOreReDDTO> allTotaleOreReD = this.totaleOreReDService.findTotaleOreReDDTOByImpiegatoAndDossier(impiegato, dossier);
 		request.setAttribute("allTotaleOreReDDTO", allTotaleOreReD);
 	}
 }
