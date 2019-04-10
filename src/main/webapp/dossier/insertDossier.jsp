@@ -47,16 +47,16 @@
 	<form method="POST" action="/DossierController/insert">
 
 		
-		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" >
+		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0" >
 		<br>
 		<br>
-		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" >
+		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0" >
 		<br>
 		<br>
-		Fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" >
+		Fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0">
 		<br>
 		<br>
-		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" >
+		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0" >
 		<br>
 		<br>
 		
