@@ -60,7 +60,7 @@ public class TotaleOreReDController {
 		int idNome = (int) session.getAttribute("idImpiegato");
 		Impiegato impiegato = impiegatoService.getImpiegatoById(idNome);
 		TotaleOreReDDTO totaleOreReDObj = new TotaleOreReDDTO(0, oreLavorateRed,
-				dossier, impiegato);
+				dossier, impiegato, 0);
 		totaleOreReDService.insertTotaleOreReD(totaleOreReDObj);
 		visualTotaleOreReD(request);
 		return "/totaleOreReD/manageTotaleOreReD";
@@ -95,7 +95,7 @@ public class TotaleOreReDController {
 		int idNome = (int) session.getAttribute("idImpiegato");
 		Impiegato impiegato = impiegatoService.getImpiegatoById(idNome);
 		TotaleOreReDDTO totaleOreReDObj = new TotaleOreReDDTO(idUpdate, oreLavorateRed,
-				dossier, impiegato);
+				dossier, impiegato, 0);
 		totaleOreReDService.updateTotaleOreReD(totaleOreReDObj);
 		visualTotaleOreReD(request);
 		return "/totaleOreReD/manageTotaleOreReD";

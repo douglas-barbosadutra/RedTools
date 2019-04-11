@@ -17,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
 import it.contrader.dto.FatturaDTO;
+import it.contrader.dto.TotaleOreReDDTO;
 import it.contrader.model.Dossier;
 import it.contrader.model.Progetto;
+import it.contrader.model.TotaleOreReD;
 import it.contrader.services.AziendaClienteService;
 import it.contrader.services.DossierService;
 import it.contrader.services.FatturaService;
+import it.contrader.services.ImpiegatoService;
 import it.contrader.services.ProgettoService;
+import it.contrader.services.TotaleOreReDService;
 
 
 
@@ -35,15 +39,19 @@ public class DossierController {
 	private final AziendaClienteService aziendaClienteService;
 	private final ProgettoService progettoService;
 	private final FatturaService fatturaService;
+	private final ImpiegatoService impiegatoService;
+	private final TotaleOreReDService totaleOreReDService;
 	private HttpSession session;
 	
 	@Autowired
 	public DossierController(DossierService dossierService, AziendaClienteService aziendaClienteService,
-			ProgettoService progettoService, FatturaService fatturaService) {
+			ProgettoService progettoService, FatturaService fatturaService, ImpiegatoService impiegatoService, TotaleOreReDService totaleOreReDService) {
 		this.dossierService = dossierService;
 		this.aziendaClienteService = aziendaClienteService;
 		this.progettoService = progettoService;
 		this.fatturaService = fatturaService;
+		this.impiegatoService = impiegatoService;
+		this.totaleOreReDService = totaleOreReDService;
 	}
 	
 	@RequestMapping(value = "/dossierManagement", method = RequestMethod.GET)
@@ -148,6 +156,15 @@ public class DossierController {
 		return "/dossier/visualizzaFatture";		
 	}
 	
+	@RequestMapping(value = "/visualizzaDipendenti", method = RequestMethod.GET)
+	public String visualizzaDipendenti(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Dossier dossier = this.dossierService.getDossierById(id);
+		List<TotaleOreReDDTO> allTotaleOreReD = this.totaleOreReDService.findTotaleOreReDDTOByDossier(dossier);
+		request.setAttribute("allTotaleOreReD", sommaOreReDDTO(allTotaleOreReD));
+		return "/dossier/manageDipendenti";		
+	}
+	
 	@RequestMapping(value = "/readPratica", method = RequestMethod.GET)
 	public String leggiPratica(HttpServletRequest request) {
 		
@@ -209,8 +226,8 @@ public class DossierController {
 			FatturaDTO f = new FatturaDTO();
 			f = fattura;
 			fornitori.add(f.getFornitore().getIdFornitore());
-			totaleAmmissibile += f.getTotaleAmmissibile();
 			f.setTotaleAmmissibile((fattura.getTotaleImponibile() * fattura.getPercentualeAmmissibile()) / 100);
+			totaleAmmissibile += f.getTotaleAmmissibile();
 			retAllFattura.add(f);
 			
 		}
@@ -223,4 +240,37 @@ public class DossierController {
 		return retAllFattura;
 		
 	}
+	
+	private List<TotaleOreReDDTO> sommaOreReDDTO(List<TotaleOreReDDTO> TotaleOreReDDTO) {
+		
+		List<TotaleOreReDDTO> retAllTotaleOreReD = new ArrayList<TotaleOreReDDTO>();
+		
+		for (TotaleOreReDDTO totaleOreReD : TotaleOreReDDTO ) {
+			
+			TotaleOreReDDTO totOre = new TotaleOreReDDTO();
+			totOre = totaleOreReD;
+			double totaleCostiReD = totaleOreReD.getOreLavorateRed() * totaleOreReD.getImpiegato().getCostoOrario();
+			totOre.setTotaleCostiReD(totaleCostiReD);
+			retAllTotaleOreReD.add(totOre);
+			
+		}
+		
+		return retAllTotaleOreReD;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+

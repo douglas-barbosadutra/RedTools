@@ -18,5 +18,7 @@ public class TotaleOreReDDTO {
 	private Dossier dossier;
 	
 	private Impiegato impiegato;
+	
+	private double totaleCostiReD;
 
 }
