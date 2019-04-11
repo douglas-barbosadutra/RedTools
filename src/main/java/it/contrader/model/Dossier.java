@@ -47,6 +47,12 @@ public class Dossier {
 	@Column(name = "numero_totale_dipendenti")
 	private int numeroTotaleDipendenti;
 	
+	@Column(name = "totale_costi_red")
+	private double totaleCostiReD;
+	
+	@Column(name = "costi_personale_red")
+	private double costiPersonaleReD;
+	
 	@Column(name = "totale_ammissibile")
 	private double totaleAmmissibile;
 	

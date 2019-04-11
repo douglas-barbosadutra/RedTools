@@ -96,7 +96,7 @@ body {
 		    <td class="center"><a href="/DossierController/visualizzaCostiEsterni?id=<%=dossier.getIdDossier()%>"><i class="fas fa-money-check-alt" title="Costi Esterni" style="color:black"></i></a></td>
 		   <td class="center"><a href="/DossierController/readPratica?id=<%=dossier.getIdDossier()%>"><i class="fas fa-table" title="Visualizza Pratica" style="color:black"></i></a></td>
 			<td class="center"><a href="/DossierController/visualizzaDipendenti?id=<%=dossier.getIdDossier()%>"><i class="fas fa-address-card" title="Dettagli Dipendenti" style="color:black"></i></a></td>
-			 <td class="center"><a href="excel"><i class="far fa-file-excel" title="Excel" style="color:black"></i></a></td>
+			 <td class="center"><a href="/DossierController/files/mod_docTables.xlsm?id=<%=dossier.getIdDossier()%>"><i class="far fa-file-excel" title="Excel" style="color:black"></i></a></td>
 		
              
 		</tr>
