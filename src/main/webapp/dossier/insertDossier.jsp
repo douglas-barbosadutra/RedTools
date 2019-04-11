@@ -34,6 +34,25 @@
 	int idProgetto =  (int) session.getAttribute("idProgetto");
 	
 %>
+<script>
+
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script> 
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -47,16 +66,16 @@
 	<form method="POST" action="/DossierController/insert">
 
 		
-		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="0" >
+		Anno Di Imposta: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="periodoDiImposta" value="0" >
 		<br>
 		<br>
-		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0" >
+		Costo Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0" >
 		<br>
 		<br>
-		Fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0">
+		Fatturato: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0">
 		<br>
 		<br>
-		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0" >
+		Numero Totale Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0" >
 		<br>
 		<br>
 		

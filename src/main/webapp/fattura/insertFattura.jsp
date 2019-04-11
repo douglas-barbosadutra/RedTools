@@ -31,6 +31,25 @@
 <%
 	int idFornitore =  (int) session.getAttribute("idFornitore");
 %>
+<script>
+
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script> 
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -44,19 +63,19 @@
 	<form method="POST" action="/FatturaController/insert">
 
 		
-		Data Fattura: <input type="text" size="40" maxlength="40" name="dataFattura" />
+		Data Fattura: <input class="subEmail" onchange="checkFilled();"  type="text" size="40" maxlength="40" name="dataFattura" />
 		<br>
 		<br>
-		Numero Fattura: <input type="text" size="40" maxlength="40" name="numeroFattura" />
+		Numero Fattura: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="numeroFattura" />
 		<br>
 		<br>
-		Descrizione: <input type="text" size="40" maxlength="40" name="descrizione" />
+		Descrizione: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="descrizione" />
 		<br>
 		<br>
-		Totale Imponibile: <input type="text" size="40" maxlength="40" name="totaleImponibile" />
+		Totale Imponibile: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="totaleImponibile" />
 		<br>
 		<br>
-		Percentuale Ammissibile: <input type="text" size="40" maxlength="40" name="percentualeAmmissibile" />
+		Percentuale Ammissibile: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="percentualeAmmissibile" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">

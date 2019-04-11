@@ -31,6 +31,26 @@
 <%
 	int idImpiegato =  (int) session.getAttribute("idImpiegato");
 %>
+<script>
+
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script> 
+
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -44,7 +64,7 @@
 	<form method="POST" action="/TotaleOreReDController/insert">
 
 		
-		Ore R e D: <input type="text" size="40" maxlength="40" name="oreLavorateRed" />
+		Ore R e D: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="oreLavorateRed" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">

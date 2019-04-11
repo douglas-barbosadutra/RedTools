@@ -31,6 +31,27 @@
 <%
 	int idDossier =  (int) session.getAttribute("idDossier");
 %>
+<script>
+
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script> 
+
+
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -44,16 +65,16 @@
 	<form method="POST" action="/FornitoreController/insert">
 
 		
-		Nome Fornitore: <input type="text" size="40" maxlength="40" name="nomeFornitore" />
+		Nome Fornitore: <input class="subEmail" onchange="checkFilled();"  type="text" size="40" maxlength="40" name="nomeFornitore" />
 		<br>
 		<br>
-		Comune: <input type="text" size="40" maxlength="40" name="comuneFornitore"/>
+		Comune: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="comuneFornitore"/>
 		<br>
 		<br>
-		Provincia: <input type="text" size="40" maxlength="40" name="provinciaFornitore"/>
+		Provincia: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="provinciaFornitore"/>
 		<br>
 		<br>
-		Partita iva: <input type="text" size="40" maxlength="40" name="partitaIvaFornitore"/>
+		Partita iva: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="partitaIvaFornitore"/>
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">

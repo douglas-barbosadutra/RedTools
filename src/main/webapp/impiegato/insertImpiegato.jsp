@@ -31,6 +31,26 @@
 <%
 	int idDossier =  (int) session.getAttribute("idDossier");
 %>
+<script>
+
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script> 
+
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -44,28 +64,28 @@
 	<form method="POST" action="/ImpiegatoController/insert">
 
 		
-		Nominativo: <input type="text" size="40" maxlength="40" name="nominativo" />
+		Nominativo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="nominativo" />
 		<br>
 		<br>
-		Livello: <input type="text" size="40" maxlength="40" name="livello" />
+		Livello: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="livello" />
 		<br>
 		<br>
-		Qualifica: <input type="text" size="40" maxlength="40" name="qualifica" />
+		Qualifica: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="qualifica" />
 		<br>
 		<br>
-		Mansione: <input type="text" size="40" maxlength="40" name="mansione" />
+		Mansione: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="mansione" />
 		<br>
 		<br>
-		Titolo di studio: <input type="text" size="40" maxlength="40" name="titoloDiStudio" />
+		Titolo di studio: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="titoloDiStudio" />
 		<br>
 		<br>
-		Costo orario: <input type="text" size="40" maxlength="40" name="costoOrario" />
+		Costo orario: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoOrario" />
 		<br>
 		<br>
-		Totale ore lavorate: <input type="text" size="40" maxlength="40" name="totaleOreLavorate" />
+		Totale ore lavorate: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="totaleOreLavorate" />
 		<br>
 		<br>
-		Costo Lordo Annuo: <input type="text" size="40" maxlength="40" name="costoLordoAnnuo" />
+		Costo Lordo Annuo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoLordoAnnuo" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">
