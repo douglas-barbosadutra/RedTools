@@ -47,6 +47,15 @@
 		Nome Fornitore: <input type="text" size="40" maxlength="40" name="nomeFornitore" />
 		<br>
 		<br>
+		Comune: <input type="text" size="40" maxlength="40" name="comuneFornitore"/>
+		<br>
+		<br>
+		Provincia: <input type="text" size="40" maxlength="40" name="provinciaFornitore"/>
+		<br>
+		<br>
+		Partita iva: <input type="text" size="40" maxlength="40" name="partitaIvaFornitore"/>
+		<br>
+		<br>
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>

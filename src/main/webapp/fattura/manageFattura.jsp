@@ -79,7 +79,7 @@ body {
 			<td><%=fattura.getDataFattura()%></td>
 			<td><%=fattura.getNumeroFattura()%></td>
 			<td><%=fattura.getDescrizione()%></td>
-			<td><%=fattura.getTotaleImponibile()%>></td>
+			<td><%=fattura.getTotaleImponibile()%></td>
 			<td><%=fattura.getPercentualeAmmissibile()%></td>
 			<td><%=fattura.getDossier().getPeriodoDiImposta()%></td>
 			<td><%=fattura.getFornitore().getNomeFornitore()%></td>

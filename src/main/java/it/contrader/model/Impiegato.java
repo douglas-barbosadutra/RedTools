@@ -32,35 +32,27 @@ public class Impiegato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idNome;
 	
-	@NotNull
 	@Column(name = "nominativo")
 	private String nominativo;
 	
-	@NotNull
 	@Column(name = "livello")
 	private int livello;
 	
-	@NotNull
 	@Column(name = "qualifica")
 	private String qualifica;
 	
-	@NotNull
 	@Column(name = "mansione")
 	private String mansione;
 	
-	@NotNull
 	@Column(name = "titolodiStudio")
 	private String titoloDiStudio;
 	
-	@NotNull
 	@Column(name = "costo_orario")
 	private double costoOrario;
 	
-	@NotNull
 	@Column(name = "totale_ore_lavorate")
 	private int totaleOreLavorate;
 	
-	@NotNull
 	@Column(name = "costo_lordo_annuo")
 	private double costoLordoAnnuo;
 	

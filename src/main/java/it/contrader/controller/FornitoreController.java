@@ -46,7 +46,10 @@ public class FornitoreController {
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertFornitore(HttpServletRequest request) {
 		String nomeFornitore = request.getParameter("nomeFornitore");
-		FornitoreDTO fornitoreObj = new FornitoreDTO(0, nomeFornitore);
+		String comuneFornitore = request.getParameter("comuneFornitore");
+		String provinciaFornitore = request.getParameter("provinciaFornitore");
+		String partitaIvaFornitore = request.getParameter("partitaIvaFornitore");
+		FornitoreDTO fornitoreObj = new FornitoreDTO(0, nomeFornitore, comuneFornitore, provinciaFornitore, partitaIvaFornitore, null);
 		fornitoreService.insertFornitore(fornitoreObj);
 		visualFornitore(request);
 		return "/fornitore/manageFornitore";
@@ -76,7 +79,10 @@ public class FornitoreController {
 	public String update(HttpServletRequest request) {
 		Integer idUpdate = Integer.parseInt(request.getParameter("idFornitore"));
 		String nomeFornitore = request.getParameter("nomeFornitore");
-		FornitoreDTO fornitoreObj = new FornitoreDTO(idUpdate, nomeFornitore);
+		String comuneFornitore = request.getParameter("comuneFornitore");
+		String provinciaFornitore = request.getParameter("provinciaFornitore");
+		String partitaIvaFornitore = request.getParameter("partitaIvaFornitore");
+		FornitoreDTO fornitoreObj = new FornitoreDTO(idUpdate, nomeFornitore, comuneFornitore, provinciaFornitore, partitaIvaFornitore, null);
 		fornitoreService.updateFornitore(fornitoreObj);
 		visualFornitore(request);
 		return "/fornitore/manageFornitore";

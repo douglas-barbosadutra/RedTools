@@ -51,6 +51,15 @@
 			<font color="blue"><b>Nome Fornitore</b></font>: <br/><b><%=readFornitoreDTO.getNomeFornitore()%> </b>
 			<br>
 			<br>
+			<font color="blue"><b>Comune</b></font>: <br/><b><%=readFornitoreDTO.getComuneFornitore()%> </b>
+			<br>
+			<br>
+			<font color="blue"><b>Provincia</b></font>: <br/><b><%=readFornitoreDTO.getProvinciaFornitore()%> </b>
+			<br>
+			<br>
+			<font color="blue"><b>Partita Iva</b></font>: <br/><b><%=readFornitoreDTO.getPartitaIvaFornitore()%> </b>
+			<br>
+			<br>
 			<br>
 			<br>
 			<br>

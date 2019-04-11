@@ -15,6 +15,10 @@ public class ConverterFornitore {
 			fornitoreDTO = new FornitoreDTO();
 			fornitoreDTO.setIdFornitore(fornitore.getIdFornitore());
 			fornitoreDTO.setNomeFornitore(fornitore.getNomeFornitore());
+			fornitoreDTO.setComuneFornitore(fornitore.getComuneFornitore());
+			fornitoreDTO.setProvinciaFornitore(fornitore.getProvinciaFornitore());
+			fornitoreDTO.setPartitaIvaFornitore(fornitore.getPartitaIvaFornitore());
+			fornitoreDTO.setFattura(fornitore.getFattura());
 			}
 		return fornitoreDTO;
 	}
@@ -25,6 +29,10 @@ public class ConverterFornitore {
 			fornitore = new Fornitore();
 			fornitore.setIdFornitore(fornitoreDTO.getIdFornitore());
 			fornitore.setNomeFornitore(fornitoreDTO.getNomeFornitore());
+			fornitore.setComuneFornitore(fornitoreDTO.getComuneFornitore());
+			fornitore.setProvinciaFornitore(fornitoreDTO.getProvinciaFornitore());
+			fornitore.setPartitaIvaFornitore(fornitoreDTO.getPartitaIvaFornitore());
+			fornitore.setFattura(fornitoreDTO.getFattura());
 			}
 		return fornitore;
 	}

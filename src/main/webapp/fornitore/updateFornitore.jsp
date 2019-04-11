@@ -48,7 +48,16 @@
 		<input type="hidden" name="idFornitore" value="<%=updateFornitore.getIdFornitore()%>">
 		<br>
 		<br>
-		Nme Fornitore: <input type="text" size="40" maxlength="40" name="nomeFornitore" value="<%=updateFornitore.getNomeFornitore()%>"/>
+		Nome Fornitore: <input type="text" size="40" maxlength="40" name="nomeFornitore" value="<%=updateFornitore.getNomeFornitore()%>"/>
+		<br>
+		<br>
+		Comune: <input type="text" size="40" maxlength="40" name="comuneFornitore" value="<%=updateFornitore.getComuneFornitore()%>"/>
+		<br>
+		<br>
+		Provincia: <input type="text" size="40" maxlength="40" name="provinciaFornitore" value="<%=updateFornitore.getProvinciaFornitore()%>"/>
+		<br>
+		<br>
+		Partita iva: <input type="text" size="40" maxlength="40" name="partitaIvaFornitore" value="<%=updateFornitore.getPartitaIvaFornitore()%>"/>
 		<br>
 		<br>
 		<input type="SUBMIT" value="Update">

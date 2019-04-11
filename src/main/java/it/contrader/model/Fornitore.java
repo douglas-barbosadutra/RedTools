@@ -30,9 +30,17 @@ public class Fornitore {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFornitore;
 	
-	@NotNull
 	@Column(name = "nome_fornitore")
 	private String nomeFornitore;
+	
+	@Column(name = "comune_fornitore")
+	private String comuneFornitore;
+	
+	@Column(name = "provincia_fornitore")
+	private String provinciaFornitore;
+	
+	@Column(name = "partita_iva_fornitore")
+	private String partitaIvaFornitore;
 	
 	@OneToMany(mappedBy = "fornitore")
 	@OnDelete(action = OnDeleteAction.CASCADE)

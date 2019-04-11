@@ -62,6 +62,9 @@ body {
 		<tr>
 			<th>Id Fornitore</th>
 			<th>Nome Fornitore</th>
+			<th>Comune Fornitore</th>
+			<th>Provincia Fornitore</th>
+			<th>Partita Iva Fornitore</th>
 		</tr>
 		
 		<%
@@ -70,6 +73,9 @@ body {
 		<tr>
 			<td><%=fornitore.getIdFornitore()%></td>
 			<td><%=fornitore.getNomeFornitore()%></td>
+			<td><%=fornitore.getComuneFornitore()%></td>
+			<td><%=fornitore.getProvinciaFornitore()%></td>
+			<td><%=fornitore.getPartitaIvaFornitore()%></td>
 			
 			<td class="center"><a href="/FornitoreController/read?readId=<%=fornitore.getIdFornitore()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
 			<td class="center"><a href="/FornitoreController/updateRedirect?updateId=<%=fornitore.getIdFornitore()%>"><i class="fas fa-edit" title="Update"></i></a></td>
