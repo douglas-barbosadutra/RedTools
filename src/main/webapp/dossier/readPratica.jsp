@@ -1,82 +1,151 @@
 <%@ include file="../header.jsp"%>
 <%@page import="it.contrader.model.AziendaCliente"%>
+<%@page import="it.contrader.model.Progetto"%>
+<%@page import="it.contrader.model.Impiegato"%>
+
 <%@ page import="javax.servlet.http.HttpSession"%>
 
-<%@ include file="/header.jsp"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<style>
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  text-align: center;
+table-layout: fixed;
+}
 
-</head>
-<body>
-<div class="container">
-
-<%
-	    DossierDTO read = (DossierDTO) request.getAttribute("ReadDossierDTO");
-	    int idProgetto =  (int) session.getAttribute("idProgetto");
-	    int idAziendaCliente =  (int) request.getAttribute("idAziendaCliente");
-%>
-  <h3>Bootstrap 4 table Contextual classes</h2>
+/* th:empty, td:empty {  */
+/* background: yellow; */
+/* height: 25px; */
+/*  } */
  
-<table class="table table-hover">
-  <thead>
-    <tr class="table-danger">
-      <th>Month</th>
-      <th>Number of Sales</th>
-      <th>Amount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row" class="table-primary">Jan</th>
-      <td>105</td>
-      <td>$15,000.00</td>
-    </tr>
-    <tr >
-      <th scope="row" class="table-secondary">Feb</th>
-      <td>95</td>
-      <td>$12,000.00</td>
-    </tr>
-    <tr>
-      <th scope="row">Mar</th>
-      <td  class="table-success">150</td>
-      <td>$20,000.00</td>
-    </tr>
-    <tr>
-      <th scope="row">Apr</th>
-      <td>50</td>
-      <td  class="table-warning">$30,000.00</td>
-    </tr>
-    <tr>
-      <th scope="row">May</th>
-      <td class="table-info">80</td>
-      <td>$15,000.00</td>
-    </tr>
-    <tr>
-      <th scope="row">Jun</th>
-      <td class="table-light">110</td>
-      <td class="table-primary">$22,000.00</td>
-    </tr>           
-    <tr>
-      <th scope="row">Jun</th>
-      <td>110</td>
-      <td class="table-dark">$22,000.00</td>
-    </tr>   
+tr:nth-child(even){background-color: #f2f2f2;}
 
-    <tr>
-      <th colspan="2" scope="row" class="table-success">Grand Total</th>
-      
-      <td class="table-danger">$114,000.00</td>
-    </tr>  
+tr:hover {
+background-color: #ddd;}
+
+th {
+	border: 1px solid black;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: #008080;
+	color: white;
+	height: 30px;
+}
+
+td{
+  border: 1px solid black;
+  padding: 8px;
+  height: 25px;
+}
+</style>
+</head>
+<%
+     AziendaClienteDTO readAziendaCliente = (AziendaClienteDTO) request.getAttribute("ReadAziendaCliente");
+     DossierDTO readDossierDTO  = (DossierDTO) request.getAttribute("ReadDossierDTO");
+     Progetto progetto = (Progetto) request.getAttribute("Progetto");
      
-  </tbody>
+     TotaleOreReDDTO allTotaleOreReD = (TotaleOreReDDTO) request.getAttribute("allTotaleOreReD");
+ 	 
+     List<FatturaDTO> allFattura = (List<FatturaDTO>) request.getAttribute("allFatturaDTO");
+	
+%>
+
+<body>
+
+
+<table >
+  
+  <tr><td colspan=2, bgcolor="#808080", color:white>PRATICA</td></tr>
+  
+  <tr>
+     <th>Anagrafica</th>
+    <th>Dati inseriti</th>
+  </tr>
+  
+  <tr>
+    <td>Denominazione società</td>
+    <td><%=readAziendaCliente.getDenominazioneSocieta() %></td>
+  </tr>
+  
+  <tr>
+    <td>Forma giuridica</td>
+    <td><%=readAziendaCliente.getFormaGiuridica() %></td>
+  </tr>
+  
+  <tr>
+    <td>Indirizzo sede legale</td>
+    <td><%=readAziendaCliente.getSedeLegale()%></td>
+  </tr>
+  <tr>
+    <td>p.IVA</td>
+    <td><%=readAziendaCliente.getPartitaIva()%></td>
+  </tr>
+  <tr>
+    <td>Telefono</td>
+    <td><%=readAziendaCliente.getTelefono()%></td>
+  </tr>
+  <tr>
+    <td>Mail</td>
+    <td><%=readAziendaCliente.getEmail()%></td>
+  </tr>
+  <tr>
+    <td>indirizzo unità locale</td>
+    <td><%=readAziendaCliente.getIndirizzoUnitaLocale()%></td>
+  </tr>
+  <tr>
+    <td>Attività svolta dall'impresa</td>
+    <td><%=readAziendaCliente.getAttivitaAzienda()%></td>
+  </tr>
+  <tr>
+    <td>Legale rappresentante</td>
+    <td><%=readAziendaCliente.getLegaleRappresentante()%></td>
+  </tr>
+  <tr>
+    <td>nato il</td>
+    <td><%=readAziendaCliente.getNatoIl()%></td>
+  </tr>
+  <tr>
+    <td>nato a</td>
+    <td><%=readAziendaCliente.getNatoA()%></td>
+  </tr>
+  <tr>
+    <td>Costi personale</td>
+    <td><%=readDossierDTO.getCostoDipendentiPeriodoDiImposta()%></td>
+  </tr>
+  <tr>
+    <td>Fatturato</td>
+    <td><%=readDossierDTO.getFatturatoPeriodoDiImposta() %></td>
+  </tr>
+  <tr>
+    <td>Numero Dipendenti</td>
+    <td><%=readDossierDTO.getNumeroTotaleDipendenti() %></td>
+  </tr>
+  
+  <tr>
+    <td>Costi totali R&S</td>
+    <td><%=allTotaleOreReD.getTotaleCostiReD() %></td>
+  </tr>
+  <tr>
+    <td>Costi personale R&S</td>
+    <td><%= %></td>
+  </tr>
+  <tr>
+    <td>Titoli Progetti R&S</td>
+    <td><%=progetto.getDettagliProgetto() %></td>
+  </tr>
+  <tr>
+    <td>Dettagli Progetti R&S</td>
+    <td><%=progetto.getDettagliProgetto() %></td>
+  </tr>
+  <tr>
+    <td>coordinate DIIN</td>
+    <td><%=progetto.getCoordinateDIIN() %></td>
+  </tr>
 </table>
 
-
-
-</div>
 </body>
-</html>
-

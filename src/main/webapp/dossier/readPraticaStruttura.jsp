@@ -39,7 +39,7 @@ td{
 
 <body>
 
-<table id="customers">
+<table >
   <tr>
     <th>Company</th>
 
