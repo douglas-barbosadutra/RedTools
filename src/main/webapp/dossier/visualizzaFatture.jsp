@@ -83,9 +83,57 @@ body {
 			<td><%=fattura.getTotaleAmmissibile()%></td>
 
 		</tr>
+		
+		<%
+			}
+		
+			if (allFattura.get(0) != null) {
+		%>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>Totale extramuros</td>
+			<td><%=allFattura.get(0).getDossier().getTotaleAmmissibile()%></td>
+
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>Numero Fornitori</td>
+			<td><%=allFattura.get(0).getDossier().getNumeroFornitori()%></td>
+
+		</tr>
+		
 		<%
 			}
 		%>
+		
 	</table>
 
 	<br>
