@@ -32,9 +32,28 @@
     int idProgetto =  (int) session.getAttribute("idProgetto");
 
 %>
+<script>
+
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0" || inputVal[i].value == "0.0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script> 
 </head>
 
-<body>
+<body onload="checkFilled()">
 	<div class="center">
 
 		<div class="pre_contenitore">
@@ -46,17 +65,17 @@
 		<br>
 		<form method="POST" action="/DossierController/update?dossierId=<%=updateDossier.getIdDossier()%>">
 
-		Anno Di Imposta: <input type="text" size="40" maxlength="40" name="periodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta()%>">
+		Anno Di Imposta: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="periodoDiImposta" value="<%=updateDossier.getPeriodoDiImposta()%>">
 		
 		<br>
 		<br>
-		Costo Dipendenti: <input type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="<%=updateDossier.getCostoDipendentiPeriodoDiImposta()%>">
+		Costo Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="<%=updateDossier.getCostoDipendentiPeriodoDiImposta()%>">
 		<br>
 		<br>
-		fatturato: <input type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="<%=updateDossier.getFatturatoPeriodoDiImposta()%>">
+		fatturato: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="<%=updateDossier.getFatturatoPeriodoDiImposta()%>">
 		<br>
 		<br>
-		Numero Totale Dipendenti: <input type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="<%=updateDossier.getNumeroTotaleDipendenti()%>">
+		Numero Totale Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="<%=updateDossier.getNumeroTotaleDipendenti()%>">
 		<br>
 		<br>
 

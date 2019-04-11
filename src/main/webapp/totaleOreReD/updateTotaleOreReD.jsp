@@ -30,9 +30,26 @@
 	TotaleOreReDDTO updateTotaleOreReD = (TotaleOreReDDTO) request.getAttribute("totaleOreReDUpdate");
 	int idImpiegato =  (int) session.getAttribute("idImpiegato");
 %>
+<script>
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0" || inputVal[i].value == "0.0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+checkFilled();
+</script> 
 </head>
 
-<body>
+<body onload="checkFilled()">
 	<div class="center">
 
 		<div class="pre_contenitore">
