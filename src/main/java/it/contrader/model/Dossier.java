@@ -47,6 +47,12 @@ public class Dossier {
 	@Column(name = "numero_totale_dipendenti")
 	private int numeroTotaleDipendenti;
 	
+	@Column(name = "totale_ammissibile")
+	private double totaleAmmissibile;
+	
+	@Column(name = "numero_fornitori")
+	private int numeroFornitori;
+	
 	@ManyToOne
 	@JoinColumn(name="id_azienda_cliente")
 	private AziendaCliente aziendaCliente;

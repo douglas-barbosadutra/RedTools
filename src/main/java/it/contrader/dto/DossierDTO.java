@@ -1,6 +1,8 @@
 package it.contrader.dto;
 
 
+import javax.persistence.Column;
+
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.Progetto;
 import lombok.AllArgsConstructor;
@@ -19,6 +21,8 @@ public class DossierDTO {
 	private double costoDipendentiPeriodoDiImposta;
 	private double fatturatoPeriodoDiImposta;
 	private int numeroTotaleDipendenti;
+	private double totaleAmmissibile;
+	private int numeroFornitori;
 	private AziendaClienteDTO aziendaClienteDTO;
 	private Progetto progetto;
 	private int filledFields; 

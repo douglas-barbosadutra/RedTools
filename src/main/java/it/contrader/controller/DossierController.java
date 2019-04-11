@@ -1,7 +1,10 @@
 package it.contrader.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -74,7 +77,7 @@ public class DossierController {
 		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
 		
 
-		DossierDTO dossierObj = new DossierDTO(0, periodoDiImposta, costoDipendentiPeriodoDiImposta, fatturatoPeriodoDiImposta, numeroTotaleDipendenti, aziendaClienteDTO, progetto, 0);
+		DossierDTO dossierObj = new DossierDTO(0, periodoDiImposta, costoDipendentiPeriodoDiImposta, fatturatoPeriodoDiImposta, numeroTotaleDipendenti, 0,0,aziendaClienteDTO, progetto, 0);
 		
 		dossierService.insertDossier(dossierObj);
 
@@ -109,7 +112,7 @@ public class DossierController {
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
 		
-		DossierDTO dossierObj = new DossierDTO(idDossierUpdate, periodoDiImpostaUpdate, costoDipendentiPeriodoDiImpostaUpdate, fatturatoPeriodoDiImpostaUpdate, numeroTotaleDipendentiUpdate, aziendaCliente, progetto, 0);
+		DossierDTO dossierObj = new DossierDTO(idDossierUpdate, periodoDiImpostaUpdate, costoDipendentiPeriodoDiImpostaUpdate, fatturatoPeriodoDiImpostaUpdate, numeroTotaleDipendentiUpdate, 0, 0, aziendaCliente, progetto, 0);
 		dossierService.updateDossier(dossierObj);
 		visualDossier(request);
 		return "/dossier/manageDossier";
@@ -141,7 +144,7 @@ public class DossierController {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Dossier dossier = this.dossierService.getDossierById(id);
 		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
-		request.setAttribute("allFatturaDTO", calcoloTotaleAmmissibileDTO(allFattura));
+		request.setAttribute("allFatturaDTO", calcoloTotaleAmmissibileDTO(allFattura, id));
 		return "/dossier/visualizzaFatture";		
 	}
 	
@@ -195,18 +198,27 @@ public class DossierController {
 	
 }
 	
-	private List<FatturaDTO> calcoloTotaleAmmissibileDTO(List<FatturaDTO> allFattura) {
+	private List<FatturaDTO> calcoloTotaleAmmissibileDTO(List<FatturaDTO> allFattura, int id) {
 		
 		List<FatturaDTO> retAllFattura = new ArrayList<FatturaDTO>();
 		
+		double totaleAmmissibile = 0;
+		Set<Integer> fornitori = new HashSet<>(Arrays.asList());
 		for(FatturaDTO fattura : allFattura) {
 			
 			FatturaDTO f = new FatturaDTO();
 			f = fattura;
+			fornitori.add(f.getFornitore().getIdFornitore());
+			totaleAmmissibile += f.getTotaleAmmissibile();
 			f.setTotaleAmmissibile((fattura.getTotaleImponibile() * fattura.getPercentualeAmmissibile()) / 100);
 			retAllFattura.add(f);
 			
 		}
+		
+		DossierDTO dossier = this.dossierService.getDossierDTOById(id);
+		dossier.setTotaleAmmissibile(totaleAmmissibile);
+		dossier.setNumeroFornitori(fornitori.size());
+		dossierService.updateDossier(dossier);
 		
 		return retAllFattura;
 		
