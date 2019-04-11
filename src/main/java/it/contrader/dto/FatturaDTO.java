@@ -23,6 +23,8 @@ public class FatturaDTO {
 	
 	private int percentualeAmmissibile;
 	
+	private double totaleAmmissibile;
+	
 	private Dossier dossier;
 	
 	private Fornitore fornitore;

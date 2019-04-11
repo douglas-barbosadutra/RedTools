@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
-import it.contrader.model.AziendaCliente;
+import it.contrader.dto.FatturaDTO;
+import it.contrader.model.Dossier;
 import it.contrader.model.Progetto;
 import it.contrader.services.AziendaClienteService;
 import it.contrader.services.DossierService;
+import it.contrader.services.FatturaService;
 import it.contrader.services.ProgettoService;
 
 
@@ -29,13 +31,16 @@ public class DossierController {
 	private final DossierService dossierService;
 	private final AziendaClienteService aziendaClienteService;
 	private final ProgettoService progettoService;
+	private final FatturaService fatturaService;
 	private HttpSession session;
 	
 	@Autowired
-	public DossierController(DossierService dossierService, AziendaClienteService aziendaClienteService, ProgettoService progettoService) {
+	public DossierController(DossierService dossierService, AziendaClienteService aziendaClienteService,
+			ProgettoService progettoService, FatturaService fatturaService) {
 		this.dossierService = dossierService;
 		this.aziendaClienteService = aziendaClienteService;
 		this.progettoService = progettoService;
+		this.fatturaService = fatturaService;
 	}
 	
 	@RequestMapping(value = "/dossierManagement", method = RequestMethod.GET)
@@ -131,6 +136,15 @@ public class DossierController {
 		return "/dossier/readDossier";
 	}
 	
+	@RequestMapping(value = "/visualizzaFatture", method = RequestMethod.GET)
+	public String visualizzafatture(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Dossier dossier = this.dossierService.getDossierById(id);
+		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
+		request.setAttribute("allFatturaDTO", calcoloTotaleAmmissibileDTO(allFattura));
+		return "/dossier/visualizzaFatture";		
+	}
+	
 	@RequestMapping(value = "/readPratica", method = RequestMethod.GET)
 	public String leggiPratica(HttpServletRequest request) {
 		
@@ -180,4 +194,21 @@ public class DossierController {
 	
 	
 }
+	
+	private List<FatturaDTO> calcoloTotaleAmmissibileDTO(List<FatturaDTO> allFattura) {
+		
+		List<FatturaDTO> retAllFattura = new ArrayList<FatturaDTO>();
+		
+		for(FatturaDTO fattura : allFattura) {
+			
+			FatturaDTO f = new FatturaDTO();
+			f = fattura;
+			f.setTotaleAmmissibile((fattura.getTotaleImponibile() * fattura.getPercentualeAmmissibile()) / 100);
+			retAllFattura.add(f);
+			
+		}
+		
+		return retAllFattura;
+		
+	}
 }

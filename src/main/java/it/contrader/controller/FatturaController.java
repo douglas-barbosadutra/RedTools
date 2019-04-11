@@ -64,7 +64,7 @@ public class FatturaController {
 		int idFornitore = (int) session.getAttribute("idFornitore");
 		Fornitore fornitore = fornitoreService.getFornitoreById(idFornitore);
 		FatturaDTO fatturaObj = new FatturaDTO(0, dataFattura, numeroFattura, descrizione,
-				totaleImponibile, percentualeAmmissibile, dossier, fornitore);
+				totaleImponibile, percentualeAmmissibile, 0, dossier, fornitore);
 		fatturaService.insertFattura(fatturaObj);
 		visualFattura(request);
 		return "/fattura/manageFattura";
@@ -98,12 +98,13 @@ public class FatturaController {
 		String descrizione = request.getParameter("descrizione");
 		double totaleImponibile = Double.parseDouble(request.getParameter("totaleImponibile"));
 		int percentualeAmmissibile = Integer.parseInt(request.getParameter("percentualeAmmissibile"));
+		double totaleAmmissibile = Double.parseDouble(request.getParameter("totaleAmmissibile"));
 		int idDossier = (int) session.getAttribute("idDossier");
 		Dossier dossier = dossierService.getDossierById(idDossier);
 		int idFornitore = (int) session.getAttribute("idFornitore");
 		Fornitore fornitore = fornitoreService.getFornitoreById(idFornitore);
 		FatturaDTO fatturaObj = new FatturaDTO(idUpdate, dataFattura, numeroFattura, descrizione,
-				totaleImponibile, percentualeAmmissibile, dossier, fornitore);
+				totaleImponibile, percentualeAmmissibile, totaleAmmissibile, dossier, fornitore);
 		fatturaService.updateFattura(fatturaObj);
 		visualFattura(request);
 		return "/fattura/manageFattura";

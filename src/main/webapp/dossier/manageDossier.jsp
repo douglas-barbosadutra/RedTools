@@ -96,6 +96,7 @@ body {
 		    <td class="center"><a href="/FornitoreController/fornitoreManagement?id=<%=dossier.getIdDossier()%>"><i class="fas fa-truck-moving" title="Fornitori" style="color:black"></i></a></td>
 		    <td class="center"><a href="excel"><i class="far fa-file-excel" title="Excel" style="color:black"></i></a></td>
 		    <td class="center"><a href="pratica"><i class="fas fa-folder-open" title="Visualizzazione pratica" style="color:black"></i></a></td>
+		    <td class="center"><a href="/DossierController/visualizzaFatture?id=<%=dossier.getIdDossier()%>"><i class="fas fa-file-invoice" title="Fattura" style="color:black"></i></a></td>
 			
              
 		</tr>
