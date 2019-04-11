@@ -147,13 +147,13 @@ public class DossierController {
 		return "/dossier/readDossier";
 	}
 	
-	@RequestMapping(value = "/visualizzaFatture", method = RequestMethod.GET)
-	public String visualizzaFatture(HttpServletRequest request) {
+	@RequestMapping(value = "/visualizzaCostiEsterni", method = RequestMethod.GET)
+	public String visualizzaCostiEsterni(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Dossier dossier = this.dossierService.getDossierById(id);
 		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
 		request.setAttribute("allFatturaDTO", calcoloTotaleAmmissibileDTO(allFattura, id));
-		return "/dossier/visualizzaFatture";		
+		return "/dossier/visualizzaCostiEsterni";		
 	}
 	
 	@RequestMapping(value = "/visualizzaDipendenti", method = RequestMethod.GET)
@@ -162,7 +162,7 @@ public class DossierController {
 		Dossier dossier = this.dossierService.getDossierById(id);
 		List<TotaleOreReDDTO> allTotaleOreReD = this.totaleOreReDService.findTotaleOreReDDTOByDossier(dossier);
 		request.setAttribute("allTotaleOreReD", sommaOreReDDTO(allTotaleOreReD));
-		return "/dossier/manageDipendenti";		
+		return "/dossier/visualizzaDipendenti";		
 	}
 	
 	@RequestMapping(value = "/readPratica", method = RequestMethod.GET)
