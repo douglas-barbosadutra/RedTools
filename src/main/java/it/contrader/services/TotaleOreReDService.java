@@ -30,6 +30,10 @@ public class TotaleOreReDService {
 	public TotaleOreReDDTO getTotaleOreReDDTOById(Integer id) {
 		return ConverterTotaleOreReD.toDTO(totaleOreReDRepository.findById(id).get());
 	}
+	
+	public TotaleOreReDDTO getTotaleOreReDDTOByImpiegato(Impiegato impiegato) {
+		return ConverterTotaleOreReD.toDTO(totaleOreReDRepository.findAllByImpiegato(impiegato).get(0));
+	}
 
 	public boolean insertTotaleOreReD(TotaleOreReDDTO totaleOreReDDTO) {
 		return totaleOreReDRepository.save(ConverterTotaleOreReD.toEntity(totaleOreReDDTO)) != null;
@@ -43,7 +47,7 @@ public class TotaleOreReDService {
 		totaleOreReDRepository.deleteById(id);
 	}
 	
-	public List<TotaleOreReDDTO> findTotaleOreReDDTOByAziendaCliente(Impiegato impiegato) {
+	public List<TotaleOreReDDTO> findAllTotaleOreReDDTOByImpiegato(Impiegato impiegato) {
 		
 		final List<TotaleOreReD> list = totaleOreReDRepository.findAllByImpiegato(impiegato);
 		final List<TotaleOreReDDTO> totaleOreReDDTOs = new ArrayList<>();

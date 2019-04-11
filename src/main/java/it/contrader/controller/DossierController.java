@@ -140,7 +140,7 @@ public class DossierController {
 	}
 	
 	@RequestMapping(value = "/visualizzaFatture", method = RequestMethod.GET)
-	public String visualizzafatture(HttpServletRequest request) {
+	public String visualizzaFatture(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Dossier dossier = this.dossierService.getDossierById(id);
 		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
@@ -165,13 +165,13 @@ public class DossierController {
 		final int idProgetto = (int) session.getAttribute("idProgetto");
 		Progetto progetto = progettoService.getProgettoById(idProgetto);
 		List<DossierDTO> allDossier = this.dossierService.findDossierDTOByProgetto(progetto);
-		request.setAttribute("allDossierDTO", CompletamentoDTO(allDossier));
+		request.setAttribute("allDossierDTO", completamentoDTO(allDossier));
 	}
 
 	
 	
 	  
-	private List<DossierDTO> CompletamentoDTO(List<DossierDTO> allDossier) {
+	private List<DossierDTO> completamentoDTO(List<DossierDTO> allDossier) {
 		List<DossierDTO> retAllDossier = new ArrayList<DossierDTO>();
 		
 		
