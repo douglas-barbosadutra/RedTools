@@ -48,7 +48,7 @@ td{
      AziendaClienteDTO readAziendaCliente = (AziendaClienteDTO) request.getAttribute("ReadAziendaCliente");
      DossierDTO readDossierDTO  = (DossierDTO) request.getAttribute("ReadDossierDTO");
      ProgettoDTO progetto = (ProgettoDTO) request.getAttribute("ReadProgetto");
-     
+     int idProgetto = (int) progetto.getIdProgetto();
 	
 %>
 
@@ -149,4 +149,7 @@ td{
   </tr>
 </table>
 </center>
+<br>
+	<br>
+<a href="dossierManagement?id=<%=idProgetto %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 </body>
