@@ -84,7 +84,7 @@ td{
 		<%
 			}
 		
-			if (allFattura.get(0) != null) {
+			if (allFattura.size()>0 && allFattura.get(0) != null) {
 		%>
 		<tr>
 			<td></td>

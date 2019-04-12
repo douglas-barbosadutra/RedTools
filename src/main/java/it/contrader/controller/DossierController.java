@@ -166,7 +166,7 @@ public class DossierController {
 	public void getFile(
 	    @PathVariable("file_name") String fileName, 
 	    HttpServletResponse response, HttpServletRequest request) {
-		String path="C:\\Users\\Contrader\\Desktop\\RedToolsSpring\\RedTools\\src\\main\\resources\\files\\";
+		String path="C:\\Users\\Contrader\\Desktop\\Contrader\\RedToolSpring\\src\\main\\resources\\files\\";
 		int idProgetto = (int) session.getAttribute("idProgetto");
 		Progetto progetto = progettoService.getProgettoById(idProgetto);
 		
@@ -255,7 +255,7 @@ public class DossierController {
 			    i++; 
 			}
 
-		    if (allFattura.get(0) != null) {
+		    if (allFattura.size()>0 && allFattura.get(0) != null) {
 		    	cell2Update = sheet.getRow(8).getCell(8);
 		    	cell2Update.setCellValue(allFattura.get(0).getDossier().getTotaleAmmissibile());
 		    	
