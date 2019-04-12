@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
 import it.contrader.dto.FatturaDTO;
+import it.contrader.dto.ProgettoDTO;
 import it.contrader.dto.TotaleOreReDDTO;
 import it.contrader.model.Dossier;
 import it.contrader.model.Progetto;
@@ -93,7 +94,7 @@ public class DossierController {
 		int numeroTotaleDipendenti = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
 		
 		int idProgetto = (int) session.getAttribute("idProgetto");
-		Progetto progetto = progettoService.getProgettoById(idProgetto);
+		ProgettoDTO progetto = progettoService.findProgettoDTOById(idProgetto);
 		
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
@@ -129,7 +130,7 @@ public class DossierController {
 		int numeroTotaleDipendentiUpdate = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
 		
 		int idProgetto = (int) session.getAttribute("idProgetto");
-		Progetto progetto = progettoService.getProgettoById(idProgetto);
+		ProgettoDTO progetto = progettoService.findProgettoDTOById(idProgetto);
 		
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
@@ -171,6 +172,7 @@ public class DossierController {
 		
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		Dossier dossier = this.dossierService.getDossierById(id);
 		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
@@ -283,12 +285,23 @@ public class DossierController {
 	@RequestMapping(value = "/readPratica", method = RequestMethod.GET)
 	public String leggiPratica(HttpServletRequest request) {
 		
+		int idDossier = Integer.parseInt(request.getParameter("id"));
+		Dossier dossier = this.dossierService.getDossierById(idDossier);
+		List<TotaleOreReDDTO> allTotaleOreReDDTO = this.totaleOreReDService.findTotaleOreReDDTOByDossier(dossier);
+		List<TotaleOreReDDTO> lista = sommaOreReDDTO(allTotaleOreReDDTO, idDossier);
+		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
+		List<FatturaDTO> lista2 = calcoloTotaleAmmissibileDTO(allFattura, idDossier);
+		
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
 		request.setAttribute("ReadAziendaCliente", aziendaCliente);
-		int id = Integer.parseInt(request.getParameter("id"));
-		DossierDTO dossier = this.dossierService.getDossierDTOById(id);
-		request.setAttribute("ReadDossierDTO", dossier);
+		
+		DossierDTO dossierDTO = this.dossierService.getDossierDTOById(idDossier);
+		request.setAttribute("ReadDossierDTO", dossierDTO);
+		
+		ProgettoDTO progetto = dossierDTO.getProgettoDTO();
+		request.setAttribute("ReadProgetto", progetto);
+		
 		return "/dossier/readPratica";
 	}
 	

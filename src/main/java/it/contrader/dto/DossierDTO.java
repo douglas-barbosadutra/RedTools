@@ -26,7 +26,7 @@ public class DossierDTO {
 	private double totaleAmmissibile;
 	private int numeroFornitori;
 	private AziendaClienteDTO aziendaClienteDTO;
-	private Progetto progetto;
+	private ProgettoDTO progettoDTO;
 	private int filledFields; 
 	
 	

@@ -47,11 +47,8 @@ td{
 <%
      AziendaClienteDTO readAziendaCliente = (AziendaClienteDTO) request.getAttribute("ReadAziendaCliente");
      DossierDTO readDossierDTO  = (DossierDTO) request.getAttribute("ReadDossierDTO");
-     Progetto progetto = (Progetto) request.getAttribute("Progetto");
+     ProgettoDTO progetto = (ProgettoDTO) request.getAttribute("ReadProgetto");
      
-     TotaleOreReDDTO allTotaleOreReD = (TotaleOreReDDTO) request.getAttribute("allTotaleOreReD");
- 	 
-     List<FatturaDTO> allFattura = (List<FatturaDTO>) request.getAttribute("allFatturaDTO");
 	
 %>
 
@@ -60,7 +57,7 @@ td{
 
 <table >
   
-  <tr><td colspan=2, bgcolor="#808080", color:white>PRATICA</td></tr>
+  <tr><td colspan=2, bgcolor="#808080"><font color = "white">PRATICA</font></td></tr>
   
   <tr>
      <th>Anagrafica</th>
@@ -128,15 +125,19 @@ td{
   
   <tr>
     <td>Costi totali R&S</td>
-    <td><%=allTotaleOreReD.getTotaleCostiReD() %></td>
+    <td><%=readDossierDTO.getTotaleCostiReD()%></td>
   </tr>
   <tr>
     <td>Costi personale R&S</td>
-    <td><%= %></td>
+    <td><%=readDossierDTO.getCostiPersonaleReD()%></td>
   </tr>
   <tr>
+  <tr>
+     <th>Progetto ricerca</th>
+    <th>Dati inseriti</th>
+  </tr>
     <td>Titoli Progetti R&S</td>
-    <td><%=progetto.getDettagliProgetto() %></td>
+    <td><%=progetto.getTitoloProgetto() %></td>
   </tr>
   <tr>
     <td>Dettagli Progetti R&S</td>
