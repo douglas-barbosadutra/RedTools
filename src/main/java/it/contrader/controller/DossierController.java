@@ -166,13 +166,12 @@ public class DossierController {
 	public void getFile(
 	    @PathVariable("file_name") String fileName, 
 	    HttpServletResponse response, HttpServletRequest request) {
-		String path="C:\\Users\\Contrader\\Desktop\\Contrader\\RedToolSpring\\src\\main\\resources\\files\\";
+		String path="C:\\Users\\Contrader\\Desktop\\RedToolsSpring\\RedTools\\src\\main\\resources\\files\\";
 		int idProgetto = (int) session.getAttribute("idProgetto");
 		Progetto progetto = progettoService.getProgettoById(idProgetto);
 		
 		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
 		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
-		
 		int id = Integer.parseInt(request.getParameter("id"));
 		Dossier dossier = this.dossierService.getDossierById(id);
 		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
@@ -234,8 +233,66 @@ public class DossierController {
 		    cell2Update = sheet.getRow(31).getCell(2);
 		    cell2Update.setCellValue(dossier.getTotaleAmmissibile());
 		    
+		    sheet = workbook.getSheetAt(1);
+		    
+		    int i=4;
+		    for (FatturaDTO fattura : allFattura) {
+		    	
+		    	cell2Update = sheet.getRow(i).getCell(2);
+			    cell2Update.setCellValue(fattura.getFornitore().getNomeFornitore());
+			    cell2Update = sheet.getRow(i).getCell(3);
+			    cell2Update.setCellValue(fattura.getDataFattura());
+			    cell2Update = sheet.getRow(i).getCell(4);
+			    cell2Update.setCellValue(fattura.getNumeroFattura());
+			    cell2Update = sheet.getRow(i).getCell(5);
+			    cell2Update.setCellValue(fattura.getDescrizione());
+			    cell2Update = sheet.getRow(i).getCell(6);
+			    cell2Update.setCellValue(fattura.getTotaleImponibile());
+			    cell2Update = sheet.getRow(i).getCell(7);
+			    cell2Update.setCellValue(fattura.getPercentualeAmmissibile());
+			    cell2Update = sheet.getRow(i).getCell(8);
+			    cell2Update.setCellValue(fattura.getTotaleAmmissibile());
+			    i++; 
+			}
 
-		    FileOutputStream out = new FileOutputStream(new File(path+fileName));
+		    if (allFattura.get(0) != null) {
+		    	cell2Update = sheet.getRow(8).getCell(8);
+		    	cell2Update.setCellValue(allFattura.get(0).getDossier().getTotaleAmmissibile());
+		    	
+		    	cell2Update = sheet.getRow(10).getCell(8);
+		    	cell2Update.setCellValue(allFattura.get(0).getDossier().getNumeroFornitori());
+		    	
+		    }
+		    
+		    sheet = workbook.getSheetAt(2);
+		    
+		    i=3;
+			for (TotaleOreReDDTO totaleOreReD : allTotaleOreReDDTO) {
+				
+				
+				cell2Update = sheet.getRow(i).getCell(12);
+			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getNominativo());
+			    cell2Update = sheet.getRow(i).getCell(13);
+			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getLivello());
+			    cell2Update = sheet.getRow(i).getCell(14);
+			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getQualifica());
+			    cell2Update = sheet.getRow(i).getCell(15);
+			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getMansione());
+			    cell2Update = sheet.getRow(i).getCell(16);
+			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getTitoloDiStudio());
+//			    cell2Update = sheet.getRow(i).getCell(17);
+//			    cell2Update.setCellValue(totaleOreReD.getOreLavorateRed());
+//			    cell2Update = sheet.getRow(i).getCell(18);
+//			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getCostoOrario());
+//			    cell2Update = sheet.getRow(i).getCell(19);
+//			    cell2Update.setCellValue(totaleOreReD.getTotaleCostiReD());
+			    cell2Update = sheet.getRow(i).getCell(7);
+			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getTotaleOreLavorate());
+			    cell2Update = sheet.getRow(i).getCell(8);
+			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getCostoLordoAnnuo());
+				i++;
+			}
+			    FileOutputStream out = new FileOutputStream(new File(path+fileName));
 		    workbook.write(out);
 		    out.close();
 		    System.out.println("xlsm created successfully..");
@@ -254,16 +311,16 @@ public class DossierController {
 	      InputStream is = new FileInputStream(path+fileName);
 	      // copy it to response's OutputStream
 	      
-	      
-	      
+	      String type = "vnd.ms-excel";
+	      response.setHeader("content-disposition", "attachment; filename=mod_docTables.xlsm");
+	      response.setContentType(type);
 	      org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
 	      response.flushBuffer();
 	    } catch (IOException ex) {
 	    	GestoreEccezioni.getInstance().gestisciEccezione(ex);
 	    }
 
-	}
-	
+	}	
 	@RequestMapping(value = "/visualizzaCostiEsterni", method = RequestMethod.GET)
 	public String visualizzaCostiEsterni(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
