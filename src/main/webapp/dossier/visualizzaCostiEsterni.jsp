@@ -5,40 +5,41 @@
 <head>
 <title>Gestione Fattura</title>
 <style>
-body {
-	background-image:
-		url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	text-align: center;
-	color: white;
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  text-align: center;
+table-layout: fixed;
 }
-</style>
-<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<style>
 
-.pre_contenitore {
-	width: 320px;
-	margin: auto;
-	height: 50px;
+/* th:empty, td:empty {  */
+/* background: yellow; */
+/* height: 25px; */
+/*  } */
+ 
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {
+background-color: #ddd;}
+
+th {
 	border: 1px solid black;
-	border-radius: 40px 40px 40px 40px;
-	background-color: rgba(0, 0, 0, 0.9);
-	box-shadow: 20px 30px 20px #000000;
-	padding: 20px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: #008080;
+	color: white;
+	height: 30px;
 }
 
-.pre_contenitore p {
-	color: orange;
-	text-align: center;
-	font-size: 1.9em;
-	font-family: arial;
-	line-height: 2px;
+td{
+  border: 1px solid black;
+  padding: 8px;
+  height: 25px;
 }
 </style>
+
+
 </head>
 <%
 	List<FatturaDTO> allFattura = (List<FatturaDTO>) request.getAttribute("allFatturaDTO");
@@ -49,16 +50,13 @@ body {
 
 	<div class="pre_contenitore">
 
-		<p>Costi Esterni</p>
-
-	</div>
-	<br>
-
-
-
-	<br />
-
+		</div>
+	
+  <center>
 	<table>
+	
+	<tr><td colspan=7, bgcolor="#c0c0c0"><font color = "black"><b>COSTI ESTERNI<b></font></td></tr>
+		
 		<tr>
 			<th>Fornitore</th>
 			<th>Data Fattura</th>
@@ -105,9 +103,8 @@ body {
 			<td></td>
 			<td></td>
 			<td></td>
-			<td>Totale extramuros</td>
-			<td><%=allFattura.get(0).getDossier().getTotaleAmmissibile()%></td>
-
+			<td></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -117,6 +114,24 @@ body {
 			<td></td>
 			<td></td>
 			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		    <td>Totale extramuros</td>
+			<td><%=allFattura.get(0).getDossier().getTotaleAmmissibile()%></td>
 
 		</tr>
 		<tr>
@@ -135,7 +150,7 @@ body {
 		%>
 		
 	</table>
-
+ </center>
 	<br>
 	<br>
 	<a href="dossierManagement?id=<%=idProgetto %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>

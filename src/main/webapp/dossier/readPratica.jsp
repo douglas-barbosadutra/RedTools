@@ -54,10 +54,10 @@ td{
 
 <body>
 
-
+<center>
 <table >
   
-  <tr><td colspan=2, bgcolor="#808080"><font color = "white">PRATICA</font></td></tr>
+  <tr><td colspan=2, bgcolor="#c0c0c0"><font color = "black"><b>PRATICA<b></font></td></tr>
   
   <tr>
      <th>Anagrafica</th>
@@ -148,5 +148,5 @@ td{
     <td><%=progetto.getCoordinateDIIN() %></td>
   </tr>
 </table>
-
+</center>
 </body>
