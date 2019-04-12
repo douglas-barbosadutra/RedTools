@@ -8,7 +8,7 @@
 table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 60%;
+  width: 80%;
   text-align: center;
 table-layout: fixed;
 }
@@ -38,9 +38,8 @@ td{
   height: 25px;
 }
 </style>
-
-
 </head>
+
 <%
 	List<FatturaDTO> allFattura = (List<FatturaDTO>) request.getAttribute("allFatturaDTO");
 	int idProgetto =  (int) session.getAttribute("idProgetto");

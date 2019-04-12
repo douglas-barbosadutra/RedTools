@@ -5,41 +5,41 @@
 <head>
 <title>Dipendenti</title>
 <style>
-body {
-	background-image:
-		url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	text-align: center;
-	color: white;
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+table-layout: fixed;
 }
-</style>
-<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<style>
 
-.pre_contenitore {
-	width: 320px;
-	margin: auto;
-	height: 50px;
+/* th:empty, td:empty {  */
+/* background: yellow; */
+/* height: 25px; */
+/*  } */
+ 
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {
+background-color: #ddd;}
+
+th {
 	border: 1px solid black;
-	border-radius: 40px 40px 40px 40px;
-	background-color: rgba(0, 0, 0, 0.9);
-	box-shadow: 20px 30px 20px #000000;
-	padding: 20px;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	background-color: #008080;
+	color: white;
+	height: 30px;
 }
 
-.pre_contenitore p {
-	color: orange;
-	text-align: center;
-	font-size: 1.9em;
-	font-family: arial;
-	line-height: 2px;
+td{
+  border: 1px solid black;
+  padding: 8px;
+  height: 25px;
 }
 </style>
 </head>
+
 <%
 	List<TotaleOreReDDTO> allTotaleOreReD = (List<TotaleOreReDDTO>) request.getAttribute("allTotaleOreReD");
 	int idProgetto =  (int) session.getAttribute("idProgetto");
@@ -49,19 +49,18 @@ body {
 
 	<div class="pre_contenitore">
 
-		<p>Dipendenti</p>
+		
 
 	</div>
-	<br>
-
-
-
-	<br />
-
+	
+  <center>
 	<table>
+	
+	<tr><td colspan=10, bgcolor="#c0c0c0"><font color = "black"><b>DIPENDENTI<b></font></td></tr>
+	
 		<tr>
 		
-			<th>Nominativo</th>
+			<th><multicol width=?> Nominativo</multicol></th>
 			<th>Livello</th>
 			<th>Qualifica</th>
 			<th>Mansione</th>
@@ -69,7 +68,7 @@ body {
 			<th>Totale ore ReD</th>
 			<th>Costo Orario</th>
 			<th>Totale costi ReD</th>
-			<th></th>
+			
 			<th>Totale ore lavorate</th>
 			<th>Costo Lordo Annuo</th>
 			
@@ -88,7 +87,7 @@ body {
 			<td><%=totaleOreReD.getOreLavorateRed()%></td>
 			<td><%=totaleOreReD.getImpiegato().getCostoOrario()%></td>
 			<td><%=totaleOreReD.getTotaleCostiReD()%></td>
-			<td></td>
+			
 			<td><%=totaleOreReD.getImpiegato().getTotaleOreLavorate()%></td>
 			<td><%=totaleOreReD.getImpiegato().getCostoLordoAnnuo()%></td>
 			
@@ -97,7 +96,7 @@ body {
 			}
 		%>
 	</table>
-	
+</center>
 	<br>
 	<br>
 	<a href="dossierManagement?id=<%=idProgetto %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
