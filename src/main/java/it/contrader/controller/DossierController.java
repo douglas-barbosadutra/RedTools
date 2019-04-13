@@ -89,7 +89,7 @@ public class DossierController {
 	public String insertDossier(HttpServletRequest request) {
 		
 		String periodoDiImposta = request.getParameter("periodoDiImposta");
-		double costoDipendentiPeriodoDiImposta = Double.parseDouble(request.getParameter("costoDipendentiPeriodoDiImposta"));
+		double costoDipendentiPeriodoDiImposta = 0;
 		double fatturatoPeriodoDiImposta = Double.parseDouble(request.getParameter("fatturatoPeriodoDiImposta"));
 		int numeroTotaleDipendenti = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
 		
@@ -391,6 +391,7 @@ public class DossierController {
 			d = dossier;
 			d.setFilledFields(y);
 			retAllDossier.add(d);
+			
 			
 		}
 		return retAllDossier;

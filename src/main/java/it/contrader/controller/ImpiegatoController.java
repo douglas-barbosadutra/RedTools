@@ -10,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.DossierDTO;
 import it.contrader.dto.ImpiegatoDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.services.AziendaClienteService;
+import it.contrader.services.DossierService;
 import it.contrader.services.ImpiegatoService;
 
 @Controller
@@ -21,12 +23,14 @@ public class ImpiegatoController {
 
 	private final ImpiegatoService impiegatoService;
 	private final AziendaClienteService aziendaClienteService;
+	private final DossierService dossierService;
 	private HttpSession session;
 	
 	@Autowired
-	public ImpiegatoController(ImpiegatoService impiegatoService, AziendaClienteService aziendaClienteService) {
+	public ImpiegatoController(ImpiegatoService impiegatoService, AziendaClienteService aziendaClienteService, DossierService dossierService) {
 		this.impiegatoService = impiegatoService;
 		this.aziendaClienteService = aziendaClienteService;
+		this.dossierService = dossierService;
 	}
 	
 	
@@ -63,7 +67,20 @@ public class ImpiegatoController {
 				costoOrario, totaleOreLavorate, costoLordoAnnuo, aziendaCliente);
 		impiegatoService.insertImpiegato(impiegatoObj);
 		visualImpiegato(request);
+		int idDossier = (int) session.getAttribute("idDossier");
+		DossierDTO dossierDTO = this.dossierService.getDossierDTOById(idDossier);
+		dossierDTO.setCostoDipendentiPeriodoDiImposta(aggiuntaCostiPersonale(costoLordoAnnuo,dossierDTO));
+		dossierService.updateDossier(dossierDTO);
 		return "/impiegato/manageImpiegato";
+	}
+	
+	private double aggiuntaCostiPersonale (double costoLordoAnnuoImpiegato , DossierDTO dossier) {
+		DossierDTO d;
+		d=dossier;
+		double somma;
+		somma=d.getCostoDipendentiPeriodoDiImposta();
+		somma+=costoLordoAnnuoImpiegato;
+		return somma;
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
