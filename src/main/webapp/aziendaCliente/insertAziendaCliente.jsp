@@ -30,12 +30,30 @@
 }
 </style>
 
+<script>
 
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script>
 </head>
 <body>
-<%
-//int idBO =  (Integer) request.getAttribute("idBO");
-%>
+
+ 
+
 	<div class="pre_contenitore">
 
 		<p>Nuova Azienda Cliente</p>
@@ -49,37 +67,37 @@
 		
 		<br>
 		<br>
-		Denominazione Societa: <input type="text" size="40" maxlength="40" name="denominazioneSocieta" />
+		Denominazione Societa: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="denominazioneSocieta" />
 		<br>
 		<br>
-		Forma Giuridica <input type="text" size="40" maxlength="40" name="formaGiuridica" />
+		Forma Giuridica <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="formaGiuridica" />
 		<br>
 		<br>
-		Sede Legale <input type="text" size="40" maxlength="40" name="sedeLegale" />
+		Sede Legale <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="sedeLegale" />
 		<br>
 		<br>
-		Partita Iva <input type="text" size="40" maxlength="40" name="partitaIva" />
+		Partita Iva <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="partitaIva" />
 		<br>
 		<br>
-		Telefono <input type="text" size="40" maxlength="40" name="telefono" />
+		Telefono <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="telefono" />
 		<br>
 		<br>
-		Email <input type="text" size="40" maxlength="40" name="email" />
+		Email <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="email" />
 		<br>
 		<br>
-		Indirizzo Unita Locale <input type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" />
+		Indirizzo Unita Locale <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="indirizzoUnitaLocale" />
 		<br>
 		<br>
-		Attivita Azienda <input type="text" size="40" maxlength="40" name="attivitaAzienda" />
+		Attivita Azienda <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="attivitaAzienda" />
 		<br>
 		<br>
-		Legale Rapresentante <input type="text" size="40" maxlength="40" name="legaleRappresentante" />
+		Legale Rapresentante <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="legaleRappresentante" />
 		<br>
 		<br>
-		Nato A <input type="text" size="40" maxlength="40" name="natoA" />
+		Nato A <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="natoA" />
 		<br>
 		<br>
-		Nato Il <input type="text" size="40" maxlength="40" name="natoIl" />
+		Nato Il <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="natoIl" />
 		<br>
 <!-- 		<br> -->
 <!-- 		Inserisci Id Business Owner <input type="text" size="40" maxlength="40" name="id_utente" /> -->

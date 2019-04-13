@@ -31,6 +31,26 @@
 <%
 	int idAziendaCliente =  (int) session.getAttribute("idAziendaCliente");
 %>
+
+<script>
+
+function checkFilled() {
+	var inputVal = document.getElementsByClassName("subEmail");
+    //alert(inputVal);
+    for(var i = 0; i < inputVal.length; i++) {
+        
+         if (inputVal[i].value == "" || inputVal[i].value == "0") {
+          inputVal[i].style.backgroundColor = "";
+         }
+        else{
+           inputVal[i].style.backgroundColor = "yellow";
+         }
+     }
+    
+}
+ 
+checkFilled();
+</script>
 </head>
 <body>
 	<div class="pre_contenitore">
@@ -45,31 +65,31 @@
 
 		
 		<input type="hidden" name="id" value="<%=idAziendaCliente %>"/>
-		Luogo: <input type="text" size="40" maxlength="40" name="luogoMom" />
+		Luogo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="luogoMom" />
 		<br>
 		<br>
-		Data: <input type="text" size="40" maxlength="40" name="dataDelGiornoMom" />
+		Data: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="dataDelGiornoMom" />
 		<br>
 		<br>
-		Orario: <input type="text" size="40" maxlength="40" name="orarioMom" />
+		Orario: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="orarioMom" />
 		<br>
 		<br>
-		Oggetto: <input type="text" size="40" maxlength="40" name="oggettoMom" />
+		Oggetto: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="oggettoMom" />
 		<br>
 		<br>
-		Progetto: <input type="text" size="40" maxlength="40" name="progettoMom" />
+		Progetto: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="progettoMom" />
 		<br>
 		<br>
-		Partecipanti: <input type="text" size="40" maxlength="40" name="partecipantiMom" />
+		Partecipanti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="partecipantiMom" />
 		<br>
 		<br>
-		Agenda: <input type="text" size="400" maxlength="400" name="testoAgendaMom" />
+		Agenda: <input class="subEmail" onchange="checkFilled();" type="text" size="400" maxlength="400" name="testoAgendaMom" />
 		<br>
 		<br>
-		Azione: <input type="text" size="400" maxlength="400" name="testoAzioneMom" />
+		Azione: <input class="subEmail" onchange="checkFilled();" type="text" size="400" maxlength="400" name="testoAzioneMom" />
 		<br>
 		<br>
-		Note: <input type="text" size="400" maxlength="400" name="testoNoteMom" />
+		Note: <input class="subEmail" onchange="checkFilled();" type="text" size="400" maxlength="400" name="testoNoteMom" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">

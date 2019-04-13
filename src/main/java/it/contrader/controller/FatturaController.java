@@ -97,8 +97,8 @@ public class FatturaController {
 		String numeroFattura = request.getParameter("numeroFattura");
 		String descrizione = request.getParameter("descrizione");
 		double totaleImponibile = Double.parseDouble(request.getParameter("totaleImponibile"));
-		int percentualeAmmissibile = Integer.parseInt(request.getParameter("percentualeAmmissibile"));
-		double totaleAmmissibile = Double.parseDouble(request.getParameter("totaleAmmissibile"));
+		double percentualeAmmissibile = Double.parseDouble(request.getParameter("percentualeAmmissibile"));
+		double totaleAmmissibile = calcoloTotaleAmmissibile(totaleImponibile,percentualeAmmissibile);
 		int idDossier = (int) session.getAttribute("idDossier");
 		Dossier dossier = dossierService.getDossierById(idDossier);
 		int idFornitore = (int) session.getAttribute("idFornitore");
@@ -108,6 +108,12 @@ public class FatturaController {
 		fatturaService.updateFattura(fatturaObj);
 		visualFattura(request);
 		return "/fattura/manageFattura";
+	}
+	
+	private double calcoloTotaleAmmissibile (double var1, double var2){
+		double a;
+		a = var1*var2/(100);
+		return a;
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)

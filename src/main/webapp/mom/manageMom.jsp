@@ -68,9 +68,7 @@ body {
 			<th>Oggetto</th>
 			<th>Progetto</th>
 			<th>Partecipanti</th>
-			<th>Agenda</th>
-			<th>Azioni</th>
-			<th>Note</th>
+			
 		</tr>
 		
 		<%
@@ -86,9 +84,7 @@ body {
 			<td><%=mom.getOggettoMom()%></td>
 			<td><%=mom.getProgettoMom()%></td>
 			<td><%=mom.getPartecipantiMom()%></td>
-			<td><%=mom.getTestoAgendaMom()%></td>
-			<td><%=mom.getTestoAzioneMom()%></td>
-			<td><%=mom.getTestoNoteMom()%></td>
+		
 			
 			<td class="center"><a href="/MomController/read?readId=<%=mom.getIdMom()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
 			<td class="center"><a href="/MomController/updateRedirect?updateId=<%=mom.getIdMom()%>"><i class="fas fa-edit" title="Update"></i></a></td>

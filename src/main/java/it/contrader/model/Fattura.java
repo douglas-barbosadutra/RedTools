@@ -43,7 +43,7 @@ public class Fattura {
 	
 	@NotNull
 	@Column(name = "percentuale_ammissibile")
-	private int percentualeAmmissibile;
+	private double percentualeAmmissibile;
 	
 	@ManyToOne
 	@JoinColumn(name = "idDossier")

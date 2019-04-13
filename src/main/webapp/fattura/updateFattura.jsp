@@ -87,7 +87,7 @@ checkFilled();
 		Totale Imponibile: <input type="text" size="40" maxlength="40" name="totaleImponibile" value="<%=updateFattura.getTotaleImponibile()%>"/>
 		<br>
 		<br>
-		Percentuale Ammissibile: <input type="text" size="40" maxlength="40" name="percentualeAmmissibile" value="<%=updateFattura.getPercentualeAmmissibile()%>"/>
+		Percentuale Ammissibile (%): <input type="text" size="40" maxlength="40" name="percentualeAmmissibile" value="<%=updateFattura.getPercentualeAmmissibile()%>"/>
 		<br>
 		<br>
 		<input type="SUBMIT" value="Update">

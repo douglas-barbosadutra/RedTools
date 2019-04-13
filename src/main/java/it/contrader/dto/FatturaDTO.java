@@ -21,7 +21,7 @@ public class FatturaDTO {
 	
 	private double totaleImponibile;
 	
-	private int percentualeAmmissibile;
+	private double percentualeAmmissibile;
 	
 	private double totaleAmmissibile;
 	

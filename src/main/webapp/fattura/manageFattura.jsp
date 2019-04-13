@@ -49,7 +49,7 @@ body {
 
 	<div class="pre_contenitore">
 
-		<p>Fattura Management</p>
+		<p>Gestione Fattura</p>
 
 	</div>
 	<br>
@@ -60,9 +60,9 @@ body {
 
 	<table>
 		<tr>
-			<th>Id Fattura</th>
-			<th>Data Fattura/th>
-			<th>Numero Fattura/th>
+			<th>Id</th>
+			<th>Data</th>
+			<th>Numero Fattura</th>
 			<th>Descrizione</th>
 			<th>Totale Imponibile</th>
 			<th>Percentuale Ammissibile</th>
@@ -95,7 +95,7 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/FatturaController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Fattura</i></a>
+	<a href="/FatturaController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> Nuova Fattura</i></a>
 
 	<br>
 	<br>
