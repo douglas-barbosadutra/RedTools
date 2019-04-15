@@ -48,7 +48,7 @@ body {
 
 	<div class="pre_contenitore">
 
-		<p>Mom Management</p>
+		<p>Gestione MoM</p>
 
 	</div>
 	<br>
@@ -56,17 +56,15 @@ body {
 
 
 	<br />
-
+<div align="center">
 	<table>
 		<tr>
-			<th>Id Mom</th>
-			<th>Denominazione Azienda</th>
-			<th>Partita Iva</th>
+			<th>Id</th>
+			<th>Azienda</th>
 			<th>Luogo</th>
 			<th>Data</th>
-			<th>Orario</th>
 			<th>Oggetto</th>
-			<th>Progetto</th>
+			<th>Progetto di Rif.</th>
 			<th>Partecipanti</th>
 			
 		</tr>
@@ -77,7 +75,6 @@ body {
 		<tr>
 			<td><%=mom.getIdMom()%></td>
 			<td><%=mom.getAziendaCliente().getDenominazioneSocieta()%></td>
-			<td><%=mom.getAziendaCliente().getPartitaIva()%></td>
 			<td><%=mom.getLuogoMom()%></td>
 			<td><%=mom.getDataDelGiornoMom()%></td>
 			<td><%=mom.getOrarioMom()%></td>
@@ -102,7 +99,7 @@ body {
 	<br>
 	<br>
 	<a href="/AziendaClienteController/aziendaClienteManagement"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
-
+</div>
 
 </body>
 </html>

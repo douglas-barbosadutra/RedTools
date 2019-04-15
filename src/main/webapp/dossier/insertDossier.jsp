@@ -68,15 +68,15 @@ checkFilled();
 		
 		Anno Di Imposta: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="periodoDiImposta" value="0" >
 		<br>
-		<br>
-		Costo Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0" >
-		<br>
+<!-- 		<br> -->
+<!-- 		Costo Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="0" > -->
+<!-- 		<br> -->
 		<br>
 		Fatturato: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="0">
 		<br>
-		<br>
-		Numero Totale Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0" >
-		<br>
+<!-- 		<br> -->
+<!-- 		Numero Totale Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="0" > -->
+<!-- 		<br> -->
 		<br>
 		
 		<br>

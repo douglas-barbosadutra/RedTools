@@ -69,13 +69,13 @@ checkFilled();
 		
 		<br>
 		<br>
-		Costo Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="<%=updateDossier.getCostoDipendentiPeriodoDiImposta()%>">
+<%-- 		Costo Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoDipendentiPeriodoDiImposta" value="<%=updateDossier.getCostoDipendentiPeriodoDiImposta()%>"> --%>
 		<br>
 		<br>
 		fatturato: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="fatturatoPeriodoDiImposta" value="<%=updateDossier.getFatturatoPeriodoDiImposta()%>">
 		<br>
 		<br>
-		Numero Totale Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="<%=updateDossier.getNumeroTotaleDipendenti()%>">
+<%-- 		Numero Totale Dipendenti: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="numeroTotaleDipendenti" value="<%=updateDossier.getNumeroTotaleDipendenti()%>"> --%>
 		<br>
 		<br>
 

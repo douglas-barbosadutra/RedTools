@@ -65,11 +65,10 @@ body {
 		<tr>
 		    <th>Id</th>
 			<th>Anno Di Imposta</th>
-			<th>Costo Dipendenti</th>
+			<th>Costo dei Dipendenti</th>
 			<th>Fatturato</th>
 			<th>Numero Totale Dipendenti</th>
-		    <th>Denominazione Azienda Cliente</th>
-		    <th>Completamento</th>
+		    <th>Campi Dossier Completi</th>
 		   
 		    
 		
@@ -84,7 +83,6 @@ body {
 			<td><%=dossier.getCostoDipendentiPeriodoDiImposta()%></td>
 			<td><%=dossier.getFatturatoPeriodoDiImposta()%></td>
 			<td><%=dossier.getNumeroTotaleDipendenti()%></td>
-			<td><%=dossier.getAziendaClienteDTO().getDenominazioneSocieta()%></td>
 			<td><%=dossier.getFilledFields()%> on <%=Const.DOSSIER_NUMERO_CAMPI%></td>
 		
 			
@@ -94,9 +92,9 @@ body {
 		    <td class="center"><a href="/ImpiegatoController/impiegatoManagement?id=<%=dossier.getIdDossier()%>"><i class="fas fa-user-alt" title="Impiegato" style="color:black"></i></a></td>
 		    <td class="center"><a href="/FornitoreController/fornitoreManagement?id=<%=dossier.getIdDossier()%>"><i class="fas fa-truck-moving" title="Fornitori" style="color:black"></i></a></td>
 		    <td class="center"><a href="/DossierController/visualizzaCostiEsterni?id=<%=dossier.getIdDossier()%>"><i class="fas fa-money-check-alt" title="Costi Esterni" style="color:black"></i></a></td>
-		   <td class="center"><a href="/DossierController/readPratica?id=<%=dossier.getIdDossier()%>"><i class="fas fa-table" title="Visualizza Pratica" style="color:black"></i></a></td>
+		    <td class="center"><a href="/DossierController/readPratica?id=<%=dossier.getIdDossier()%>"><i class="fas fa-table" title="Visualizza Pratica" style="color:black"></i></a></td>
 			<td class="center"><a href="/DossierController/visualizzaDipendenti?id=<%=dossier.getIdDossier()%>"><i class="fas fa-address-card" title="Dettagli Dipendenti" style="color:black"></i></a></td>
-			 <td class="center"><a href="/DossierController/files/mod_docTables.xlsm?id=<%=dossier.getIdDossier()%>"><i class="far fa-file-excel" title="Excel" style="color:black"></i></a></td>
+			<td class="center"><a href="/DossierController/files/mod_docTables.xlsm?id=<%=dossier.getIdDossier()%>"><i class="far fa-file-excel" title="Excel" style="color:black"></i></a></td>
 		
              
 		</tr>

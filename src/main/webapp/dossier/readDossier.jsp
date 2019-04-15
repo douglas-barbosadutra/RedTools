@@ -1,7 +1,6 @@
 <%@ include file="../header.jsp"%>
 <%@page import="it.contrader.model.AziendaCliente"%>
 <%@ page import="javax.servlet.http.HttpSession"%>
-
 <%@ include file="/header.jsp"%>
 <html>
 <head>
@@ -52,11 +51,11 @@ body {
 
 <body>
 
-
+<div class="pre_contenitore">
 		
-			<h1>dossier N=<%=read.getIdDossier()%></h1>
+			<p>Dossier Numero <%=read.getIdDossier()%></p>
 
-		
+</div>
 		
 			<br>
 			<br>
@@ -87,7 +86,7 @@ body {
 			
 			<br>
 			<br>
-			<a href="/DossierController/dossierManagement?id=<%=idProgetto%>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/DossierController/dossierManagement?id=<%=idProgetto%>"><font color = "black"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></font></a>
 
 
 	

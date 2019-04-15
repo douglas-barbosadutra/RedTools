@@ -13,7 +13,7 @@ public class TotaleOreReDDTO {
 	
 	private int idTotaleOreReD;
 	
-	private int oreLavorateRed;
+	private double oreLavorateRed;
 	
 	private Dossier dossier;
 	

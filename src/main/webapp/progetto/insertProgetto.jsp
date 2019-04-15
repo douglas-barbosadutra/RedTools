@@ -50,10 +50,10 @@
 		
 		<br>
 		<br>
-		DettagliProgetto:<input type="text" size="40" maxlength="40" name="dettaglioProgetto" />
+		Dettagli Progetto:<input type="text" size="40" maxlength="40" name="dettaglioProgetto" />
 		<br>
 		<br>
-		CoordinateDIIN:<input type="text" size="40" maxlength="40" name="coordinateDIIN" />
+		Coordinate DIIN:<input type="text" size="40" maxlength="40" name="coordinateDIIN" />
 	    <br>
 		<br>
 		<input type="SUBMIT" value="Add">

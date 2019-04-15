@@ -36,7 +36,13 @@ public class ImpiegatoService {
 
 		return ConverterImpiegato.toDTO(impiegato);
 	}
+	
+	public Impiegato findImpiegatoByNominativo(String nominativo) {
 
+		final Impiegato impiegato = impiegatoRepository.findByNominativo(nominativo);
+
+		return impiegato;
+	}
 	public boolean insertImpiegato(ImpiegatoDTO impiegatoDTO) {
 		return impiegatoRepository.save(ConverterImpiegato.toEntity(impiegatoDTO)) != null;
 	}

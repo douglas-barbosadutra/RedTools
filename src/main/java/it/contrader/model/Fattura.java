@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,23 +24,23 @@ public class Fattura {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFattura;
 	
-	@NotNull
+	
 	@Column(name = "data_fattura")
 	private String dataFattura;
 	
-	@NotNull
+	
 	@Column(name = "numero_fattura")
 	private String numeroFattura;
 	
-	@NotNull
+	
 	@Column(name = "descrizione")
 	private String descrizione;
 	
-	@NotNull
+	
 	@Column(name = "totale_imponibile")
 	private double totaleImponibile;
 	
-	@NotNull
+	
 	@Column(name = "percentuale_ammissibile")
 	private double percentualeAmmissibile;
 	

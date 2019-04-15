@@ -2,12 +2,10 @@ package it.contrader.dto;
 
 import java.util.List;
 
-import javax.persistence.Column;
 
 import it.contrader.model.Dossier;
 import it.contrader.model.Mom;
 import it.contrader.model.Progetto;
-import it.contrader.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

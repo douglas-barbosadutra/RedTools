@@ -71,10 +71,6 @@ public class AziendaCliente {
 	
 	@OneToMany(mappedBy="aziendaCliente")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Dossier> dossier;
-	
-	@OneToMany(mappedBy="aziendaCliente")
-	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Mom> mom;
 	
 	@OneToMany(mappedBy="aziendaCliente")

@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -44,17 +43,27 @@ public class Impiegato {
 	@Column(name = "mansione")
 	private String mansione;
 	
-	@Column(name = "titolodiStudio")
+	@Column(name = "titolo_di_studio")
 	private String titoloDiStudio;
-	
-	@Column(name = "costo_orario")
-	private double costoOrario;
 	
 	@Column(name = "totale_ore_lavorate")
 	private int totaleOreLavorate;
 	
 	@Column(name = "costo_lordo_annuo")
 	private double costoLordoAnnuo;
+	
+	@Column(name = "perc_tot_red")
+	private double percTotRed;
+	
+	@Column(name = "costo_orario")
+	private double costoOrario;
+	
+	@Column(name = "totale_ore_red")
+	private double totaleOreRed;
+	
+	@Column(name = "totale_costi_red")
+	private double totaleCostiRed;
+	
 	
 	@OneToMany(mappedBy = "impiegato")
 	@OnDelete(action = OnDeleteAction.CASCADE)

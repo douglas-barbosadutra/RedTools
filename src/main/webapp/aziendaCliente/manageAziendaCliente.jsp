@@ -35,7 +35,7 @@ body {
 }
 
 .pre_contenitore p {
-	color: #9f00ff;;
+	color: black;
 	text-align: center;
 	font-size: 1.9em;
 	font-family: arial;

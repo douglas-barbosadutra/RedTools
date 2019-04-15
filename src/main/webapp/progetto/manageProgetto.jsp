@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gestione Utenti</title>
+<title>Gestione Progetti</title>
 <style>
 body {
 	background-image:
@@ -56,7 +56,7 @@ body {
 
 	<div class="pre_contenitore">
 
-		<p>Progetto Management</p>
+		<p>Gestione Progetti</p>
 
 	</div>
 	<br>
@@ -93,7 +93,7 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/ProgettoController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Progetto</i></a>
+	<a href="/ProgettoController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> Nuovo Progetto</i></a>
 
 	<br>
 	<br>

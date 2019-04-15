@@ -28,7 +28,7 @@ public class TotaleOreReD {
 	
 	@NotNull
 	@Column(name = "ore_lavorate_red")
-	private int oreLavorateRed;
+	private double oreLavorateRed;
 
 	@ManyToOne
 	@JoinColumn(name = "idDossier")

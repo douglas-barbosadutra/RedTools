@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -56,16 +55,16 @@ public class Dossier {
 	@Column(name = "totale_ammissibile")
 	private double totaleAmmissibile;
 	
-	@Column(name = "numero_fornitori")
+	@Column (name = "numero_fornitori")
 	private int numeroFornitori;
-	
-	@ManyToOne
-	@JoinColumn(name="id_azienda_cliente")
-	private AziendaCliente aziendaCliente;
 	
 	@ManyToOne
 	@JoinColumn(name="idProgetto")
 	private Progetto progetto;
+	
+	@OneToMany(mappedBy= "dossier")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Fornitore> fornitore;
 	
 	@OneToMany(mappedBy="dossier")
 	@OnDelete(action=OnDeleteAction.CASCADE)

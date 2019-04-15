@@ -21,7 +21,7 @@ body {
 <style>
 
 .pre_contenitore {
-	width: 320px;
+	width: 680px;
 	margin: auto;
 	height: 50px;
 	border: 1px solid black;
@@ -43,13 +43,14 @@ body {
 <%
 	List<ImpiegatoDTO> allImpiegato = (List<ImpiegatoDTO>) request.getAttribute("allImpiegatoDTO");
 	int idProgetto =  (int) session.getAttribute("idProgetto");
+	String nome = (String) request.getAttribute("nomeAziendaCliente");
 %>
 </head>
 <body>
 
 	<div class="pre_contenitore">
 
-		<p>Impiegato Management</p>
+		<p>Gestione Impiegati <%=nome%></p>
 
 	</div>
 	<br>
@@ -60,16 +61,19 @@ body {
 
 	<table>
 		<tr>
-			<th>Id Impiegato</th>
+			<th>Id</th>
 			<th>Nominativo</th>
-			<th>Azienda Cliente</th>
 			<th>Livello</th>
 			<th>Qualifica</th>
 			<th>Mansione</th>
 			<th>Titolo di studio</th>
-			<th>Costo Orario</th>
 			<th>Totale ore lavorate</th>
 			<th>Costo Lordo Annuo</th>
+			<th>%totale di lavoro in R&D</th>
+			<th>Costo Orario</th>
+			<th>Totale ore lavorate in R&D</th>
+			<th>Costo totale dell'impiegato in R&D</th>
+		
 		</tr>
 		
 		<%
@@ -78,14 +82,16 @@ body {
 		<tr>
 			<td><%=impiegato.getIdNome()%></td>
 			<td><%=impiegato.getNominativo()%></td>
-			<td><%=impiegato.getAziendaCliente().getDenominazioneSocieta()%></td>
 			<td><%=impiegato.getLivello()%></td>
 			<td><%=impiegato.getQualifica()%></td>
 			<td><%=impiegato.getMansione()%></td>
 			<td><%=impiegato.getTitoloDiStudio()%></td>
-			<td><%=impiegato.getCostoOrario()%></td>
 			<td><%=impiegato.getTotaleOreLavorate()%></td>
 			<td><%=impiegato.getCostoLordoAnnuo()%></td>
+			<td><%=impiegato.getPercTotRed()%></td>
+			<td><%=impiegato.getCostoOrario()%></td>
+			<td><%=impiegato.getTotaleOreRed()%></td>
+			<td><%=impiegato.getTotaleCostiRed()%></td>
 			
 			<td class="center"><a href="/ImpiegatoController/read?readId=<%=impiegato.getIdNome()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
 			<td class="center"><a href="/ImpiegatoController/updateRedirect?updateId=<%=impiegato.getIdNome()%>"><i class="fas fa-edit" title="Update"></i></a></td>
@@ -99,7 +105,7 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/ImpiegatoController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Impiegato</i></a>
+	<a href="/ImpiegatoController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> Nuovo Impiegato</i></a>
 
 	<br>
 	<br>

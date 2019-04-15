@@ -55,7 +55,7 @@ checkFilled();
 <body>
 	<div class="pre_contenitore">
 
-		<p>New Impiegato</p>
+		<p>Nuovo Impiegato</p>
 
 	</div>
 
@@ -67,7 +67,7 @@ checkFilled();
 		Nominativo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="nominativo" />
 		<br>
 		<br>
-		Livello: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="livello" />
+		Livello: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="livello" value="0"/>
 		<br>
 		<br>
 		Qualifica: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="qualifica" />
@@ -79,13 +79,13 @@ checkFilled();
 		Titolo di studio: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="titoloDiStudio" />
 		<br>
 		<br>
-		Costo orario: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoOrario" />
+		Totale ore lavorate: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="totaleOreLavorate" value="0"/>
 		<br>
 		<br>
-		Totale ore lavorate: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="totaleOreLavorate" />
+		Costo Lordo Annuo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoLordoAnnuo" value="0" />
 		<br>
 		<br>
-		Costo Lordo Annuo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoLordoAnnuo" />
+		Percentuale di Lavoro in R&D (%) <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="percTotRed" value="0" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Add">

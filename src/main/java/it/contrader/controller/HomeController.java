@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.contrader.dto.DossierDTO;
 import it.contrader.dto.UserDTO;
-import it.contrader.services.DossierService;
 import it.contrader.services.UserService;
 
 @Controller

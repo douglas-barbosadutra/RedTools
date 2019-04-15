@@ -19,9 +19,12 @@ public class ConverterImpiegato {
 			impiegatoDTO.setQualifica(impiegato.getQualifica());
 			impiegatoDTO.setMansione(impiegato.getMansione());
 			impiegatoDTO.setTitoloDiStudio(impiegato.getTitoloDiStudio());
-			impiegatoDTO.setCostoOrario(impiegato.getCostoOrario());
 			impiegatoDTO.setTotaleOreLavorate(impiegato.getTotaleOreLavorate());
 			impiegatoDTO.setCostoLordoAnnuo(impiegato.getCostoLordoAnnuo());
+			impiegatoDTO.setPercTotRed(impiegato.getPercTotRed());
+			impiegatoDTO.setCostoOrario(impiegato.getCostoOrario());
+			impiegatoDTO.setTotaleOreRed(impiegato.getTotaleOreRed());
+			impiegatoDTO.setTotaleCostiRed(impiegato.getTotaleCostiRed());
 			impiegatoDTO.setAziendaCliente(impiegato.getAziendaCliente());
 			
 			}
@@ -38,9 +41,12 @@ public class ConverterImpiegato {
 			impiegato.setQualifica(impiegatoDTO.getQualifica());
 			impiegato.setMansione(impiegatoDTO.getMansione());
 			impiegato.setTitoloDiStudio(impiegatoDTO.getTitoloDiStudio());
-			impiegato.setCostoOrario(impiegatoDTO.getCostoOrario());
 			impiegato.setTotaleOreLavorate(impiegatoDTO.getTotaleOreLavorate());
 			impiegato.setCostoLordoAnnuo(impiegatoDTO.getCostoLordoAnnuo());
+			impiegato.setPercTotRed(impiegatoDTO.getPercTotRed());
+			impiegato.setCostoOrario(impiegatoDTO.getCostoOrario());
+			impiegato.setTotaleOreRed(impiegatoDTO.getTotaleOreRed());
+			impiegato.setTotaleCostiRed(impiegatoDTO.getTotaleCostiRed());
 			impiegato.setAziendaCliente(impiegatoDTO.getAziendaCliente());
 			}
 		return impiegato;
@@ -66,22 +72,6 @@ public class ConverterImpiegato {
 		}
 		return list;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

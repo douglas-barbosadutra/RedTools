@@ -22,11 +22,17 @@ public class ImpiegatoDTO {
 	
 	private String titoloDiStudio;
 	
-	private double costoOrario;
-	
 	private int totaleOreLavorate;
 	
 	private double costoLordoAnnuo;
+	
+	private double percTotRed;
+	
+	private double costoOrario;
+	
+	private double totaleOreRed;
+	
+	private double totaleCostiRed;
 	
 	private AziendaCliente aziendaCliente;
 	

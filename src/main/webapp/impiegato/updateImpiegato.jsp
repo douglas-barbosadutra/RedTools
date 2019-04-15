@@ -67,28 +67,28 @@ checkFilled();
 		<input type="hidden" name="idImpiegato" value="<%=updateImpiegato.getIdNome()%>">
 		<br>
 		<br>
-		Nominativo: <input type="text" size="40" maxlength="40" name="nominativo" value="<%=updateImpiegato.getNominativo()%>""/>
+		Nominativo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="nominativo" value="<%=updateImpiegato.getNominativo()%>""/>
 		<br>
 		<br>
-		Livello: <input type="text" size="40" maxlength="40" name="livello" value="<%=updateImpiegato.getLivello()%>"/>
+		Livello: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="livello" value="<%=updateImpiegato.getLivello()%>"/>
 		<br>
 		<br>
-		Qualifica: <input type="text" size="40" maxlength="40" name="qualifica" value="<%=updateImpiegato.getQualifica()%>"/>
+		Qualifica: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="qualifica" value="<%=updateImpiegato.getQualifica()%>"/>
 		<br>
 		<br>
-		Mansione: <input type="text" size="40" maxlength="40" name="mansione" value="<%=updateImpiegato.getMansione()%>"/>
+		Mansione: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="mansione" value="<%=updateImpiegato.getMansione()%>"/>
 		<br>
 		<br>
-		Titolo di studio: <input type="text" size="40" maxlength="40" name="titoloDiStudio" value="<%=updateImpiegato.getTitoloDiStudio()%>"/>
+		Titolo di studio: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="titoloDiStudio" value="<%=updateImpiegato.getTitoloDiStudio()%>"/>
 		<br>
 		<br>
-		Costo orario: <input type="text" size="40" maxlength="40" name="costoOrario" value="<%=updateImpiegato.getCostoOrario()%>"/>
+		Totale ore lavorate: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="totaleOreLavorate" value="<%=updateImpiegato.getTotaleOreLavorate()%>"/>
 		<br>
 		<br>
-		Totale ore lavorate: <input type="text" size="40" maxlength="40" name="totaleOreLavorate" value="<%=updateImpiegato.getTotaleOreLavorate()%>"/>
+		Costo Lordo Annuo: <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="costoLordoAnnuo" value="<%=updateImpiegato.getCostoLordoAnnuo()%>"/>
 		<br>
 		<br>
-		Costo Lordo Annuo: <input type="text" size="40" maxlength="40" name="costoLordoAnnuo" value="<%=updateImpiegato.getCostoLordoAnnuo()%>"/>
+		Percentuale di Lavoro in R&D (%) <input class="subEmail" onchange="checkFilled();" type="text" size="40" maxlength="40" name="percTotRed" value="<%=updateImpiegato.getPercTotRed()%>" />
 		<br>
 		<br>
 		<input type="SUBMIT" value="Update">

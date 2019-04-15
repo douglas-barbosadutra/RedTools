@@ -43,7 +43,7 @@ td{
   height: 25px;
 }
 </style>
-</head>
+
 <%
      AziendaClienteDTO readAziendaCliente = (AziendaClienteDTO) request.getAttribute("ReadAziendaCliente");
      DossierDTO readDossierDTO  = (DossierDTO) request.getAttribute("ReadDossierDTO");
@@ -51,13 +51,15 @@ td{
      int idProgetto = (int) progetto.getIdProgetto();
 	
 %>
-
+</head>
 <body>
 
 <center>
 <table >
   
-  <tr><td colspan=2, bgcolor="#c0c0c0"><font color = "black"><b>PRATICA<b></font></td></tr>
+  <tr> 
+  <td colspan=2, bgcolor="#c0c0c0"><font color = "black"><b>PRATICA</b></font></td>
+  </tr>
   
   <tr>
      <th>Anagrafica</th>
@@ -78,78 +80,96 @@ td{
     <td>Indirizzo sede legale</td>
     <td><%=readAziendaCliente.getSedeLegale()%></td>
   </tr>
+  
   <tr>
     <td>p.IVA</td>
     <td><%=readAziendaCliente.getPartitaIva()%></td>
   </tr>
+  
   <tr>
     <td>Telefono</td>
     <td><%=readAziendaCliente.getTelefono()%></td>
   </tr>
+  
   <tr>
     <td>Mail</td>
     <td><%=readAziendaCliente.getEmail()%></td>
   </tr>
+  
   <tr>
     <td>indirizzo unità locale</td>
     <td><%=readAziendaCliente.getIndirizzoUnitaLocale()%></td>
   </tr>
+  
   <tr>
     <td>Attività svolta dall'impresa</td>
     <td><%=readAziendaCliente.getAttivitaAzienda()%></td>
   </tr>
+  
   <tr>
     <td>Legale rappresentante</td>
     <td><%=readAziendaCliente.getLegaleRappresentante()%></td>
   </tr>
+  
   <tr>
     <td>nato il</td>
     <td><%=readAziendaCliente.getNatoIl()%></td>
   </tr>
+  
   <tr>
     <td>nato a</td>
     <td><%=readAziendaCliente.getNatoA()%></td>
   </tr>
+  
   <tr>
-    <td>Costi personale</td>
+    <td>Costi Totali personale</td>
     <td><%=readDossierDTO.getCostoDipendentiPeriodoDiImposta()%></td>
   </tr>
+  
   <tr>
-    <td>Fatturato</td>
+    <td>Fatturato Aziendale</td>
     <td><%=readDossierDTO.getFatturatoPeriodoDiImposta() %></td>
   </tr>
+  
   <tr>
     <td>Numero Dipendenti</td>
     <td><%=readDossierDTO.getNumeroTotaleDipendenti() %></td>
   </tr>
   
   <tr>
-    <td>Costi totali R&S</td>
+    <td>Totale Costi Esterni</td>
     <td><%=readDossierDTO.getTotaleCostiReD()%></td>
   </tr>
+  
   <tr>
-    <td>Costi personale R&S</td>
+    <td>Costi personale R&D</td>
     <td><%=readDossierDTO.getCostiPersonaleReD()%></td>
   </tr>
-  <tr>
+ 
   <tr>
      <th>Progetto ricerca</th>
     <th>Dati inseriti</th>
   </tr>
-    <td>Titoli Progetti R&S</td>
+  
+  <tr>
+    <td>Titolo Progetto R&D</td>
     <td><%=progetto.getTitoloProgetto() %></td>
   </tr>
+  
   <tr>
-    <td>Dettagli Progetti R&S</td>
+    <td>Dettaglio Progetto R&D</td>
     <td><%=progetto.getDettagliProgetto() %></td>
   </tr>
+  
   <tr>
     <td>coordinate DIIN</td>
     <td><%=progetto.getCoordinateDIIN() %></td>
   </tr>
+  
 </table>
 </center>
 <br>
 	<br>
 <a href="dossierManagement?id=<%=idProgetto %>"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 </body>
+</html>

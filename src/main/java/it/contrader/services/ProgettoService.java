@@ -10,8 +10,6 @@ import it.contrader.converter.ConverterProgetto;
 import it.contrader.dao.ProgettoRepository;
 import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.AziendaCliente;
-import it.contrader.model.Dossier;
-import it.contrader.model.Mom;
 import it.contrader.model.Progetto;
 
 

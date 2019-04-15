@@ -2,7 +2,6 @@ package it.contrader.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +23,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,7 +38,6 @@ import it.contrader.model.Progetto;
 import it.contrader.services.AziendaClienteService;
 import it.contrader.services.DossierService;
 import it.contrader.services.FatturaService;
-import it.contrader.services.ImpiegatoService;
 import it.contrader.services.ProgettoService;
 import it.contrader.services.TotaleOreReDService;
 import it.contrader.utils.GestoreEccezioni;
@@ -49,23 +48,20 @@ import it.contrader.utils.GestoreEccezioni;
 @RequestMapping("/DossierController")
 public class DossierController {
 	
-	//private static final AziendaCliente AziendaCliente = null;
 	private final DossierService dossierService;
 	private final AziendaClienteService aziendaClienteService;
 	private final ProgettoService progettoService;
 	private final FatturaService fatturaService;
-	private final ImpiegatoService impiegatoService;
 	private final TotaleOreReDService totaleOreReDService;
 	private HttpSession session;
 	
 	@Autowired
 	public DossierController(DossierService dossierService, AziendaClienteService aziendaClienteService,
-			ProgettoService progettoService, FatturaService fatturaService, ImpiegatoService impiegatoService, TotaleOreReDService totaleOreReDService) {
+			ProgettoService progettoService, FatturaService fatturaService, TotaleOreReDService totaleOreReDService) {
 		this.dossierService = dossierService;
 		this.aziendaClienteService = aziendaClienteService;
 		this.progettoService = progettoService;
 		this.fatturaService = fatturaService;
-		this.impiegatoService = impiegatoService;
 		this.totaleOreReDService = totaleOreReDService;
 	}
 	
@@ -91,16 +87,12 @@ public class DossierController {
 		String periodoDiImposta = request.getParameter("periodoDiImposta");
 		double costoDipendentiPeriodoDiImposta = 0;
 		double fatturatoPeriodoDiImposta = Double.parseDouble(request.getParameter("fatturatoPeriodoDiImposta"));
-		int numeroTotaleDipendenti = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
+//		int numeroTotaleDipendenti = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
 		
 		int idProgetto = (int) session.getAttribute("idProgetto");
 		ProgettoDTO progetto = progettoService.findProgettoDTOById(idProgetto);
 		
-		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
-		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
-		
-
-		DossierDTO dossierObj = new DossierDTO(0, periodoDiImposta, costoDipendentiPeriodoDiImposta, fatturatoPeriodoDiImposta, numeroTotaleDipendenti, 0, 0, 0, 0, aziendaClienteDTO, progetto, 0);
+		DossierDTO dossierObj = new DossierDTO(0, periodoDiImposta, costoDipendentiPeriodoDiImposta, fatturatoPeriodoDiImposta, 0, 0, 0, 0, 0, progetto, 0);
 		
 		dossierService.insertDossier(dossierObj);
 
@@ -125,18 +117,18 @@ public class DossierController {
 		
 		Integer idDossierUpdate = Integer.parseInt(request.getParameter("dossierId"));
 		String periodoDiImpostaUpdate = request.getParameter("periodoDiImposta");
-		double costoDipendentiPeriodoDiImpostaUpdate = Double.parseDouble(request.getParameter("costoDipendentiPeriodoDiImposta"));
+//		double costoDipendentiPeriodoDiImpostaUpdate = Double.parseDouble(request.getParameter("costoDipendentiPeriodoDiImposta"));
 		double fatturatoPeriodoDiImpostaUpdate = Double.parseDouble(request.getParameter("fatturatoPeriodoDiImposta"));
-		int numeroTotaleDipendentiUpdate = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
+//		int numeroTotaleDipendentiUpdate = Integer.parseInt(request.getParameter("numeroTotaleDipendenti"));
 		
 		int idProgetto = (int) session.getAttribute("idProgetto");
 		ProgettoDTO progetto = progettoService.findProgettoDTOById(idProgetto);
 		
-		int idAziendaCliente = (int) session.getAttribute("idAziendaCliente");
-		AziendaClienteDTO aziendaCliente = aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente);
-		
-		DossierDTO dossierObj = new DossierDTO(idDossierUpdate, periodoDiImpostaUpdate, costoDipendentiPeriodoDiImpostaUpdate, fatturatoPeriodoDiImpostaUpdate, numeroTotaleDipendentiUpdate, 0, 0, 0, 0, aziendaCliente, progetto, 0);
-		dossierService.updateDossier(dossierObj);
+		DossierDTO doss = this.dossierService.getDossierDTOById(idDossierUpdate);
+//		DossierDTO dossierObj = new DossierDTO(idDossierUpdate, periodoDiImpostaUpdate, costoDipendentiPeriodoDiImpostaUpdate, fatturatoPeriodoDiImpostaUpdate, numeroTotaleDipendentiUpdate, 0, 0, 0, 0, progetto, 0);
+		doss.setPeriodoDiImposta(periodoDiImpostaUpdate);
+		doss.setFatturatoPeriodoDiImposta(fatturatoPeriodoDiImpostaUpdate);
+		dossierService.updateDossier(doss);
 		visualDossier(request);
 		return "/dossier/manageDossier";
 	}
@@ -166,7 +158,7 @@ public class DossierController {
 	public void getFile(
 	    @PathVariable("file_name") String fileName, 
 	    HttpServletResponse response, HttpServletRequest request) {
-		String path="C:\\Users\\Contrader\\Desktop\\Contrader\\RedToolSpring\\src\\main\\resources\\files\\";
+//		String path="C:\\Users\\Contrader\\Desktop\\CONTRADER\\RedToolSpring\\RedTools\\src\\main\\resources\\files\\";
 		int idProgetto = (int) session.getAttribute("idProgetto");
 		Progetto progetto = progettoService.getProgettoById(idProgetto);
 		
@@ -181,10 +173,11 @@ public class DossierController {
 		
 		
 		try {
-
+			File sourceFile = ResourceUtils.getFile("classpath:files\\docTables.xlsm");
+			InputStream sourceIs = new FileInputStream(sourceFile);
 		    Workbook workbook;
 		    workbook = new XSSFWorkbook(
-		        OPCPackage.open(path+"docTables.xlsm")
+		        OPCPackage.open(sourceIs)
 		    );
 
 		    //DO STUF WITH WORKBOOK
@@ -249,7 +242,7 @@ public class DossierController {
 			    cell2Update = sheet.getRow(i).getCell(6);
 			    cell2Update.setCellValue(fattura.getTotaleImponibile());
 			    cell2Update = sheet.getRow(i).getCell(7);
-			    cell2Update.setCellValue(fattura.getPercentualeAmmissibile());
+			    cell2Update.setCellValue((fattura.getPercentualeAmmissibile())/100);
 			    cell2Update = sheet.getRow(i).getCell(8);
 			    cell2Update.setCellValue(fattura.getTotaleAmmissibile());
 			    i++; 
@@ -269,7 +262,8 @@ public class DossierController {
 		    i=3;
 			for (TotaleOreReDDTO totaleOreReD : allTotaleOreReDDTO) {
 				
-				
+				cell2Update = sheet.getRow(i).getCell(5);
+			    cell2Update.setCellValue((totaleOreReD.getImpiegato().getPercTotRed())/100);
 				cell2Update = sheet.getRow(i).getCell(12);
 			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getNominativo());
 			    cell2Update = sheet.getRow(i).getCell(13);
@@ -292,23 +286,19 @@ public class DossierController {
 			    cell2Update.setCellValue(totaleOreReD.getImpiegato().getCostoLordoAnnuo());
 				i++;
 			}
-			    FileOutputStream out = new FileOutputStream(new File(path+fileName));
+			File resultFile = ResourceUtils.getFile("classpath:files\\" + fileName);
+			
+			FileOutputStream out = new FileOutputStream(resultFile);
 		    workbook.write(out);
 		    out.close();
 		    System.out.println("xlsm created successfully..");
 
-		} catch (FileNotFoundException e) {
-		    e.printStackTrace();
-		} catch (InvalidFormatException e) {
-		    e.printStackTrace();
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
+		
 		
 		// file download 
-	    try {
+	   
 	      // get your file as InputStream
-	      InputStream is = new FileInputStream(path+fileName);
+	      InputStream is = new FileInputStream(resultFile);
 	      // copy it to response's OutputStream
 	      
 	      String type = "vnd.ms-excel";
@@ -318,7 +308,9 @@ public class DossierController {
 	      response.flushBuffer();
 	    } catch (IOException ex) {
 	    	GestoreEccezioni.getInstance().gestisciEccezione(ex);
-	    }
+		} catch (InvalidFormatException e) {
+		    e.printStackTrace();
+		}
 
 	}	
 	@RequestMapping(value = "/visualizzaCostiEsterni", method = RequestMethod.GET)
@@ -346,6 +338,7 @@ public class DossierController {
 		Dossier dossier = this.dossierService.getDossierById(idDossier);
 		List<TotaleOreReDDTO> allTotaleOreReDDTO = this.totaleOreReDService.findTotaleOreReDDTOByDossier(dossier);
 		List<TotaleOreReDDTO> lista = sommaOreReDDTO(allTotaleOreReDDTO, idDossier);
+		
 		List<FatturaDTO> allFattura = this.fatturaService.findFatturaDTOByDossier(dossier);
 		List<FatturaDTO> lista2 = calcoloTotaleAmmissibileDTO(allFattura, idDossier);
 		

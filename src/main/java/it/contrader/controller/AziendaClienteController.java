@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.services.AziendaClienteService;
-import it.contrader.services.UserService;
 
 
 @Controller
@@ -71,8 +70,6 @@ public class AziendaClienteController {
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		session = request.getSession();
-		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
-		int idBO = userDTO.getIdUser();
 		visualAziendaCliente(request);
 		request.setAttribute("option", "insert");
 		return "/aziendaCliente/insertAziendaCliente";

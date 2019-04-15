@@ -76,9 +76,9 @@ body {
 			<td><%=totaleOreReD.getDossier().getPeriodoDiImposta()%></td>
 			<td><%=totaleOreReD.getImpiegato().getNominativo()%></td>
 			
-			<td class="center"><a href="/TotaleOreReDController/read?readId=<%=totaleOreReD.getIdTotaleOreReD()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td>
-			<td class="center"><a href="/TotaleOreReDController/updateRedirect?updateId=<%=totaleOreReD.getIdTotaleOreReD()%>"><i class="fas fa-edit" title="Update"></i></a></td>
-			<td class="center"><a href="/TotaleOreReDController/delete?deleteId=<%=totaleOreReD.getIdTotaleOreReD()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
+<%-- 			<td class="center"><a href="/TotaleOreReDController/read?readId=<%=totaleOreReD.getIdTotaleOreReD()%>"><i class="fas fa-eye" title="Leggi dettagli" style="color:black"></i></a></td> --%>
+<%-- 			<td class="center"><a href="/TotaleOreReDController/updateRedirect?updateId=<%=totaleOreReD.getIdTotaleOreReD()%>"><i class="fas fa-edit" title="Update"></i></a></td> --%>
+<%-- 			<td class="center"><a href="/TotaleOreReDController/delete?deleteId=<%=totaleOreReD.getIdTotaleOreReD()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td> --%>
 
 		</tr>
 		<%
@@ -86,8 +86,8 @@ body {
 		%>
 	</table>
 	<br>
-	<br>
-	<a href="/TotaleOreReDController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> New TotaleOreReD</i></a>
+<!-- 	<br> -->
+<!-- 	<a href="/TotaleOreReDController/insertRedirect"><i class="fas fa-plus-circle fa-lg"> New TotaleOreReD</i></a> -->
 
 	<br>
 	<br>

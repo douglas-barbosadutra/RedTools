@@ -26,7 +26,6 @@ public class ConverterDossier {
 			dossier.setCostiPersonaleReD(dossierDTO.getCostiPersonaleReD());
 			dossier.setTotaleAmmissibile(dossierDTO.getTotaleAmmissibile());
 			dossier.setNumeroFornitori(dossierDTO.getNumeroFornitori());
-			dossier.setAziendaCliente(ConverterAziendaCliente.toEntity(dossierDTO.getAziendaClienteDTO()));
 			dossier.setProgetto(ConverterProgetto.toEntity(dossierDTO.getProgettoDTO()));
 		}
 
@@ -49,7 +48,6 @@ public class ConverterDossier {
 				dossierDTO.setCostiPersonaleReD(dossier.getCostiPersonaleReD());
 				dossierDTO.setTotaleAmmissibile(dossier.getTotaleAmmissibile());
 				dossierDTO.setNumeroFornitori(dossier.getNumeroFornitori());
-				dossierDTO.setAziendaClienteDTO(ConverterAziendaCliente.toDTO(dossier.getAziendaCliente()));
 				dossierDTO.setProgettoDTO(ConverterProgetto.toDTO(dossier.getProgetto()));
 				//dossierDTO.setFilledFields(dossierDTO.getFilledFields());
 			}
