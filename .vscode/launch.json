@@ -2,15 +2,31 @@
 // Hover to view descriptions of existing attributes.
 // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Launch Chrome RedTools (5) on Angular CLI Server",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:4200/#",
-      "webRoot": "${workspaceFolder}",
-      "port": 9246
-    }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome RedTools (5) on Angular CLI Server",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}",
+            "port": 9246
+        },
+        {
+            "name": "Launch Chrome RedTools (5) on Angular CLI Server (1)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}",
+            "port": 9248
+        },
+        {
+            "name": "Launch Chrome RedTools (5) on Angular CLI Server (2)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}",
+            "port": 9281
+        }
+    ]
 }
