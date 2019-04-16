@@ -9,18 +9,15 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { UserManagementComponent } from './components/user/user-management/user-management.component';
 import { UserInsertComponent } from './components/user/user-insert/user-insert.component';
-import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 const routes: Routes = [
 
 { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'homeAdmin', component: HomeAdminComponent },
-    { path: 'homeBO', component: HomeBoComponent },
 
 /** User */
     { path: 'User/userManagement', component: UserManagementComponent },
     { path: 'User/insert', component: UserInsertComponent },
-    { path: 'User/update/:userId', component: UserUpdateComponent },
 
 ];
 @NgModule({

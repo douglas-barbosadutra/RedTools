@@ -11,7 +11,6 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 /** User */
 import { UserManagementComponent } from './components/user/user-management/user-management.component';
-import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { UserInsertComponent } from './components/user/user-insert/user-insert.component';
 /** Services */
 import { LoginService } from './services/login.service';
@@ -21,7 +20,6 @@ import { LoginService } from './services/login.service';
     LoginComponent,
     HomeAdminComponent,
      UserManagementComponent,
-     UserUpdateComponent,
      UserInsertComponent,
   ],
   imports: [
