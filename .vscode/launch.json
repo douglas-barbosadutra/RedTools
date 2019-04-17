@@ -4,6 +4,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Launch Chrome RedTools (5) on Angular CLI Server",
             "type": "chrome",
@@ -35,6 +36,20 @@
             "url": "http://localhost:4200/#",
             "webRoot": "${workspaceFolder}",
             "port": 9247
-        }
-    ]
+        }    
+,{
+  "name": "Launch Chrome RedTools (5) on Angular CLI Server (4)",
+  "type": "chrome",
+  "request": "launch",
+  "url": "http://localhost:4200/#",
+  "webRoot": "${workspaceFolder}",
+  "port": 9296}
+,{
+  "name": "Launch Chrome RedTools (5) on Angular CLI Server (5)",
+  "type": "chrome",
+  "request": "launch",
+  "url": "http://localhost:4200/#",
+  "webRoot": "${workspaceFolder}",
+  "port": 9284
+}]
 }
