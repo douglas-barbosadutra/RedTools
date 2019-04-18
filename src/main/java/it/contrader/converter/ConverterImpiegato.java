@@ -23,7 +23,7 @@ public class ConverterImpiegato {
 			impiegatoDTO.setCostoLordoAnnuo(impiegato.getCostoLordoAnnuo());
 			impiegatoDTO.setPercTotRed(impiegato.getPercTotRed());
 			impiegatoDTO.setCostoOrario(impiegato.getCostoOrario());
-			impiegatoDTO.setTotaleOreRed(impiegato.getTotaleOreRed());
+//			impiegatoDTO.setTotaleOreRed(impiegato.getTotaleOreRed());
 			impiegatoDTO.setTotaleCostiRed(impiegato.getTotaleCostiRed());
 			impiegatoDTO.setAziendaCliente(impiegato.getAziendaCliente());
 			
@@ -45,7 +45,7 @@ public class ConverterImpiegato {
 			impiegato.setCostoLordoAnnuo(impiegatoDTO.getCostoLordoAnnuo());
 			impiegato.setPercTotRed(impiegatoDTO.getPercTotRed());
 			impiegato.setCostoOrario(impiegatoDTO.getCostoOrario());
-			impiegato.setTotaleOreRed(impiegatoDTO.getTotaleOreRed());
+//			impiegato.setTotaleOreRed(impiegatoDTO.getTotaleOreRed());
 			impiegato.setTotaleCostiRed(impiegatoDTO.getTotaleCostiRed());
 			impiegato.setAziendaCliente(impiegatoDTO.getAziendaCliente());
 			}

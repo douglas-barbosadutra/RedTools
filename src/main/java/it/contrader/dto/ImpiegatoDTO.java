@@ -30,8 +30,8 @@ public class ImpiegatoDTO {
 	
 	private double costoOrario;
 	
-	private double totaleOreRed;
-	
+//	private double totaleOreRed;
+//	
 	private double totaleCostiRed;
 	
 	private AziendaCliente aziendaCliente;

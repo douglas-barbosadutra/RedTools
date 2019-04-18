@@ -58,8 +58,8 @@ public class Impiegato {
 	@Column(name = "costo_orario")
 	private double costoOrario;
 	
-	@Column(name = "totale_ore_red")
-	private double totaleOreRed;
+//	@Column(name = "totale_ore_red")
+//	private double totaleOreRed;
 	
 	@Column(name = "totale_costi_red")
 	private double totaleCostiRed;
