@@ -1,0 +1,15 @@
+<table>
+    <caption>Utenti</caption>
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Tipo</th>
+    </tr>
+    
+<tr *ngFor="let user of utenti">
+    <td>{{user.username | json}}</td>
+    <td>{{user.password | json}}</td>
+    <td>{{user.tipo | json}}</td>
+</tr>
+
+ </table>

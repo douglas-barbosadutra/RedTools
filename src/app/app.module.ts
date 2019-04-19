@@ -12,22 +12,26 @@ import { HomeAdminComponent } from './components/home-admin/home-admin.component
 /** User */
 import { UserManagementComponent } from './components/user/user-management/user-management.component';
 import { UserInsertComponent } from './components/user/user-insert/user-insert.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update.component';
+
 /** Services */
 import { LoginService } from './services/login.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeAdminComponent,
-     UserManagementComponent,
-     UserInsertComponent,
+    UserManagementComponent,
+    UserInsertComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,
-        FormsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        ReactiveFormsModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
       LoginService,
