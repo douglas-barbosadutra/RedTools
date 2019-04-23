@@ -40,7 +40,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
-	public List<UserDTO> userManagement(HttpServletRequest request) {
+	public List<UserDTO> userManagement() {
 		return this.userService.getListaUserDTO();		
 	}
 	
@@ -51,9 +51,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public UserDTO read(@RequestParam(value = "userId") int id) {
-		UserDTO readUser = new UserDTO();
-		readUser = this.userService.getUserDTOById(id);
-		return readUser;
+		return this.userService.getUserDTOById(id);
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
