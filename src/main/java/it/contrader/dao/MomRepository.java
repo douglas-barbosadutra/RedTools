@@ -13,6 +13,4 @@ public interface MomRepository extends JpaRepository<Mom, Integer> {
 	public List<Mom> findAllByLuogoMom(String luogoMom);
 	public List<Mom> findAllByDataDelGiornoMom(String dataDelGiornoMom);
 	public List<Mom> findAllByAziendaCliente(AziendaCliente aziendaCliente);
-	
-
 }

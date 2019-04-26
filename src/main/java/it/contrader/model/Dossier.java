@@ -52,30 +52,16 @@ public class Dossier {
 	@Column(name = "costi_personale_red")
 	private double costiPersonaleReD;
 	
-	@Column(name = "totale_ammissibile")
-	private double totaleAmmissibile;
-	
-	@Column (name = "numero_fornitori")
-	private int numeroFornitori;
-	
 	@ManyToOne
 	@JoinColumn(name="idProgetto")
 	private Progetto progetto;
-	
-	@OneToMany(mappedBy= "dossier")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Fornitore> fornitore;
 	
 	@OneToMany(mappedBy="dossier")
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Fattura> fattura;
 	
-	
 	@OneToMany(mappedBy="dossier")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<TotaleOreReD> totaleOreReD;
+	private List<PercentualeOreReD> percentualeOreReD;
 	
-	
-	
-
 }

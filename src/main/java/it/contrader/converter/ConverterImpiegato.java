@@ -21,11 +21,7 @@ public class ConverterImpiegato {
 			impiegatoDTO.setTitoloDiStudio(impiegato.getTitoloDiStudio());
 			impiegatoDTO.setTotaleOreLavorate(impiegato.getTotaleOreLavorate());
 			impiegatoDTO.setCostoLordoAnnuo(impiegato.getCostoLordoAnnuo());
-			impiegatoDTO.setPercTotRed(impiegato.getPercTotRed());
-			impiegatoDTO.setCostoOrario(impiegato.getCostoOrario());
-//			impiegatoDTO.setTotaleOreRed(impiegato.getTotaleOreRed());
-			impiegatoDTO.setTotaleCostiRed(impiegato.getTotaleCostiRed());
-			impiegatoDTO.setAziendaCliente(impiegato.getAziendaCliente());
+			impiegatoDTO.setAziendaCliente(ConverterAziendaCliente.toDTO(impiegato.getAziendaCliente()));
 			
 			}
 		return impiegatoDTO;
@@ -43,11 +39,7 @@ public class ConverterImpiegato {
 			impiegato.setTitoloDiStudio(impiegatoDTO.getTitoloDiStudio());
 			impiegato.setTotaleOreLavorate(impiegatoDTO.getTotaleOreLavorate());
 			impiegato.setCostoLordoAnnuo(impiegatoDTO.getCostoLordoAnnuo());
-			impiegato.setPercTotRed(impiegatoDTO.getPercTotRed());
-			impiegato.setCostoOrario(impiegatoDTO.getCostoOrario());
-//			impiegato.setTotaleOreRed(impiegatoDTO.getTotaleOreRed());
-			impiegato.setTotaleCostiRed(impiegatoDTO.getTotaleCostiRed());
-			impiegato.setAziendaCliente(impiegatoDTO.getAziendaCliente());
+			impiegato.setAziendaCliente(ConverterAziendaCliente.toEntity(impiegatoDTO.getAziendaCliente()));
 			}
 		return impiegato;
 	}

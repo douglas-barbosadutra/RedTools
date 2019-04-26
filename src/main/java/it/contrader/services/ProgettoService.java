@@ -6,10 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.contrader.converter.ConverterAziendaCliente;
 import it.contrader.converter.ConverterProgetto;
 import it.contrader.dao.ProgettoRepository;
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.ProgettoDTO;
-import it.contrader.model.AziendaCliente;
 import it.contrader.model.Progetto;
 
 
@@ -57,26 +58,22 @@ public class ProgettoService {
 	}
 	
 	
-public List<ProgettoDTO> findProgettoDTOByidProgetto(int idProgetto) {
+	public List<ProgettoDTO> findProgettoDTOByidProgetto(int idProgetto) {
 		
 		final List<Progetto> list = progettoRepository.findAllByidProgetto(idProgetto);
 		final List<ProgettoDTO> ProgettoDTOs = new ArrayList<>();
 		list.forEach(i -> ProgettoDTOs.add(ConverterProgetto.toDTO(i)));
 		return ProgettoDTOs;
 
-		}
-
-public List<ProgettoDTO> findProgettoDTOByAziendaCliente(int idAziendaCliente) {
-	AziendaCliente aziendaCliente = new AziendaCliente();
-	aziendaCliente.setIdAziendaCliente(idAziendaCliente);
-	final List<Progetto> list = progettoRepository.findAllByAziendaCliente(aziendaCliente);
-	final List<ProgettoDTO> ProgettoDTOs = new ArrayList<>();
-	list.forEach(i -> ProgettoDTOs.add(ConverterProgetto.toDTO(i)));
-	return ProgettoDTOs;
-
 	}
 
-
+	public List<ProgettoDTO> findProgettoDTOByAziendaCliente(AziendaClienteDTO aziendaClienteDTO) {
+		final List<Progetto> list = progettoRepository.findAllByAziendaCliente(ConverterAziendaCliente.toEntity(aziendaClienteDTO));
+		final List<ProgettoDTO> ProgettoDTOs = new ArrayList<>();
+		list.forEach(i -> ProgettoDTOs.add(ConverterProgetto.toDTO(i)));
+		return ProgettoDTOs;
+	
+	}
 
 }
 

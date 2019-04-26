@@ -23,7 +23,7 @@ public class ConverterMom {
 			momDTO.setTestoAgendaMom(mom.getTestoAgendaMom());
 			momDTO.setTestoAzioneMom(mom.getTestoAzioneMom());
 			momDTO.setTestoNoteMom(mom.getTestoNoteMom());
-			momDTO.setAziendaCliente(mom.getAziendaCliente());
+			momDTO.setAziendaCliente(ConverterAziendaCliente.toDTO(mom.getAziendaCliente()));
 			}
 		return momDTO;
 	}
@@ -42,7 +42,7 @@ public class ConverterMom {
 			mom.setTestoAgendaMom(momDTO.getTestoAgendaMom());
 			mom.setTestoAzioneMom(momDTO.getTestoAzioneMom());
 			mom.setTestoNoteMom(momDTO.getTestoNoteMom());
-			mom.setAziendaCliente(momDTO.getAziendaCliente());
+			mom.setAziendaCliente(ConverterAziendaCliente.toEntity(momDTO.getAziendaCliente()));
 			
 			}
 		return mom;

@@ -18,7 +18,6 @@ public class ConverterFornitore {
 			fornitoreDTO.setComuneFornitore(fornitore.getComuneFornitore());
 			fornitoreDTO.setProvinciaFornitore(fornitore.getProvinciaFornitore());
 			fornitoreDTO.setPartitaIvaFornitore(fornitore.getPartitaIvaFornitore());
-			fornitoreDTO.setFattura(fornitore.getFattura());
 			}
 		return fornitoreDTO;
 	}
@@ -32,7 +31,6 @@ public class ConverterFornitore {
 			fornitore.setComuneFornitore(fornitoreDTO.getComuneFornitore());
 			fornitore.setProvinciaFornitore(fornitoreDTO.getProvinciaFornitore());
 			fornitore.setPartitaIvaFornitore(fornitoreDTO.getPartitaIvaFornitore());
-			fornitore.setFattura(fornitoreDTO.getFattura());
 			}
 		return fornitore;
 	}

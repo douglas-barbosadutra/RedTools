@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.ProgettoDTO;
+import it.contrader.services.AziendaClienteService;
 import it.contrader.services.ProgettoService;
 
 
@@ -21,15 +22,17 @@ import it.contrader.services.ProgettoService;
 public class ProgettoController {
 
     private final ProgettoService progettoService;
+    private final AziendaClienteService aziendaClienteService;
 	
 	@Autowired
-	public ProgettoController(ProgettoService progettoService) {
+	public ProgettoController(ProgettoService progettoService, AziendaClienteService aziendaClienteService) {
 		this.progettoService = progettoService;
+		this.aziendaClienteService = aziendaClienteService;
 	}
 
 	@RequestMapping(value = "/progettoManagement", method = RequestMethod.GET)
 	public List<ProgettoDTO> progettoManagement(@RequestParam(value = "idAziendaCliente") int idAziendaCliente) {
-		return this.progettoService.findProgettoDTOByAziendaCliente(idAziendaCliente);	
+		return this.progettoService.findProgettoDTOByAziendaCliente(aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente));	
 	}
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)

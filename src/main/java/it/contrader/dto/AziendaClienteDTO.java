@@ -1,11 +1,5 @@
 package it.contrader.dto;
 
-import java.util.List;
-
-
-import it.contrader.model.Dossier;
-import it.contrader.model.Mom;
-import it.contrader.model.Progetto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,12 +35,6 @@ public class AziendaClienteDTO {
 	
 	private int filledFields;
 	
-	private UserDTO userDTO;
-	
-	private List<Dossier> dossier;
-	
-	private List<Mom> mom;
-	
-	private List<Progetto> progetto;
+	private UserDTO user;
 
 }

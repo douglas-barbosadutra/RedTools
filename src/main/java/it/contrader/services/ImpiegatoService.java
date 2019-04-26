@@ -6,10 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.contrader.converter.ConverterAziendaCliente;
 import it.contrader.converter.ConverterImpiegato;
 import it.contrader.dao.ImpiegatoRepository;
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.ImpiegatoDTO;
-import it.contrader.model.AziendaCliente;
 import it.contrader.model.Impiegato;
 
 @Service
@@ -87,11 +88,12 @@ public class ImpiegatoService {
 		return impiegatoDTOs;
 	}
 	
-	public List<ImpiegatoDTO> findImpiegatoDTOByAziendaCliente(AziendaCliente aziendaCliente) {
+	public List<ImpiegatoDTO> findImpiegatoDTOByAziendaCliente(AziendaClienteDTO aziendaClienteDTO) {
 		
-		final List<Impiegato> list = impiegatoRepository.findAllByAziendaCliente(aziendaCliente);
+		final List<Impiegato> list = impiegatoRepository.findAllByAziendaCliente(ConverterAziendaCliente.toEntity(aziendaClienteDTO));
 		final List<ImpiegatoDTO> impiegatoDTOs = new ArrayList<>();
 		list.forEach(i -> impiegatoDTOs.add(ConverterImpiegato.toDTO(i)));
 		return impiegatoDTOs;
 	}
+
 }

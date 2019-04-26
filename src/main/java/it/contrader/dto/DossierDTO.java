@@ -19,11 +19,7 @@ public class DossierDTO {
 	private int numeroTotaleDipendenti;
 	private double totaleCostiReD;
 	private double costiPersonaleReD;
-	private double totaleAmmissibile;
-	private int numeroFornitori;
+	private int filledFields;
 	private ProgettoDTO progettoDTO;
-	private int filledFields; 
 	
-	
-
 }

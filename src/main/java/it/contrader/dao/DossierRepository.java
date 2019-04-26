@@ -12,6 +12,5 @@ public interface DossierRepository  extends  JpaRepository<Dossier, Integer>{
 	
 	public List<Dossier> findAllByPeriodoDiImposta(String periodoDiImposta);
 	public List<Dossier> findAllByProgetto(Progetto progetto);
-
 }
   

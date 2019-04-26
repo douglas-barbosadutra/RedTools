@@ -18,7 +18,6 @@ public class ConverterProgetto {
 			progettoDTO.setAziendaClienteDTO(ConverterAziendaCliente.toDTO(progetto.getAziendaCliente()));
 			progettoDTO.setDettagliProgetto(progetto.getDettagliProgetto());
 			progettoDTO.setCoordinateDIIN(progetto.getCoordinateDIIN());
-			
 			}
 		return progettoDTO;
 	}
@@ -32,7 +31,6 @@ public class ConverterProgetto {
 			progetto.setAziendaCliente(ConverterAziendaCliente.toEntity(progettoDTO.getAziendaClienteDTO()));
 			progetto.setDettagliProgetto(progettoDTO.getDettagliProgetto());
 			progetto.setCoordinateDIIN(progettoDTO.getCoordinateDIIN());
-			
 		}
 		return progetto;
 	}

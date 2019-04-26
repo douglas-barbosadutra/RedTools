@@ -19,8 +19,8 @@ public class ConverterFattura {
 			fatturaDTO.setDescrizione(fattura.getDescrizione());
 			fatturaDTO.setTotaleImponibile(fattura.getTotaleImponibile());
 			fatturaDTO.setPercentualeAmmissibile(fattura.getPercentualeAmmissibile());
-			fatturaDTO.setDossier(fattura.getDossier());
-			fatturaDTO.setFornitore(fattura.getFornitore());
+			fatturaDTO.setDossier(ConverterDossier.toDTO(fattura.getDossier()));
+			fatturaDTO.setFornitore(ConverterFornitore.toDTO(fattura.getFornitore()));
 			}
 		return fatturaDTO;
 	}
@@ -35,8 +35,8 @@ public class ConverterFattura {
 			fattura.setDescrizione(fatturaDTO.getDescrizione());
 			fattura.setTotaleImponibile(fatturaDTO.getTotaleImponibile());
 			fattura.setPercentualeAmmissibile(fatturaDTO.getPercentualeAmmissibile());
-			fattura.setDossier(fatturaDTO.getDossier());
-			fattura.setFornitore(fatturaDTO.getFornitore());
+			fattura.setDossier(ConverterDossier.toEntity(fatturaDTO.getDossier()));
+			fattura.setFornitore(ConverterFornitore.toEntity(fatturaDTO.getFornitore()));
 			}
 		return fattura;
 	}

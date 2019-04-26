@@ -1,6 +1,5 @@
 package it.contrader.dto;
 
-import it.contrader.model.AziendaCliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,14 +25,6 @@ public class ImpiegatoDTO {
 	
 	private double costoLordoAnnuo;
 	
-	private double percTotRed;
-	
-	private double costoOrario;
-	
-//	private double totaleOreRed;
-//	
-	private double totaleCostiRed;
-	
-	private AziendaCliente aziendaCliente;
+	private AziendaClienteDTO aziendaCliente;
 	
 }

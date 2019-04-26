@@ -18,6 +18,4 @@ public class ProgettoDTO {
 	private String dettagliProgetto;
 	
 	private String coordinateDIIN;
-
-
 }

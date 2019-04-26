@@ -3,138 +3,55 @@ package it.contrader.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.AziendaClienteDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.services.AziendaClienteService;
 
 
-@Controller
+@CrossOrigin
+@RestController
 @RequestMapping("/AziendaClienteController")
+
 public class AziendaClienteController {
 
-	private AziendaClienteService aziendaClienteService;
-	private HttpSession session;
-	
-	
-	
-	//int idBO = UserService.utenteCollegato.getIdUser();
+    private final AziendaClienteService aziendaClienteService;
 	
 	@Autowired
 	public AziendaClienteController(AziendaClienteService aziendaClienteService) {
 		this.aziendaClienteService = aziendaClienteService;
 	}
 
-	//Caricamento nella request della lista delle Aziende Clienti del Business Owner
-	
-	private void visualAziendaCliente(HttpServletRequest request){
-		session = request.getSession();
-		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
-		int idBO = userDTO.getIdUser();
-		List<AziendaClienteDTO> allAziendaCliente = this.aziendaClienteService.findAziendeClientiDTOByIdUser(idBO);
-		request.setAttribute("allAziendaClienteDTO", CompletamentoDTO(allAziendaCliente));
-	}
-	
 	@RequestMapping(value = "/aziendaClienteManagement", method = RequestMethod.GET)
-	public String aziendaClienteManagement(HttpServletRequest request) {
-		visualAziendaCliente(request);
-		return "/aziendaCliente/manageAziendaCliente";		
-	}
-	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("id", id);
-		this.aziendaClienteService.deleteAziendaClienteByIdAziendaCliente(id);
-		visualAziendaCliente(request);
-		return "/aziendaCliente/manageAziendaCliente";
-	}
-	
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public String leggiAziendaCliente(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
-		AziendaClienteDTO AziendaCliente = this.aziendaClienteService.getAziendaClienteDTOById(id);
-		request.setAttribute("AziendaClienteDTO", AziendaCliente);
-		visualAziendaCliente(request);
-		return "/aziendaCliente/readAziendaCliente";
-	}
-	
-	
-	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request) {
-		session = request.getSession();
-		visualAziendaCliente(request);
-		request.setAttribute("option", "insert");
-		return "/aziendaCliente/insertAziendaCliente";
+	public List<AziendaClienteDTO> aziendaClienteManagement(@RequestParam(value = "idBo") int idBo) {
+		List<AziendaClienteDTO> listaAziendaCliente = CompletamentoDTO(this.aziendaClienteService.findAziendeClientiDTOByIdUser(idBo));
+		return listaAziendaCliente;
 	}
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertAziendaCliente(HttpServletRequest request) {
-		
-		session = request.getSession();
-		UserDTO userDTOs = (UserDTO) session.getAttribute("utenteCollegato");
-		//int idBOs = userDTOs.getIdUser();
-		AziendaClienteDTO aziendaClienteObj = new AziendaClienteDTO();
-		
-		aziendaClienteObj.setDenominazioneSocieta(request.getParameter("denominazioneSocieta").toString());
-		aziendaClienteObj.setFormaGiuridica(request.getParameter("formaGiuridica").toString());
-		aziendaClienteObj.setSedeLegale(request.getParameter("sedeLegale").toString());
-		aziendaClienteObj.setPartitaIva(request.getParameter("partitaIva").toString());
-		aziendaClienteObj.setTelefono(request.getParameter("telefono").toString());
-		aziendaClienteObj.setEmail(request.getParameter("email").toString());
-		aziendaClienteObj.setIndirizzoUnitaLocale(request.getParameter("indirizzoUnitaLocale").toString());
-		aziendaClienteObj.setAttivitaAzienda(request.getParameter("attivitaAzienda").toString());
-		aziendaClienteObj.setLegaleRappresentante(request.getParameter("legaleRappresentante").toString());
-		aziendaClienteObj.setNatoA(request.getParameter("natoA").toString());
-		aziendaClienteObj.setNatoIl(request.getParameter("natoIl").toString());
-		aziendaClienteObj.setUserDTO(userDTOs);
-		
-		aziendaClienteService.insertAziendaCliente(aziendaClienteObj);
-
-		visualAziendaCliente(request);
-		return "/aziendaCliente/manageAziendaCliente";
+	public void insert(@RequestBody AziendaClienteDTO aziendaCliente) {
+		aziendaClienteService.insertAziendaCliente(aziendaCliente);
 	}
 	
-	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public String updateRedirect(HttpServletRequest request) {
-		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		AziendaClienteDTO aziendaClienteUpdate = new AziendaClienteDTO();
-		// userUpdate.setUserId(id);
-
-		aziendaClienteUpdate = this.aziendaClienteService.getAziendaClienteDTOById(id);
-		request.setAttribute("AziendaClienteUpdateDTO", aziendaClienteUpdate);
-		return "/aziendaCliente/updateAziendaCliente";
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public AziendaClienteDTO read(@RequestParam(value = "id") int id) {
+		return this.aziendaClienteService.getAziendaClienteDTOById(id);
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public void update(@RequestBody AziendaClienteDTO aziendaCliente) {
+		aziendaClienteService.updateAziendaCliente(aziendaCliente);
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(HttpServletRequest request) {
-		session = request.getSession();
-		UserDTO userDTOs = (UserDTO) session.getAttribute("utenteCollegato");
-		AziendaClienteDTO aziendaCliente = new AziendaClienteDTO();
-		aziendaCliente.setIdAziendaCliente(Integer.parseInt(request.getParameter("id")));
-		aziendaCliente.setDenominazioneSocieta(request.getParameter("DenominazioneSocieta"));
-		aziendaCliente.setFormaGiuridica(request.getParameter("FormaGiuridica"));
-		aziendaCliente.setSedeLegale(request.getParameter("SedeLegale"));
-		aziendaCliente.setPartitaIva(request.getParameter("PartitaIva"));
-		aziendaCliente.setTelefono(request.getParameter("telefono"));
-		aziendaCliente.setEmail(request.getParameter("email"));
-		aziendaCliente.setIndirizzoUnitaLocale(request.getParameter("indirizzoUnitaLocale"));
-		aziendaCliente.setAttivitaAzienda(request.getParameter("AttivitaAzienda"));
-		aziendaCliente.setLegaleRappresentante(request.getParameter("LegaleRappresentante"));
-		aziendaCliente.setNatoA(request.getParameter("NatoA"));
-		aziendaCliente.setNatoIl(request.getParameter("NatoIl"));
-		aziendaCliente.setUserDTO(userDTOs);
-		aziendaClienteService.updateAziendaCliente(aziendaCliente);
-		visualAziendaCliente(request);
-		return "/aziendaCliente/manageAziendaCliente";
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+	public void delete(@RequestParam(value = "id") int id) {
+		this.aziendaClienteService.deleteAziendaClienteByIdAziendaCliente(id);
 	}
 	
 	private List<AziendaClienteDTO> CompletamentoDTO(List<AziendaClienteDTO> allAziendeComplet) {

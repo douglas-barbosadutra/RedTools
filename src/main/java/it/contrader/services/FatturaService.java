@@ -6,9 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.contrader.converter.ConverterDossier;
 import it.contrader.converter.ConverterFattura;
+import it.contrader.converter.ConverterFornitore;
 import it.contrader.dao.FatturaRepository;
+import it.contrader.dto.DossierDTO;
 import it.contrader.dto.FatturaDTO;
+import it.contrader.dto.FornitoreDTO;
 import it.contrader.model.Dossier;
 import it.contrader.model.Fattura;
 import it.contrader.model.Fornitore;
@@ -75,9 +79,10 @@ public class FatturaService {
 		return fatturaDTOs;
 	}
 	
-	public List<FatturaDTO> findFatturaDTOByFornitoreAndDossier(Fornitore fornitore, Dossier dossier) {
+	public List<FatturaDTO> findFatturaDTOByFornitoreAndDossier(FornitoreDTO fornitoreDTO, DossierDTO dossierDTO) {
 		
-		final List<Fattura> list = fatturaRepository.findAllByFornitoreAndDossier(fornitore, dossier);
+		final List<Fattura> list = fatturaRepository.findAllByFornitoreAndDossier(ConverterFornitore.toEntity(fornitoreDTO),
+				ConverterDossier.toEntity(dossierDTO));
 		final List<FatturaDTO> fatturaDTOs = new ArrayList<>();
 		list.forEach(i -> fatturaDTOs.add(ConverterFattura.toDTO(i)));
 		return fatturaDTOs;

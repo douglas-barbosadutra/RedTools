@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterDossier;
+import it.contrader.converter.ConverterProgetto;
 import it.contrader.dao.DossierRepository;
 import it.contrader.dto.DossierDTO;
+import it.contrader.dto.ProgettoDTO;
 import it.contrader.model.Dossier;
-import it.contrader.model.Progetto;
 
 @Service
 public class DossierService {
@@ -27,10 +28,9 @@ public class DossierService {
 		return ConverterDossier.toListDTO((List<Dossier>) dossierRepository.findAll());
 	}
 	
-	public List<DossierDTO> findDossierDTOByProgetto(Progetto progetto) {
-		return ConverterDossier.toListDTO((List<Dossier>) dossierRepository.findAllByProgetto(progetto));
+	public List<DossierDTO> findDossierDTOByProgetto(ProgettoDTO progettoDTO) {
+		return ConverterDossier.toListDTO((List<Dossier>) dossierRepository.findAllByProgetto(ConverterProgetto.toEntity(progettoDTO)));
 	}
-	
 	
 	public DossierDTO getDossierDTOById(Integer id) {
 		return ConverterDossier.toDTO(dossierRepository.getOne(id));

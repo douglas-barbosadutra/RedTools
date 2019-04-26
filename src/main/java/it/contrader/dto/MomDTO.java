@@ -1,6 +1,5 @@
 package it.contrader.dto;
 
-import it.contrader.model.AziendaCliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +29,6 @@ public class MomDTO {
 	
 	private String testoNoteMom;
 	
-	private AziendaCliente aziendaCliente;
+	private AziendaClienteDTO aziendaCliente;
 	
 }

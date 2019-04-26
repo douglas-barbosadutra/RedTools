@@ -52,22 +52,9 @@ public class Impiegato {
 	@Column(name = "costo_lordo_annuo")
 	private double costoLordoAnnuo;
 	
-	@Column(name = "perc_tot_red")
-	private double percTotRed;
-	
-	@Column(name = "costo_orario")
-	private double costoOrario;
-	
-//	@Column(name = "totale_ore_red")
-//	private double totaleOreRed;
-	
-	@Column(name = "totale_costi_red")
-	private double totaleCostiRed;
-	
-	
 	@OneToMany(mappedBy = "impiegato")
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private List<TotaleOreReD> totaleOreReD;
+	private List<PercentualeOreReD> percentualeOreReD;
 	
 	@ManyToOne
 	@JoinColumn(name = "idAziendaCliente")

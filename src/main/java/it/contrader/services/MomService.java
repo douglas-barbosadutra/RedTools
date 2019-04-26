@@ -6,10 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.contrader.converter.ConverterAziendaCliente;
 import it.contrader.converter.ConverterMom;
 import it.contrader.dao.MomRepository;
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
-import it.contrader.model.AziendaCliente;
 import it.contrader.model.Mom;
 
 @Service
@@ -65,11 +66,12 @@ public class MomService {
 	
 	
 	
-	public List<MomDTO> findMomDTOByAziendaCliente(AziendaCliente aziendaCliente) {
+	public List<MomDTO> findMomDTOByAziendaCliente(AziendaClienteDTO aziendaClienteDTO) {
 		
-		final List<Mom> list = momRepository.findAllByAziendaCliente(aziendaCliente);
+		final List<Mom> list = momRepository.findAllByAziendaCliente(ConverterAziendaCliente.toEntity(aziendaClienteDTO));
 		final List<MomDTO> momDTOs = new ArrayList<>();
 		list.forEach(i -> momDTOs.add(ConverterMom.toDTO(i)));
 		return momDTOs;
 	}
+
 }
