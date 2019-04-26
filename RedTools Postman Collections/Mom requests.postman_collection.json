@@ -36,86 +36,6 @@
 			"response": []
 		},
 		{
-			"name": "Mom List",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost:8080/MomController/momManagement?idAziendaCliente=6",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MomController",
-						"momManagement"
-					],
-					"query": [
-						{
-							"key": "idAziendaCliente",
-							"value": "6"
-						}
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Impiegato List",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "localhost:8080/ImpiegatoController/impiegatoManagement?idAziendaCliente=1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"ImpiegatoController",
-								"impiegatoManagement"
-							],
-							"query": [
-								{
-									"key": "idAziendaCliente",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json;charset=UTF-8"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 24 Apr 2019 21:41:27 GMT"
-						}
-					],
-					"cookie": [],
-					"body": "[\n    {\n        \"idNome\": 1,\n        \"nominativo\": \"Mario Cevoli\",\n        \"livello\": 1,\n        \"qualifica\": \"Programmatore\",\n        \"mansione\": \"Impiegato\",\n        \"titoloDiStudio\": \"Laurea\",\n        \"totaleOreLavorate\": 234,\n        \"costoLordoAnnuo\": 123434,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 1,\n            \"denominazioneSocieta\": \"Enel Energia\",\n            \"formaGiuridica\": \"societa' per azioni\",\n            \"sedeLegale\": \"Roma\",\n            \"partitaIva\": \"1234567890\",\n            \"telefono\": \"555555\",\n            \"email\": \"info@enel.it\",\n            \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n            \"attivitaAzienda\": \"produzione\",\n            \"legaleRappresentante\": \"Mario Rossi\",\n            \"natoA\": \"Bari\",\n            \"natoIl\": \"01/01/1970\",\n            \"filledFields\": 0,\n            \"user\": {\n                \"idUser\": 2,\n                \"username\": \"prova1\",\n                \"password\": \"prova1\",\n                \"ruolo\": \"user\",\n                \"email\": null\n            }\n        }\n    }\n]"
-				}
-			]
-		},
-		{
 			"name": "Delete Mom",
 			"request": {
 				"method": "DELETE",
@@ -145,6 +65,38 @@
 			"response": []
 		},
 		{
+			"name": "Mom List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/MomController/momManagement?idAziendaCliente=6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MomController",
+						"momManagement"
+					],
+					"query": [
+						{
+							"key": "idAziendaCliente",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update Mom",
 			"request": {
 				"method": "PUT",
@@ -158,16 +110,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "   {\n        \"idNome\": 1,\n        \"nominativo\": \"Mario Cevolio\",\n        \"livello\": 1,\n        \"qualifica\": \"Programmatore\",\n        \"mansione\": \"Impiegato\",\n        \"titoloDiStudio\": \"Laurea\",\n        \"totaleOreLavorate\": 234,\n        \"costoLordoAnnuo\": 123434,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 1,\n            \"denominazioneSocieta\": \"Enel Energia\",\n            \"formaGiuridica\": \"societa' per azioni\",\n            \"sedeLegale\": \"Roma\",\n            \"partitaIva\": \"1234567890\",\n            \"telefono\": \"555555\",\n            \"email\": \"info@enel.it\",\n            \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n            \"attivitaAzienda\": \"produzione\",\n            \"legaleRappresentante\": \"Mario Rossi\",\n            \"natoA\": \"Bari\",\n            \"natoIl\": \"01/01/1970\",\n            \"filledFields\": 0,\n            \"user\": {\n                \"idUser\": 2,\n                \"username\": \"prova1\",\n                \"password\": \"prova1\",\n                \"ruolo\": \"user\",\n                \"email\": null\n            }\n        }\n    }"
+					"raw": "   {\n        \"idMom\": 2,\n        \"luogoMom\": \"roma\",\n        \"dataDelGiornoMom\": null,\n        \"orarioMom\": null,\n        \"oggettoMom\": null,\n        \"progettoMom\": null,\n        \"partecipantiMom\": null,\n        \"testoAgendaMom\": null,\n        \"testoAzioneMom\": null,\n        \"testoNoteMom\": null,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 6,\n            \"denominazioneSocieta\": \"Aspes\",\n            \"formaGiuridica\": null,\n            \"sedeLegale\": null,\n            \"partitaIva\": \"1234567891\",\n            \"telefono\": \"555555\",\n            \"email\": \"info@enel.it\",\n            \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n            \"attivitaAzienda\": \"produzione\",\n            \"legaleRappresentante\": \"Mario Rossi\",\n            \"natoA\": \"Bari\",\n            \"natoIl\": \"01/01/1970\",\n            \"filledFields\": 0,\n            \"user\": {\n                \"idUser\": 7,\n                \"username\": \"ciccio\",\n                \"password\": \"ciccio\",\n                \"ruolo\": \"user\",\n                \"email\": null\n            }\n        }\n    }"
 				},
 				"url": {
-					"raw": "localhost:8080/ImpiegatoController/update",
+					"raw": "localhost:8080/MomController/update",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"ImpiegatoController",
+						"MomController",
 						"update"
 					]
 				}
@@ -187,18 +139,18 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:8080/ImpiegatoController/read?idImpiegato=2",
+					"raw": "localhost:8080/MomController/read?idMom=2",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"ImpiegatoController",
+						"MomController",
 						"read"
 					],
 					"query": [
 						{
-							"key": "idImpiegato",
+							"key": "idMom",
 							"value": "2"
 						}
 					]
