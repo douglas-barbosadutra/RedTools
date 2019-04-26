@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "08a19d8a-c0a1-41fe-a73b-7022362a2638",
+		"name": "PercentualeOreReD requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert PercentualeOreReD",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idPercentualeOreReD\": 0,\n    \"percentualeOreLavorateReD\": 1,\n    \"dossier\": {\n        \"idDossier\": 2,\n        \"periodoDiImposta\": \"2019\",\n        \"costoDipendentiPeriodoDiImposta\": 345,\n        \"fatturatoPeriodoDiImposta\": 544354,\n        \"numeroTotaleDipendenti\": 22,\n        \"totaleCostiReD\": 3244,\n        \"costiPersonaleReD\": 344324,\n        \"filledFields\": 0,\n        \"progettoDTO\": {\n            \"idProgetto\": 1,\n            \"titoloProgetto\": \"RuD\",\n            \"aziendaClienteDTO\": {\n                \"idAziendaCliente\": 1,\n                \"denominazioneSocieta\": \"Enel Energia\",\n                \"formaGiuridica\": \"societa' per azioni\",\n                \"sedeLegale\": \"Roma\",\n                \"partitaIva\": \"1234567890\",\n                \"telefono\": \"555555\",\n                \"email\": \"info@enel.it\",\n                \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n                \"attivitaAzienda\": \"produzione\",\n                \"legaleRappresentante\": \"Mario Rossi\",\n                \"natoA\": \"Bari\",\n                \"natoIl\": \"01/01/1970\",\n                \"filledFields\": 0,\n                \"user\": {\n                    \"idUser\": 2,\n                    \"username\": \"prova1\",\n                    \"password\": \"prova1\",\n                    \"ruolo\": \"user\",\n                    \"email\": null\n                }\n            },\n            \"dettagliProgetto\": \"Progetto di esempio\",\n            \"coordinateDIIN\": \"32424235435\"\n        }\n    },\n    \"impiegato\": {\n        \"idNome\": 1,\n        \"nominativo\": \"Mario Cevolio\",\n        \"livello\": 1,\n        \"qualifica\": \"Programmatore\",\n        \"mansione\": \"Impiegato\",\n        \"titoloDiStudio\": \"Laurea\",\n        \"totaleOreLavorate\": 234,\n        \"costoLordoAnnuo\": 123434,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 1,\n            \"denominazioneSocieta\": \"Enel Energia\",\n            \"formaGiuridica\": \"societa' per azioni\",\n            \"sedeLegale\": \"Roma\",\n            \"partitaIva\": \"1234567890\",\n            \"telefono\": \"555555\",\n            \"email\": \"info@enel.it\",\n            \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n            \"attivitaAzienda\": \"produzione\",\n            \"legaleRappresentante\": \"Mario Rossi\",\n            \"natoA\": \"Bari\",\n            \"natoIl\": \"01/01/1970\",\n            \"filledFields\": 0,\n            \"user\": {\n                \"idUser\": 2,\n                \"username\": \"prova1\",\n                \"password\": \"prova1\",\n                \"ruolo\": \"user\",\n                \"email\": null\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/PercentualeOreReDController/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PercentualeOreReDController",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PercentualeOreReD",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/PercentualeOreReDController/percentualeOreReDManagement?impiegatoId=1&dossierId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PercentualeOreReDController",
+						"percentualeOreReDManagement"
+					],
+					"query": [
+						{
+							"key": "impiegatoId",
+							"value": "1"
+						},
+						{
+							"key": "dossierId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete PercentualeOreReD",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/PercentualeOreReDController/delete?percentualeOreReDId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PercentualeOreReDController",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "percentualeOreReDId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update PercentualeOreReD",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idPercentualeOreReD\": 1,\n    \"percentualeOreLavorateReD\": 12,\n    \"dossier\": {\n        \"idDossier\": 1,\n        \"periodoDiImposta\": \"2018\",\n        \"costoDipendentiPeriodoDiImposta\": 12322,\n        \"fatturatoPeriodoDiImposta\": 324234324,\n        \"numeroTotaleDipendenti\": 23,\n        \"totaleCostiReD\": 22342,\n        \"costiPersonaleReD\": 123456,\n        \"filledFields\": 0,\n        \"progettoDTO\": {\n            \"idProgetto\": 1,\n            \"titoloProgetto\": \"RuD\",\n            \"aziendaClienteDTO\": {\n                \"idAziendaCliente\": 1,\n                \"denominazioneSocieta\": \"Enel Energia\",\n                \"formaGiuridica\": \"societa' per azioni\",\n                \"sedeLegale\": \"Roma\",\n                \"partitaIva\": \"1234567890\",\n                \"telefono\": \"555555\",\n                \"email\": \"info@enel.it\",\n                \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n                \"attivitaAzienda\": \"produzione\",\n                \"legaleRappresentante\": \"Mario Rossi\",\n                \"natoA\": \"Bari\",\n                \"natoIl\": \"01/01/1970\",\n                \"filledFields\": 0,\n                \"user\": {\n                    \"idUser\": 2,\n                    \"username\": \"prova1\",\n                    \"password\": \"prova1\",\n                    \"ruolo\": \"user\",\n                    \"email\": null\n                }\n            },\n            \"dettagliProgetto\": \"Progetto di esempio\",\n            \"coordinateDIIN\": \"32424235435\"\n        }\n    },\n    \"impiegato\": {\n        \"idNome\": 1,\n        \"nominativo\": \"Mario Cevolio\",\n        \"livello\": 1,\n        \"qualifica\": \"Programmatore\",\n        \"mansione\": \"Impiegato\",\n        \"titoloDiStudio\": \"Laurea\",\n        \"totaleOreLavorate\": 234,\n        \"costoLordoAnnuo\": 123434,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 1,\n            \"denominazioneSocieta\": \"Enel Energia\",\n            \"formaGiuridica\": \"societa' per azioni\",\n            \"sedeLegale\": \"Roma\",\n            \"partitaIva\": \"1234567890\",\n            \"telefono\": \"555555\",\n            \"email\": \"info@enel.it\",\n            \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n            \"attivitaAzienda\": \"produzione\",\n            \"legaleRappresentante\": \"Mario Rossi\",\n            \"natoA\": \"Bari\",\n            \"natoIl\": \"01/01/1970\",\n            \"filledFields\": 0,\n            \"user\": {\n                \"idUser\": 2,\n                \"username\": \"prova1\",\n                \"password\": \"prova1\",\n                \"ruolo\": \"user\",\n                \"email\": null\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/PercentualeOreReDController/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PercentualeOreReDController",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read PercentualeOreReD",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/PercentualeOreReDController/read?percentualeOreReDId=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PercentualeOreReDController",
+						"read"
+					],
+					"query": [
+						{
+							"key": "percentualeOreReDId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

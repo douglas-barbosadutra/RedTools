@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "9ffa90a2-48b7-4eda-885b-af33d7a95494",
+		"name": "Azienda Cliente requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert Azienda Cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"idAziendaCliente\": 0,\n        \"denominazioneSocieta\": \"Aspes\",\n        \"formaGiuridica\": null,\n        \"sedeLegale\": null,\n        \"partitaIva\": \"1234567891\",\n        \"telefono\": \"555555\",\n        \"email\": \"info@enel.it\",\n        \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n        \"attivitaAzienda\": \"produzione\",\n        \"legaleRappresentante\": \"Mario Rossi\",\n        \"natoA\": \"Bari\",\n        \"natoIl\": \"01/01/1970\",\n        \"filledFields\": 12,\n        \"user\": {\n            \"idUser\": 2\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/AziendaClienteController/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AziendaClienteController",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Azienda Cliente List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/AziendaClienteController/aziendaClienteManagement?idBo=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AziendaClienteController",
+						"aziendaClienteManagement"
+					],
+					"query": [
+						{
+							"key": "idBo",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Azienda Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/AziendaClienteController/delete?id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AziendaClienteController",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Azienda Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"idAziendaCliente\": 5,\n        \"denominazioneSocieta\": \"Bisium\",\n        \"formaGiuridica\": null,\n        \"sedeLegale\": null,\n        \"partitaIva\": \"1234567890\",\n        \"telefono\": \"555555\",\n        \"email\": \"info@enel.it\",\n        \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n        \"attivitaAzienda\": \"produzione\",\n        \"legaleRappresentante\": \"Mario Rossi\",\n        \"natoA\": \"Bari\",\n        \"natoIl\": \"01/01/1970\",\n        \"filledFields\": 10,\n        \"user\": {\n            \"idUser\": 2,\n            \"username\": \"prova1\",\n            \"password\": \"prova1\",\n            \"ruolo\": \"user\",\n            \"email\": null\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/AziendaClienteController/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AziendaClienteController",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Azienda Cliente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/AziendaClienteController/read?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AziendaClienteController",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

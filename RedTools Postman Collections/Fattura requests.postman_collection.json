@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "5c2e3a97-845e-45c9-b051-1ec8baf746d6",
+		"name": "Fattura requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert Fattura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"idFattura\": 0,\n        \"dataFattura\": \"22/04/2019\",\n        \"numeroFattura\": \"234NBNN\",\n        \"descrizione\": \"fornitura elettrica\",\n        \"totaleImponibile\": 234567,\n        \"percentualeAmmissibile\": 12,\n        \"dossier\": {\n            \"idDossier\": 1,\n            \"periodoDiImposta\": \"2018\",\n            \"costoDipendentiPeriodoDiImposta\": 12322,\n            \"fatturatoPeriodoDiImposta\": 324234324,\n            \"numeroTotaleDipendenti\": 23,\n            \"totaleCostiReD\": 22342,\n            \"costiPersonaleReD\": 123456,\n            \"filledFields\": 0,\n            \"progettoDTO\": {\n                \"idProgetto\": 1,\n                \"titoloProgetto\": \"RuD\",\n                \"aziendaClienteDTO\": {\n                    \"idAziendaCliente\": 1,\n                    \"denominazioneSocieta\": \"Enel Energia\",\n                    \"formaGiuridica\": \"societa' per azioni\",\n                    \"sedeLegale\": \"Roma\",\n                    \"partitaIva\": \"1234567890\",\n                    \"telefono\": \"555555\",\n                    \"email\": \"info@enel.it\",\n                    \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n                    \"attivitaAzienda\": \"produzione\",\n                    \"legaleRappresentante\": \"Mario Rossi\",\n                    \"natoA\": \"Bari\",\n                    \"natoIl\": \"01/01/1970\",\n                    \"filledFields\": 0,\n                    \"user\": {\n                        \"idUser\": 2,\n                        \"username\": \"prova1\",\n                        \"password\": \"prova1\",\n                        \"ruolo\": \"user\",\n                        \"email\": null\n                    }\n                },\n                \"dettagliProgetto\": \"Progetto di esempio\",\n                \"coordinateDIIN\": \"32424235435\"\n            }\n        },\n        \"fornitore\": {\n            \"idFornitore\": 1,\n            \"nomeFornitore\": \"Paolo Bello\",\n            \"comuneFornitore\": \"Pescara\",\n            \"provinciaFornitore\": \"PE\",\n            \"partitaIvaFornitore\": \"224\"\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/FatturaController/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FatturaController",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fattura List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/FatturaController/fatturaManagement?fornitoreId=1&dossierId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FatturaController",
+						"fatturaManagement"
+					],
+					"query": [
+						{
+							"key": "fornitoreId",
+							"value": "1"
+						},
+						{
+							"key": "dossierId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Fattura",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/FatturaController/delete?idFattura=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FatturaController",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "idFattura",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Fattura",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"idFattura\": 2,\n        \"dataFattura\": \"24/04/2019\",\n        \"numeroFattura\": \"234ert\",\n        \"descrizione\": \"fornitura elettrica\",\n        \"totaleImponibile\": 234567,\n        \"percentualeAmmissibile\": 12,\n        \"dossier\": {\n            \"idDossier\": 1,\n            \"periodoDiImposta\": \"2018\",\n            \"costoDipendentiPeriodoDiImposta\": 12322,\n            \"fatturatoPeriodoDiImposta\": 324234324,\n            \"numeroTotaleDipendenti\": 23,\n            \"totaleCostiReD\": 22342,\n            \"costiPersonaleReD\": 123456,\n            \"filledFields\": 0,\n            \"progettoDTO\": {\n                \"idProgetto\": 1,\n                \"titoloProgetto\": \"RuD\",\n                \"aziendaClienteDTO\": {\n                    \"idAziendaCliente\": 1,\n                    \"denominazioneSocieta\": \"Enel Energia\",\n                    \"formaGiuridica\": \"societa' per azioni\",\n                    \"sedeLegale\": \"Roma\",\n                    \"partitaIva\": \"1234567890\",\n                    \"telefono\": \"555555\",\n                    \"email\": \"info@enel.it\",\n                    \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n                    \"attivitaAzienda\": \"produzione\",\n                    \"legaleRappresentante\": \"Mario Rossi\",\n                    \"natoA\": \"Bari\",\n                    \"natoIl\": \"01/01/1970\",\n                    \"filledFields\": 0,\n                    \"user\": {\n                        \"idUser\": 2,\n                        \"username\": \"prova1\",\n                        \"password\": \"prova1\",\n                        \"ruolo\": \"user\",\n                        \"email\": null\n                    }\n                },\n                \"dettagliProgetto\": \"Progetto di esempio\",\n                \"coordinateDIIN\": \"32424235435\"\n            }\n        },\n        \"fornitore\": {\n            \"idFornitore\": 1,\n            \"nomeFornitore\": \"Paolo Bello\",\n            \"comuneFornitore\": \"Pescara\",\n            \"provinciaFornitore\": \"PE\",\n            \"partitaIvaFornitore\": \"224\"\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/FatturaController/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FatturaController",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Fattura",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/FatturaController/read?idFattura=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FatturaController",
+						"read"
+					],
+					"query": [
+						{
+							"key": "idFattura",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

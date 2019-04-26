@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "0fe4dbf6-2442-4f8a-89d0-a5d2987c0107",
+		"name": "Fornitore requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert Fornitore",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"idFornitore\": 0,\n        \"nomeFornitore\": \"Paolo Razzi\",\n        \"comuneFornitore\": \"Empoli\",\n        \"provinciaFornitore\": \"EM\",\n        \"partitaIvaFornitore\": \"234324\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/FornitoreController/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FornitoreController",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fornitore List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/FornitoreController/fornitoreManagement",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FornitoreController",
+						"fornitoreManagement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Fornitore",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/FornitoreController/delete?fornitoreId=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FornitoreController",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "fornitoreId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Fornitore",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"idFornitore\": 4,\n        \"nomeFornitore\": \"Paolo Rezzi\",\n        \"comuneFornitore\": \"Empoli\",\n        \"provinciaFornitore\": \"EM\",\n        \"partitaIvaFornitore\": \"234324\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/FornitoreController/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FornitoreController",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Fornitore",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/FornitoreController/read?fornitoreId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FornitoreController",
+						"read"
+					],
+					"query": [
+						{
+							"key": "fornitoreId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

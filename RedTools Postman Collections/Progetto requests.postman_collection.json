@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "3ea2e649-9547-4030-997d-d8bafedad72a",
+		"name": "Progetto requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert Progetto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idProgetto\": 2,\n    \"titoloProgetto\": \"RoD\",\n    \"aziendaClienteDTO\": {\n        \"idAziendaCliente\": 1\n    },\n    \"dettagliProgetto\": \"Progetto di esempio\",\n    \"coordinateDIIN\": \"454\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/ProgettoController/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ProgettoController",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Progetto List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/ProgettoController/progettoManagement?idAziendaCliente=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ProgettoController",
+						"progettoManagement"
+					],
+					"query": [
+						{
+							"key": "idAziendaCliente",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Progetto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idProgetto\": 1,\n    \"titoloProgetto\": \"ReD\",\n    \"aziendaClienteDTO\": {\n        \"idAziendaCliente\": 0\n    },\n    \"dettagliProgetto\": \"Progetto di esempio\",\n    \"coordinateDIIN\": \"32424235435\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/ProgettoController/delete?idProgetto=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ProgettoController",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "idProgetto",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Progetto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idProgetto\": 4,\n    \"titoloProgetto\": \"RuD\",\n    \"aziendaClienteDTO\": {\n        \"idAziendaCliente\": 1\n    },\n    \"dettagliProgetto\": \"Progetto di esempio\",\n    \"coordinateDIIN\": \"32424235435\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/ProgettoController/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ProgettoController",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Progetto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/ProgettoController/read?idProgetto=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ProgettoController",
+						"read"
+					],
+					"query": [
+						{
+							"key": "idProgetto",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

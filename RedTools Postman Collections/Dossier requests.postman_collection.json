@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "2afa1b58-b231-479a-b543-f74a66fe47b1",
+		"name": "Dossier requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert Dossier",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"idDossier\": 2,\n        \"periodoDiImposta\": \"2017\",\n        \"costoDipendentiPeriodoDiImposta\": 34435435,\n        \"fatturatoPeriodoDiImposta\": 544354,\n        \"numeroTotaleDipendenti\": 22,\n        \"totaleCostiReD\": 3244,\n        \"costiPersonaleReD\": 344324,\n        \"filledFields\": 6,\n        \"progettoDTO\": {\n            \"idProgetto\": 1,\n            \"titoloProgetto\": \"RuD\",\n            \"aziendaClienteDTO\": {\n                \"idAziendaCliente\": 1,\n                \"denominazioneSocieta\": \"Enel Energia\",\n                \"formaGiuridica\": \"societa' per azioni\",\n                \"sedeLegale\": \"Roma\",\n                \"partitaIva\": \"1234567890\",\n                \"telefono\": \"555555\",\n                \"email\": \"info@enel.it\",\n                \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n                \"attivitaAzienda\": \"produzione\",\n                \"legaleRappresentante\": \"Mario Rossi\",\n                \"natoA\": \"Bari\",\n                \"natoIl\": \"01/01/1970\",\n                \"filledFields\": 0,\n                \"user\": {\n                    \"idUser\": 2,\n                    \"username\": \"prova1\",\n                    \"password\": \"prova1\",\n                    \"ruolo\": \"user\",\n                    \"email\": null\n                }\n            },\n            \"dettagliProgetto\": \"Progetto di esempio\",\n            \"coordinateDIIN\": \"32424235435\"\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/DossierController/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"DossierController",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dossier List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/DossierController/dossierManagement?progettoId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"DossierController",
+						"dossierManagement"
+					],
+					"query": [
+						{
+							"key": "progettoId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Dossier",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/DossierController/delete?id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"DossierController",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Dossier",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"idDossier\": 2,\n        \"periodoDiImposta\": \"2019\",\n        \"costoDipendentiPeriodoDiImposta\": 345,\n        \"fatturatoPeriodoDiImposta\": 544354,\n        \"numeroTotaleDipendenti\": 22,\n        \"totaleCostiReD\": 3244,\n        \"costiPersonaleReD\": 344324,\n        \"filledFields\": 6,\n        \"progettoDTO\": {\n            \"idProgetto\": 1,\n            \"titoloProgetto\": \"RuD\",\n            \"aziendaClienteDTO\": {\n                \"idAziendaCliente\": 1,\n                \"denominazioneSocieta\": \"Enel Energia\",\n                \"formaGiuridica\": \"societa' per azioni\",\n                \"sedeLegale\": \"Roma\",\n                \"partitaIva\": \"1234567890\",\n                \"telefono\": \"555555\",\n                \"email\": \"info@enel.it\",\n                \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n                \"attivitaAzienda\": \"produzione\",\n                \"legaleRappresentante\": \"Mario Rossi\",\n                \"natoA\": \"Bari\",\n                \"natoIl\": \"01/01/1970\",\n                \"filledFields\": 0,\n                \"user\": {\n                    \"idUser\": 2,\n                    \"username\": \"prova1\",\n                    \"password\": \"prova1\",\n                    \"ruolo\": \"user\",\n                    \"email\": null\n                }\n            },\n            \"dettagliProgetto\": \"Progetto di esempio\",\n            \"coordinateDIIN\": \"32424235435\"\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/DossierController/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"DossierController",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Dossier",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/DossierController/read?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"DossierController",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
