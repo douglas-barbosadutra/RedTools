@@ -1,0 +1,26 @@
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
+import { Router } from '@angular/router';
+import { User } from '../../../models/User';
+
+@Component({
+    selector: 'app-user-insert',
+    templateUrl: './azienda-cliente-insert.component.html',
+    styleUrls: ['./azienda-cliente-insert.component.css']
+})
+export class AziendaClienteInsertComponent implements OnInit {
+    public insertUser: User;
+
+    public userTypes = [];
+    constructor(private userService: UserService, private router: Router) { }
+
+    ngOnInit() {
+        this.insertUser = new User(0, null, null, 'superuser', null);
+        this.userTypes = ['superuser', 'user'];
+    }
+    userInsert(f: NgForm) {
+        this.userService.insertUser(this.insertUser);
+    }
+
+}
