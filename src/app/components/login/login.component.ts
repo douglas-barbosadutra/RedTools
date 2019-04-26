@@ -28,13 +28,9 @@ export class LoginComponent implements OnInit {
             if (response != null) {
                 this.user = response;
                 sessionStorage.setItem('user', JSON.stringify(this.user));
-                console.log('Username: ' + this.user.userUser);
-                if (response.userType === 'admin') {
-                    this.router.navigateByUrl('/homeAdmin');
-                } else if (response.userType === 'bo') {
-                    this.router.navigateByUrl('/homeBO');
-                } else if (response.userType === 'dfsd') {
-                    this.router.navigateByUrl('/installer');
+                console.log('Username: ' + this.user.username);
+                if (response.ruolo === 'superuser') {
+                    this.router.navigateByUrl('/User/userManagement');
                 }
             }
         });

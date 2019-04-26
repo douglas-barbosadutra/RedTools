@@ -16,8 +16,8 @@ export class UserInsertComponent implements OnInit {
     constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
-        this.insertUser = new User(0, null, null, 'admin');
-        this.userTypes = ['admin', 'bo'];
+        this.insertUser = new User(0, null, null, 'superuser', null);
+        this.userTypes = ['superuser', 'user'];
     }
     userInsert(f: NgForm) {
         this.userService.insertUser(this.insertUser);

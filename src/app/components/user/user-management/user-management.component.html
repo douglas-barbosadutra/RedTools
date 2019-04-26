@@ -22,8 +22,6 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item active"><a href="/Home/homeAdmin">Dashboard</a></li>
-                                    <li class="list-inline-item seprate"><span>/</span></li>
                                     <li class="list-inline-item">User Management</li>
                                 </ul>
                             </div>
@@ -65,10 +63,10 @@
 
                                         <tr class="tr-shadow" *ngFor="let user of users">
 
-                                            <td>{{user.userUser}}</td>
+                                            <td>{{user.username}}</td>
                                             <!--<%=user.getUserUser()%>-->
 
-                                            <td>{{user.userType}}
+                                            <td>{{user.ruolo}}
                                                 <!--<%=convertUserType(user.getUserType())%>-->
                                             </td>
                                             <td>
@@ -77,11 +75,11 @@
 
                                                 <div class="table-data-feature">
 
-                                                    <button (click)="updateLink(user.userId)" class="item" data-toggle="tooltip"
+                                                    <button (click)="updateLink(user.idUser)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
 
-                                                    <a href="/User/userManagement" (click)="removeLink(user.userId)"
+                                                    <a href="/User/userManagement" (click)="removeLink(user.idUser)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>

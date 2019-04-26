@@ -1,5 +1,5 @@
 {
-  "name": "red-tools-angular",
+  "name": "red-tools-angular-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,13 +26,13 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "~7.3.8",
+    "@angular/cli": "~7.3.4",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
-    "angular-ide": "^0.9.60",
+    "angular-ide": "^0.9.59",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
