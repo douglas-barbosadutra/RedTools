@@ -12,6 +12,11 @@ import { LoginComponent } from './components/login/login.component';
 import { UserManagementComponent } from './components/user/user-management/user-management.component';
 import { UserInsertComponent } from './components/user/user-insert/user-insert.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
+/** Azienda Cliente */
+// tslint:disable-next-line:max-line-length
+import { AziendaClienteManagementComponent } from './components/azienda-cliente/azienda-cliente-management/azienda-cliente-management.component';
+import { AziendaClienteInsertComponent } from './components/azienda-cliente/azienda-cliente-insert/azienda-cliente-insert.component';
+import { AziendaClienteUpdateComponent } from './components/azienda-cliente/azienda-cliente-update/azienda-cliente-update.component';
 
 /** Services */
 import { LoginService } from './services/login.service';
@@ -22,7 +27,10 @@ import { LoginService } from './services/login.service';
     LoginComponent,
     UserManagementComponent,
     UserInsertComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    AziendaClienteManagementComponent,
+    AziendaClienteInsertComponent,
+    AziendaClienteUpdateComponent
   ],
   imports: [
     BrowserModule,

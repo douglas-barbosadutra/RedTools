@@ -67,6 +67,14 @@
             "url": "http://localhost:4200/#",
             "webRoot": "${workspaceFolder}",
             "port": 9247
+        },
+        {
+            "name": "Launch Chrome RedToolsAngular on Angular CLI Server (1)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}",
+            "port": 9233
         }
     ]
 }
