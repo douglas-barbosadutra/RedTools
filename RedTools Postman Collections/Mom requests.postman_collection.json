@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "b7c1f986-420b-4cb3-aadb-68749168730a",
+		"name": "Mom requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert Mom",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n        \"idMom\": 0,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 6\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/MomController/insert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MomController",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mom List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/MomController/momManagement?idAziendaCliente=6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MomController",
+						"momManagement"
+					],
+					"query": [
+						{
+							"key": "idAziendaCliente",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Impiegato List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/ImpiegatoController/impiegatoManagement?idAziendaCliente=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ImpiegatoController",
+								"impiegatoManagement"
+							],
+							"query": [
+								{
+									"key": "idAziendaCliente",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Apr 2019 21:41:27 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idNome\": 1,\n        \"nominativo\": \"Mario Cevoli\",\n        \"livello\": 1,\n        \"qualifica\": \"Programmatore\",\n        \"mansione\": \"Impiegato\",\n        \"titoloDiStudio\": \"Laurea\",\n        \"totaleOreLavorate\": 234,\n        \"costoLordoAnnuo\": 123434,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 1,\n            \"denominazioneSocieta\": \"Enel Energia\",\n            \"formaGiuridica\": \"societa' per azioni\",\n            \"sedeLegale\": \"Roma\",\n            \"partitaIva\": \"1234567890\",\n            \"telefono\": \"555555\",\n            \"email\": \"info@enel.it\",\n            \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n            \"attivitaAzienda\": \"produzione\",\n            \"legaleRappresentante\": \"Mario Rossi\",\n            \"natoA\": \"Bari\",\n            \"natoIl\": \"01/01/1970\",\n            \"filledFields\": 0,\n            \"user\": {\n                \"idUser\": 2,\n                \"username\": \"prova1\",\n                \"password\": \"prova1\",\n                \"ruolo\": \"user\",\n                \"email\": null\n            }\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Delete Mom",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/MomController/delete?idMom=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"MomController",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "idMom",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Mom",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n        \"idNome\": 1,\n        \"nominativo\": \"Mario Cevolio\",\n        \"livello\": 1,\n        \"qualifica\": \"Programmatore\",\n        \"mansione\": \"Impiegato\",\n        \"titoloDiStudio\": \"Laurea\",\n        \"totaleOreLavorate\": 234,\n        \"costoLordoAnnuo\": 123434,\n        \"aziendaCliente\": {\n            \"idAziendaCliente\": 1,\n            \"denominazioneSocieta\": \"Enel Energia\",\n            \"formaGiuridica\": \"societa' per azioni\",\n            \"sedeLegale\": \"Roma\",\n            \"partitaIva\": \"1234567890\",\n            \"telefono\": \"555555\",\n            \"email\": \"info@enel.it\",\n            \"indirizzoUnitaLocale\": \"Via dei Paoli, 52, Bari\",\n            \"attivitaAzienda\": \"produzione\",\n            \"legaleRappresentante\": \"Mario Rossi\",\n            \"natoA\": \"Bari\",\n            \"natoIl\": \"01/01/1970\",\n            \"filledFields\": 0,\n            \"user\": {\n                \"idUser\": 2,\n                \"username\": \"prova1\",\n                \"password\": \"prova1\",\n                \"ruolo\": \"user\",\n                \"email\": null\n            }\n        }\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/ImpiegatoController/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ImpiegatoController",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Mom",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/ImpiegatoController/read?idImpiegato=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ImpiegatoController",
+						"read"
+					],
+					"query": [
+						{
+							"key": "idImpiegato",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "eea7cafc-0c33-42f1-9ac0-e50da6f2c3de",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "990681bd-b4a2-42c6-97bb-a85461eaa2a6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

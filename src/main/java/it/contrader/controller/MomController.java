@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.MomDTO;
+import it.contrader.services.AziendaClienteService;
 import it.contrader.services.MomService;
 
 
@@ -22,15 +22,17 @@ import it.contrader.services.MomService;
 public class MomController {
 
     private final MomService momService;
+    private final AziendaClienteService aziendaClienteService;
 	
 	@Autowired
-	public MomController(MomService momService) {
+	public MomController(MomService momService, AziendaClienteService aziendaClienteService) {
 		this.momService = momService;
+		this.aziendaClienteService = aziendaClienteService;
 	}
 
 	@RequestMapping(value = "/momManagement", method = RequestMethod.GET)
-	public List<MomDTO> momManagement(@RequestParam(value = "aziendaCliente") AziendaClienteDTO aziendaCliente) {
-		return this.momService.findMomDTOByAziendaCliente(aziendaCliente);
+	public List<MomDTO> momManagement(@RequestParam(value = "idAziendaCliente") int idAziendaCliente) {
+		return this.momService.findMomDTOByAziendaCliente(aziendaClienteService.getAziendaClienteDTOById(idAziendaCliente));
 	}
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
