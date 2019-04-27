@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../../../services/user.service';
+import { AziendaClienteService } from '../../../services/aziendaCliente.service';
 import { Router } from '@angular/router';
-import { User } from '../../../models/User';
+import { AziendaCliente } from '../../../models/AziendaCliente';
 
 @Component({
-    selector: 'app-user-insert',
+    selector: 'app-aziendaCliente-insert',
     templateUrl: './azienda-cliente-insert.component.html',
     styleUrls: ['./azienda-cliente-insert.component.css']
 })
 export class AziendaClienteInsertComponent implements OnInit {
-    public insertUser: User;
+    public insertAziendaCliente: AziendaCliente;
 
-    public userTypes = [];
-    constructor(private userService: UserService, private router: Router) { }
+    public aziendaClienteTypes = [];
+    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
 
     ngOnInit() {
-        this.insertUser = new User(0, null, null, 'superuser', null);
-        this.userTypes = ['superuser', 'user'];
+        this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
+            null, null, 0, null);
     }
-    userInsert(f: NgForm) {
-        this.userService.insertUser(this.insertUser);
+    aziendaClienteInsert(f: NgForm) {
+        this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
     }
 
 }

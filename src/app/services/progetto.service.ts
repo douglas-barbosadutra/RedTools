@@ -3,6 +3,7 @@ import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Progetto } from '../models/Progetto';
+import { AziendaCliente } from '../models/AziendaCliente';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { logging } from 'protractor';
 
@@ -31,8 +32,9 @@ export class ProgettoService {
         } return false;
     }
 
-    progettoList(idAziendaCliente: number): Observable<Array<Progetto>> {
-        return this.http.get<any>('http://localhost:8080/ProgettoController/progettoManagement?idAziendaCliente=' + idAziendaCliente)
+    progettoList(): Observable<Array<Progetto>> {
+        const aziendaCliente: AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
+        return this.http.get<any>('http://localhost:8080/ProgettoController/progettoManagement?idAziendaCliente=' + aziendaCliente.idAziendaCliente)
             .pipe(tap((response) => console.log('Progetto'), catchError(this.handleError('error', {})))
             );
     }

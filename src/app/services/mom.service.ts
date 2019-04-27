@@ -3,6 +3,7 @@ import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Mom } from '../models/Mom';
+import { AziendaCliente } from '../models/AziendaCliente';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { logging } from 'protractor';
 
@@ -31,8 +32,9 @@ export class MomService {
         } return false;
     }
 
-    momList(idAziendaCliente: number): Observable<Array<Mom>> {
-        return this.http.get<any>('http://localhost:8080/MomController/momManagement?idAziendaCliente=' + idAziendaCliente)
+    momList(): Observable<Array<Mom>> {
+        const aziendaCliente: AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
+        return this.http.get<any>('http://localhost:8080/MomController/momManagement?idAziendaCliente=' + aziendaCliente.idAziendaCliente)
             .pipe(tap((response) => console.log('Mom'), catchError(this.handleError('error', {})))
             );
     }

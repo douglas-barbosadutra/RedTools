@@ -3,6 +3,7 @@ import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Impiegato } from '../models/Impiegato';
+import { AziendaCliente } from '../models/AziendaCliente';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { logging } from 'protractor';
 
@@ -31,8 +32,9 @@ export class ImpiegatoService {
         } return false;
     }
 
-    impiegatoList(idAziendaCliente: number): Observable<Array<Impiegato>> {
-        return this.http.get<any>('http://localhost:8080/ImpiegatoController/impiegatoManagement?idAziendaCliente=' + idAziendaCliente)
+    impiegatoList(): Observable<Array<Impiegato>> {
+        const aziendaCliente: AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
+        return this.http.get<any>('http://localhost:8080/ImpiegatoController/impiegatoManagement?idAziendaCliente=' + aziendaCliente.idAziendaCliente)
             .pipe(tap((response) => console.log('Impiegato'), catchError(this.handleError('error', {})))
             );
     }

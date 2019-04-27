@@ -3,6 +3,8 @@ import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Fattura } from '../models/Fattura';
+import { Fornitore } from '../models/Fornitore';
+import { Dossier } from '../models/Dossier';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { logging } from 'protractor';
 
@@ -31,8 +33,10 @@ export class FatturaService {
         } return false;
     }
 
-    fatturaList(fornitoreId: number, dossierId: number): Observable<Array<Fattura>> {
-        return this.http.get<any>('http://localhost:8080/FatturaController/fatturaManagement?fornitoreId=' + fornitoreId + '&dossierId=' + dossierId)
+    fatturaList(): Observable<Array<Fattura>> {
+        const fornitore: Fornitore = JSON.parse(sessionStorage.getItem('fornitore'));
+        const dossier: Dossier = JSON.parse(sessionStorage.getItem('dossier'));
+        return this.http.get<any>('http://localhost:8080/FatturaController/fatturaManagement?fornitoreId=' + fornitore.idFornitore + '&dossierId=' + dossier.idDossier)
             .pipe(tap((response) => console.log('Fattura'), catchError(this.handleError('error', {})))
             );
     }

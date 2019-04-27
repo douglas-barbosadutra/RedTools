@@ -3,6 +3,7 @@ import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Dossier } from '../models/Dossier';
+import { Progetto } from '../models/Progetto';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { logging } from 'protractor';
 
@@ -31,8 +32,9 @@ export class DossierService {
         } return false;
     }
 
-    dossierList(progettoId: number): Observable<Array<Dossier>> {
-        return this.http.get<any>('http://localhost:8080/DossierController/dossierManagement?progettoId=' + progettoId)
+    dossierList(): Observable<Array<Dossier>> {
+        const progetto: Progetto = JSON.parse(sessionStorage.getItem('progetto'));
+        return this.http.get<any>('http://localhost:8080/DossierController/dossierManagement?progettoId=' + progetto.idProgetto)
             .pipe(tap((response) => console.log('Dossier'), catchError(this.handleError('error', {})))
             );
     }

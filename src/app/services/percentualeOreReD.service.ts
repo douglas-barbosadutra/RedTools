@@ -3,6 +3,8 @@ import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { PercentualeOreReD } from '../models/PercentualeOreReD';
+import { Impiegato } from '../models/Impiegato';
+import { Dossier } from '../models/Dossier';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { logging } from 'protractor';
 
@@ -32,7 +34,9 @@ export class PercentualeOreReDService {
     }
 
     percentualeOreReDList(impiegatoId: number, dossierId: number): Observable<Array<PercentualeOreReD>> {
-        return this.http.get<any>('http://localhost:8080/PercentualeOreReDController/percentualeOreReDManagement?impiegatoId=' + impiegatoId + '&dossierId=' + dossierId)
+        const impiegato: Impiegato = JSON.parse(sessionStorage.getItem('impiegato'));
+        const dossier: Dossier = JSON.parse(sessionStorage.getItem('dossier'));
+        return this.http.get<any>('http://localhost:8080/PercentualeOreReDController/percentualeOreReDManagement?impiegatoId=' + impiegato.idNome + '&dossierId=' + dossier.idDossier)
             .pipe(tap((response) => console.log('PercentualeOreReD'), catchError(this.handleError('error', {})))
             );
     }

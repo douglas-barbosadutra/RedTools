@@ -1,39 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from '../../../services/user.service';
-import { User } from '../../../models/User';
+import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { AziendaCliente } from '../../../models/AziendaCliente';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-user-update',
+  selector: 'app-aziendaCliente-update',
   templateUrl: './azienda-cliente-update.component.html',
   styleUrls: ['./azienda-cliente-update.component.css']
 })
 export class AziendaClienteUpdateComponent implements OnInit {
 
-    idUser: number;
-    public updateUser: User;
+    idAziendaCliente: number;
+    public updateAziendaCliente: AziendaCliente;
 
-    public userTypes = [];
+    public aziendaClienteTypes = [];
 
     // tslint:disable-next-line:max-line-length
-    constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
-        this.idUser = Number(this.route.snapshot.paramMap.get('idUser'));
-        console.log('User id in update:' + this.idUser);
-        this.userService.readUser(this.idUser).subscribe((response) => {
-            this.updateUser = response;
-            console.log('User caricarito: ' + this.updateUser.username);
+        this.idAziendaCliente = Number(this.route.snapshot.paramMap.get('idAziendaCliente'));
+        console.log('AziendaCliente id in update:' + this.idAziendaCliente);
+        this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
+            this.updateAziendaCliente = response;
+            console.log('AziendaCliente caricarito: ' + this.updateAziendaCliente.denominazioneSocieta);
         });
-
-        this.userTypes = ['superuser', 'user'];
     }
 
     update(f: NgForm) {
-        console.log('User id: ' + f.value.idUser + ' ' + f.value.username);
-        this.userService.updateUser(this.updateUser);
+        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.aziendaClientename);
+        this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
 
     }
 }

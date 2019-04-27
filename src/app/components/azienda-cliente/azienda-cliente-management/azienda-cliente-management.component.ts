@@ -1,36 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user.service';
-import { User } from '../../../models/User';
+import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { AziendaCliente } from '../../../models/AziendaCliente';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-user-management',
+    selector: 'app-aziendaCliente-management',
     templateUrl: './azienda-cliente-management.component.html',
     styleUrls: ['./azienda-cliente-management.component.css']
 })
 export class AziendaClienteManagementComponent implements OnInit {
-    public users: Array<User>;
+    public aziendaClientes: Array<AziendaCliente>;
+    idBo: number;
 
-    constructor(private userService: UserService, private router: Router) { }
+    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
 
     ngOnInit() {
-        this.userService.userList().subscribe((response) => {
-            this.users = response;
-            console.log('La grandezza e\'' + this.users.length);
+        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
+            this.aziendaClientes = response;
+            console.log('La grandezza e\'' + this.aziendaClientes.length);
         });
     }
 
-    removeLink(userId: number) {
-        this.userService.deleteUser(userId);
+    removeLink(aziendaClienteId: number) {
+        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
 
     }
 
-    updateLink(userId: number) {
-        this.router.navigateByUrl('/User/update/' + userId);
+    updateLink(aziendaClienteId: number) {
+        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/User/insert');
+        this.router.navigateByUrl('/AziendaCliente/insert');
     }
 
 }
