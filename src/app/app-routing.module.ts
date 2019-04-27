@@ -28,7 +28,7 @@ const routes: Routes = [
 /** Azienda Cliente */
 { path: 'AziendaCliente/aziendaClienteManagement', component: AziendaClienteManagementComponent },
 { path: 'AziendaCliente/insert', component: AziendaClienteInsertComponent },
-{ path: 'AziendaCliente/update/:idUser', component: AziendaClienteUpdateComponent }
+{ path: 'AziendaCliente/update/:idAziendaCliente', component: AziendaClienteUpdateComponent }
 
 ];
 @NgModule({

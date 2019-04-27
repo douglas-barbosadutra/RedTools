@@ -25,12 +25,12 @@ export class AziendaClienteUpdateComponent implements OnInit {
         console.log('AziendaCliente id in update:' + this.idAziendaCliente);
         this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
             this.updateAziendaCliente = response;
-            console.log('AziendaCliente caricarito: ' + this.updateAziendaCliente.denominazioneSocieta);
+            console.log('AziendaCliente caricato: ' + this.updateAziendaCliente.denominazioneSocieta);
         });
     }
 
     update(f: NgForm) {
-        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.aziendaClientename);
+        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.denominazioneSocieta);
         this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
 
     }

@@ -9,15 +9,17 @@ import { Router } from '@angular/router';
     styleUrls: ['./azienda-cliente-management.component.css']
 })
 export class AziendaClienteManagementComponent implements OnInit {
-    public aziendaClientes: Array<AziendaCliente>;
-    idBo: number;
+    public aziendaClienteList: Array<AziendaCliente>;
+    public idBo: number;
+    public campi = 12;
+
 
     constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
 
     ngOnInit() {
         this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClientes = response;
-            console.log('La grandezza e\'' + this.aziendaClientes.length);
+            this.aziendaClienteList = response;
+            console.log('La grandezza e\'' + this.aziendaClienteList.length);
         });
     }
 

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AziendaClienteService } from '../../../services/aziendaCliente.service';
 import { Router } from '@angular/router';
 import { AziendaCliente } from '../../../models/AziendaCliente';
+import { User } from '../../../models/User';
 
 @Component({
     selector: 'app-aziendaCliente-insert',
@@ -20,6 +21,8 @@ export class AziendaClienteInsertComponent implements OnInit {
             null, null, 0, null);
     }
     aziendaClienteInsert(f: NgForm) {
+        const user: User = JSON.parse(sessionStorage.getItem('user'));
+        this.insertAziendaCliente.user = user;
         this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
     }
 
