@@ -36,4 +36,13 @@ export class AziendaClienteManagementComponent implements OnInit {
         this.router.navigateByUrl('/AziendaCliente/insert');
     }
 
+    momLink(aziendaCliente: AziendaCliente) {
+        sessionStorage.setItem('aziendaCliente', JSON.stringify(aziendaCliente));
+        this.router.navigateByUrl('/Mom/momManagement');
+    }
+
+    progettoLink(aziendaCliente: AziendaCliente) {
+        sessionStorage.setItem('aziendaCliente', JSON.stringify(aziendaCliente));
+        this.router.navigateByUrl('/Progetto/progettoManagement');
+    }
 }

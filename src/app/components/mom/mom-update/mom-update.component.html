@@ -39,66 +39,58 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">EDIT AZIENDA CLIENTE</div>
+                <div class="card-header">EDIT MOM</div>
                 <div class="card-body card-block">
 
                     <form #f="ngForm">
-                        <input type="hidden" name="idAziendaCliente" [(ngModel)]="updateAziendaCliente.idAziendaCliente" />
+                        <input type="hidden" name="idMom" [(ngModel)]="updateMom.idMom" />
                         <div class="form-group">
-                            <label>Denominazione Societa'</label> <input class="au-input au-input--full" type="text" name="denominazioneSocieta"
-                                placeholder="Denominazione Societa" [(ngModel)]="updateAziendaCliente.denominazioneSocieta">
+                            <label>Luogo Mom</label> <input class="au-input au-input--full" type="text" name="luogoMom"
+                                placeholder="Luogo Mom" [(ngModel)]="updateMom.luogoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Forma Giuridica</label> <input class="au-input au-input--full" type="text" name="formaGiuridica"
-                                placeholder="Forma Giuridica" [(ngModel)]="updateAziendaCliente.formaGiuridica">
+                            <label>Data del giorno MOM</label> <input class="au-input au-input--full" type="text" name="dataDelGiornoMom"
+                                placeholder="Data del giorno MOM" [(ngModel)]="updateMom.dataDelGiornoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Sede Legale</label> <input class="au-input au-input--full" type="text" name="sedeLegale"
-                                placeholder="Sede Legale" [(ngModel)]="updateAziendaCliente.sedeLegale">
+                            <label>Orario MOM</label> <input class="au-input au-input--full" type="text" name="orarioMom"
+                                placeholder="Orario MOM" [(ngModel)]="updateMom.orarioMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Partita Iva</label> <input class="au-input au-input--full" type="text" name="partitaIva"
-                                placeholder="Partita Iva" [(ngModel)]="updateAziendaCliente.partitaIva">
+                            <label>Oggetto MOM</label> <input class="au-input au-input--full" type="text" name="oggettoMom"
+                                placeholder="Oggetto MOM" [(ngModel)]="updateMom.oggettoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Telefono</label> <input class="au-input au-input--full" type="text" name="telefono"
-                                placeholder="Telefono" [(ngModel)]="updateAziendaCliente.telefono">
+                            <label>Progetto MOM</label> <input class="au-input au-input--full" type="text" name="progettoMom"
+                                placeholder="Progetto MOM" [(ngModel)]="updateMom.progettoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Email</label> <input class="au-input au-input--full" type="text" name="email"
-                                placeholder="Email" [(ngModel)]="updateAziendaCliente.email">
+                            <label>Partecipanti MOM</label> <input class="au-input au-input--full" type="text" name="partecipantiMom"
+                                placeholder="Partecipanti MOM" [(ngModel)]="updateMom.partecipantiMom">
                         </div>
                        
                         <div class="form-group">
-                            <label>Indirizzo Unita' Locale</label> <input class="au-input au-input--full" type="text" name="indirizzoUnitaLocale"
-                                placeholder="Indirizzo Unita' Locale" [(ngModel)]="updateAziendaCliente.indirizzoUnitaLocale">
-                        </div>
-
-                         <div class="form-group">
-                            <label>Legale Rappresentante</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Legale Rappresentante" [(ngModel)]="updateAziendaCliente.legaleRappresentante">
+                            <label>Testo agenda MOM</label> <input class="au-input au-input--full" type="text" name="testoAgendaMom"
+                                placeholder="Testo agenda MOM" [(ngModel)]="updateMom.testoAgendaMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Nato a</label> <input class="au-input au-input--full" type="text" name="natoA"
-                                placeholder="Nato a" [(ngModel)]="updateAziendaCliente.natoA">
+                            <label>Testo azione MOM</label> <input class="au-input au-input--full" type="text" name="testoAzioneMom"
+                                placeholder="Testo azione MOM" [(ngModel)]="updateMom.testoAzioneMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Nato il</label> <input class="au-input au-input--full" type="text" name="natoIl"
-                                placeholder="Nato il" [(ngModel)]="updateAziendaCliente.natoIl">
+                            <label>Testo note MOM</label> <input class="au-input au-input--full" type="text" name="testoNoteMom"
+                                placeholder="Testo note MOM" [(ngModel)]="updateMom.testoNoteMom">
                         </div>
 
-                        <div class="form-group">
-                            <label>Attivita' Azienda</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Attivita' Azienda" [(ngModel)]="updateAziendaCliente.attivitaAzienda">
-                        </div>
-                        <a href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
+                    
+                        <a href="/Mom/momManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
                     </form>
                 </div>
 

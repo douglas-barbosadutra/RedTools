@@ -73,32 +73,32 @@ const routes: Routes = [
 { path: 'Progetto/update/:idProgetto', component: ProgettoUpdateComponent },
 
 /** Dossier */
-{ path: 'Dossier/progettoManagement', component: DossierManagementComponent },
+{ path: 'Dossier/dossierManagement', component: DossierManagementComponent },
 { path: 'Dossier/insert', component: DossierInsertComponent },
 { path: 'Dossier/update/:idDossier', component: DossierUpdateComponent },
 
 /** Mom */
-{ path: 'Mom/progettoManagement', component: MomManagementComponent },
+{ path: 'Mom/momManagement', component: MomManagementComponent },
 { path: 'Mom/insert', component: MomInsertComponent },
 { path: 'Mom/update/:idMom', component: MomUpdateComponent },
 
 /** Fornitore */
-{ path: 'Fornitore/progettoManagement', component: FornitoreManagementComponent },
+{ path: 'Fornitore/fornitoreManagement', component: FornitoreManagementComponent },
 { path: 'Fornitore/insert', component: FornitoreInsertComponent },
 { path: 'Fornitore/update/:idFornitore', component: FornitoreUpdateComponent },
 
 /** Impiegato */
-{ path: 'Impiegato/progettoManagement', component: ImpiegatoManagementComponent },
+{ path: 'Impiegato/impiegatoManagement', component: ImpiegatoManagementComponent },
 { path: 'Impiegato/insert', component: ImpiegatoInsertComponent },
 { path: 'Impiegato/update/:idImpiegato', component: ImpiegatoUpdateComponent },
 
 /** Fattura */
-{ path: 'Fattura/progettoManagement', component: FatturaManagementComponent },
+{ path: 'Fattura/fatturaManagement', component: FatturaManagementComponent },
 { path: 'Fattura/insert', component: FatturaInsertComponent },
 { path: 'Fattura/update/:idFattura', component: FatturaUpdateComponent },
 
 /** PercentualeOreReD */
-{ path: 'PercentualeOreReD/progettoManagement', component: PercentualeOreReDManagementComponent },
+{ path: 'PercentualeOreReD/percentualeOreReDManagement', component: PercentualeOreReDManagementComponent },
 { path: 'PercentualeOreReD/insert', component: PercentualeOreReDInsertComponent },
 { path: 'PercentualeOreReD/update/:idPercentualeOreReD', component: PercentualeOreReDUpdateComponent }
 

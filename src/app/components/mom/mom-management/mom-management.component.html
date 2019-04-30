@@ -22,7 +22,9 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item">Azienda Cliente Management</li>
+                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClientManagement">Azienda Cliente Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Mom Management</li>
                                 </ul>
                             </div>
                         </div>
@@ -40,62 +42,62 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- AZIENDA CLIENTE TABLE -->
-                        <h3 class="title-5 m-b-35">Azienda Cliente Table</h3>
+                        <!-- MINUTE OF MEETING TABLE -->
+                        <h3 class="title-5 m-b-35">Minute of meeting Table</h3>
 
                         <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
-                                    class="zmdi zmdi-plus"></i>ADD AZIENDA CLIENTE
+                                    class="zmdi zmdi-plus"></i>ADD MINUTE OF MEETING
                             </button>
 
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <!-- <th>Id Azienda Cliente</th> -->
-                                            <th>Societa'</th>
-			                                <th>Forma Giuridica</th>
-			                                <th>Partita Iva</th>
-			                                <th>Telefono</th>
-			                                <th>Completamento Campi</th>
-                                            <th></th>
+                                            <!-- <th>Id</th> -->
+			                                <th>Azienda</th>
+                                            <th>Luogo</th>
+                                            <th>Data</th>
+                                            <th>Oggetto</th>
+                                            <th>Progetto di Rif.</th>
+                                            <th>Partecipanti</th>
+                                            <!-- <th>Orario</th>
+                                            <th>Testo Agenda</th>
+                                            <th>Testo Note</th>
+                                            <th>Testo Azione</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr class="tr-shadow" *ngFor="let aziendaCliente of aziendaClienteList">
+                                        <tr class="tr-shadow" *ngFor="let mom of momList">
 
-                                            <!-- <td>{{aziendaCliente.idAziendaCliente}}</td> -->
-                                            
-                                            <td>{{aziendaCliente.denominazioneSocieta}}</td>
-
-                                            <td>{{aziendaCliente.formaGiuridica}}</td>
-
-                                            <td>{{aziendaCliente.partitaIva}}</td>
-
-                                            <td>{{aziendaCliente.telefono}}</td>
-
-                                            <td>{{aziendaCliente.filledFields}} on {{campi}}</td>
+                                            <!-- <td>{{mom.idMom}}</td> -->
+                                            <td>{{mom.aziendaCliente.denominazioneSocieta}}</td>
+                                            <td>{{mom.luogoMom}}</td>
+                                            <td>{{mom.dataDelGiornoMom}}</td>
+                                            <td>{{mom.oggettoMom}}</td>
+                                            <td>{{mom.progettoMom}}</td>
+                                            <td>{{mom.partecipantiMom}}</td>
+                                            <!-- <td>{{mom.orarioMom}}</td>
+                                            <td>{{mom.testoAgendaMom}}</td>
+                                            <td>{{mom.testoAzioneMom}}</td>
+                                            <td>{{mom.testoNoteMom}}</td>
+                                             -->
                                             <td>
 
 
 
                                                 <div class="table-data-feature">
 
-                                                    <button (click)="updateLink(aziendaCliente.idAziendaCliente)" class="item" data-toggle="tooltip"
+                                                    <button (click)="updateLink(mom.idMom)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
 
-                                                    <a href="/AziendaCliente/aziendaClienteManagement" (click)="removeLink(aziendaCliente.idAziendaCliente)"
+                                                    <a href="/Mom/momManagement" (click)="removeLink(mom.idMom)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>
 
                                                 </div>
-
-
-
-
-
                                             </td>
                                         </tr>
 

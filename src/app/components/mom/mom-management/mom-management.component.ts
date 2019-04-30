@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { MomService } from '../../../services/mom.service';
+import { Mom } from '../../../models/Mom';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,31 +9,29 @@ import { Router } from '@angular/router';
     styleUrls: ['./mom-management.component.css']
 })
 export class MomManagementComponent implements OnInit {
-    public aziendaClienteList: Array<AziendaCliente>;
+    public momList: Array<Mom>;
     public idBo: number;
-    public campi = 12;
 
-
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private momService: MomService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
+        this.momService.momList().subscribe((response) => {
+            this.momList = response;
+            console.log('La grandezza e\'' + this.momList.length);
         });
     }
 
-    removeLink(aziendaClienteId: number) {
-        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
+    removeLink(momId: number) {
+        this.momService.deleteMom(momId);
 
     }
 
-    updateLink(aziendaClienteId: number) {
-        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
+    updateLink(momId: number) {
+        this.router.navigateByUrl('/Mom/update/' + momId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/Mom/insert');
     }
 
 }

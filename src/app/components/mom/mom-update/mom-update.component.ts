@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { MomService } from '../../../services/mom.service';
+import { Mom } from '../../../models/Mom';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -11,27 +11,25 @@ import { NgForm } from '@angular/forms';
 })
 export class MomUpdateComponent implements OnInit {
 
-    idAziendaCliente: number;
-    public updateAziendaCliente: AziendaCliente;
-
-    public aziendaClienteTypes = [];
+    idMom: number;
+    public updateMom: Mom;
 
     // tslint:disable-next-line:max-line-length
-    constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private momService: MomService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
-        this.idAziendaCliente = Number(this.route.snapshot.paramMap.get('idAziendaCliente'));
-        console.log('AziendaCliente id in update:' + this.idAziendaCliente);
-        this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
-            this.updateAziendaCliente = response;
-            console.log('AziendaCliente caricato: ' + this.updateAziendaCliente.denominazioneSocieta);
+        this.idMom = Number(this.route.snapshot.paramMap.get('idMom'));
+        console.log('Mom id in update:' + this.idMom);
+        this.momService.readMom(this.idMom).subscribe((response) => {
+            this.updateMom = response;
+            console.log('Mom caricato: ' + this.updateMom.aziendaCliente.denominazioneSocieta);
         });
     }
 
     update(f: NgForm) {
-        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.denominazioneSocieta);
-        this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
+        console.log('Mom id: ' + f.value.idMom + ' ' + f.value.datadataDelGiornoMom);
+        this.momService.updateMom(this.updateMom);
 
     }
 }

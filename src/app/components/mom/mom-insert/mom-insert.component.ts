@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { MomService } from '../../../services/mom.service';
 import { Router } from '@angular/router';
+import { Mom } from '../../../models/Mom';
 import { AziendaCliente } from '../../../models/AziendaCliente';
-import { User } from '../../../models/User';
 
 @Component({
     selector: 'app-mom-insert',
@@ -11,19 +11,16 @@ import { User } from '../../../models/User';
     styleUrls: ['./mom-insert.component.css']
 })
 export class MomInsertComponent implements OnInit {
-    public insertAziendaCliente: AziendaCliente;
+    public insertMom: Mom;
 
-    public aziendaClienteTypes = [];
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private momService: MomService, private router: Router) { }
 
     ngOnInit() {
-        this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
-            null, null, 0, null);
+        const aziendaCliente : AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
+        this.insertMom = new Mom(0, null, null, null, null, null, null, null, null, null, aziendaCliente);
     }
-    aziendaClienteInsert(f: NgForm) {
-        const user: User = JSON.parse(sessionStorage.getItem('user'));
-        this.insertAziendaCliente.user = user;
-        this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
+    momInsert(f: NgForm) {
+        this.momService.insertMom(this.insertMom);
     }
 
 }

@@ -24,7 +24,9 @@
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Insert AziendaCliente</li>
+                                    <li class="list-inline-item active"><a href="/Mom/momManagement">Mom Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Insert Mom</li>
                                 </ul>
                             </div>
                         </div>
@@ -39,66 +41,56 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">NEW AZIENDA CLIENTE</div>
+                <div class="card-header">NEW MINUTE OF MEETING</div>
                 <div class="card-body card-block">
                     <form #f="ngForm">
                         <div class="form-group">
-                            <label>Denominazione Societa'</label> <input class="au-input au-input--full" type="text" name="denominazioneSocieta"
-                                placeholder="Denominazione Societa" [(ngModel)]="insertAziendaCliente.denominazioneSocieta">
+                            <label>Luogo Mom</label> <input class="au-input au-input--full" type="text" name="luogoMom"
+                                placeholder="Luogo Mom" [(ngModel)]="insertMom.luogoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Forma Giuridica</label> <input class="au-input au-input--full" type="text" name="formaGiuridica"
-                                placeholder="Forma Giuridica" [(ngModel)]="insertAziendaCliente.formaGiuridica">
+                            <label>Data del giorno MOM</label> <input class="au-input au-input--full" type="text" name="dataDelGiornoMom"
+                                placeholder="Data del giorno MOM" [(ngModel)]="insertMom.dataDelGiornoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Sede Legale</label> <input class="au-input au-input--full" type="text" name="sedeLegale"
-                                placeholder="Sede Legale" [(ngModel)]="insertAziendaCliente.sedeLegale">
+                            <label>Orario MOM</label> <input class="au-input au-input--full" type="text" name="orarioMom"
+                                placeholder="Orario MOM" [(ngModel)]="insertMom.orarioMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Partita Iva</label> <input class="au-input au-input--full" type="text" name="partitaIva"
-                                placeholder="Partita Iva" [(ngModel)]="insertAziendaCliente.partitaIva">
+                            <label>Oggetto MOM</label> <input class="au-input au-input--full" type="text" name="oggettoMom"
+                                placeholder="Oggetto MOM" [(ngModel)]="insertMom.oggettoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Telefono</label> <input class="au-input au-input--full" type="text" name="telefono"
-                                placeholder="Telefono" [(ngModel)]="insertAziendaCliente.telefono">
+                            <label>Progetto MOM</label> <input class="au-input au-input--full" type="text" name="progettoMom"
+                                placeholder="Progetto MOM" [(ngModel)]="insertMom.progettoMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Email</label> <input class="au-input au-input--full" type="text" name="email"
-                                placeholder="Email" [(ngModel)]="insertAziendaCliente.email">
+                            <label>Partecipanti MOM</label> <input class="au-input au-input--full" type="text" name="partecipantiMom"
+                                placeholder="Partecipanti MOM" [(ngModel)]="insertMom.partecipantiMom">
                         </div>
                        
                         <div class="form-group">
-                            <label>Indirizzo Unita' Locale</label> <input class="au-input au-input--full" type="text" name="indirizzoUnitaLocale"
-                                placeholder="Indirizzo Unita' Locale" [(ngModel)]="insertAziendaCliente.indirizzoUnitaLocale">
+                            <label>Testo agenda MOM</label> <input class="au-input au-input--full" type="text" name="testoAgendaMom"
+                                placeholder="Testo agenda MOM" [(ngModel)]="insertMom.testoAgendaMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Attivita' Azienda</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Attivita' Azienda" [(ngModel)]="insertAziendaCliente.attivitaAzienda">
+                            <label>Testo azione MOM</label> <input class="au-input au-input--full" type="text" name="testoAzioneMom"
+                                placeholder="Testo azione MOM" [(ngModel)]="insertMom.testoAzioneMom">
                         </div>
 
                         <div class="form-group">
-                            <label>Legale Rappresentante</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Legale Rappresentante" [(ngModel)]="insertAziendaCliente.legaleRappresentante">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato a</label> <input class="au-input au-input--full" type="text" name="natoA"
-                                placeholder="Nato a" [(ngModel)]="insertAziendaCliente.natoA">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato il</label> <input class="au-input au-input--full" type="text" name="natoIl"
-                                placeholder="Nato il" [(ngModel)]="insertAziendaCliente.natoIl">
+                            <label>Testo note MOM</label> <input class="au-input au-input--full" type="text" name="testoNoteMom"
+                                placeholder="Testo note MOM" [(ngModel)]="insertMom.testoNoteMom">
                         </div>
 
                         <div class="login-checkbox"></div>
-                        <a href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="aziendaClienteInsert(f)">Submit</a>
+                        <a href="/Mom/momManagement" type="submit" class="btn btn-secondary btn-sm" (click)="momInsert(f)">Submit</a>
                     </form>
                 </div>
 
