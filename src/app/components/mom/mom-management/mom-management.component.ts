@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class MomManagementComponent implements OnInit {
     public momList: Array<Mom>;
-    public idBo: number;
 
     constructor(private momService: MomService, private router: Router) { }
 

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { ProgettoService } from '../../../services/progetto.service';
 import { Router } from '@angular/router';
-import { AziendaCliente } from '../../../models/AziendaCliente';
-import { User } from '../../../models/User';
+import { Progetto } from '../../../models/Progetto';
 
 @Component({
     selector: 'app-progetto-insert',
@@ -11,19 +10,16 @@ import { User } from '../../../models/User';
     styleUrls: ['./progetto-insert.component.css']
 })
 export class ProgettoInsertComponent implements OnInit {
-    public insertAziendaCliente: AziendaCliente;
+    public insertProgetto: Progetto;
 
-    public aziendaClienteTypes = [];
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    public progettoTypes = [];
+    constructor(private progettoService: ProgettoService, private router: Router) { }
 
     ngOnInit() {
-        this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
-            null, null, 0, null);
+        this.insertProgetto = new Progetto(0, null, null, null, null)
     }
-    aziendaClienteInsert(f: NgForm) {
-        const user: User = JSON.parse(sessionStorage.getItem('user'));
-        this.insertAziendaCliente.user = user;
-        this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
+    progettoInsert(f: NgForm) {
+        this.progettoService.insertProgetto(this.insertProgetto);
     }
 
 }

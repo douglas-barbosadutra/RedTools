@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserInsertComponent } from './user-insert.component';
-
 describe('UserInsertComponent', () => {
   let component: UserInsertComponent;
   let fixture: ComponentFixture<UserInsertComponent>;

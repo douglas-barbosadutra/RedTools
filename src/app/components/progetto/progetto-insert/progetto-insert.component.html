@@ -12,7 +12,7 @@
 
     <!-- END HEADER DESKTOP-->
 
-    <!-- BREADCRUMB-->
+     <!-- BREADCRUMB-->
     <section class="au-breadcrumb m-t-75">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
@@ -24,7 +24,9 @@
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Insert AziendaCliente</li>
+                                    <li class="list-inline-item active"><a href="/Progetto/progettoManagement">Mom Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Insert Project</li>
                                 </ul>
                             </div>
                         </div>
@@ -39,66 +41,31 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">NEW AZIENDA CLIENTE</div>
+                <div class="card-header">NEW PROJECT</div>
                 <div class="card-body card-block">
                     <form #f="ngForm">
                         <div class="form-group">
-                            <label>Denominazione Societa'</label> <input class="au-input au-input--full" type="text" name="denominazioneSocieta"
-                                placeholder="Denominazione Societa" [(ngModel)]="insertAziendaCliente.denominazioneSocieta">
+                            <label>Titolo progetto</label> <input class="au-input au-input--full" type="text" name="titoloProgetto"
+                                placeholder="Titolo progetto" [(ngModel)]="insertProgetto.titoloProgetto">
                         </div>
 
                         <div class="form-group">
-                            <label>Forma Giuridica</label> <input class="au-input au-input--full" type="text" name="formaGiuridica"
-                                placeholder="Forma Giuridica" [(ngModel)]="insertAziendaCliente.formaGiuridica">
+                            <label>Azienda cliente</label> <input class="au-input au-input--full" type="text" name="aziendaClienteDTO"
+                                placeholder="Azienda cliente" [(ngModel)]="insertProgetto.aziendaClienteDTO">
                         </div>
 
                         <div class="form-group">
-                            <label>Sede Legale</label> <input class="au-input au-input--full" type="text" name="sedeLegale"
-                                placeholder="Sede Legale" [(ngModel)]="insertAziendaCliente.sedeLegale">
+                            <label>Dettagli progetto</label> <input class="au-input au-input--full" type="text" name="dettagliProgetto"
+                                placeholder="Dettagli progetto" [(ngModel)]="insertProgetto.dettagliProgetto">
                         </div>
 
                         <div class="form-group">
-                            <label>Partita Iva</label> <input class="au-input au-input--full" type="text" name="partitaIva"
-                                placeholder="Partita Iva" [(ngModel)]="insertAziendaCliente.partitaIva">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Telefono</label> <input class="au-input au-input--full" type="text" name="telefono"
-                                placeholder="Telefono" [(ngModel)]="insertAziendaCliente.telefono">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Email</label> <input class="au-input au-input--full" type="text" name="email"
-                                placeholder="Email" [(ngModel)]="insertAziendaCliente.email">
-                        </div>
-                       
-                        <div class="form-group">
-                            <label>Indirizzo Unita' Locale</label> <input class="au-input au-input--full" type="text" name="indirizzoUnitaLocale"
-                                placeholder="Indirizzo Unita' Locale" [(ngModel)]="insertAziendaCliente.indirizzoUnitaLocale">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Attivita' Azienda</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Attivita' Azienda" [(ngModel)]="insertAziendaCliente.attivitaAzienda">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Legale Rappresentante</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Legale Rappresentante" [(ngModel)]="insertAziendaCliente.legaleRappresentante">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato a</label> <input class="au-input au-input--full" type="text" name="natoA"
-                                placeholder="Nato a" [(ngModel)]="insertAziendaCliente.natoA">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato il</label> <input class="au-input au-input--full" type="text" name="natoIl"
-                                placeholder="Nato il" [(ngModel)]="insertAziendaCliente.natoIl">
+                            <label>Cordinate DIN</label> <input class="au-input au-input--full" type="text" name="cordinateDIN"
+                                placeholder="Cordinate DIN" [(ngModel)]="insertProgetto.coordinateDIIN">
                         </div>
 
                         <div class="login-checkbox"></div>
-                        <a href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="aziendaClienteInsert(f)">Submit</a>
+                        <a href="/Progetto/progettoManagement" type="submit" class="btn btn-secondary btn-sm" (click)="progettoInsert(f)">Submit</a>
                     </form>
                 </div>
 
