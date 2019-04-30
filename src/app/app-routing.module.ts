@@ -47,8 +47,11 @@ import { FatturaInsertComponent } from './components/fattura/fattura-insert/fatt
 import { FatturaUpdateComponent } from './components/fattura/fattura-update/fattura-update.component';
 
 /** PercentualeOreReD */
+// tslint:disable-next-line:max-line-length
 import { PercentualeOreReDManagementComponent } from './components/percentuale-ore-red/percentuale-ore-red-management/percentuale-ore-red-management.component';
+// tslint:disable-next-line:max-line-length
 import { PercentualeOreReDInsertComponent } from './components/percentuale-ore-red/percentuale-ore-red-insert/percentuale-ore-red-insert.component';
+// tslint:disable-next-line:max-line-length
 import { PercentualeOreReDUpdateComponent } from './components/percentuale-ore-red/percentuale-ore-red-update/percentuale-ore-red-update.component';
 
 
