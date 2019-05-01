@@ -23,9 +23,17 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClientManagement">Azienda Cliente Management</a></li>
+                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Edit Azienda Cliente </li>
+                                    <li class="list-inline-item active"><a href="/Progetto/progettoManagement">Progetto Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Dossier/dossierManagement">Dossier Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Fornitore/fornitoreManagement">Fornitore Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Fattura/fatturaManagement">Fattura Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Edit Fattura</li>
                                 </ul>
                             </div>
                         </div>
@@ -39,66 +47,36 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">EDIT AZIENDA CLIENTE</div>
+                <div class="card-header">EDIT FATTURA</div>
                 <div class="card-body card-block">
 
                     <form #f="ngForm">
-                        <input type="hidden" name="idAziendaCliente" [(ngModel)]="updateAziendaCliente.idAziendaCliente" />
+                        <input type="hidden" name="idFattura" [(ngModel)]="updateFattura.idFattura" />
                         <div class="form-group">
-                            <label>Denominazione Societa'</label> <input class="au-input au-input--full" type="text" name="denominazioneSocieta"
-                                placeholder="Denominazione Societa" [(ngModel)]="updateAziendaCliente.denominazioneSocieta">
+                            <label>Data Fattura</label> <input class="au-input au-input--full" type="text" name="dataFattura"
+                                placeholder="Data Fattura" [(ngModel)]="updateFattura.dataFattura">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Numer Fattura</label> <input class="au-input au-input--full" type="text" name="numeroFattura"
+                                placeholder="Numero Fattura" [(ngModel)]="updateFattura.numeroFattura">
                         </div>
 
                         <div class="form-group">
-                            <label>Forma Giuridica</label> <input class="au-input au-input--full" type="text" name="formaGiuridica"
-                                placeholder="Forma Giuridica" [(ngModel)]="updateAziendaCliente.formaGiuridica">
+                            <label>Descrizione</label> <input class="au-input au-input--full" type="text" name="descrizione"
+                                placeholder="Descrizione" [(ngModel)]="updateFattura.descrizione">
                         </div>
 
                         <div class="form-group">
-                            <label>Sede Legale</label> <input class="au-input au-input--full" type="text" name="sedeLegale"
-                                placeholder="Sede Legale" [(ngModel)]="updateAziendaCliente.sedeLegale">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Partita Iva</label> <input class="au-input au-input--full" type="text" name="partitaIva"
-                                placeholder="Partita Iva" [(ngModel)]="updateAziendaCliente.partitaIva">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Telefono</label> <input class="au-input au-input--full" type="text" name="telefono"
-                                placeholder="Telefono" [(ngModel)]="updateAziendaCliente.telefono">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Email</label> <input class="au-input au-input--full" type="text" name="email"
-                                placeholder="Email" [(ngModel)]="updateAziendaCliente.email">
-                        </div>
-                       
-                        <div class="form-group">
-                            <label>Indirizzo Unita' Locale</label> <input class="au-input au-input--full" type="text" name="indirizzoUnitaLocale"
-                                placeholder="Indirizzo Unita' Locale" [(ngModel)]="updateAziendaCliente.indirizzoUnitaLocale">
+                            <label>Totale Imponibile</label> <input class="au-input au-input--full" type="text" name="totaleImponibile"
+                                placeholder="Totale Imponibile" [(ngModel)]="updateFattura.totaleImponibile">
                         </div>
 
                          <div class="form-group">
-                            <label>Legale Rappresentante</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Legale Rappresentante" [(ngModel)]="updateAziendaCliente.legaleRappresentante">
+                            <label>Percentuale Ammissibile</label> <input class="au-input au-input--full" type="text" name="percentualeAmmissibile"
+                                placeholder="Percentuale Ammissibile" [(ngModel)]="updateFattura.percentualeAmmissibile">
                         </div>
-
-                        <div class="form-group">
-                            <label>Nato a</label> <input class="au-input au-input--full" type="text" name="natoA"
-                                placeholder="Nato a" [(ngModel)]="updateAziendaCliente.natoA">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato il</label> <input class="au-input au-input--full" type="text" name="natoIl"
-                                placeholder="Nato il" [(ngModel)]="updateAziendaCliente.natoIl">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Attivita' Azienda</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Attivita' Azienda" [(ngModel)]="updateAziendaCliente.attivitaAzienda">
-                        </div>
-                        <a href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
+                        <a href="/Fattura/fatturaManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
                     </form>
                 </div>
 

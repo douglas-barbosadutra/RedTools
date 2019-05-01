@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { FornitoreService } from '../../../services/fornitore.service';
+import { Fornitore } from '../../../models/Fornitore';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -11,27 +11,25 @@ import { NgForm } from '@angular/forms';
 })
 export class FornitoreUpdateComponent implements OnInit {
 
-    idAziendaCliente: number;
-    public updateAziendaCliente: AziendaCliente;
-
-    public aziendaClienteTypes = [];
+    idFornitore: number;
+    public updateFornitore: Fornitore;
 
     // tslint:disable-next-line:max-line-length
-    constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private fornitoreService: FornitoreService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
-        this.idAziendaCliente = Number(this.route.snapshot.paramMap.get('idAziendaCliente'));
-        console.log('AziendaCliente id in update:' + this.idAziendaCliente);
-        this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
-            this.updateAziendaCliente = response;
-            console.log('AziendaCliente caricato: ' + this.updateAziendaCliente.denominazioneSocieta);
+        this.idFornitore = Number(this.route.snapshot.paramMap.get('idFornitore'));
+        console.log('Fornitore id in update:' + this.idFornitore);
+        this.fornitoreService.readFornitore(this.idFornitore).subscribe((response) => {
+            this.updateFornitore = response;
+            console.log('Fornitore caricato: ' + this.updateFornitore.nomeFornitore);
         });
     }
 
     update(f: NgForm) {
-        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.denominazioneSocieta);
-        this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
+        console.log('Fornitore id: ' + f.value.idFornitore + ' ' + f.value.nomeFornitore);
+        this.fornitoreService.updateFornitore(this.updateFornitore);
 
     }
 }

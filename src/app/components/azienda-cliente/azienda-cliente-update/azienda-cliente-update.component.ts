@@ -5,7 +5,7 @@ import { AziendaCliente } from '../../../models/AziendaCliente';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-aziendaCliente-update',
+  selector: 'app-azienda-cliente-update',
   templateUrl: './azienda-cliente-update.component.html',
   styleUrls: ['./azienda-cliente-update.component.css']
 })
@@ -13,8 +13,6 @@ export class AziendaClienteUpdateComponent implements OnInit {
 
     idAziendaCliente: number;
     public updateAziendaCliente: AziendaCliente;
-
-    public aziendaClienteTypes = [];
 
     // tslint:disable-next-line:max-line-length
     constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }

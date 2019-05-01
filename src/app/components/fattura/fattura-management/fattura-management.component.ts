@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { FatturaService } from '../../../services/fattura.service';
+import { Fattura } from '../../../models/Fattura';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,31 +9,28 @@ import { Router } from '@angular/router';
     styleUrls: ['./fattura-management.component.css']
 })
 export class FatturaManagementComponent implements OnInit {
-    public aziendaClienteList: Array<AziendaCliente>;
-    public idBo: number;
-    public campi = 12;
+    public fatturaList: Array<Fattura>;
 
-
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private fatturaService: FatturaService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
+        this.fatturaService.fatturaList().subscribe((response) => {
+            this.fatturaList = response;
+            console.log('La grandezza e\'' + this.fatturaList.length);
         });
     }
 
-    removeLink(aziendaClienteId: number) {
-        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
+    removeLink(fatturaId: number) {
+        this.fatturaService.deleteFattura(fatturaId);
 
     }
 
-    updateLink(aziendaClienteId: number) {
-        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
+    updateLink(fatturaId: number) {
+        this.router.navigateByUrl('/Fattura/update/' + fatturaId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/Fattura/insert');
     }
 
 }

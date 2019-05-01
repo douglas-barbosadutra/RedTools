@@ -22,7 +22,13 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item">Azienda Cliente Management</li>
+                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Progetto/progettoManagement">Progetto Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Dossier/dossierManagement">Dossier Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Fornitore Management</li>
                                 </ul>
                             </div>
                         </div>
@@ -40,61 +46,58 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- AZIENDA CLIENTE TABLE -->
-                        <h3 class="title-5 m-b-35">Azienda Cliente Table</h3>
+                        <!-- FORNITORE TABLE -->
+                        <h3 class="title-5 m-b-35">Fornitore Table</h3>
 
                         <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
-                                    class="zmdi zmdi-plus"></i>ADD AZIENDA CLIENTE
+                                    class="zmdi zmdi-plus"></i>ADD FORNITORE
                             </button>
 
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <!-- <th>Id Azienda Cliente</th> -->
-                                            <th>Societa'</th>
-			                                <th>Forma Giuridica</th>
-			                                <th>Partita Iva</th>
-			                                <th>Telefono</th>
-			                                <th>Completamento Campi</th>
+                                            <!-- <th>Id Fornitore</th> -->
+                                            <th>Nome Fornitore</th>
+			                                <th>Comune Fornitore</th>
+			                                <th>Provincia Fornitore</th>
+			                                <th>Partita Iva Fornitore</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr class="tr-shadow" *ngFor="let aziendaCliente of aziendaClienteList">
+                                        <tr class="tr-shadow" *ngFor="let fornitore of fornitoreList">
 
-                                            <!-- <td>{{aziendaCliente.idAziendaCliente}}</td> -->
+                                            <!-- <td>{{fornitore.idFornitore}}</td> -->
                                             
-                                            <td>{{aziendaCliente.denominazioneSocieta}}</td>
+                                            <td>{{fornitore.nomeFornitore}}</td>
 
-                                            <td>{{aziendaCliente.formaGiuridica}}</td>
+                                            <td>{{fornitore.comuneFornitore}}</td>
 
-                                            <td>{{aziendaCliente.partitaIva}}</td>
+                                            <td>{{fornitore.provinciaFornitore}}</td>
 
-                                            <td>{{aziendaCliente.telefono}}</td>
+                                            <td>{{fornitore.partitaIvaFornitore}}</td>
 
-                                            <td>{{aziendaCliente.filledFields}} on {{campi}}</td>
                                             <td>
-
-
 
                                                 <div class="table-data-feature">
 
-                                                    <button (click)="updateLink(aziendaCliente.idAziendaCliente)" class="item" data-toggle="tooltip"
+                                                    <button (click)="fatturaLink(fornitore)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Gestione Fattura"> <i
+                                                            class="zmdi zmdi-money-box"></i>
+                                                    </button>
+
+                                                    <button (click)="updateLink(fornitore.idFornitore)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
 
-                                                    <a href="/AziendaCliente/aziendaClienteManagement" (click)="removeLink(aziendaCliente.idAziendaCliente)"
+                                                    <a href="/Fornitore/fornitoreManagement" (click)="removeLink(fornitore.idFornitore)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>
 
                                                 </div>
-
-
-
-
 
                                             </td>
                                         </tr>
@@ -102,7 +105,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- END USER TABLE -->
+                            <!-- END FORNITORE TABLE -->
                         </div>
 
 

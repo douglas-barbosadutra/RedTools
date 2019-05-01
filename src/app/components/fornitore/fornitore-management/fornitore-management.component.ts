@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { FornitoreService } from '../../../services/fornitore.service';
+import { Fornitore } from '../../../models/Fornitore';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,31 +9,32 @@ import { Router } from '@angular/router';
     styleUrls: ['./fornitore-management.component.css']
 })
 export class FornitoreManagementComponent implements OnInit {
-    public aziendaClienteList: Array<AziendaCliente>;
-    public idBo: number;
-    public campi = 12;
+    public fornitoreList: Array<Fornitore>;
 
-
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private fornitoreService: FornitoreService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
+        this.fornitoreService.fornitoreList().subscribe((response) => {
+            this.fornitoreList = response;
+            console.log('La grandezza e\'' + this.fornitoreList.length);
         });
     }
 
-    removeLink(aziendaClienteId: number) {
-        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
+    removeLink(fornitoreId: number) {
+        this.fornitoreService.deleteFornitore(fornitoreId);
 
     }
 
-    updateLink(aziendaClienteId: number) {
-        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
+    updateLink(fornitoreId: number) {
+        this.router.navigateByUrl('/Fornitore/update/' + fornitoreId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/Fornitore/insert');
     }
 
+    fatturaLink(fornitore: Fornitore) {
+        sessionStorage.setItem('fornitore', JSON.stringify(fornitore));
+        this.router.navigateByUrl('/Fattura/fatturaManagement');
+    }
 }

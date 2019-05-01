@@ -6,7 +6,7 @@ import { AziendaCliente } from '../../../models/AziendaCliente';
 import { User } from '../../../models/User';
 
 @Component({
-    selector: 'app-aziendaCliente-insert',
+    selector: 'app-azienda-cliente-insert',
     templateUrl: './azienda-cliente-insert.component.html',
     styleUrls: ['./azienda-cliente-insert.component.css']
 })

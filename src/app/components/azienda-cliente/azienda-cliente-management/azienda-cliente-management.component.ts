@@ -4,7 +4,7 @@ import { AziendaCliente } from '../../../models/AziendaCliente';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-aziendaCliente-management',
+    selector: 'app-azienda-cliente-management',
     templateUrl: './azienda-cliente-management.component.html',
     styleUrls: ['./azienda-cliente-management.component.css']
 })

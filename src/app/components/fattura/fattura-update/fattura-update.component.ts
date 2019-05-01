@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { FatturaService } from '../../../services/fattura.service';
+import { Fattura } from '../../../models/Fattura';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -11,27 +11,25 @@ import { NgForm } from '@angular/forms';
 })
 export class FatturaUpdateComponent implements OnInit {
 
-    idAziendaCliente: number;
-    public updateAziendaCliente: AziendaCliente;
-
-    public aziendaClienteTypes = [];
+    idFattura: number;
+    public updateFattura: Fattura;
 
     // tslint:disable-next-line:max-line-length
-    constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private fatturaService: FatturaService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
-        this.idAziendaCliente = Number(this.route.snapshot.paramMap.get('idAziendaCliente'));
-        console.log('AziendaCliente id in update:' + this.idAziendaCliente);
-        this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
-            this.updateAziendaCliente = response;
-            console.log('AziendaCliente caricato: ' + this.updateAziendaCliente.denominazioneSocieta);
+        this.idFattura = Number(this.route.snapshot.paramMap.get('idFattura'));
+        console.log('Fattura id in update:' + this.idFattura);
+        this.fatturaService.readFattura(this.idFattura).subscribe((response) => {
+            this.updateFattura = response;
+            console.log('Fattura caricato: ' + this.updateFattura.numeroFattura);
         });
     }
 
     update(f: NgForm) {
-        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.denominazioneSocieta);
-        this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
+        console.log('Fattura id: ' + f.value.idFattura + ' ' + f.value.numeroFattura);
+        this.fatturaService.updateFattura(this.updateFattura);
 
     }
 }

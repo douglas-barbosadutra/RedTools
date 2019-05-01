@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { FatturaService } from '../../../services/fattura.service';
 import { Router } from '@angular/router';
-import { AziendaCliente } from '../../../models/AziendaCliente';
-import { User } from '../../../models/User';
+import { Fattura } from '../../../models/Fattura';
+import { Fornitore } from '../../../models/Fornitore';
+import { Dossier } from '../../../models/Dossier';
 
 @Component({
     selector: 'app-fattura-insert',
@@ -11,19 +12,19 @@ import { User } from '../../../models/User';
     styleUrls: ['./fattura-insert.component.css']
 })
 export class FatturaInsertComponent implements OnInit {
-    public insertAziendaCliente: AziendaCliente;
+    public insertFattura: Fattura;
 
-    public aziendaClienteTypes = [];
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private fatturaService: FatturaService, private router: Router) { }
 
     ngOnInit() {
-        this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
-            null, null, 0, null);
+        this.insertFattura = new Fattura(0, null, null, null, 0, 0, null, null);
     }
-    aziendaClienteInsert(f: NgForm) {
-        const user: User = JSON.parse(sessionStorage.getItem('user'));
-        this.insertAziendaCliente.user = user;
-        this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
+    fatturaInsert(f: NgForm) {
+        const fornitore: Fornitore = JSON.parse(sessionStorage.getItem('fornitore'));
+        const dossier: Dossier = JSON.parse(sessionStorage.getItem('dossier'));
+        this.insertFattura.fornitore = fornitore;
+        this.insertFattura.dossier = dossier;
+        this.fatturaService.insertFattura(this.insertFattura);
     }
 
 }
