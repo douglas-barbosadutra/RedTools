@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { ProgettoService } from '../../../services/progetto.service';
+import { Progetto } from '../../../models/Progetto';
 import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-progetto-management',
@@ -9,31 +10,29 @@ import { Router } from '@angular/router';
     styleUrls: ['./progetto-management.component.css']
 })
 export class ProgettoManagementComponent implements OnInit {
-    public aziendaClienteList: Array<AziendaCliente>;
-    public idBo: number;
-    public campi = 12;
+    public progettoList: Array<Progetto>;
 
 
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private progettoService: ProgettoService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
+        this.progettoService.progettoList().subscribe((response) => {
+            this.progettoList = response;
+            console.log('La grandezza e\'' + this.progettoList.length);
         });
     }
 
-    removeLink(aziendaClienteId: number) {
-        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
+    removeLink(progettoId: number) {
+        this.progettoService.deleteProgetto(progettoId);
 
     }
 
-    updateLink(aziendaClienteId: number) {
-        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
+    updateLink(progettoId: number) {
+        this.router.navigateByUrl('/Progetto/update/' + progettoId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/Progetto/insert');
     }
 
 }
