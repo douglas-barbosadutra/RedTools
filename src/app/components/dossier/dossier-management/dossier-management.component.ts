@@ -28,11 +28,11 @@ export class DossierManagementComponent implements OnInit {
     }
 
     updateLink(dossierId: number) {
-        this.router.navigateByUrl('/dossier/update/' + dossierId);
+        this.router.navigateByUrl('/Dossier/update/' + dossierId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/dossier/insert');
+        this.router.navigateByUrl('/Dossier/insert');
     }
 
     fornitoreLink(dossier: Dossier) {
