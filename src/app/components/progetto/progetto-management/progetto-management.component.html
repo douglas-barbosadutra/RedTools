@@ -22,7 +22,9 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item">Project Management</li>
+                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Progetto Management</li>
                                 </ul>
                             </div>
                         </div>
@@ -40,23 +42,22 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- AZIENDA CLIENTE TABLE -->
-                        <h3 class="title-5 m-b-35">Project Table</h3>
+                        <!-- PROGETTO TABLE -->
+                        <h3 class="title-5 m-b-35">Progetto Table</h3>
 
                         <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
-                                    class="zmdi zmdi-plus"></i>ADD PROJECT
+                                    class="zmdi zmdi-plus"></i>ADD PROGETTO
                             </button>
 
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <!-- <th>Project Id</th> -->
-                                            <th>Id Progetto</th>
+                                            <!-- <th>Id Progetto</th> -->
 			                                <th>Titolo progetto</th>
 			                                <th>Azienda cliente</th>
 			                                <th>Dettagli progetto</th>
-			                                <th>Coordinate DIN</th>
+			                                <th>Coordinate DIIN</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -66,8 +67,6 @@
 
                                             <!-- <td>{{progetto.IdProgetto}}</td> -->
                                             
-                                            <td>{{progetto.idProgetto}}</td>
-
                                             <td>{{progetto.titoloProgetto}}</td>
 
                                             <td>{{progetto.aziendaClienteDTO}}</td>
@@ -81,6 +80,11 @@
 
                                                 <div class="table-data-feature">
 
+                                                    <button (click)="dossierLink(progetto)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Gestione Progetto"> <i
+                                                            class="zmdi zmdi-local-mall"></i>
+                                                    </button>
+
                                                     <button (click)="updateLink(progetto.idProgetto)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
@@ -92,17 +96,13 @@
 
                                                 </div>
 
-
-
-
-
                                             </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- END USER TABLE -->
+                            <!-- END PROGETTO TABLE -->
                         </div>
 
 

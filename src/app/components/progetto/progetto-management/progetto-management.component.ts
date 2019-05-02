@@ -35,4 +35,8 @@ export class ProgettoManagementComponent implements OnInit {
         this.router.navigateByUrl('/Progetto/insert');
     }
 
+    dossierLink(progetto: Progetto) {
+        sessionStorage.setItem('progetto', JSON.stringify(progetto));
+        this.router.navigateByUrl('/Dossier/dossierManagement');
+    }
 }
