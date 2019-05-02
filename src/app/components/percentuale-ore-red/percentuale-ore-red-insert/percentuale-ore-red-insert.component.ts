@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { PercentualeOreReDService } from '../../../services/percentualeOreReD.service';
 import { Router } from '@angular/router';
-import { AziendaCliente } from '../../../models/AziendaCliente';
-import { User } from '../../../models/User';
+import { PercentualeOreReD } from '../../../models/PercentualeOreReD';
+import { Dossier } from '../../../models/Dossier';
+import { Impiegato } from 'src/app/models/Impiegato';
 
 @Component({
     selector: 'app-percentuale-ore-red-insert',
@@ -11,19 +12,20 @@ import { User } from '../../../models/User';
     styleUrls: ['./percentuale-ore-red-insert.component.css']
 })
 export class PercentualeOreReDInsertComponent implements OnInit {
-    public insertAziendaCliente: AziendaCliente;
+    public insertPercentualeOreReD: PercentualeOreReD;
 
-    public aziendaClienteTypes = [];
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    public percentualeOreReDTypes = [];
+    constructor(private percentualeOreReDService: PercentualeOreReDService, private router: Router) { }
 
     ngOnInit() {
-        this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
-            null, null, 0, null);
+        this.insertPercentualeOreReD = new PercentualeOreReD(0, 0, null, null);
     }
-    aziendaClienteInsert(f: NgForm) {
-        const user: User = JSON.parse(sessionStorage.getItem('user'));
-        this.insertAziendaCliente.user = user;
-        this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
+    percentualeOreReDInsert(f: NgForm) {
+        const dossier: Dossier = JSON.parse(sessionStorage.getItem('dossier'));
+        this.insertPercentualeOreReD.dossier = dossier;
+        const impiegato: Impiegato = JSON.parse(sessionStorage.getItem('impiegato'));
+        this.insertPercentualeOreReD.impiegato = impiegato;
+        this.percentualeOreReDService.insertPercentualeOreReD(this.insertPercentualeOreReD);
     }
 
 }

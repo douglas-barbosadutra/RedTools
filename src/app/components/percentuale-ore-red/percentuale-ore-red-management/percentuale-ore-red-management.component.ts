@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { PercentualeOreReDService } from '../../../services/percentualeOreReD.service';
+import { PercentualeOreReD } from '../../../models/PercentualeOreReD';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,31 +9,31 @@ import { Router } from '@angular/router';
     styleUrls: ['./percentuale-ore-red-management.component.css']
 })
 export class PercentualeOreReDManagementComponent implements OnInit {
-    public aziendaClienteList: Array<AziendaCliente>;
+    public percentualeOreReDList: Array<PercentualeOreReD>;
     public idBo: number;
     public campi = 12;
 
 
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private percentualeOreReDService: PercentualeOreReDService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
+        this.percentualeOreReDService.percentualeOreReDList().subscribe((response) => {
+            this.percentualeOreReDList = response;
+            console.log('La grandezza e\'' + this.percentualeOreReDList.length);
         });
     }
 
-    removeLink(aziendaClienteId: number) {
-        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
+    removeLink(percentualeOreReDId: number) {
+        this.percentualeOreReDService.deletePercentualeOreReD(percentualeOreReDId);
 
     }
 
-    updateLink(aziendaClienteId: number) {
-        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
+    updateLink(percentualeOreReDId: number) {
+        this.router.navigateByUrl('/PercentualeOreReD/update/' + percentualeOreReDId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/PercentualeOreReD/insert');
     }
 
 }

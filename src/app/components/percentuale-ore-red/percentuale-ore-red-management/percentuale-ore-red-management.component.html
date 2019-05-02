@@ -22,7 +22,15 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item">Azienda Cliente Management</li>
+                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Progetto/progettoManagement">Progetto Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Dossier/dossierManagement">Dossier Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Impiegato/impiegatoManagement">Impiegato Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Percentuale Ore R & D Management</li>
                                 </ul>
                             </div>
                         </div>
@@ -40,61 +48,44 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- AZIENDA CLIENTE TABLE -->
-                        <h3 class="title-5 m-b-35">Azienda Cliente Table</h3>
+                        <!-- PERCENTUALE ORE R & D TABLE -->
+                        <h3 class="title-5 m-b-35">Percentuale Ore R & D Table</h3>
 
                         <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
-                                    class="zmdi zmdi-plus"></i>ADD AZIENDA CLIENTE
+                                    class="zmdi zmdi-plus"></i>ADD PERCENTUALE ORE R & D
                             </button>
 
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <!-- <th>Id Azienda Cliente</th> -->
-                                            <th>Societa'</th>
-			                                <th>Forma Giuridica</th>
-			                                <th>Partita Iva</th>
-			                                <th>Telefono</th>
-			                                <th>Completamento Campi</th>
+                                            <!-- <th>Id Percentuale Ore R & D</th> -->
+                                            <th>Percentuale</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr class="tr-shadow" *ngFor="let aziendaCliente of aziendaClienteList">
+                                        <tr class="tr-shadow" *ngFor="let percentualeOreReD of percentualeOreReDList">
 
-                                            <!-- <td>{{aziendaCliente.idAziendaCliente}}</td> -->
+                                            <!-- <td>{{percentualeOreReD.idPercentualeOreReD}}</td> -->
                                             
-                                            <td>{{aziendaCliente.denominazioneSocieta}}</td>
+                                            <td>{{percentualeOreReD.percentualeOreLavorateReD}}</td>
 
-                                            <td>{{aziendaCliente.formaGiuridica}}</td>
-
-                                            <td>{{aziendaCliente.partitaIva}}</td>
-
-                                            <td>{{aziendaCliente.telefono}}</td>
-
-                                            <td>{{aziendaCliente.filledFields}} on {{campi}}</td>
                                             <td>
-
-
 
                                                 <div class="table-data-feature">
 
-                                                    <button (click)="updateLink(aziendaCliente.idAziendaCliente)" class="item" data-toggle="tooltip"
+                                                    <button (click)="updateLink(percentualeOreReD.idPercentualeOreReD)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
 
-                                                    <a href="/AziendaCliente/aziendaClienteManagement" (click)="removeLink(aziendaCliente.idAziendaCliente)"
+                                                    <a href="/PercentualeOreReD/percentualeOreReDManagement" (click)="removeLink(percentualeOreReD.idPercentualeOreReD)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>
 
                                                 </div>
-
-
-
-
 
                                             </td>
                                         </tr>
@@ -102,7 +93,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- END USER TABLE -->
+                            <!-- END PERCENTUALE ORE R & D TABLE -->
                         </div>
 
 
