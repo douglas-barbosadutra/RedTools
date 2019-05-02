@@ -22,7 +22,13 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item">Azienda Cliente Management</li>
+                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Progetto/progettoManagement">Progetto Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Dossier/dossierManagement">Dossier Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Impiegato Management</li>
                                 </ul>
                             </div>
                         </div>
@@ -41,51 +47,62 @@
                     <div class="col-lg-12">
 
                         <!-- AZIENDA CLIENTE TABLE -->
-                        <h3 class="title-5 m-b-35">Azienda Cliente Table</h3>
+                        <h3 class="title-5 m-b-35">Impiegato Table</h3>
 
                         <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
-                                    class="zmdi zmdi-plus"></i>ADD AZIENDA CLIENTE
+                                    class="zmdi zmdi-plus"></i>ADD IMPIEGATO
                             </button>
 
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <!-- <th>Id Azienda Cliente</th> -->
-                                            <th>Societa'</th>
-			                                <th>Forma Giuridica</th>
-			                                <th>Partita Iva</th>
-			                                <th>Telefono</th>
-			                                <th>Completamento Campi</th>
+                                            <!-- <th>Id Impiegato</th> -->
+                                            <th>Nominativo</th>
+			                                <th>Livello</th>
+			                                <th>Qualifica</th>
+			                                <th>Mansione</th>
+                                            <th>Titolo di Studio</th>
+                                            <th>Totale Ore Lavorate</th>
+                                            <th>Costo Lordo Annuo</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr class="tr-shadow" *ngFor="let aziendaCliente of aziendaClienteList">
+                                        <tr class="tr-shadow" *ngFor="let impiegato of impiegatoList">
 
-                                            <!-- <td>{{aziendaCliente.idAziendaCliente}}</td> -->
+                                            <!-- <td>{{impiegato.idImpiegato}}</td> -->
                                             
-                                            <td>{{aziendaCliente.denominazioneSocieta}}</td>
+                                            <td>{{impiegato.nominativo}}</td>
 
-                                            <td>{{aziendaCliente.formaGiuridica}}</td>
+                                            <td>{{impiegato.livello}}</td>
 
-                                            <td>{{aziendaCliente.partitaIva}}</td>
+                                            <td>{{impiegato.qualifica}}</td>
 
-                                            <td>{{aziendaCliente.telefono}}</td>
+                                            <td>{{impiegato.mansione}}</td>
 
-                                            <td>{{aziendaCliente.filledFields}} on {{campi}}</td>
+                                            <td>{{impiegato.titoloDiStudio}}</td>
+s
+                                            <td>{{impiegato.totaleOreLavorate}}</td>
+
+                                            <td>{{impiegato.costoLordoAnnuo}}</td>
                                             <td>
 
 
 
                                                 <div class="table-data-feature">
 
-                                                    <button (click)="updateLink(aziendaCliente.idAziendaCliente)" class="item" data-toggle="tooltip"
+                                                    <button (click)="percentualeOreReDLink(impiegato)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Gestione Ore"> <i
+                                                            class="zmdi zmdi-money-box"></i>
+                                                    </button>
+
+                                                    <button (click)="updateLink(impiegato.idNome)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
 
-                                                    <a href="/AziendaCliente/aziendaClienteManagement" (click)="removeLink(aziendaCliente.idAziendaCliente)"
+                                                    <a href="/Impiegato/impiegatoManagement" (click)="removeLink(impiegato.idNome)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>

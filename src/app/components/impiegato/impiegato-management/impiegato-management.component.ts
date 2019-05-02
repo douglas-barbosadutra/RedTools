@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { ImpiegatoService } from '../../../services/impiegato.service';
+import { Impiegato } from '../../../models/Impiegato';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,31 +9,34 @@ import { Router } from '@angular/router';
     styleUrls: ['./impiegato-management.component.css']
 })
 export class ImpiegatoManagementComponent implements OnInit {
-    public aziendaClienteList: Array<AziendaCliente>;
-    public idBo: number;
-    public campi = 12;
+    public impiegatoList: Array<Impiegato>;
 
 
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private impiegatoService: ImpiegatoService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
+        this.impiegatoService.impiegatoList().subscribe((response) => {
+            this.impiegatoList = response;
+            console.log('La grandezza e\'' + this.impiegatoList.length);
         });
     }
 
-    removeLink(aziendaClienteId: number) {
-        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
+    removeLink(impiegatoId: number) {
+        this.impiegatoService.deleteImpiegato(impiegatoId);
 
     }
 
-    updateLink(aziendaClienteId: number) {
-        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
+    updateLink(impiegatoId: number) {
+        this.router.navigateByUrl('/Impiegato/update/' + impiegatoId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/Impiegato/insert');
+    }
+
+    percentualeOreReDLink(impiegato: Impiegato) {
+        sessionStorage.setItem('impiegato', JSON.stringify(impiegato));
+        this.router.navigateByUrl('/PercentualeOreReD/percentualeOreReDManagement');
     }
 
 }
