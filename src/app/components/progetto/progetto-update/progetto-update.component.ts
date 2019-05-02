@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { ProgettoService } from '../../../services/progetto.service';
+import { Progetto } from '../../../models/Progetto';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -11,27 +11,27 @@ import { NgForm } from '@angular/forms';
 })
 export class ProgettoUpdateComponent implements OnInit {
 
-    idAziendaCliente: number;
-    public updateAziendaCliente: AziendaCliente;
+    idProgetto: number;
+    public updateProgetto: Progetto;
 
-    public aziendaClienteTypes = [];
+    public progettoTypes = [];
 
     // tslint:disable-next-line:max-line-length
-    constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private progettoService: ProgettoService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
-        this.idAziendaCliente = Number(this.route.snapshot.paramMap.get('idAziendaCliente'));
-        console.log('AziendaCliente id in update:' + this.idAziendaCliente);
-        this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
-            this.updateAziendaCliente = response;
-            console.log('AziendaCliente caricato: ' + this.updateAziendaCliente.denominazioneSocieta);
+        this.idProgetto = Number(this.route.snapshot.paramMap.get('idProgetto'));
+        console.log('progetto id in update:' + this.idProgetto);
+        this.progettoService.readProgetto(this.idProgetto).subscribe((response) => {
+            this.updateProgetto = response;
+            console.log('Progetto caricato: ' + this.updateProgetto.titoloProgetto);
         });
     }
 
     update(f: NgForm) {
-        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.denominazioneSocieta);
-        this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
+        console.log('Progetto id: ' + f.value.idProgetto + ' ' + f.value.denominazioneSocieta);
+        this.progettoService.updateProgetto(this.updateProgetto);
 
     }
 }

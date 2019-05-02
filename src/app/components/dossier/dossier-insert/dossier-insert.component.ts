@@ -20,7 +20,7 @@ export class DossierInsertComponent implements OnInit {
         this.insertDossier = new Dossier(0, null, 0, 0, 0, 0, 0, 0, null);
     }
     dossierInsert(f: NgForm) {
-        const progetto: Progetto = JSON.parse(sessionStorage.getItem('user'));
+        const progetto: Progetto = JSON.parse(sessionStorage.getItem('progetto'));
         this.insertDossier.progettoDTO = progetto;
         this.dossierService.insertDossier(this.insertDossier);
     }

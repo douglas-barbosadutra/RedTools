@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class DossierManagementComponent implements OnInit {
     public dossierList: Array<Dossier>;
     public campi = 6;
-    
+
 
     constructor(private dossierService: DossierService, private router: Router) { }
 

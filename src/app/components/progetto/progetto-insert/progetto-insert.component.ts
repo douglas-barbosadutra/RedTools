@@ -15,10 +15,11 @@ export class ProgettoInsertComponent implements OnInit {
     constructor(private progettoService: ProgettoService, private router: Router) { }
 
     ngOnInit() {
-        const aziendaCliente : AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
         this.insertProgetto = new Progetto(0, null, null, null, null)
     }
     progettoInsert(f: NgForm) {
+        const aziendaCliente: AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
+        this.insertProgetto.aziendaClienteDTO = aziendaCliente;
         this.progettoService.insertProgetto(this.insertProgetto);
     }
 
