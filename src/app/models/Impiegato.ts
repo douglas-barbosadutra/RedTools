@@ -8,7 +8,6 @@ export class Impiegato {
     mansione: string;
     titoloDiStudio: string;
     totaleOreLavorate: number;
-    testoAgendaMom: string;
     costoLordoAnnuo: number;
     aziendaCliente: AziendaCliente;
 

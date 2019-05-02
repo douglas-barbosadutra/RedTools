@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { ImpiegatoService } from '../../../services/impiegato.service';
 import { Router } from '@angular/router';
-import { AziendaCliente } from '../../../models/AziendaCliente';
-import { User } from '../../../models/User';
+import { Impiegato } from '../../../models/Impiegato';
+import { AziendaCliente } from 'src/app/models/AziendaCliente';
 
 @Component({
     selector: 'app-impiegato-insert',
@@ -11,19 +11,18 @@ import { User } from '../../../models/User';
     styleUrls: ['./impiegato-insert.component.css']
 })
 export class ImpiegatoInsertComponent implements OnInit {
-    public insertAziendaCliente: AziendaCliente;
+    public insertImpiegato: Impiegato;
 
-    public aziendaClienteTypes = [];
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    public impiegatoTypes = [];
+    constructor(private impiegatoService: ImpiegatoService, private router: Router) { }
 
     ngOnInit() {
-        this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
-            null, null, 0, null);
+        this.insertImpiegato = new Impiegato(0, null, 0, null, null, null, 0, 0, null);
     }
-    aziendaClienteInsert(f: NgForm) {
-        const user: User = JSON.parse(sessionStorage.getItem('user'));
-        this.insertAziendaCliente.user = user;
-        this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
+    impiegatoInsert(f: NgForm) {
+        const aziendaCliente: AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
+        this.insertImpiegato.aziendaCliente = aziendaCliente;
+        this.impiegatoService.insertImpiegato(this.insertImpiegato);
     }
 
 }

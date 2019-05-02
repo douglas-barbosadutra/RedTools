@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { ImpiegatoService } from '../../../services/impiegato.service';
+import { Impiegato } from '../../../models/Impiegato';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -11,27 +11,27 @@ import { NgForm } from '@angular/forms';
 })
 export class ImpiegatoUpdateComponent implements OnInit {
 
-    idAziendaCliente: number;
-    public updateAziendaCliente: AziendaCliente;
+    idImpiegato: number;
+    public updateImpiegato: Impiegato;
 
-    public aziendaClienteTypes = [];
+    public impiegatoTypes = [];
 
     // tslint:disable-next-line:max-line-length
-    constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private impiegatoService: ImpiegatoService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
-        this.idAziendaCliente = Number(this.route.snapshot.paramMap.get('idAziendaCliente'));
-        console.log('AziendaCliente id in update:' + this.idAziendaCliente);
-        this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
-            this.updateAziendaCliente = response;
-            console.log('AziendaCliente caricato: ' + this.updateAziendaCliente.denominazioneSocieta);
+        this.idImpiegato = Number(this.route.snapshot.paramMap.get('idImpiegato'));
+        console.log('Impiegato id in update:' + this.idImpiegato);
+        this.impiegatoService.readImpiegato(this.idImpiegato).subscribe((response) => {
+            this.updateImpiegato = response;
+            console.log('Impiegato caricato: ' + this.updateImpiegato.nominativo);
         });
     }
 
     update(f: NgForm) {
-        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.denominazioneSocieta);
-        this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
+        console.log('Impiegato id: ' + f.value.idImpiegato + ' ' + f.value.nominativo);
+        this.impiegatoService.updateImpiegato(this.updateImpiegato);
 
     }
 }

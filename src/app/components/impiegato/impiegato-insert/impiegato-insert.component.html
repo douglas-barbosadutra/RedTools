@@ -22,9 +22,15 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                    <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
+                                    <li class="list-inline-item active"><a href="/Impiegato/aziendaClienteManagement">Azienda Cliente Management</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Insert AziendaCliente</li>
+                                    <li class="list-inline-item active"><a href="/Progetto/progettoManagement">Progetto Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Dossier/dossierManagement">Dossier Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Imipegato/impiegatoManagement">Dossier Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Insert Impiegato</li>
                                 </ul>
                             </div>
                         </div>
@@ -39,66 +45,46 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">NEW AZIENDA CLIENTE</div>
+                <div class="card-header">NEW IMPIEGATO</div>
                 <div class="card-body card-block">
                     <form #f="ngForm">
                         <div class="form-group">
-                            <label>Denominazione Societa'</label> <input class="au-input au-input--full" type="text" name="denominazioneSocieta"
-                                placeholder="Denominazione Societa" [(ngModel)]="insertAziendaCliente.denominazioneSocieta">
+                            <label>Nominativo</label> <input class="au-input au-input--full" type="text" name="nominativo"
+                                placeholder="Nominativo" [(ngModel)]="insertImpiegato.nominativo">
                         </div>
 
                         <div class="form-group">
-                            <label>Forma Giuridica</label> <input class="au-input au-input--full" type="text" name="formaGiuridica"
-                                placeholder="Forma Giuridica" [(ngModel)]="insertAziendaCliente.formaGiuridica">
+                            <label>Livello</label> <input class="au-input au-input--full" type="text" name="livello"
+                                placeholder="Livello" [(ngModel)]="insertImpiegato.livello">
                         </div>
 
                         <div class="form-group">
-                            <label>Sede Legale</label> <input class="au-input au-input--full" type="text" name="sedeLegale"
-                                placeholder="Sede Legale" [(ngModel)]="insertAziendaCliente.sedeLegale">
+                            <label>Qualifica</label> <input class="au-input au-input--full" type="text" name="qualifica"
+                                placeholder="Qualifica" [(ngModel)]="insertImpiegato.qualifica">
                         </div>
 
                         <div class="form-group">
-                            <label>Partita Iva</label> <input class="au-input au-input--full" type="text" name="partitaIva"
-                                placeholder="Partita Iva" [(ngModel)]="insertAziendaCliente.partitaIva">
+                            <label>Mansione</label> <input class="au-input au-input--full" type="text" name="mansione"
+                                placeholder="Mansione" [(ngModel)]="insertImpiegato.mansione">
                         </div>
 
                         <div class="form-group">
-                            <label>Telefono</label> <input class="au-input au-input--full" type="text" name="telefono"
-                                placeholder="Telefono" [(ngModel)]="insertAziendaCliente.telefono">
+                            <label>Titolo di Studio</label> <input class="au-input au-input--full" type="text" name="titoloDiStudio"
+                                placeholder="Titolo di Studio" [(ngModel)]="insertImpiegato.titoloDiStudio">
                         </div>
 
                         <div class="form-group">
-                            <label>Email</label> <input class="au-input au-input--full" type="text" name="email"
-                                placeholder="Email" [(ngModel)]="insertAziendaCliente.email">
+                            <label>Totale Ore Lavorate</label> <input class="au-input au-input--full" type="text" name="totaleOreLavorate"
+                                placeholder="Totale Ore Lavorate" [(ngModel)]="insertImpiegato.totaleOreLavorate">
                         </div>
                        
                         <div class="form-group">
-                            <label>Indirizzo Unita' Locale</label> <input class="au-input au-input--full" type="text" name="indirizzoUnitaLocale"
-                                placeholder="Indirizzo Unita' Locale" [(ngModel)]="insertAziendaCliente.indirizzoUnitaLocale">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Attivita' Azienda</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Attivita' Azienda" [(ngModel)]="insertAziendaCliente.attivitaAzienda">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Legale Rappresentante</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Legale Rappresentante" [(ngModel)]="insertAziendaCliente.legaleRappresentante">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato a</label> <input class="au-input au-input--full" type="text" name="natoA"
-                                placeholder="Nato a" [(ngModel)]="insertAziendaCliente.natoA">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato il</label> <input class="au-input au-input--full" type="text" name="natoIl"
-                                placeholder="Nato il" [(ngModel)]="insertAziendaCliente.natoIl">
+                            <label>Costo Lordo Annuo</label> <input class="au-input au-input--full" type="text" name="costoLordoAnnuo"
+                                placeholder="Costo Lordo Annuo" [(ngModel)]="insertImpiegato.costoLordoAnnuo">
                         </div>
 
                         <div class="login-checkbox"></div>
-                        <a href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="aziendaClienteInsert(f)">Submit</a>
+                        <a href="/Impiegato/impiegatoManagement" type="submit" class="btn btn-secondary btn-sm" (click)="impiegatoInsert(f)">Submit</a>
                     </form>
                 </div>
 
