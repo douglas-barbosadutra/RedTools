@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { DossierService } from '../../../services/dossier.service';
+import { Dossier } from '../../../models/Dossier';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -11,27 +11,27 @@ import { NgForm } from '@angular/forms';
 })
 export class DossierUpdateComponent implements OnInit {
 
-    idAziendaCliente: number;
-    public updateAziendaCliente: AziendaCliente;
+    idDossier: number;
+    public updateDossier: Dossier;
 
-    public aziendaClienteTypes = [];
+    public dossierTypes = [];
 
     // tslint:disable-next-line:max-line-length
-    constructor(private aziendaClienteService: AziendaClienteService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private dossierService: DossierService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
-        this.idAziendaCliente = Number(this.route.snapshot.paramMap.get('idAziendaCliente'));
-        console.log('AziendaCliente id in update:' + this.idAziendaCliente);
-        this.aziendaClienteService.readAziendaCliente(this.idAziendaCliente).subscribe((response) => {
-            this.updateAziendaCliente = response;
-            console.log('AziendaCliente caricato: ' + this.updateAziendaCliente.denominazioneSocieta);
+        this.idDossier = Number(this.route.snapshot.paramMap.get('idDossier'));
+        console.log('Dossier id in update:' + this.idDossier);
+        this.dossierService.readDossier(this.idDossier).subscribe((response) => {
+            this.updateDossier = response;
+            console.log('Dossier caricato: ' + this.updateDossier.periodoDiImposta);
         });
     }
 
     update(f: NgForm) {
-        console.log('AziendaCliente id: ' + f.value.idAziendaCliente + ' ' + f.value.denominazioneSocieta);
-        this.aziendaClienteService.updateAziendaCliente(this.updateAziendaCliente);
+        console.log('Dossier id: ' + f.value.idDossier + ' ' + f.value.denominazioneSocieta);
+        this.dossierService.updateDossier(this.updateDossier);
 
     }
 }

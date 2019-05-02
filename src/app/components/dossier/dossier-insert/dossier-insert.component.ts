@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
+import { DossierService } from '../../../services/dossier.service';
 import { Router } from '@angular/router';
-import { AziendaCliente } from '../../../models/AziendaCliente';
-import { User } from '../../../models/User';
+import { Dossier } from '../../../models/Dossier';
+import { Progetto } from 'src/app/models/Progetto';
 
 @Component({
     selector: 'app-dossier-insert',
@@ -11,19 +11,18 @@ import { User } from '../../../models/User';
     styleUrls: ['./dossier-insert.component.css']
 })
 export class DossierInsertComponent implements OnInit {
-    public insertAziendaCliente: AziendaCliente;
+    public insertDossier: Dossier;
 
-    public aziendaClienteTypes = [];
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    public dossierTypes = [];
+    constructor(private dossierService: DossierService, private router: Router) { }
 
     ngOnInit() {
-        this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
-            null, null, 0, null);
+        this.insertDossier = new Dossier(0, null, 0, 0, 0, 0, 0, 0, null);
     }
-    aziendaClienteInsert(f: NgForm) {
-        const user: User = JSON.parse(sessionStorage.getItem('user'));
-        this.insertAziendaCliente.user = user;
-        this.aziendaClienteService.insertAziendaCliente(this.insertAziendaCliente);
+    dossierInsert(f: NgForm) {
+        const progetto: Progetto = JSON.parse(sessionStorage.getItem('user'));
+        this.insertDossier.progettoDTO = progetto;
+        this.dossierService.insertDossier(this.insertDossier);
     }
 
 }

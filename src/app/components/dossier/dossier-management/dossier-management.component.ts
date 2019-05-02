@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AziendaClienteService } from '../../../services/aziendaCliente.service';
-import { AziendaCliente } from '../../../models/AziendaCliente';
+import { DossierService } from '../../../services/dossier.service';
+import { Dossier } from '../../../models/Dossier';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,31 +9,40 @@ import { Router } from '@angular/router';
     styleUrls: ['./dossier-management.component.css']
 })
 export class DossierManagementComponent implements OnInit {
-    public aziendaClienteList: Array<AziendaCliente>;
-    public idBo: number;
-    public campi = 12;
+    public dossierList: Array<Dossier>;
+    public campi = 6;
+    
 
-
-    constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
+    constructor(private dossierService: DossierService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
+        this.dossierService.dossierList().subscribe((response) => {
+            this.dossierList = response;
+            console.log('La grandezza e\'' + this.dossierList.length);
         });
     }
 
-    removeLink(aziendaClienteId: number) {
-        this.aziendaClienteService.deleteAziendaCliente(aziendaClienteId);
+    removeLink(dossierId: number) {
+        this.dossierService.deleteDossier(dossierId);
 
     }
 
-    updateLink(aziendaClienteId: number) {
-        this.router.navigateByUrl('/AziendaCliente/update/' + aziendaClienteId);
+    updateLink(dossierId: number) {
+        this.router.navigateByUrl('/dossier/update/' + dossierId);
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/dossier/insert');
+    }
+
+    fornitoreLink(dossier: Dossier) {
+        sessionStorage.setItem('dossier', JSON.stringify(dossier));
+        this.router.navigateByUrl('/Fornitore/fornitoreManagement');
+    }
+
+    impiegatoLink(dossier: Dossier) {
+        sessionStorage.setItem('dossier', JSON.stringify(dossier));
+        this.router.navigateByUrl('/Impiegato/impiegatoManagement');
     }
 
 }

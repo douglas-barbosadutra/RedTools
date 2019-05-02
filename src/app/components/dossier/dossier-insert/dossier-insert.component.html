@@ -24,7 +24,11 @@
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Insert AziendaCliente</li>
+                                    <li class="list-inline-item active"><a href="/Progetto/progettoManagement">Progetto Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item active"><a href="/Dossier/dossierManagement">Dossier Management</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Insert Dossier</li>
                                 </ul>
                             </div>
                         </div>
@@ -39,66 +43,41 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">NEW AZIENDA CLIENTE</div>
+                <div class="card-header">NEW DOSSIER</div>
                 <div class="card-body card-block">
                     <form #f="ngForm">
                         <div class="form-group">
-                            <label>Denominazione Societa'</label> <input class="au-input au-input--full" type="text" name="denominazioneSocieta"
-                                placeholder="Denominazione Societa" [(ngModel)]="insertAziendaCliente.denominazioneSocieta">
+                            <label>Periodo di Imposta</label> <input class="au-input au-input--full" type="text" name="periodoDiImposta"
+                                placeholder="Periodo di Imposta" [(ngModel)]="insertDossier.periodoDiImposta">
                         </div>
 
                         <div class="form-group">
-                            <label>Forma Giuridica</label> <input class="au-input au-input--full" type="text" name="formaGiuridica"
-                                placeholder="Forma Giuridica" [(ngModel)]="insertAziendaCliente.formaGiuridica">
+                            <label>Costo Dipendenti</label> <input class="au-input au-input--full" type="text" name="costoDipendentiPeriodoDiImposta"
+                                placeholder="Costo Dipendenti" [(ngModel)]="insertDossier.costoDipendentiPeriodoDiImposta">
                         </div>
 
                         <div class="form-group">
-                            <label>Sede Legale</label> <input class="au-input au-input--full" type="text" name="sedeLegale"
-                                placeholder="Sede Legale" [(ngModel)]="insertAziendaCliente.sedeLegale">
+                            <label>Fatturato</label> <input class="au-input au-input--full" type="text" name="fatturatoPeriodoDiImposta"
+                                placeholder="Fatturato" [(ngModel)]="insertDossier.fatturatoPeriodoDiImposta">
                         </div>
 
                         <div class="form-group">
-                            <label>Partita Iva</label> <input class="au-input au-input--full" type="text" name="partitaIva"
-                                placeholder="Partita Iva" [(ngModel)]="insertAziendaCliente.partitaIva">
+                            <label>Numero Dipendent</label> <input class="au-input au-input--full" type="text" name="numeroTotaleDipendenti"
+                                placeholder="Numero Dipendenti" [(ngModel)]="insertDossier.numeroTotaleDipendenti">
                         </div>
 
                         <div class="form-group">
-                            <label>Telefono</label> <input class="au-input au-input--full" type="text" name="telefono"
-                                placeholder="Telefono" [(ngModel)]="insertAziendaCliente.telefono">
+                            <label>Costi Totali</label> <input class="au-input au-input--full" type="text" name="totaleCostiReD"
+                                placeholder="Costi Totali" [(ngModel)]="insertDossier.totaleCostiReD">
                         </div>
 
                         <div class="form-group">
-                            <label>Email</label> <input class="au-input au-input--full" type="text" name="email"
-                                placeholder="Email" [(ngModel)]="insertAziendaCliente.email">
+                            <label>Costi Personali</label> <input class="au-input au-input--full" type="text" name="costiPersonaleReD"
+                                placeholder="Costi Personali" [(ngModel)]="insertDossier.costiPersonaleReD">
                         </div>
-                       
-                        <div class="form-group">
-                            <label>Indirizzo Unita' Locale</label> <input class="au-input au-input--full" type="text" name="indirizzoUnitaLocale"
-                                placeholder="Indirizzo Unita' Locale" [(ngModel)]="insertAziendaCliente.indirizzoUnitaLocale">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Attivita' Azienda</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Attivita' Azienda" [(ngModel)]="insertAziendaCliente.attivitaAzienda">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Legale Rappresentante</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
-                                placeholder="Legale Rappresentante" [(ngModel)]="insertAziendaCliente.legaleRappresentante">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato a</label> <input class="au-input au-input--full" type="text" name="natoA"
-                                placeholder="Nato a" [(ngModel)]="insertAziendaCliente.natoA">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nato il</label> <input class="au-input au-input--full" type="text" name="natoIl"
-                                placeholder="Nato il" [(ngModel)]="insertAziendaCliente.natoIl">
-                        </div>
-
+                      
                         <div class="login-checkbox"></div>
-                        <a href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="aziendaClienteInsert(f)">Submit</a>
+                        <a href="/Dossier/dossierManagement" type="submit" class="btn btn-secondary btn-sm" (click)="dossierInsert(f)">Submit</a>
                     </form>
                 </div>
 
