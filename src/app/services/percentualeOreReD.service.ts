@@ -33,7 +33,7 @@ export class PercentualeOreReDService {
         } return false;
     }
 
-    percentualeOreReDList(): Observable<Array<PercentualeOreReD>> {
+    percentualeOreReD(): Observable<PercentualeOreReD> {
         const impiegato: Impiegato = JSON.parse(sessionStorage.getItem('impiegato'));
         const dossier: Dossier = JSON.parse(sessionStorage.getItem('dossier'));
         return this.http.get<any>('http://localhost:8080/PercentualeOreReDController/percentualeOreReDManagement?impiegatoId=' + impiegato.idNome + '&dossierId=' + dossier.idDossier)

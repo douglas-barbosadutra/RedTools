@@ -51,7 +51,7 @@
                         <!-- PERCENTUALE ORE R & D TABLE -->
                         <h3 class="title-5 m-b-35">Percentuale Ore R & D Table</h3>
 
-                        <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+                        <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small" *ngIf="!percentualeOreReD"> <i
                                     class="zmdi zmdi-plus"></i>ADD PERCENTUALE ORE R & D
                             </button>
 
@@ -66,7 +66,7 @@
                                     </thead>
                                     <tbody>
 
-                                        <tr class="tr-shadow" *ngFor="let percentualeOreReD of percentualeOreReDList">
+                                        <tr class="tr-shadow">
 
                                             <!-- <td>{{percentualeOreReD.idPercentualeOreReD}}</td> -->
                                             

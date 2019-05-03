@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./percentuale-ore-red-management.component.css']
 })
 export class PercentualeOreReDManagementComponent implements OnInit {
-    public percentualeOreReDList: Array<PercentualeOreReD>;
+    public percentualeOreReD: PercentualeOreReD;
     public idBo: number;
     public campi = 12;
 
@@ -17,9 +17,9 @@ export class PercentualeOreReDManagementComponent implements OnInit {
     constructor(private percentualeOreReDService: PercentualeOreReDService, private router: Router) { }
 
     ngOnInit() {
-        this.percentualeOreReDService.percentualeOreReDList().subscribe((response) => {
-            this.percentualeOreReDList = response;
-            console.log('La grandezza e\'' + this.percentualeOreReDList.length);
+        this.percentualeOreReDService.percentualeOreReD().subscribe((response) => {
+            this.percentualeOreReD = response;
+            console.log('La grandezza e\'' + this.percentualeOreReD);
         });
     }
 
