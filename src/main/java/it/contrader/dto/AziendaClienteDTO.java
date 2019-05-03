@@ -1,5 +1,6 @@
 package it.contrader.dto;
 
+import it.contrader.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,8 +34,9 @@ public class AziendaClienteDTO {
 	
 	private String natoIl;
 	
-	private int filledFields;
+	private int filledFields; 
 	
 	private UserDTO user;
 
+	private UserDTO cliente;
 }

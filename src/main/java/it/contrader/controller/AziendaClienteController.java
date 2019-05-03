@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.AziendaClienteDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.services.AziendaClienteService;
+import it.contrader.services.UserService;
 
 
 @CrossOrigin
@@ -22,10 +24,16 @@ import it.contrader.services.AziendaClienteService;
 public class AziendaClienteController {
 
     private final AziendaClienteService aziendaClienteService;
-	
+	private final UserService userService;
 	@Autowired
-	public AziendaClienteController(AziendaClienteService aziendaClienteService) {
+	public AziendaClienteController(AziendaClienteService aziendaClienteService, UserService userService) {
 		this.aziendaClienteService = aziendaClienteService;
+		this.userService = userService;
+	}
+	
+	@RequestMapping(value = "/aziendaCliente", method = RequestMethod.POST)
+	public void findAzienda(@RequestBody UserDTO user) {
+		aziendaClienteService.getAziendaClienteByCliente(user);
 	}
 
 	@RequestMapping(value = "/aziendaClienteManagement", method = RequestMethod.GET)
@@ -37,6 +45,10 @@ public class AziendaClienteController {
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public void insert(@RequestBody AziendaClienteDTO aziendaCliente) {
 		aziendaClienteService.insertAziendaCliente(aziendaCliente);
+		AziendaClienteDTO aziendaClienteDTO = aziendaClienteService.getAziendaClienteByCliente(aziendaCliente.getCliente());
+		
+		userService.updateUser(aziendaClienteDTO.getCliente());
+		
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)

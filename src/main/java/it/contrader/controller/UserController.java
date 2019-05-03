@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.UserDTO;
+import it.contrader.services.AziendaClienteService;
 import it.contrader.services.UserService;
 
 @CrossOrigin
@@ -20,10 +22,11 @@ import it.contrader.services.UserService;
 public class UserController {
 
 	private final UserService userService;
-	
+	private final AziendaClienteService aziendaClienteService; 
 	@Autowired
-	public UserController(UserService userService) {
+	public UserController(UserService userService, AziendaClienteService aziendaClienteService) {
 		this.userService = userService;
+		this.aziendaClienteService = aziendaClienteService;
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -37,6 +40,12 @@ public class UserController {
 		return null;
 	}
 	
+	@RequestMapping(value = "/clientList", method = RequestMethod.POST)
+	public List<UserDTO> clientList(@RequestBody UserDTO bo) {
+		return this.userService.getByBo(bo);
+	}
+	
+	
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
 	public List<UserDTO> userManagement() {
 		return this.userService.getListaUserDTO();		
@@ -44,7 +53,10 @@ public class UserController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public void insert(@RequestBody UserDTO user) {
-		userService.insertUser(user);
+		AziendaClienteDTO aziendaClienteDTO = new AziendaClienteDTO();
+		aziendaClienteDTO.setCliente(userService.insertUserFlush(user));
+		aziendaClienteDTO.setUser(user.getBo());
+		aziendaClienteService.insertAziendaCliente(aziendaClienteDTO);
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)

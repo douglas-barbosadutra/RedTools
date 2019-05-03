@@ -38,8 +38,19 @@ public class UserService {
 		return ConverterUser.toDTO(user);
 	}
 
+
+	public List<UserDTO> getByBo(UserDTO bo) {
+
+		return ConverterUser.toListDTO((List<User>)  userRepository.findAllByBo(ConverterUser.toEntity(bo)));
+	}
+	
+	
 	public boolean insertUser(UserDTO userDTO) {
 		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
+	}
+	
+	public UserDTO insertUserFlush(UserDTO userDTO) {
+		return ConverterUser.toDTO(userRepository.saveAndFlush(ConverterUser.toEntity(userDTO)));
 	}
 
 	public boolean updateUser(UserDTO userDTO) {

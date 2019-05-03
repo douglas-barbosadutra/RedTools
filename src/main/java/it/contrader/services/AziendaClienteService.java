@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterAziendaCliente;
+import it.contrader.converter.ConverterUser;
 import it.contrader.dao.AziendaClienteRepository;
 import it.contrader.dto.AziendaClienteDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.model.AziendaCliente;
 import it.contrader.model.User;
 
@@ -29,6 +31,10 @@ import it.contrader.model.User;
 		}
 		public AziendaCliente getAziendaClienteById(Integer id) {
 			return aziendaClienteRepository.getOne(id);
+		}
+		
+		public AziendaClienteDTO getAziendaClienteByCliente(UserDTO user) {
+			return ConverterAziendaCliente.toDTO(aziendaClienteRepository.findAziendaClientedByCliente(ConverterUser.toEntity(user)));
 		}
 		
 		

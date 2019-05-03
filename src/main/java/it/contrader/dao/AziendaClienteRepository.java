@@ -15,5 +15,5 @@ public interface AziendaClienteRepository extends JpaRepository<AziendaCliente, 
 	
 	public List<AziendaCliente> findAllByUser(User user);
 	
-	
+	public AziendaCliente findAziendaClientedByCliente(User user);
 }
