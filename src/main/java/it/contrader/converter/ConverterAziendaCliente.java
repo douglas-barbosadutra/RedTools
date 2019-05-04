@@ -24,6 +24,7 @@ public class ConverterAziendaCliente {
 			aziendaClienteDTO.setLegaleRappresentante(aziendaCliente.getLegaleRappresentante());
 			aziendaClienteDTO.setNatoA(aziendaCliente.getNatoA());
 			aziendaClienteDTO.setNatoIl(aziendaCliente.getNatoIl());
+			aziendaClienteDTO.setSoglia(aziendaCliente.getSoglia());
 			aziendaClienteDTO.setUser(ConverterUser.toDTO(aziendaCliente.getUser()));
 			aziendaClienteDTO.setCliente(ConverterUser.toDTO(aziendaCliente.getCliente()));
 
@@ -49,6 +50,7 @@ public class ConverterAziendaCliente {
 			aziendaCliente.setLegaleRappresentante(aziendaClienteDTO.getLegaleRappresentante());
 			aziendaCliente.setNatoA(aziendaClienteDTO.getNatoA());
 			aziendaCliente.setNatoIl(aziendaClienteDTO.getNatoIl());
+			aziendaCliente.setSoglia(aziendaClienteDTO.getSoglia());
 			aziendaCliente.setUser(ConverterUser.toEntity(aziendaClienteDTO.getUser()));
 			aziendaCliente.setCliente(ConverterUser.toEntity(aziendaClienteDTO.getCliente()));
 			

@@ -56,6 +56,7 @@ public class UserController {
 		AziendaClienteDTO aziendaClienteDTO = new AziendaClienteDTO();
 		aziendaClienteDTO.setCliente(userService.insertUserFlush(user));
 		aziendaClienteDTO.setUser(user.getBo());
+		aziendaClienteDTO.setSoglia(100);
 		aziendaClienteService.insertAziendaCliente(aziendaClienteDTO);
 	}
 	

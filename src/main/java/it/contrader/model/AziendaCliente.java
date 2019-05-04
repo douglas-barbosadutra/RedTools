@@ -64,6 +64,9 @@ public class AziendaCliente {
 	@Column(name = "natoIl")
 	private String natoIl;
 	
+	@Column(name = "soglia")
+	private float soglia;
+	
 	@ManyToOne
 	@JoinColumn(name="idUser")
 	private User user;

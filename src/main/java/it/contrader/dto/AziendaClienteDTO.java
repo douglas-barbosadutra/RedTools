@@ -34,6 +34,8 @@ public class AziendaClienteDTO {
 	
 	private String natoIl;
 	
+	private float soglia;
+	
 	private int filledFields; 
 	
 	private UserDTO user;
