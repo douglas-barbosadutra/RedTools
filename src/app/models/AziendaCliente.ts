@@ -13,13 +13,14 @@ export class AziendaCliente {
     legaleRappresentante: string;
     natoA: string;
     natoIl: string;
+    soglia: number;
     filledFields: number;
     user: User;
 
     // tslint:disable-next-line:max-line-length
     constructor(idAziendaCliente: number, denominazioneSocieta: string, formaGiuridica: string, sedeLegale: string,
                 partitaIva: string, telefono: string, email: string, indirizzoUnitaLocale: string, attivitaAzienda: string,
-                legaleRappresentante: string, natoA: string, natoIl: string, filledFields: number, user: User) {
+                legaleRappresentante: string, natoA: string, natoIl: string, soglia: number, filledFields: number, user: User) {
         this.idAziendaCliente = idAziendaCliente;
         this.denominazioneSocieta = denominazioneSocieta;
         this.formaGiuridica = formaGiuridica;
@@ -32,6 +33,7 @@ export class AziendaCliente {
         this.legaleRappresentante = legaleRappresentante;
         this.natoA = natoA;
         this.natoIl = natoIl;
+        this.soglia = soglia;
         this.filledFields = filledFields;
         this.user = user;
     }

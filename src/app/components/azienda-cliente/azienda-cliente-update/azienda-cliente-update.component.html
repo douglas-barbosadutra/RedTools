@@ -98,6 +98,11 @@
                             <label>Attivita' Azienda</label> <input class="au-input au-input--full" type="text" name="attivitaAzienda"
                                 placeholder="Attivita' Azienda" [(ngModel)]="updateAziendaCliente.attivitaAzienda">
                         </div>
+
+                        <div class="form-group">
+                            <label>soglia</label> <input class="au-input au-input--full" type="text" name="soglia"
+                                placeholder="soglia" [(ngModel)]="updateAziendaCliente.soglia">
+                        </div>
                         <a href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
                     </form>
                 </div>
