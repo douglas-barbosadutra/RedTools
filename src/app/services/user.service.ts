@@ -59,8 +59,10 @@ export class UserService {
         this.http.post('http://localhost:8080/UserController/insert', user).subscribe(() => console.log('User inserted'));
     }
 
-
+    clientList(user: User): Observable<Array<User>> {
+        return this.http.post<Array<User>>('http://localhost:8080/UserController/clientList', user).pipe(tap((response) =>
+        console.log('Clienti'), catchError(this.handleError('error', {}))));
+    }
 }
-
 
 
