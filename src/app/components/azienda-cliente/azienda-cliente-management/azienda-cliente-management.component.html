@@ -90,10 +90,16 @@
                                                         data-placement="top" title="Gestione Progetti"> <i
                                                             class="zmdi zmdi-file-text"></i>
                                                     </button>
+                                                    <button (click)="userLink(aziendaCliente)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="cliente"> <i
+                                                            class="zmdi zmdi-male"></i>
+                                                    </button>
 
                                                     <button (click)="updateLink(aziendaCliente.idAziendaCliente)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
+                                                    
+                                                    
 
                                                     <a href="/AziendaCliente/aziendaClienteManagement" (click)="removeLink(aziendaCliente.idAziendaCliente)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">

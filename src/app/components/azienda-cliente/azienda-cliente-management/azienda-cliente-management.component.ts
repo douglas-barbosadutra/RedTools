@@ -45,4 +45,9 @@ export class AziendaClienteManagementComponent implements OnInit {
         sessionStorage.setItem('aziendaCliente', JSON.stringify(aziendaCliente));
         this.router.navigateByUrl('/Progetto/progettoManagement');
     }
+
+   userLink(aziendaCliente: AziendaCliente) {
+        sessionStorage.setItem('aziendaCliente', JSON.stringify(aziendaCliente));
+        this.router.navigateByUrl('/User/userManagement');
+    }
 }
