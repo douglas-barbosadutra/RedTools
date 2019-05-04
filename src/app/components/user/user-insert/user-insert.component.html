@@ -22,6 +22,8 @@
                             <div class="au-breadcrumb-left">
                                 <span class="au-breadcrumb-span">You are here:</span>
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                    <li *ngIf="aziendaCliente || (user.ruolo == 'user')" class="list-inline-item active"><a href="/AziendaCliente/aziendaClienteManagement">Azienda Cliente Management</a></li>
+                                    <li *ngIf="aziendaCliente || (user.ruolo == 'user')" class="list-inline-item seprate"><span>/</span></li>
                                     <li class="list-inline-item active"><a href="/User/userManagement">User Management</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
                                     <li class="list-inline-item">Insert User</li>
@@ -67,7 +69,8 @@
                             <!-- <input class="au-input au-input--full" type="text" name="usertype" placeholder="UserType">-->
                         </div>
                         <div class="login-checkbox"></div>
-                        <a href="/User/userManagement" type="submit" class="btn btn-secondary btn-sm" (click)="userInsert(f)">Submit</a>
+                        <a *ngIf="aziendaCliente || (user.ruolo == 'user')" href="/AziendaCliente/aziendaClienteManagement" type="submit" class="btn btn-secondary btn-sm" (click)="userInsert(f)">Submit</a>
+                        <a *ngIf="!(aziendaCliente || (user.ruolo == 'user'))" href="/User/userManagement" type="submit" class="btn btn-secondary btn-sm" (click)="userInsert(f)">Submit</a>
                     </form>
                 </div>
 

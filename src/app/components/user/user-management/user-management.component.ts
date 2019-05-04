@@ -11,18 +11,19 @@ import { AziendaCliente } from 'src/app/models/AziendaCliente';
 })
 export class UserManagementComponent implements OnInit {
     public users: Array<User>;
+    public aziendaCliente: AziendaCliente;
 
     constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
-        const aziendaCliente: AziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
-        if (aziendaCliente == null) {
+        this.aziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
+        if (this.aziendaCliente == null) {
             this.userService.userList().subscribe((response) => {
                 this.users = response;
                 console.log('La grandezza e\'' + this.users.length);
             });
         } else {
-            this.userService.clientList(aziendaCliente.user).subscribe((response) => {
+            this.userService.clientList(this.aziendaCliente.user).subscribe((response) => {
                 this.users = response;
                 console.log('La grandezza e\'' + this.users.length);
             });

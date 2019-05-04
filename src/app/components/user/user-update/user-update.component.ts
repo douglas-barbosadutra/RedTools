@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/User';
 import { NgForm } from '@angular/forms';
+import { AziendaCliente } from 'src/app/models/AziendaCliente';
 
 @Component({
   selector: 'app-user-update',
@@ -13,6 +14,7 @@ export class UserUpdateComponent implements OnInit {
 
     idUser: number;
     public updateUser: User;
+    public aziendaCliente: AziendaCliente;
 
     public userTypes = [];
 
@@ -20,6 +22,7 @@ export class UserUpdateComponent implements OnInit {
     constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
+        this.aziendaCliente = JSON.parse(sessionStorage.getItem('aziendaCliente'));
         /** Convert String to number */
         this.idUser = Number(this.route.snapshot.paramMap.get('idUser'));
         console.log('User id in update:' + this.idUser);

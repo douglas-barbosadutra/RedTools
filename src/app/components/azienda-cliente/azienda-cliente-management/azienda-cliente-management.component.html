@@ -44,7 +44,7 @@
                         <h3 class="title-5 m-b-35">Azienda Cliente Table</h3>
 
                         <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
-                                    class="zmdi zmdi-plus"></i>ADD AZIENDA CLIENTE
+                                    class="zmdi zmdi-plus"></i>ADD USER
                             </button>
 
                             <div class="table-responsive table-responsive-data2">
@@ -53,6 +53,7 @@
                                         <tr>
                                             <!-- <th>Id Azienda Cliente</th> -->
                                             <th>Societa'</th>
+                                            <th>Nome Utente</th>
 			                                <th>Forma Giuridica</th>
 			                                <th>Partita Iva</th>
 			                                <th>Telefono</th>
@@ -65,8 +66,11 @@
                                         <tr class="tr-shadow" *ngFor="let aziendaCliente of aziendaClienteList">
 
                                             <!-- <td>{{aziendaCliente.idAziendaCliente}}</td> -->
+
                                             
                                             <td>{{aziendaCliente.denominazioneSocieta}}</td>
+
+                                            <td>{{aziendaCliente.cliente.username}}</td>
 
                                             <td>{{aziendaCliente.formaGiuridica}}</td>
 

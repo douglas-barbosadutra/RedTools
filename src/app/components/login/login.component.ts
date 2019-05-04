@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     }
     ngOnInit() {
         console.log('arrivato');
+        sessionStorage.clear();
     }
 
     login(f: NgForm): void {

@@ -33,7 +33,7 @@ export class AziendaClienteManagementComponent implements OnInit {
     }
 
     insertLink() {
-        this.router.navigateByUrl('/AziendaCliente/insert');
+        this.router.navigateByUrl('/User/insert');
     }
 
     momLink(aziendaCliente: AziendaCliente) {
