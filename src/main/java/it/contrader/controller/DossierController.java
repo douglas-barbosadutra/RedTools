@@ -15,6 +15,11 @@ import it.contrader.dto.DossierDTO;
 import it.contrader.services.DossierService;
 import it.contrader.services.ProgettoService;
 
+import java.util.*;  
+import javax.mail.*;  
+import javax.mail.internet.*;  
+import javax.activation.*; 
+
 @CrossOrigin
 @RestController
 @RequestMapping("/DossierController")
@@ -39,6 +44,7 @@ public class DossierController {
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public void insert(@RequestBody DossierDTO dossier) {
 		dossierService.insertDossier(dossier);
+		calculatePercentageAndSend(dossier);
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
@@ -49,6 +55,7 @@ public class DossierController {
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void update(@RequestBody DossierDTO dossier) {
 		dossierService.updateDossier(dossier);
+		calculatePercentageAndSend(dossier);
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
@@ -80,7 +87,54 @@ public class DossierController {
 		return retAllDossier;
 	
 	}
-	
+
+	private void calculatePercentageAndSend(DossierDTO dossier) {
+		float soglia = dossier.getProgettoDTO().getAziendaClienteDTO().getSoglia();
+		float filledFieldsAziendaCliente = (float) dossier.getProgettoDTO().getAziendaClienteDTO().getFilledFields();
+		float filledFieldsDossier = (float) dossier.getFilledFields();
+		float totalCompleted = 18;
+		float percentCompleted = (filledFieldsAziendaCliente + filledFieldsDossier) / totalCompleted * 100;
+		if (percentCompleted >= soglia) {
+			sendEmail();
+		}
+	}
+
+	private void sendEmail() {
+		String host = "authsmtp.securemail.pro";
+		final String user = "l.lisanti@contrader.it";// change accordingly
+		final String password = "xxxxxx";// change accordingly
+
+		String to = "l.lisanti@contrader.it";// change accordingly
+
+		// Get the session object
+		Properties props = new Properties();
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.auth", "true");
+
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(user, password);
+			}
+		});
+
+		// Compose the message
+		try {
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(user));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			message.setSubject("Compilazione Progetto Completata");
+			message.setText("La compilazione del progetto e' stata completata");
+
+			// send the message
+			Transport.send(message);
+
+			System.out.println("message sent successfully...");
+
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
 
 
