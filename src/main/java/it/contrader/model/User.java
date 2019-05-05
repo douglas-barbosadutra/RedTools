@@ -53,11 +53,9 @@ public class User {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<AziendaCliente> aziendaCliente;
 	
-	@OneToOne(fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
-	private AziendaCliente anagrafica;
-	
+	@OneToMany(mappedBy = "user")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private List<AziendaCliente> anagrafica;
 	
 	@ManyToOne
 	private User bo;

@@ -83,8 +83,8 @@ public class AziendaCliente {
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Impiegato> impiegato;
 	
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "idCliente", nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "idCliente")
 	private User cliente;
 			
 	

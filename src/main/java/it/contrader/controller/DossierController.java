@@ -2,6 +2,15 @@ package it.contrader.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,12 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.DossierDTO;
 import it.contrader.services.DossierService;
-import it.contrader.services.ProgettoService;
-
-import java.util.*;  
-import javax.mail.*;  
-import javax.mail.internet.*;  
-import javax.activation.*; 
+import it.contrader.services.ProgettoService; 
 
 @CrossOrigin
 @RestController
