@@ -33,8 +33,11 @@ import it.contrader.model.User;
 			return aziendaClienteRepository.getOne(id);
 		}
 		
-		public AziendaClienteDTO getAziendaClienteByCliente(UserDTO user) {
-			return ConverterAziendaCliente.toDTO(aziendaClienteRepository.findAziendaClientedByCliente(ConverterUser.toEntity(user)));
+		public List<AziendaClienteDTO> getAziendaClienteByCliente(UserDTO user) {
+			final List<AziendaCliente> list = aziendaClienteRepository.findAziendaClientedByCliente(ConverterUser.toEntity(user));
+			final List<AziendaClienteDTO> aziendaClienteDTOs = new ArrayList<>();
+			list.forEach(i -> aziendaClienteDTOs.add(ConverterAziendaCliente.toDTO(i)));
+			return aziendaClienteDTOs;
 		}
 		
 		
