@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AziendaClienteService } from '../../../services/aziendaCliente.service';
 import { AziendaCliente } from '../../../models/AziendaCliente';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
 
 @Component({
     selector: 'app-azienda-cliente-management',
@@ -12,15 +13,24 @@ export class AziendaClienteManagementComponent implements OnInit {
     public aziendaClienteList: Array<AziendaCliente>;
     public idBo: number;
     public campi = 12;
+    public user: User;
 
 
     constructor(private aziendaClienteService: AziendaClienteService, private router: Router) { }
 
     ngOnInit() {
-        this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
-            this.aziendaClienteList = response;
-            console.log('La grandezza e\'' + this.aziendaClienteList.length);
-        });
+        this.user = JSON.parse(sessionStorage.getItem('user'));
+        if (this.user.ruolo != 'cliente') {       
+            this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
+                this.aziendaClienteList = response;
+                console.log('La grandezza e\'' + this.aziendaClienteList.length);
+            });
+        } else {
+            this.aziendaClienteService.aziendaCliente(this.user).subscribe((response) => {
+                this.aziendaClienteList = response;
+                console.log('La grandezza e\'' + this.aziendaClienteList.length);
+            });
+        }
     }
 
     removeLink(aziendaClienteId: number) {

@@ -61,7 +61,10 @@ export class AziendaClienteService {
         this.http.post('http://localhost:8080/AziendaClienteController/insert', aziendaCliente).subscribe(() => console.log('AziendaCliente inserted'));
     }
 
-
+    aziendaCliente(user: User): Observable<Array<AziendaCliente>> {
+        return this.http.post<Array<AziendaCliente>>('http://localhost:8080/AziendaClienteController/aziendaCliente', user).pipe(tap((response) =>
+        console.log('Aziende Clienti'), catchError(this.handleError('error', {}))));
+    }
 }
 
 

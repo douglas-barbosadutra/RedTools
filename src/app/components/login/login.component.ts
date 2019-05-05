@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
                 console.log('Username: ' + this.user.username);
                 if (response.ruolo === 'superuser') {
                     this.router.navigateByUrl('/User/userManagement');
-                } else if (response.ruolo === 'user') {
+                } else if (response.ruolo === 'user' || response.ruolo === 'cliente') {
                     this.router.navigateByUrl('/AziendaCliente/aziendaClienteManagement');
                 }
             }
