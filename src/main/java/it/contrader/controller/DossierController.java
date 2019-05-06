@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.contrader.dto.AziendaClienteDTO;
 import it.contrader.dto.DossierDTO;
 import it.contrader.services.DossierService;
 import it.contrader.services.ProgettoService; 
@@ -92,13 +93,62 @@ public class DossierController {
 	
 	}
 	
+	private DossierDTO calcoloCompletamentoDossier(DossierDTO dossier) {
+		int y=2;
+		if((dossier.getPeriodoDiImposta() != null && dossier.getPeriodoDiImposta().equals("")));
+			y++;
+		if((dossier.getCostoDipendentiPeriodoDiImposta() !=0))
+			y++;
+		if(dossier.getFatturatoPeriodoDiImposta() !=0)
+			y++;
+		if(dossier.getNumeroTotaleDipendenti() !=0)
+			y++;
+		dossier.setFilledFields(y);
+		
+		
+	return dossier;	
+	}
+	
+	private AziendaClienteDTO calcoloCompletamentoAzienda(AziendaClienteDTO azienda ) {
+		int i = 1;
+		if(azienda.getDenominazioneSocieta() != null && !azienda.getDenominazioneSocieta().equals(""))
+			i++;
+		if(azienda.getFormaGiuridica() != null && !azienda.getFormaGiuridica().equals(""))
+			i++;
+		if(azienda.getSedeLegale() != null && !azienda.getSedeLegale().equals(""))
+			i++;
+		if(azienda.getPartitaIva() != null && !azienda.getPartitaIva().equals(""))
+			i++;
+		if(azienda.getTelefono() != null && !azienda.getTelefono().equals(""))
+			i++;
+		if(azienda.getEmail() != null && !azienda.getEmail().equals(""))
+			i++;
+		if(azienda.getIndirizzoUnitaLocale() != null && !azienda.getIndirizzoUnitaLocale().equals(""))
+			i++;
+		if(azienda.getAttivitaAzienda() != null && !azienda.getAttivitaAzienda().equals(""))
+			i++;
+		if(azienda.getLegaleRappresentante() != null && !azienda.getLegaleRappresentante().equals(""))
+			i++;
+		if(azienda.getNatoA() != null && !azienda.getNatoA().equals(""))
+			i++;
+		if(azienda.getNatoIl() != null && !azienda.getNatoIl().equals(""))
+			i++;
+		azienda.setFilledFields(i);
+		
+	return azienda;	
+	}
+	
 
 	private void calculatePercentageAndSend(DossierDTO dossier) {
+		DossierDTO dossierDTO = calcoloCompletamentoDossier(dossier);
+		AziendaClienteDTO aziendaClienteDTO = calcoloCompletamentoAzienda( dossier.getProgettoDTO().getAziendaClienteDTO());
+		
+		
 		String nome = dossier.getProgettoDTO().getAziendaClienteDTO().getCliente().getUsername();
 		String destinatario = dossier.getProgettoDTO().getAziendaClienteDTO().getUser().getEmail();
 		float soglia = dossier.getProgettoDTO().getAziendaClienteDTO().getSoglia();
-		float filledFieldsAziendaCliente = (float) dossier.getProgettoDTO().getAziendaClienteDTO().getFilledFields();
-		float filledFieldsDossier = (float) dossier.getFilledFields();
+		float filledFieldsAziendaCliente = (float) dossierDTO.getFilledFields();
+		float filledFieldsDossier = (float) aziendaClienteDTO.getFilledFields();
 		float totalCompleted = 18;
 		float percentCompleted = (filledFieldsAziendaCliente + filledFieldsDossier) / totalCompleted * 100;
 		if (percentCompleted >= soglia) {
@@ -109,8 +159,8 @@ public class DossierController {
 	private void sendEmail(String destinatario, String nome) {
 		
 		String host = "authsmtp.securemail.pro";
-		final String user = "l.lisanti@contrader.it";// change accordingly
-		final String password = "xxxxxx";// change accordingly
+		final String user = "u.lagamba@contrader.it";// change accordingly
+		final String password = "xxxxx";// change accordingly
 
 		String to = destinatario;// change accordingly
 

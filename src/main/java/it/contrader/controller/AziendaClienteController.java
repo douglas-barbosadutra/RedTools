@@ -33,7 +33,9 @@ public class AziendaClienteController {
 	
 	@RequestMapping(value = "/aziendaCliente", method = RequestMethod.POST)
 	public List<AziendaClienteDTO> findAzienda(@RequestBody UserDTO user) {
-		return aziendaClienteService.getAziendaClienteByCliente(user);
+//		return aziendaClienteService.getAziendaClienteByCliente(user);
+		List<AziendaClienteDTO> listaAziendaCliente = CompletamentoDTO(this.aziendaClienteService.getAziendaClienteByCliente(user));
+		return listaAziendaCliente;
 	}
 
 	@RequestMapping(value = "/aziendaClienteManagement", method = RequestMethod.GET)
