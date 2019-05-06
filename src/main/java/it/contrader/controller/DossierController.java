@@ -91,24 +91,28 @@ public class DossierController {
 		return retAllDossier;
 	
 	}
+	
 
 	private void calculatePercentageAndSend(DossierDTO dossier) {
+		String nome = dossier.getProgettoDTO().getAziendaClienteDTO().getCliente().getUsername();
+		String destinatario = dossier.getProgettoDTO().getAziendaClienteDTO().getUser().getEmail();
 		float soglia = dossier.getProgettoDTO().getAziendaClienteDTO().getSoglia();
 		float filledFieldsAziendaCliente = (float) dossier.getProgettoDTO().getAziendaClienteDTO().getFilledFields();
 		float filledFieldsDossier = (float) dossier.getFilledFields();
 		float totalCompleted = 18;
 		float percentCompleted = (filledFieldsAziendaCliente + filledFieldsDossier) / totalCompleted * 100;
 		if (percentCompleted >= soglia) {
-			sendEmail();
+			sendEmail(destinatario, nome);
 		}
 	}
 
-	private void sendEmail() {
+	private void sendEmail(String destinatario, String nome) {
+		
 		String host = "authsmtp.securemail.pro";
 		final String user = "l.lisanti@contrader.it";// change accordingly
 		final String password = "xxxxxx";// change accordingly
 
-		String to = "l.lisanti@contrader.it";// change accordingly
+		String to = destinatario;// change accordingly
 
 		// Get the session object
 		Properties props = new Properties();
@@ -126,8 +130,8 @@ public class DossierController {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(user));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-			message.setSubject("Compilazione Progetto Completata");
-			message.setText("La compilazione del progetto e' stata completata");
+			message.setSubject("Compilazione Progetto Completata del cliente "  + nome);
+			message.setText("La compilazione del progetto e' stata completata dal cliente " + nome);
 
 			// send the message
 			Transport.send(message);
