@@ -1,0 +1,3 @@
+[2019-05-06 10:46:58.151] [main] [info] update#ctor - updates are disabled as there is no update URL
+[2019-05-06 10:46:58.881] [main] [info] [storage] migrating global storage from localStorage into SQLite
+[2019-05-06 10:46:58.882] [main] [info] [storage] migrated global storage

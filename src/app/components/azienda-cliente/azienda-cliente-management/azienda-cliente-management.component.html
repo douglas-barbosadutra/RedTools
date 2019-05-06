@@ -43,7 +43,7 @@
                         <!-- AZIENDA CLIENTE TABLE -->
                         <h3 class="title-5 m-b-35">Azienda Cliente Table</h3>
 
-                        <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+                        <button *ngIf="user.ruolo != 'cliente'"(click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
                                     class="zmdi zmdi-plus"></i>ADD USER
                             </button>
 
@@ -85,7 +85,7 @@
 
                                                 <div class="table-data-feature">
 
-                                                     <button (click)="momLink(aziendaCliente)" class="item" data-toggle="tooltip"
+                                                     <button *ngIf="user.ruolo != 'cliente'" (click)="momLink(aziendaCliente)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Gestione Mom"> <i
                                                             class="zmdi zmdi-local-mall"></i>
                                                     </button>
@@ -94,7 +94,7 @@
                                                         data-placement="top" title="Gestione Progetti"> <i
                                                             class="zmdi zmdi-file-text"></i>
                                                     </button>
-                                                    <button (click)="userLink(aziendaCliente)" class="item" data-toggle="tooltip"
+                                                    <button *ngIf="user.ruolo != 'cliente'" (click)="userLink(aziendaCliente)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="cliente"> <i
                                                             class="zmdi zmdi-male"></i>
                                                     </button>
