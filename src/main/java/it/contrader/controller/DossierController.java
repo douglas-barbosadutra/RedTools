@@ -86,7 +86,7 @@ public class DossierController {
 			d.setFilledFields(y);
 			retAllDossier.add(d);
 			
-			
+		
 		}
 		return retAllDossier;
 	
