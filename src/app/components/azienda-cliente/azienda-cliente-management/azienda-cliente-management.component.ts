@@ -20,7 +20,7 @@ export class AziendaClienteManagementComponent implements OnInit {
 
     ngOnInit() {
         this.user = JSON.parse(sessionStorage.getItem('user'));
-        if (this.user.ruolo != 'cliente') {       
+        if (this.user.ruolo != 'cliente') {
             this.aziendaClienteService.aziendaClienteList().subscribe((response) => {
                 this.aziendaClienteList = response;
                 console.log('La grandezza e\'' + this.aziendaClienteList.length);
