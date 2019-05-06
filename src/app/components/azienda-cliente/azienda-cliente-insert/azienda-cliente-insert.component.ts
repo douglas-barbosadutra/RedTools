@@ -18,7 +18,7 @@ export class AziendaClienteInsertComponent implements OnInit {
 
     ngOnInit() {
         this.insertAziendaCliente = new AziendaCliente(0, null, null, null, null, null, null, null, null, null,
-            null, null, 0, 0, null);
+            null, null, 0, 0, null, null);
     }
     aziendaClienteInsert(f: NgForm) {
         const user: User = JSON.parse(sessionStorage.getItem('user'));
