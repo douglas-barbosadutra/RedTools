@@ -105,7 +105,7 @@
                                                     
                                                     
 
-                                                    <a href="/AziendaCliente/aziendaClienteManagement" (click)="removeLink(aziendaCliente.idAziendaCliente)"
+                                                    <a href="/AziendaCliente/aziendaClienteManagement" *ngIf="user.ruolo != 'cliente'" (click)="removeLink(aziendaCliente.idAziendaCliente)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </a>
